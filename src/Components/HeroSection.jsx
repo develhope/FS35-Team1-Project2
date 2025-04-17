@@ -9,7 +9,7 @@ const HeroSection = () => {
      
       <div className="flex flex-col gap-2 px-6 pt-0 pb-6 w-full" style={{height:"50px"}}>
        
-        <p className="text-right text-[#8079FF] font-bold w-3/4 ml-auto" style={{ fontFamily: 'OtomanopeeOne' }}>
+        <p className="text-right text-[#8079FF] w-3/4 ml-auto m-0" style={{ fontFamily: 'OtomanopeeOne-Regular' }}>
           Ciao! Io sono <span className="text-[#FF00E5]" style={{ fontFamily: 'OtomanopeeOne-Regular' }}>Nebula</span>, la tua guida spaziale nel mondo dei
           numeri! Insieme esploreremo galassie piene di giochi divertenti!<br />
           Pronto a partire?
