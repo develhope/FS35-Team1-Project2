@@ -1,10 +1,12 @@
-import Footer from "../Components/Footer";
+import HeroSection from "../Components/HeroSection";
 
 
 const HomePage = () => {
 
     return (
-        <Footer />
+        <>
+        <HeroSection />
+        </>
     )
 };
 
