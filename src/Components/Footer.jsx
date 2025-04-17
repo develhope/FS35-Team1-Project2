@@ -3,7 +3,7 @@ const Footer = () => {
      <footer className=" w-full bg-[#A7D6E0] rounded-t-4xl mt-5">
  
        
-  <img src="immagini/logo.svg" alt="logo space math" className="w-full h-30 border-b-1 border-white" />
+  <img src="immagini/logo.svg" alt="logo space math" className="w-full h-24 p-2 border-b-1 border-white" />
        
    <section className="flex items-center justify-center gap-10 mt-3  ">
   <img src="immagini/icon/facebook.svg" alt="" className="w-7" />
