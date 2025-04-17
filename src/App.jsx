@@ -1,8 +1,9 @@
+import Footer from "./Components/Footer"
 
 
 function App() {
   
-  return 
+  return < Footer />
 }
 
 export default App
