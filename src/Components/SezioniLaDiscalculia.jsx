@@ -5,7 +5,7 @@ const SezioniLaDiscalculia = (props) => {
   
     return (
       <>
-        <div className="ml-10 rounded-tl-4xl rounded-bl-4xl mt-[-17px]" style={{ backgroundColor: `#${props.bg}` }}>
+        <div className="ml-10 rounded-tl-4xl rounded-bl-4xl mt-4.5" style={{ backgroundColor: `#${props.bg}` }}>
           <h2 className="p-3 text-white font-medium text-2xl">{props.title}</h2>
         </div>
   

@@ -1,5 +1,6 @@
 import SezioniLaDiscalculia from "../Components/SezioniLaDiscalculia";
 import Footer from "../Components/Footer";
+import Header from "../Components/Header";
 
 const LaDiscalculia = () => {
   const sezioni = [
@@ -34,9 +35,7 @@ const LaDiscalculia = () => {
 
   return (
     <>
-      <nav className="flex justify-center bg-amber-950 p-4 mb-10">
-        <img src="immagini/logo.svg" alt="" className="w-20" />
-      </nav>
+    <Header />
 
       {sezioni.map((sezione, index) => (
         <SezioniLaDiscalculia key={index} {...sezione} />
