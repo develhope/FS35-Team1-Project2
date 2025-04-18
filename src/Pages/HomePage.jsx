@@ -7,8 +7,10 @@ const HomePage = () => {
   return (
     <>
       <HeroSection />
+      <Sidebar/>
       <CallToAction text="Conosciamoci meglio!" />
       <Footer />
+      
     </>
   );
 };
