@@ -3,16 +3,13 @@ import CallToAction from "../Components/CallToAction";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 
-
 const HomePage = () => {
   return (
-        <div>
-        <Header/>
     <>
+      <Header />
       <HeroSection />
       <CallToAction text="Conosciamoci meglio!" />
       <Footer />
-        </div>
     </>
   );
 };
