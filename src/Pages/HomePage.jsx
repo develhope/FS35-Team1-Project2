@@ -6,7 +6,6 @@ import CallToAction from "../Components/CallToAction";
 const HomePage = () => {
   return (
     <>
-
       <Header />
       <HeroSection />
       <CallToAction text="Conosciamoci meglio!" />
