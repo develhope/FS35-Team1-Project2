@@ -2,9 +2,9 @@ function NavbarProfile() {
   return (
     <div className="flex justify-between w-full mt-2">
       <button>
-        <img src="./immagini/icon/arrow-left.svg" className="w-[20px] ml-1" />
+        <img src="./immagini/icon/arrow-left.svg" className="w-[14px] ml-1" />
       </button>
-      <p className="flex items-center justify-end w-[151px]">Il mio profilo</p>
+      <p className="flex items-center justify-end w-[151px] font-[Arial] font-bold">Il mio profilo</p>
       <div className="flex">
         <button>
           <img
