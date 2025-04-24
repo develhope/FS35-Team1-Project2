@@ -73,7 +73,7 @@ const Form = () => {
         </div>
 
         {scelta === "bambino" && (
-            <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#292929]/90 text-white border rounded-2xl px-6 py-4 text-sm shadow-lg max-w-3xl z-50 backdrop-blur-sm">
+            <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#292929]/90 text-white  rounded-2xl px-6 py-4 text-sm shadow-lg max-w-3xl z-50 backdrop-blur-sm">
               Il quiz è pensato per essere fatto con l’aiuto di un adulto. 💡
               <br />
               Corri a dirlo a mamma e papà!
