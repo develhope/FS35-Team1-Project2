@@ -154,7 +154,7 @@ const Quiz = () => {
         <img
           src="./immagini/nebula form.png"
           alt="NebulaForm"
-          className="h-[400px] w-[230px]"
+          className="h-[350px] w-[250px]"
         />
       </div>
     </>
