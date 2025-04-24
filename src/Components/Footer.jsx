@@ -1,6 +1,6 @@
 const Footer = () => {
     return (
-     <footer className=" w-full bg-[#A7D6E0] rounded-t-4xl mt-5">
+     <footer className=" w-full bg-[#A7D6E0] rounded-t-4xl mt-5 font-[Arial] font-bold">
  
        
   <img src="immagini/logo.svg" alt="logo space math" className="w-full h-24 p-2 border-b-1 border-white" />

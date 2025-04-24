@@ -35,8 +35,10 @@ const LaDiscalculia = () => {
 
   return (
     <>
-    <Header />
-
+    <Header 
+   centerIcon={ <img src="./immagini/logo.svg" className="w-[80px] ml-5" /> } 
+    leftIcon={<img src="./immagini/icon/arrow-left.svg" className="w-[15px] ml-1" />
+    }/>
       {sezioni.map((sezione, index) => (
         <SezioniLaDiscalculia key={index} {...sezione} />
       ))}

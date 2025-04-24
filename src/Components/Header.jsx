@@ -1,10 +1,12 @@
-const Header = () => {
+const Header = ({leftIcon, centerIcon}) => {
   return (
-    <div className="flex justify-between w-full mt-2">
-      <button>
-        <img src="./immagini/icon/hamburger.svg" className="w-[24px] ml-1" />
+    <div className="flex justify-around  items-center w-full mt-2 font-[Arial] font-bold">
+      <button >
+        {leftIcon}
+        {/* <img src="./immagini/icon/hamburger.svg" className="w-[24px] ml-1" /> */}
       </button>
-      <img src="./immagini/logo.svg" className="w-[80px] ml-5" />
+      {centerIcon}
+      {/* <img src="./immagini/logo.svg" className="w-[80px] ml-5" /> */}
       <div className="flex ">
         <button>
           <img src="./immagini/icon/profile.svg" className="w-[20px]" />
@@ -12,7 +14,7 @@ const Header = () => {
         <button>
           <img
             src="./immagini/icon/usp-delivery-store.svg"
-            className="w-[30px] ml-2 "
+            className="w-[30px] ml-2"
           />
         </button>
       </div>
