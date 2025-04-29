@@ -25,11 +25,11 @@ const GameSection = () => {
       ];
     
       return (
-        <div className="text-left mt-5 pl-5 mb-3">
-          <h3 className="text-2xl font-bold mb-4">I nostri giochi</h3>
+        <div className="text-left w-full mt-5 mb-3">
+          <h3 className="text-2xl font-bold pl-5 mb-4">I nostri giochi</h3>
           <div className="flex overflow-x-scroll gap-3">
             {gameList.map((game, index) => (
-              <Game key={index} title={game.title} image={game.image} className={index === 4 ? "mr-5" : ""}/>
+              <Game key={index} title={game.title} image={game.image} className={index === 4 ? "pr-5" : index === 0 ? "pl-5" : ""}/>
             ))}
           </div>
         </div>
