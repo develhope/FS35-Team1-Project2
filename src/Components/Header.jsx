@@ -5,7 +5,10 @@ const Header = ({leftIcon, centerIcon}) => {
         {leftIcon}
         {/* <img src="./immagini/icon/hamburger.svg" className="w-[24px] ml-1" /> */}
       </button>
-      {centerIcon}
+      <div className="pl-10">
+      {centerIcon }
+
+      </div>
       {/* <img src="./immagini/logo.svg" className="w-[80px] ml-5" /> */}
       <div className="flex ">
         <button>
