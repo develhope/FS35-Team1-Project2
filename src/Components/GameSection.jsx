@@ -2,7 +2,7 @@ import React from 'react';
 
 const Game = ({ title, image, className }) => {
     return (
-        <div className={`flex flex-col items-center rounded-lg transition-transform transform hover:scale-105 ${className}`}>
+        <div className={`flex flex-col items-center rounded-lg transition-transform transform hover:scale-95 ${className}`}>
           <div 
             className="cursor-pointer w-40 h-40 bg-gray-200 text-center overflow-hidden rounded-2xl"
             onClick={() => window.location.href = `/games/${title.replace(/\s+/g, '-').toLowerCase()}`}
