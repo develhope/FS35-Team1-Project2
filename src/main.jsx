@@ -7,7 +7,6 @@ import FormIscriviti from "./Pages/FormIscriviti";
 import Quiz from "./Pages/Quiz";
 import LaDiscalculia from "./Pages/LaDiscalculia";
 import Profile from "./Pages/Profile"
-import GameSection from "./Components/GameSection";
 
 
 
