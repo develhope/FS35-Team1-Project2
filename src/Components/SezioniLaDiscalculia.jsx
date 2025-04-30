@@ -9,7 +9,7 @@ const SezioniLaDiscalculia = (props) => {
         </div>
   
         <div className={`relative flex mt-2 ${isReverseColumns ? "flex-col items-center" : isReverse ? "flex-row-reverse gap-6 mr-2.5" : isLastRevers ? "pb-14" : "flex-row gap-7"}`}>
-          <p className={`font-[Arial]  ml-3.5 text-[16px] pt-4 font-bold ${isLastRevers ? "ml-24" : ""}`}>
+          <p className={`font-[Arial]  ml-2.5 text-[14px] pt-4 font-bold ${isLastRevers ? "ml-22" : ""}`}>
             {props.text}
           </p>
           <img
