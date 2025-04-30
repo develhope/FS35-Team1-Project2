@@ -3,6 +3,7 @@ import Sidebar from "../Components/Sidebar";
 import Shop from "./Shop";
 import CallToAction from "../Components/CallToAction";
 import HeroSection from "../Components/HeroSection";
+import Header from "../Components/Header";
 
 const HomePage = () => {
   return (
