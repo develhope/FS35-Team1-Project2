@@ -78,7 +78,7 @@ const Quiz = () => {
             className="w-[15px] ml-1"
           />
         }
-        centerIcon={<p className="px-[20px]">Quiz conoscitivo</p>}
+        centerIcon={<p className="pl-[20px]">Quiz conoscitivo</p>}
       />
 
       <div className="flex flex-col justify-center items-center py-[50px] space-y-7 text-center">

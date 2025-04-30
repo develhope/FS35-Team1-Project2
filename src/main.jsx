@@ -6,17 +6,17 @@ import Form from "./Pages/Form";
 import FormIscriviti from "./Pages/FormIscriviti";
 import Quiz from "./Pages/Quiz";
 import LaDiscalculia from "./Pages/LaDiscalculia";
-import Profile from "./Pages/Profile"
-
-
+import Profile from "./Pages/Profile";
+import Shop from "./Pages/Shop";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-  <HomePage/>
-  <Form/>
-  <Quiz/>
-  <FormIscriviti/>
-  <LaDiscalculia/>
-  <Profile/>
+    <HomePage />
+    <Form />
+    <Quiz />
+    <FormIscriviti />
+    <LaDiscalculia />
+    <Profile />
+    <Shop />
   </StrictMode>
 );

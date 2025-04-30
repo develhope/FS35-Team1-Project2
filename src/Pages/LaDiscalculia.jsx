@@ -40,6 +40,9 @@ const LaDiscalculia = () => {
         leftIcon={
           <img src="./immagini/icon/arrow-left.svg" className="w-[15px] ml-1" />
         }
+        profileIcon={
+          <img src="../../immagini/icon/profile.svg" className="w-[20px]" />
+        }
       />
       {sezioni.map((sezione, index) => (
         <SezioniLaDiscalculia key={index} {...sezione} />
