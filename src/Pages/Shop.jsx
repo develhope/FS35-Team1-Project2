@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Header from "../Components/Header";
 
 // Avatar disponibili
 const avatars = [
@@ -18,7 +19,7 @@ const defaultAvatar = {
 };
 
 const Shop = () => {
-  const [points, /*setPoints*/] = useState(); // Cambia questo valore dinamicamente quando vuoi
+  const [points /*setPoints*/] = useState(); // Cambia questo valore dinamicamente quando vuoi
   const [unlocked, setUnlocked] = useState([defaultAvatar.id]); // Solo avatar realmente sbloccati
 
   // Sblocca un avatar se non è già sbloccato e i punti sono sufficienti
@@ -31,57 +32,69 @@ const Shop = () => {
   }, [points]);
 
   return (
-    <div className="p-4 max-w-xs mx-auto">
-      {/* Titolo principale */}
-      <h2 className="text-xl font-bold text-center mb-2">
-        Sblocca il tuo avatar
-      </h2>
-      <p className="text-center mb-6 text-sm font-medium">
-        Punti disponibili: {points}
-      </p>
+    <>
+      <Header
+        leftIcon={
+          <img src="./immagini/icon/arrow-left.svg" className="w-[15px] ml-1" />
+        }
+        centerIcon={
+          <p className="flex items-center justify-center w-[151px] font-[Arial] font-bold pl-7">
+            Shop
+          </p>
+        }
+      />
+      <div className="p-4 max-w-xs mx-auto">
+        {/* Titolo principale */}
+        <h2 className="text-xl font-bold text-center mb-2">
+          Sblocca il tuo avatar
+        </h2>
+        <p className="text-center mb-6 text-sm font-medium">
+          Punti disponibili: {points}
+        </p>
 
-      {/* Lista avatar disponibili */}
-      <div className="flex flex-col items-center gap-6">
-        {avatars.map((avatar) => {
-          const isUnlocked = unlocked.includes(avatar.id);
-          return (
-            <div key={avatar.id} className="flex flex-col items-center">
+        {/* Lista avatar disponibili */}
+        <div className="flex flex-col items-center gap-6">
+          {avatars.map((avatar) => {
+            const isUnlocked = unlocked.includes(avatar.id);
+            return (
+              <div key={avatar.id} className="flex flex-col items-center">
+                <img
+                  src={`/immagini/${avatar.image}`}
+                  alt={avatar.name}
+                  className={`w-35 h-35 rounded-full object-cover transition-opacity duration-300 ${
+                    isUnlocked ? "opacity-100" : "opacity-30"
+                  }`}
+                />
+                <span className="mt-2 text-sm text-gray-700">
+                  {avatar.cost} pt
+                </span>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Avatar sbloccati visibili solo se presenti */}
+        <h3 className="text-lg font-semibold text-center mt-10 mb-4">
+          I tuoi avatar
+        </h3>
+        <div className="flex flex-wrap justify-center gap-4">
+          {unlocked.map((id) => {
+            const avatar =
+              id === defaultAvatar.id
+                ? defaultAvatar
+                : avatars.find((a) => a.id === id);
+            return (
               <img
+                key={id}
                 src={`/immagini/${avatar.image}`}
                 alt={avatar.name}
-                className={`w-35 h-35 rounded-full object-cover transition-opacity duration-300 ${
-                  isUnlocked ? "opacity-100" : "opacity-30"
-                }`}
+                className="w-25 h-25 rounded-full object-cover"
               />
-              <span className="mt-2 text-sm text-gray-700">
-                {avatar.cost} pt
-              </span>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
-
-      {/* Avatar sbloccati visibili solo se presenti */}
-      <h3 className="text-lg font-semibold text-center mt-10 mb-4">
-        I tuoi avatar
-      </h3>
-      <div className="flex flex-wrap justify-center gap-4">
-        {unlocked.map((id) => {
-          const avatar =
-            id === defaultAvatar.id
-              ? defaultAvatar
-              : avatars.find((a) => a.id === id);
-          return (
-            <img
-              key={id}
-              src={`/immagini/${avatar.image}`}
-              alt={avatar.name}
-              className="w-25 h-25 rounded-full object-cover"
-            />
-          );
-        })}
-      </div>
-    </div>
+    </>
   );
 };
 
