@@ -1,9 +1,24 @@
-import NavbarProfile from "../Components/NavbarProfile";
+import Header from "../Components/Header";
 
 function Profile() {
   return (
-    <>
-      <NavbarProfile />
+    <div>
+      <Header
+        leftIcon={
+          <img src="./immagini/icon/arrow-left.svg" className="w-[14px]" />
+        }
+        centerIcon={
+          <p className="flex items-center justify-center w-[151px] font-[Arial] font-bold pl-7">
+            Il mio profilo
+          </p>
+        }
+        profileIcon={
+          <img
+            src="../../immagini/nebula icon.png"
+            className="w-[32px] rounded-2xl "
+          />
+        }
+      />
       <div className="flex flex-col items-center mt-4">
         <img
           src="./immagini/nebula icon.png"
@@ -97,7 +112,7 @@ function Profile() {
           <div></div>
         </section>
       </div>
-    </>
+    </div>
   );
 }
 
