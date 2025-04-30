@@ -1,8 +1,8 @@
 import Footer from "../Components/Footer";
-import Header from "../Components/Header";
-import HeroSection from "../Components/HeroSection";
+import Sidebar from "../Components/Sidebar";
+import Shop from "./Shop";
 import CallToAction from "../Components/CallToAction";
-import GameSection from "../Components/GameSection";
+import HeroSection from "../Components/HeroSection";
 
 const HomePage = () => {
   return (
@@ -17,9 +17,11 @@ const HomePage = () => {
         }
       />
       <HeroSection />
-      <GameSection />
+      <Sidebar/>
       <CallToAction text="Conosciamoci meglio!" />
+      <Shop/>
       <Footer />
+      
     </>
   );
 };
