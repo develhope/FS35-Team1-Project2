@@ -9,6 +9,7 @@ const LaDiscalculia = () => {
       bg: "00AD68",
       title: "Cos'è la discalculia?",
       text: "La discalculia è un disturbo specifico dell’apprendimento che riguarda la matematica. Chi ne soffre può avere difficoltà a comprendere i numeri, fare calcoli o riconoscere quantità e simboli matematici, anche se ha intelligenza nella norma.",
+      dubbioso: true
     },
     {
       srcImg: "immagini/bambina libri.svg",
