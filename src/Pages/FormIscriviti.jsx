@@ -1,5 +1,6 @@
 import Header from "../Components/Header";
 import Input from "../Components/Input";
+import CallToAction from "../Components/CallToAction";
 import { useState } from "react";
 
 const FormIscriviti = () => {
@@ -96,9 +97,7 @@ const FormIscriviti = () => {
           </div>
 
           <div className="mt-10 flex justify-center">
-            <button className="text-[16px] px-12 py-4 rounded-4xl bg-[#A7D6E0]" type="submit">
-              Inizia l'avventura!
-            </button>
+         < CallToAction text="Inizia L'avventura" />
           </div>
         </form>
 
