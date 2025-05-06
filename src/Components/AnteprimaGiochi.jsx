@@ -19,10 +19,10 @@ const AnteprimaGiochi = ({ gioco, title, text, media, img }) => {
           <h1 className="text-2xl mt-3">{title}</h1>
         </div>
 
-        <div className="flex items-center mt-14 px-12 gap-3.5">
+        <div className=" flex items-center mt-14 px-12 gap-3.5">
           <div className="w-150 h-30 overflow-hidden rounded-full">{media}</div>
 
-          <p className="ml-4">{text}</p>
+          <p className="ml-4 a">{text}</p>
         </div>
 
         <div className="flex flex-col items-center mt-14 gap-8">
