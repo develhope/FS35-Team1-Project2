@@ -1,13 +1,13 @@
 import AnteprimaGiochi from "../Components/AnteprimaGiochi"
 
-const AnteprimaGioco2=()=>{
+const AnteprimaGioco3=()=>{
 
     return (
 
 < AnteprimaGiochi 
-   gioco="Gioco 2"
-   title="Metti in ordine"
-  text="L’astronauta Marco ha trovato dei numeri sparsi nello spazio. Aiutalo a rimetterli in ordine!"
+   gioco="Gioco 3"
+   title="Trova la coppia"
+  text="La scimmietta astronauta ha una lista della spesa e deve raccogliere la quantità di frutti richiesta dalla mamma. "
   
   media={
     <video 
@@ -23,8 +23,8 @@ const AnteprimaGioco2=()=>{
     img={
         <img
           className="w-[150px]"
-          src="../../immagini/Gioco2/astronauta biondo su pianeta.svg"
-          alt="Astronauta biondo su pianeta"
+          src="../../immagini/Gioco3/scimmia_home_3.svg"
+          alt="Scimmietta Astronauta"
         />
       }
 
@@ -32,4 +32,4 @@ const AnteprimaGioco2=()=>{
 
     )
 }
-export default AnteprimaGioco2
+export default AnteprimaGioco3

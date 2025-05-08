@@ -1,13 +1,13 @@
 import AnteprimaGiochi from "../Components/AnteprimaGiochi"
 
-const AnteprimaGioco2=()=>{
+const AnteprimaGioco4=()=>{
 
     return (
 
 < AnteprimaGiochi 
-   gioco="Gioco 2"
-   title="Metti in ordine"
-  text="L’astronauta Marco ha trovato dei numeri sparsi nello spazio. Aiutalo a rimetterli in ordine!"
+   gioco="Gioco 4"
+   title="Chi ne ha di più?"
+  text="Nebula ha due amichetti alieni, aiutali a capire chi dei due amici ha più oggetti!"
   
   media={
     <video 
@@ -23,8 +23,8 @@ const AnteprimaGioco2=()=>{
     img={
         <img
           className="w-[150px]"
-          src="../../immagini/Gioco2/astronauta biondo su pianeta.svg"
-          alt="Astronauta biondo su pianeta"
+          src="../../immagini/Gioco4/amicodinebula_1_4.svg"
+          alt="Amici di Nebula"
         />
       }
 
@@ -32,4 +32,4 @@ const AnteprimaGioco2=()=>{
 
     )
 }
-export default AnteprimaGioco2
+export default AnteprimaGioco4
