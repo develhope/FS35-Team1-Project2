@@ -17,7 +17,7 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <HomePage />
     <Form />
-    <FormIscriviti />
+    {/* <FormIscriviti />
     <LaDiscalculia />
     <Profile />
     <Shop />
@@ -25,6 +25,6 @@ createRoot(document.getElementById("root")).render(
     <AnteprimaGioco1/>
     <AnteprimaGioco2/>
     <AnteprimaGioco3/>
-    <AnteprimaGioco4/>
+    <AnteprimaGioco4/> */}
   </StrictMode>
 );
