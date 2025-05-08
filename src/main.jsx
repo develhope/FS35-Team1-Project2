@@ -10,7 +10,8 @@ import Profile from "./Pages/Profile";
 import Shop from "./Pages/Shop";
 import AnteprimaGioco1 from "./Pages/AnteprimaGioco1";
 import AnteprimaGioco2 from "./Pages/AnteprimaGioco2";
-<<<<<<< HEAD
+import AnteprimaGioco3 from "./Pages/AnteprimaGioco3";
+import AnteprimaGioco4 from "./Pages/AnteprimaGioco4";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -24,16 +25,7 @@ createRoot(document.getElementById("root")).render(
 
     <AnteprimaGioco1/>
     <AnteprimaGioco2/>
-=======
-import AnteprimaGioco3 from "./Pages/AnteprimaGioco3";
-import AnteprimaGioco4 from "./Pages/AnteprimaGioco4";
-
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    < AnteprimaGioco1 />
-    < AnteprimaGioco2 />
-    < AnteprimaGioco3 />
-    < AnteprimaGioco4 />
->>>>>>> f2cdac4 (completate pagine anteprima giochi)
+    <AnteprimaGioco3/>
+    <AnteprimaGioco4/>
   </StrictMode>
 );

@@ -23,9 +23,8 @@ const FormIscriviti = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const { name, age, email, password, isParentPermission } = formData;
-    const userData = { name, age, email, password, isParentPermission };
-    localStorage.setItem("userData", JSON.stringify(userData));
+  
+    localStorage.setItem("userData", JSON.stringify(formData));
     
     setFormData({
       name: "",
