@@ -15,14 +15,13 @@ import AnteprimaGioco4 from "./Pages/AnteprimaGioco4";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    {/* <HomePage />
+    <HomePage />
     <Form />
-    <Quiz />
     <FormIscriviti />
     <LaDiscalculia />
     <Profile />
-    <Shop /> */}
-
+    <Shop />
+    <Quiz />
     <AnteprimaGioco1/>
     <AnteprimaGioco2/>
     <AnteprimaGioco3/>

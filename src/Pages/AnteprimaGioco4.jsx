@@ -16,16 +16,26 @@ const AnteprimaGioco4=()=>{
       muted
       loop
       playsInline
-      className="w-180 h-35 object-cover"
+      className="w-185 h-35 object-cover"
     />
   }
     
     img={
-        <img
+      
+      <div className="flex gap-6">
+       <img
+    className="w-[150px] transform scale-x-[-1] "
+    src="../../immagini/Gioco4/amicodinebula_1_4.svg"
+    alt="Amici di Nebula"
+  />
+
+    <img
           className="w-[150px]"
-          src="../../immagini/Gioco4/amicodinebula_1_4.svg"
+          src="../../immagini/Gioco4/amicodinebula_2_4.svg"
           alt="Amici di Nebula"
         />
+  
+      </div>
       }
 
 />

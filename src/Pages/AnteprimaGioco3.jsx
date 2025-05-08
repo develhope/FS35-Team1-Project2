@@ -16,7 +16,7 @@ const AnteprimaGioco3=()=>{
       muted
       loop
       playsInline
-      className="w-180 h-35 object-cover"
+      className="w-185 h-35 object-cover"
     />
   }
     

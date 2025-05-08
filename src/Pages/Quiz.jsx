@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Header from "../Components/Header";
+import CallToAction from "../Components/CallToAction";
 
 const Quiz = () => {
   const [step, setStep] = useState(0);
@@ -127,17 +128,13 @@ const Quiz = () => {
           </div>
         ) : (
           <div className="flex flex-col items-center space-y-2">
-            <button
-              type="submit"
-              disabled={!selezione}
-              className={`text-[23px] px-12 py-4 rounded-4xl bg-[#A7D6E0] ${
-                !selezione ? "opacity-30 cursor-not-allowed" : ""
-              }`}
-            >
-              Termina il quiz
-            </button>
-
-            <p
+             <CallToAction
+                text="TERMINA IL QUIZ"
+                onClick={avanti}
+                disabled={!selezione}
+              />
+              
+               <p
               className="text-sm flex items-center cursor-pointer"
               onClick={indietro}
             >
