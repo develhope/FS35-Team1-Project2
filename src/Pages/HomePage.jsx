@@ -4,6 +4,7 @@ import CallToAction from "../Components/CallToAction";
 import HeroSection from "../Components/HeroSection";
 import Header from "../Components/Header";
 import GameSection from "../Components/GameSection";
+import GamePage1 from "../Components/GamePage1";
 
 const HomePage = () => {
   return (
@@ -14,13 +15,12 @@ const HomePage = () => {
         }
         centerIcon={<img src="./immagini/logo.svg" className="w-[80px] ml-6" />}
       />
-      <div className="bg-[url(../immagini/sfondo%20home.png)]">
+      <div>
         <div>
           <HeroSection />
 
           <Sidebar />
           <GameSection />
-
           <CallToAction text="Conosciamoci meglio!" />
 
           <Footer />

@@ -8,6 +8,10 @@ import Quiz from "./Pages/Quiz";
 import LaDiscalculia from "./Pages/LaDiscalculia";
 import Profile from "./Pages/Profile";
 import Shop from "./Pages/Shop";
+import GamePage1 from "./Components/GamePage1";
+import GamePage2 from "./Components/GamePage2";
+import GamePage3 from "./Components/GamePage3";
+import GamePage4 from "./Components/GamePage4";
 import AnteprimaGioco1 from "./Pages/AnteprimaGioco1";
 import AnteprimaGioco2 from "./Pages/AnteprimaGioco2";
 import AnteprimaGioco3 from "./Pages/AnteprimaGioco3";
@@ -17,7 +21,12 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <HomePage />
     <Form />
-    {/* <FormIscriviti />
+    <Quiz />
+    <GamePage1 />
+    <GamePage2 />
+    <GamePage3 />
+    <GamePage4 />
+    <FormIscriviti />
     <LaDiscalculia />
     <Profile />
     <Shop />
@@ -25,6 +34,6 @@ createRoot(document.getElementById("root")).render(
     <AnteprimaGioco1/>
     <AnteprimaGioco2/>
     <AnteprimaGioco3/>
-    <AnteprimaGioco4/> */}
+    <AnteprimaGioco4/>
   </StrictMode>
 );
