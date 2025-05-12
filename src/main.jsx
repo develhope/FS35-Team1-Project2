@@ -12,6 +12,10 @@ import GamePage1 from "./Components/GamePage1";
 import GamePage2 from "./Components/GamePage2";
 import GamePage3 from "./Components/GamePage3";
 import GamePage4 from "./Components/GamePage4";
+import AnteprimaGioco1 from "./Pages/AnteprimaGioco1";
+import AnteprimaGioco2 from "./Pages/AnteprimaGioco2";
+import AnteprimaGioco3 from "./Pages/AnteprimaGioco3";
+import AnteprimaGioco4 from "./Pages/AnteprimaGioco4";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -26,5 +30,10 @@ createRoot(document.getElementById("root")).render(
     <LaDiscalculia />
     <Profile />
     <Shop />
+    <Quiz />
+    <AnteprimaGioco1/>
+    <AnteprimaGioco2/>
+    <AnteprimaGioco3/>
+    <AnteprimaGioco4/>
   </StrictMode>
 );
