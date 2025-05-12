@@ -11,7 +11,7 @@ const GamePageSection = ({ title, description, instructions, video}) => {
         <p className="text-[13px] mb-8">{description}</p>
         <h3 className="text-[16px] font-bold mb-4">Istruzioni</h3>
         <p className="text-[13px] mb-8">{instructions}</p>
-        <video>{video}</video>
+        <div>{video}</div>
       </div>
       <div>
         <CallToAction text="Iscriviti e gioca!" />

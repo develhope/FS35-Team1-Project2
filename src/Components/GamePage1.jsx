@@ -1,7 +1,5 @@
 import React from "react";
 import Header from "./Header";
-import Footer from "./Footer";
-import CallToAction from "./CallToAction";
 import GamePageSection from "./GamePageSection";
   
 const GamePage1 = () => {
@@ -13,7 +11,7 @@ const GamePage1 = () => {
       />
       <main className="flex flex-col justify-center items-center p-4">
         <GamePageSection title="Conta con Nebula" video={<video 
-              src="./immagini/nebula.mov"
+              src="./immagini/freepik__creami-lillustrazione-per-bambini-di-un-astronauta__80674.mp4"
               autoPlay
               muted
               loop
