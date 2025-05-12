@@ -8,12 +8,20 @@ import Quiz from "./Pages/Quiz";
 import LaDiscalculia from "./Pages/LaDiscalculia";
 import Profile from "./Pages/Profile";
 import Shop from "./Pages/Shop";
+import GamePage1 from "./Components/GamePage1";
+import GamePage2 from "./Components/GamePage2";
+import GamePage3 from "./Components/GamePage3";
+import GamePage4 from "./Components/GamePage4";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <HomePage />
     <Form />
     <Quiz />
+    <GamePage1 />
+    <GamePage2 />
+    <GamePage3 />
+    <GamePage4 />
     <FormIscriviti />
     <LaDiscalculia />
     <Profile />
