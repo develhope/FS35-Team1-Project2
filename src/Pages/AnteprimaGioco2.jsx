@@ -7,7 +7,7 @@ const AnteprimaGioco2=()=>{
 < AnteprimaGiochi 
    gioco="Gioco 2"
    title="Metti in ordine"
-  text="L’astronauta Marco ha trovato dei numeri sparsi nello spazio. Aiutalo a rimetterli in ordine!"
+  text="Il nostro amico astronauta ha trovato dei numeri sparsi nello spazio. Aiutalo a rimetterli in ordine!"
   
   media={
     <video 
