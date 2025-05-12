@@ -4,7 +4,6 @@ import CallToAction from "../Components/CallToAction";
 import HeroSection from "../Components/HeroSection";
 import Header from "../Components/Header";
 import GameSection from "../Components/GameSection";
-import GamePage1 from "../Components/GamePage1";
 
 const HomePage = () => {
   return (

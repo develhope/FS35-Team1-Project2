@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "./Header";
-import GamePageSection from "./GamePageSection";
+import Header from "../Components/Header";
+import GamePageSection from "../Components/GamePageSection";
   
 const GamePage4 = () => {
   return (
