@@ -1,12 +1,17 @@
+import React, { useContext } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
+import { UserContext } from "../UserContext";
 
-const Header = ({ leftIcon, centerIcon, isSubscribed }) => {
+const Header = ({ leftIcon, centerIcon }) => {
+  // Rimosso isSubscribed dalle props
+  const { userData } = useContext(UserContext); // Ottieni userData (non setUserData)
   const location = useLocation();
   const navigate = useNavigate();
 
   const formPath = "/form";
-  const profilePath = isSubscribed ? "/profile" : formPath;
-  const shopPath = isSubscribed ? "/shop" : formPath;
+  // Usa userData per determinare i percorsi
+  const profilePath = userData ? "/profile" : formPath;
+  const shopPath = userData ? "/shop" : formPath;
 
   return (
     <div className="flex justify-between items-center w-full mt-2 p-2 font-[Arial] font-bold">

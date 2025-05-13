@@ -1,9 +1,11 @@
+import { useState, useContext } from "react";
+import { UserContext } from "../UserContext"; 
 import Header from "../Components/Header";
 import Input from "../Components/Input";
 import CallToAction from "../Components/CallToAction";
-import { useState } from "react";
 
 const FormIscriviti = () => {
+  const { setUserData } = useContext(UserContext); 
   const [formData, setFormData] = useState({
     name: "",
     age: "",
@@ -23,9 +25,9 @@ const FormIscriviti = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-  
-    localStorage.setItem("userData", JSON.stringify(formData));
-    
+    setUserData(formData); // Salva i dati dell'utente nel contesto
+
+    // Resetta il form
     setFormData({
       name: "",
       age: "",
@@ -39,13 +41,17 @@ const FormIscriviti = () => {
     <>
       <Header
         centerIcon={<p>Iscriviti</p>}
-        leftIcon={<img src="./immagini/icon/arrow-left.svg" className="w-[15px] ml-1" />}
+        leftIcon={
+          <img src="./immagini/icon/arrow-left.svg" className="w-[15px] ml-1" />
+        }
       />
 
       <div>
         <div className="px-6 mt-4 flex flex-col items-center gap-3">
           <h1 className="text-[20px]">Pronti a giocare con Nebula?</h1>
-          <h4 className="px-4 text-[12.8px]">Compila questo modulo e inizia l’avventura!</h4>
+          <h4 className="px-4 text-[12.8px]">
+            Compila questo modulo e inizia l’avventura!
+          </h4>
         </div>
 
         <form onSubmit={handleSubmit}>
@@ -96,12 +102,14 @@ const FormIscriviti = () => {
           </div>
 
           <div className="mt-10 flex justify-center">
-         < CallToAction text="Inizia L'avventura" />
+            <CallToAction text="Inizia L'avventura" />
           </div>
         </form>
 
         <div className="text-[12px] w-[280px] mt-10 flex items-center mx-auto text-center">
-          <p>Niente pubblicità, niente stress, solo giochi e magia con Nebula!</p>
+          <p>
+            Niente pubblicità, niente stress, solo giochi e magia con Nebula!
+          </p>
         </div>
       </div>
     </>
