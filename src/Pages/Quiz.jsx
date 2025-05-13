@@ -5,16 +5,13 @@ import CallToAction from "../Components/CallToAction";
 const Quiz = () => {
   const [step, setStep] = useState(0);
   const [selezione, setSelezione] = useState("");
+ 
 
   const domande = [
     {
       titolo: "Capire i numeri",
       sottotitolo: "I numeri ti sembrano facili o difficili?",
-      opzioni: [
-        "😊 Facili!",
-        "😐 A volte difficili...",
-        "😟 Molto difficili!",
-      ],
+      opzioni: ["😊 Facili!", "😐 A volte difficili...", "😟 Molto difficili!"],
     },
     {
       titolo: "Contare",
@@ -27,7 +24,8 @@ const Quiz = () => {
     },
     {
       titolo: "Sommare",
-      sottotitolo: "Quando devi sommare numeri facili (come 1 + 2 o 3 + 1), com'è per te?",
+      sottotitolo:
+        "Quando devi sommare numeri facili (come 1 + 2 o 3 + 1), com'è per te?",
       opzioni: [
         "😊 Le faccio senza problemi",
         "😐 Devo pensarci un po’",
@@ -36,21 +34,14 @@ const Quiz = () => {
     },
     {
       titolo: "Numeri e parole",
-      sottotitolo: "Quando senti un numero (come “ventitré”), riesci a immaginarlo scritto?",
-      opzioni: [
-        "😊 Sì, subito",
-        "😐 Qualche volta",
-        "😟 No, mi confonde",
-      ],
+      sottotitolo:
+        "Quando senti un numero (come “ventitré”), riesci a immaginarlo scritto?",
+      opzioni: ["😊 Sì, subito", "😐 Qualche volta", "😟 No, mi confonde"],
     },
     {
       titolo: "I numeri nella vita di tutti i giorni",
       sottotitolo: "Ti capita di confondere i numeri (ad esempio 6 con 9)?",
-      opzioni: [
-        "😊 No, li riconosco bene",
-        "😐 A volte sì",
-        "😟 Sì, spesso",
-      ],
+      opzioni: ["😊 No, li riconosco bene", "😐 A volte sì", "😟 Sì, spesso"],
     },
   ];
 
@@ -59,6 +50,7 @@ const Quiz = () => {
       setStep(step + 1);
     }
   };
+
 
   const indietro = () => {
     if (step > 0) {
@@ -74,10 +66,7 @@ const Quiz = () => {
     <>
       <Header
         leftIcon={
-          <img
-            src="./immagini/icon/arrow-left.svg"
-            className="w-[15px] ml-1"
-          />
+          <img src="./immagini/icon/arrow-left.svg" className="w-[15px] ml-1" />
         }
         centerIcon={<p className="pl-[20px]">Quiz conoscitivo</p>}
       />
@@ -122,19 +111,21 @@ const Quiz = () => {
               <img
                 src="./immagini/icon/arrow-right.svg"
                 alt="Freccia destra"
-                className={`w-6 h-6 ${!selezione ? "opacity-30 cursor-not-allowed" : ""}`}
+                className={`w-6 h-6 ${
+                  !selezione ? "opacity-30 cursor-not-allowed" : ""
+                }`}
               />
             </button>
           </div>
         ) : (
           <div className="flex flex-col items-center space-y-2">
-             <CallToAction
-                text="TERMINA IL QUIZ"
-                onClick={avanti}
-                disabled={!selezione}
-              />
-              
-               <p
+            <CallToAction
+              text="TERMINA IL QUIZ"
+              disabled={!selezione}
+              route="/form-iscriviti" 
+            />
+
+            <p
               className="text-sm flex items-center cursor-pointer"
               onClick={indietro}
             >
