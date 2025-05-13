@@ -25,9 +25,9 @@ const Sidebar = () => {
 
       {/* Link */}
       <div className="space-y-15"> {/* spaziatura tra i link */}
-        <div><Link to="/la-discalculia"><a className="font-otomanopee" href="http://">Cos'è la discalculia</a></Link></div>
-        <div><Link to="/form"><a href="http://">Quiz</a></Link></div>
-        <div><Link to="/feedback"><a href="http://">Feedback</a></Link></div>
+        <div><Link to="/la-discalculia">Cos'è la discalculia</Link></div>
+        <div><Link to="/form">Quiz</Link></div>
+        <div><Link to="/feedback">Feedback</Link></div>
       </div>
     </div>
   );
