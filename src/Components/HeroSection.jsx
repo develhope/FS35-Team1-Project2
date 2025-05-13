@@ -1,7 +1,7 @@
 const HeroSection = () => {
   return (
-    <div className="flex flex-col min-h-screen">
-      <img src="/immagini/nebula home2.svg" className="w-full h-1/2" />
+    <div className="flex flex-col h-[550px]">
+      <img src="/immagini/nebula home2.svg" className="w-full" />
 
       <div
         className="flex flex-col gap-2 px-6 pt-0 pb-6 w-full"

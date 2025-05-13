@@ -9,9 +9,6 @@ const HomePage = () => {
   return (
     <>
       <Header
-        /* leftIcon={
-          <Link to="/sidebar"><img src="./immagini/icon/hamburger.svg" className="w-[24px] ml-1"/></Link>
-        } */
         centerIcon={<img src="./immagini/logo.svg" className="w-[80px] ml-6" />}
       />
       <div>

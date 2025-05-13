@@ -9,7 +9,7 @@ const GamePage4 = () => {
         leftIcon={<img src="./immagini/icon/hamburger.svg" className="w-[24px] ml-1" />}
         centerIcon={<img src="./immagini/logo.svg" className="w-[80px] ml-6" />}
       />
-      <main className="flex flex-col justify-center items-center p-4">
+      <main className="flex flex-col justify-center items-center ">
         <GamePageSection title="Chi ne ha di più?" video={<video 
               src="./immagini/freepik__creami-lillustrazione-per-bambini-di-un-astronauta__80674.mp4"
               autoPlay
