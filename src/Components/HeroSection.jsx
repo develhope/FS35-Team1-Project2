@@ -1,11 +1,10 @@
 const HeroSection = () => {
   return (
-    <div className="flex flex-col h-[550px]">
+    <div className="flex flex-col gap-4 pt-20">
       <img src="/immagini/nebula home2.svg" className="w-full" />
 
       <div
         className="flex flex-col gap-2 px-6 pt-0 pb-6 w-full"
-        style={{ height: "50px" }}
       >
         <p
           className="text-right text-[#8079FF] w-3/4 ml-auto m-0"

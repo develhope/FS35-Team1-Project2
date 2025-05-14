@@ -14,13 +14,13 @@ const Header = ({ leftIcon, centerIcon }) => {
   const shopPath = userData ? "/shop" : formPath;
 
   return (
-    <div className="flex justify-between items-center w-full mt-2 p-2 font-[Arial] font-bold">
+    <div className="fixed top-0 left-0 flex z-50 bg-white justify-between items-center w-full p-2 font-[Arial] font-bold">
       {location.pathname === "/" ? (
         <button>
           <Link to="/sidebar">
             <img
               src="./immagini/icon/hamburger.svg"
-              className="w-[24px] ml-1"
+              className="w-6 ml-1"
               alt="menu"
             />
           </Link>
@@ -35,14 +35,14 @@ const Header = ({ leftIcon, centerIcon }) => {
         <Link to={profilePath} className="pr-2">
           <img
             src="../../immagini/icon/profile.svg"
-            className="w-[20px] mt-1"
+            className="w-5 mt-1"
             alt="profile"
           />
         </Link>
         <Link to={shopPath}>
           <img
             src="./immagini/icon/usp-delivery-store.svg"
-            className="w-[31px]"
+            className="w-8"
             alt="shop"
           />
         </Link>

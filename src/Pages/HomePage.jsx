@@ -8,16 +8,18 @@ import { Link } from "react-router-dom";
 const HomePage = () => {
   return (
     <>
-      <Header
-        centerIcon={<img src="./immagini/logo.svg" className="w-[80px] ml-6" />}
-      />
       <div>
+        <Header
+          centerIcon={
+            <img src="./immagini/logo.svg" className="w-[80px] ml-6" />
+          }
+        />
         <div>
           <HeroSection />
           <GameSection />
           <CallToAction text="Conosciamoci meglio!" />
-          <Footer />
         </div>
+        <Footer />
       </div>
     </>
   );
