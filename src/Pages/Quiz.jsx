@@ -5,7 +5,6 @@ import CallToAction from "../Components/CallToAction";
 const Quiz = () => {
   const [step, setStep] = useState(0);
   const [selezione, setSelezione] = useState("");
- 
 
   const domande = [
     {
@@ -51,7 +50,6 @@ const Quiz = () => {
     }
   };
 
-
   const indietro = () => {
     if (step > 0) {
       setStep(step - 1);
@@ -64,86 +62,81 @@ const Quiz = () => {
 
   return (
     <>
-      <Header
-        leftIcon={
-          <img src="./immagini/icon/arrow-left.svg" className="w-[15px] ml-1" />
-        }
-        centerIcon={<p className="pl-[20px]">Quiz conoscitivo</p>}
-      />
+      <div className="p-5 mt-6">
+        <div className="flex flex-col justify-center items-center py-[50px] space-y-7 text-center">
+          <h1 className="text-2xl font-semibold">{domande[step].titolo}</h1>
+          <h2 className="text-[18px]">{domande[step].sottotitolo}</h2>
+        </div>
 
-      <div className="flex flex-col justify-center items-center py-[50px] space-y-7 text-center">
-        <h1 className="text-2xl font-semibold">{domande[step].titolo}</h1>
-        <h2 className="text-[18px]">{domande[step].sottotitolo}</h2>
-      </div>
+        <div className="flex flex-col justify-center items-center space-y-10 text-center px-4">
+          <form className="space-y-5">
+            {domande[step].opzioni.map((opzione, index) => (
+              <label key={index} className="flex items-center space-x-5">
+                <input
+                  type="radio"
+                  name={`scelta-${step}`}
+                  value={opzione}
+                  className="w-5 h-5"
+                  checked={selezione === opzione}
+                  onChange={() => setSelezione(opzione)}
+                />
+                <span>{opzione}</span>
+              </label>
+            ))}
+          </form>
 
-      <div className="flex flex-col justify-center items-center space-y-10 text-center px-4">
-        <form className="space-y-5">
-          {domande[step].opzioni.map((opzione, index) => (
-            <label key={index} className="flex items-center space-x-5">
-              <input
-                type="radio"
-                name={`scelta-${step}`}
-                value={opzione}
-                className="w-5 h-5"
-                checked={selezione === opzione}
-                onChange={() => setSelezione(opzione)}
+          {step < domande.length - 1 ? (
+            <div className="flex items-center space-x-5">
+              {step > 0 && (
+                <button onClick={indietro}>
+                  <img
+                    src="./immagini/icon/arrow-left.svg"
+                    alt="Freccia sinistra"
+                    className="w-6 h-6"
+                  />
+                </button>
+              )}
+
+              <p>Domanda successiva</p>
+
+              <button onClick={avanti} disabled={!selezione}>
+                <img
+                  src="./immagini/icon/arrow-right.svg"
+                  alt="Freccia destra"
+                  className={`w-6 h-6 ${
+                    !selezione ? "opacity-30 cursor-not-allowed" : ""
+                  }`}
+                />
+              </button>
+            </div>
+          ) : (
+            <div className="flex flex-col items-center space-y-2">
+              <CallToAction
+                text="TERMINA IL QUIZ"
+                disabled={!selezione}
+                route="/form-iscriviti"
               />
-              <span>{opzione}</span>
-            </label>
-          ))}
-        </form>
 
-        {step < domande.length - 1 ? (
-          <div className="flex items-center space-x-5">
-            {step > 0 && (
-              <button onClick={indietro}>
+              <p
+                className="text-sm flex items-center cursor-pointer"
+                onClick={indietro}
+              >
                 <img
                   src="./immagini/icon/arrow-left.svg"
                   alt="Freccia sinistra"
-                  className="w-6 h-6"
+                  className="w-4 h-4 mr-1 "
                 />
-              </button>
-            )}
+                Domanda precedente
+              </p>
+            </div>
+          )}
 
-            <p>Domanda successiva</p>
-
-            <button onClick={avanti} disabled={!selezione}>
-              <img
-                src="./immagini/icon/arrow-right.svg"
-                alt="Freccia destra"
-                className={`w-6 h-6 ${
-                  !selezione ? "opacity-30 cursor-not-allowed" : ""
-                }`}
-              />
-            </button>
-          </div>
-        ) : (
-          <div className="flex flex-col items-center space-y-2">
-            <CallToAction
-              text="TERMINA IL QUIZ"
-              disabled={!selezione}
-              route="/form-iscriviti" 
-            />
-
-            <p
-              className="text-sm flex items-center cursor-pointer"
-              onClick={indietro}
-            >
-              <img
-                src="./immagini/icon/arrow-left.svg"
-                alt="Freccia sinistra"
-                className="w-4 h-4 mr-1 "
-              />
-              Domanda precedente
-            </p>
-          </div>
-        )}
-
-        <img
-          src="./immagini/nebula form.png"
-          alt="NebulaForm"
-          className="h-[350px] w-[250px]"
-        />
+          <img
+            src="./immagini/nebula form.png"
+            alt="NebulaForm"
+            className="h-[350px] w-[250px]"
+          />
+        </div>
       </div>
     </>
   );

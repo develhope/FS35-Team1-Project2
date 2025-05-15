@@ -1,11 +1,10 @@
 import { useState, useContext } from "react";
-import { UserContext } from "../UserContext"; 
-import Header from "../Components/Header";
+import { UserContext } from "../UserContext";
 import Input from "../Components/Input";
 import CallToAction from "../Components/CallToAction";
 
 const FormIscriviti = () => {
-  const { setUserData } = useContext(UserContext); 
+  const { setUserData } = useContext(UserContext);
   const [formData, setFormData] = useState({
     name: "",
     age: "",
@@ -39,14 +38,7 @@ const FormIscriviti = () => {
 
   return (
     <>
-      <Header
-        centerIcon={<p>Iscriviti</p>}
-        leftIcon={
-          <img src="./immagini/icon/arrow-left.svg" className="w-[15px] ml-1" />
-        }
-      />
-
-      <div>
+      <div className="mt-22">
         <div className="px-6 mt-4 flex flex-col items-center gap-3">
           <h1 className="text-[20px]">Pronti a giocare con Nebula?</h1>
           <h4 className="px-4 text-[12.8px]">

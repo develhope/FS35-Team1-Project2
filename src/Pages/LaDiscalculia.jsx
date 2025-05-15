@@ -1,6 +1,5 @@
 import SezioniLaDiscalculia from "../Components/SezioniLaDiscalculia";
 import Footer from "../Components/Footer";
-import Header from "../Components/Header";
 
 const LaDiscalculia = () => {
   const sezioni = [
@@ -9,7 +8,7 @@ const LaDiscalculia = () => {
       bg: "00AD68",
       title: "Cos'è la discalculia?",
       text: "La discalculia è un disturbo specifico dell’apprendimento che riguarda la matematica. Chi ne soffre può avere difficoltà a comprendere i numeri, fare calcoli o riconoscere quantità e simboli matematici, anche se ha intelligenza nella norma.",
-      dubbioso: true
+      dubbioso: true,
     },
     {
       srcImg: "immagini/bambina libri.svg",
@@ -36,19 +35,11 @@ const LaDiscalculia = () => {
 
   return (
     <>
-      <Header
-        centerIcon={<img src="./immagini/logo.svg" className="w-[80px] ml-5" />}
-        leftIcon={
-          <img src="./immagini/icon/arrow-left.svg" className="w-[15px] ml-1" />
-        }
-        profileIcon={
-          <img src="../../immagini/icon/profile.svg" className="w-[20px]" />
-        }
-      />
-      {sezioni.map((sezione, index) => (
-        <SezioniLaDiscalculia key={index} {...sezione} />
-      ))}
-
+      <div className="mt-20">
+        {sezioni.map((sezione, index) => (
+          <SezioniLaDiscalculia key={index} {...sezione} />
+        ))}
+      </div>
       <Footer />
     </>
   );

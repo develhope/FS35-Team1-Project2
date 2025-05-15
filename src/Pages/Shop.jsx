@@ -33,17 +33,8 @@ const Shop = () => {
 
   return (
     <>
-      <Header
-        leftIcon={
-          <img src="./immagini/icon/arrow-left.svg" className="w-[15px] ml-1" />
-        }
-        centerIcon={
-          <p className="flex items-center justify-center w-[151px] font-[Arial] font-bold pl-7">
-            Shop
-          </p>
-        }
-      />
-      <div className="p-4 max-w-xs mx-auto">
+      
+      <div className="p-4 max-w-xs mx-auto mt-18">
         {/* Titolo principale */}
         <h2 className="text-xl font-bold text-center mb-2">
           Sblocca il tuo avatar
