@@ -3,23 +3,9 @@ import Header from "../Components/Header";
 function Profile() {
   return (
     <div>
-      <Header
-        leftIcon={
-          <img src="./immagini/icon/arrow-left.svg" className="w-[14px]" />
-        }
-        centerIcon={
-          <p className="flex items-center justify-center w-[151px] font-[Arial] font-bold pl-7">
-            Il mio profilo
-          </p>
-        }
-        profileIcon={
-          <img
-            src="../../immagini/nebula icon.png"
-            className="w-[32px] rounded-2xl "
-          />
-        }
-      />
-      <div className="flex flex-col items-center mt-4">
+      
+      
+      <div className="flex flex-col items-center mt-20">
         <img
           src="./immagini/nebula icon.png"
           className="w-[168px] rounded-full"

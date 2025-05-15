@@ -5,11 +5,8 @@ import GamePageSection from "../Components/GamePageSection";
 const GamePage2 = () => {
   return (
     <>
-      <Header
-        leftIcon={<img src="./immagini/icon/hamburger.svg" className="w-[24px] ml-1" />}
-        centerIcon={<img src="./immagini/logo.svg" className="w-[80px] ml-6" />}
-      />
-      <main className="flex flex-col justify-center items-center">
+      
+      <main className="flex flex-col justify-center items-center mt-18">
         <GamePageSection title="Metti in ordine" video={<video 
               src="./immagini/freepik__creami-lillustrazione-per-bambini-di-un-astronauta__80674.mp4"
               autoPlay

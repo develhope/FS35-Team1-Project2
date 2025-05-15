@@ -5,13 +5,8 @@ import GamePageSection from "../Components/GamePageSection";
 const GamePage1 = () => {
   return (
     <>
-      <Header
-        leftIcon={
-          <img src="./immagini/icon/hamburger.svg" className="w-[24px] ml-1" />
-        }
-        centerIcon={<img src="./immagini/logo.svg" className="w-[80px] ml-6" />}
-      />
-      <main className="flex flex-col justify-center items-center">
+      
+      <main className="flex flex-col justify-center items-center mt-18">
         <GamePageSection
           title="Conta con Nebula"
           video={

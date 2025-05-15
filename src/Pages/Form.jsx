@@ -1,4 +1,3 @@
-import Header from "../Components/Header";
 import { useState } from "react";
 
 const Form = () => {
@@ -6,17 +5,7 @@ const Form = () => {
 
   return (
     <>
-      <Header
-        leftIcon={
-          <img
-            src="./immagini/icon/arrow-left.svg"
-            className="w-[15px] ml-1"
-          />
-        }
-        centerIcon={<p className="pl-[20px]">Quiz conoscitivo</p>}
-      />
-
-      <div className="flex flex-col justify-center items-center py-[50px] space-y-7 text-center">
+      <div className="flex flex-col justify-center items-center py-[50px] space-y-7 text-center mt-10">
         <h1 className="text-2xl">Parliamo un pò</h1>
         <h2 className="text-[18px]">Prima di partire... facciamo squadra!</h2>
         <h3 className="text-[14px] px-[56px]">
@@ -73,7 +62,7 @@ const Form = () => {
         </div>
 
        
-        <div className="w-fit">
+        <div className="w-fit fixed bottom-20 right-6">
           <img
             src="./immagini/nebula_primaForm.png"
             alt="NebulaForm"

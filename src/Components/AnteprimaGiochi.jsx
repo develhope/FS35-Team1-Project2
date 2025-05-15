@@ -4,16 +4,6 @@ import Header from "./Header";
 const AnteprimaGiochi = ({ gioco, title, text, media, img }) => {
   return (
     <>
-      <Header
-        leftIcon={
-          <img
-            src=".\immagini\icon\arrow-left.svg"
-            className="w-[15px] ml-1:"
-          />
-        }
-        centerIcon={<p className="pl-[20px]">{gioco}</p>}
-      />
-
       <div>
         <div className="text-center">
           <h1 className="text-2xl mt-3">{title}</h1>
@@ -28,8 +18,8 @@ const AnteprimaGiochi = ({ gioco, title, text, media, img }) => {
         <div className="relative flex flex-col items-center mt-4 gap-8 p-6">
           {img}
         </div>
-      
-          <CallToAction text="Iniziamo!" />
+
+        <CallToAction text="Iniziamo!" />
       </div>
     </>
   );
