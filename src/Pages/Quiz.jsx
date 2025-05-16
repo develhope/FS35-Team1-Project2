@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import Header from "../Components/Header";
 import CallToAction from "../Components/CallToAction";
+import { Link } from "react-router-dom";
 
 const Quiz = () => {
   const [step, setStep] = useState(0);
@@ -111,11 +111,11 @@ const Quiz = () => {
             </div>
           ) : (
             <div className="flex flex-col items-center space-y-2">
-              <CallToAction
-                text="TERMINA IL QUIZ"
-                disabled={!selezione}
-                route="/form-iscriviti"
-              />
+              <div>
+                <Link to="/form-iscriviti">
+                  <CallToAction text="TERMINA IL QUIZ" disabled={!selezione} />
+                </Link>
+              </div>
 
               <p
                 className="text-sm flex items-center cursor-pointer"

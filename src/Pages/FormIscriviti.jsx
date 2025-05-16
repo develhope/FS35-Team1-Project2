@@ -2,9 +2,11 @@ import { useState, useContext } from "react";
 import { UserContext } from "../UserContext";
 import Input from "../Components/Input";
 import CallToAction from "../Components/CallToAction";
+import { Link, useNavigate } from "react-router-dom"; // Importa useNavigate
 
 const FormIscriviti = () => {
   const { setUserData } = useContext(UserContext);
+  const navigate = useNavigate(); // Inizializza useNavigate
   const [formData, setFormData] = useState({
     name: "",
     age: "",
@@ -24,7 +26,8 @@ const FormIscriviti = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    setUserData(formData); // Salva i dati dell'utente nel contesto
+    setUserData({ ...formData, isRegistered: true }); // Aggiungi isRegistered
+    navigate("/"); // Naviga alla home page dopo l'iscrizione
 
     // Resetta il form
     setFormData({
@@ -92,9 +95,8 @@ const FormIscriviti = () => {
               Ho il permesso del mio genitore per giocare con Nebula!
             </label>
           </div>
-
           <div className="mt-10 flex justify-center">
-            <CallToAction text="Inizia L'avventura" />
+            <CallToAction text="Inizia L'avventura" route="/" />
           </div>
         </form>
 

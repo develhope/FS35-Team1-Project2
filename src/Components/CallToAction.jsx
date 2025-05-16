@@ -18,7 +18,7 @@ const CallToAction = ({ text, disabled = false, route = "/form" }) => {
   }
 
   return (
-    <div className="w-screen flex items-center justify-center">
+    <div className="flex items-center justify-center">
       <button
         onClick={handleClick}
         disabled={disabled}
