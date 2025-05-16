@@ -3,12 +3,10 @@ import CallToAction from "../Components/CallToAction";
 import HeroSection from "../Components/HeroSection";
 import GameSection from "../Components/GameSection";
 
-
 const HomePage = () => {
   return (
     <>
       <div>
-        
         <div>
           <HeroSection />
           <GameSection />
