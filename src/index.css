@@ -9,3 +9,35 @@
 body {
   font-family: "OtomanopeeOne-Regular", sans-serif;
 }
+.planet-rotate {
+  animation: rotate-360 16s infinite linear;
+}
+
+@keyframes rotate-360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.planet-bounce {
+  animation: bounce-slow 1.5s infinite;
+}
+
+.planet-shadow {
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3)); /* <-- Ombra */
+}
+
+@keyframes bounce-slow {
+  0%,
+  100% {
+    transform: translateY(-5%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
