@@ -62,7 +62,7 @@ const Form = () => {
           )}
           <div>
             <Link to="/quiz">
-              <CallToAction text="Continua" disabled={!scelta} />
+              <CallToAction route="/quiz"text="Continua" disabled={!scelta} />
             </Link>
           </div>
         </div>

@@ -113,7 +113,7 @@ const Quiz = () => {
             <div className="flex flex-col items-center space-y-2">
               <div>
                 <Link to="/form-iscriviti">
-                  <CallToAction text="TERMINA IL QUIZ" disabled={!selezione} />
+                  <CallToAction text="TERMINA IL QUIZ" disabled={!selezione} route="/form-iscriviti" />
                 </Link>
               </div>
 

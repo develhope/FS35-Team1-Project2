@@ -1,12 +1,12 @@
-import { useState, useContext } from "react";
-import { UserContext } from "../UserContext";
 import Input from "../Components/Input";
 import CallToAction from "../Components/CallToAction";
-import { Link, useNavigate } from "react-router-dom"; // Importa useNavigate
+import { useState, useContext } from "react";
+import { UserContext } from "../UserContext";
+import { useNavigate } from "react-router-dom";
 
 const FormIscriviti = () => {
   const { setUserData } = useContext(UserContext);
-  const navigate = useNavigate(); // Inizializza useNavigate
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     age: "",
@@ -26,10 +26,12 @@ const FormIscriviti = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    setUserData({ ...formData, isRegistered: true }); // Aggiungi isRegistered
-    navigate("/"); // Naviga alla home page dopo l'iscrizione
+    const userDataToSave = { ...formData, isRegistered: true };
+    setUserData(userDataToSave);
+    localStorage.setItem("userData", JSON.stringify(userDataToSave));
 
-    // Resetta il form
+    navigate("/");
+
     setFormData({
       name: "",
       age: "",
@@ -95,15 +97,14 @@ const FormIscriviti = () => {
               Ho il permesso del mio genitore per giocare con Nebula!
             </label>
           </div>
+
           <div className="mt-10 flex justify-center">
             <CallToAction text="Inizia L'avventura" route="/" />
           </div>
         </form>
 
         <div className="text-[12px] w-[280px] mt-10 flex items-center mx-auto text-center">
-          <p>
-            Niente pubblicità, niente stress, solo giochi e magia con Nebula!
-          </p>
+          <p>Niente pubblicità, niente stress, solo giochi e magia con Nebula!</p>
         </div>
       </div>
     </>

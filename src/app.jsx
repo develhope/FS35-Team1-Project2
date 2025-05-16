@@ -17,6 +17,7 @@ import AnteprimaGioco3 from "./Pages/AnteprimaGioco3";
 import AnteprimaGioco4 from "./Pages/AnteprimaGioco4";
 import Sidebar from "./Components/Sidebar";
 import Header from "./Components/Header";
+import GameScreen from "./logica-giochi/logica-gioco-1/GameScreen";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route path="/anteprimagioco3" element={<AnteprimaGioco3 />} />
           <Route path="/anteprimagioco4" element={<AnteprimaGioco4 />} />
           <Route path="/sidebar" element={<Sidebar />} />
+          <Route path="/gamescreen" element={<GameScreen/>}  />
         </Routes>
       </main>
     </>
