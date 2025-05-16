@@ -132,10 +132,31 @@ const Quiz = () => {
           )}
 
           <img
-            src="./immagini/nebula form.png"
+            src="./immagini/perform.png"
             alt="NebulaForm"
-            className="h-[350px] w-[250px]"
+            className="w-70"
           />
+          <img
+        src="/immagini/pianeti/pianeta8.svg"
+        className="w-20 absolute left-7 planet-rotate planet-shadow"
+        alt="Pianeta1"
+      />
+      <img
+        src="/immagini/pianeti/pianeta1.svg"
+        className="w-10 absolute left-15 mt-50 planet-rotate planet-shadow"
+        alt="Pianeta2"
+      />
+      <img
+        src="/immagini/pianeti/pianeta2.svg"
+        className="w-10 absolute left-70 mt-30 planet-rotate planet-shadow"
+        alt="Pianeta2"
+      />
+      <img
+        src="/immagini/pianeti/pianeta4.svg"
+        className="w-15 absolute left-65 mb-50 planet-bounce planet-shadow"
+        alt="Pianeta3"
+      />
+      
         </div>
       </div>
     </>
