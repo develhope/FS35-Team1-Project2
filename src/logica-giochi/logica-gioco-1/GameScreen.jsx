@@ -23,6 +23,7 @@ function GameScreen() {
   const currentLevelData = levelsData[currentLevel];
 
   return (
+    <>
     <div className="bg-blue-100 min-h-screen flex flex-col items-center justify-center">
       <Astronauts level={currentLevel} totalLevels={levelsData.length} />
       {currentLevel < levelsData.length ? (
@@ -39,6 +40,21 @@ function GameScreen() {
         </div>
       )}
     </div>
+
+
+
+<div className="w-screen h-screen">
+
+  <img
+    src="../immagini/Gioco1/sfondo-gioco-1.svg"
+    alt="sfondo"
+    className="w-full h-full object-cover"
+  />
+</div>
+
+
+    </>
+
   );
 }
 

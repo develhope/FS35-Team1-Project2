@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import "./index.css";
 import HomePage from "./Pages/HomePage";
 import Form from "./Pages/Form";
@@ -18,13 +18,16 @@ import AnteprimaGioco4 from "./Pages/AnteprimaGioco4";
 import Sidebar from "./Components/Sidebar";
 import Header from "./Components/Header";
 import GameScreen from "./logica-giochi/logica-gioco-1/GameScreen";
+import HeaderGiochi from "./Components/HeaderGiochi"; 
 
 function App() {
+   const location = useLocation();
   return (
     <>
       <div>
-        <Header />
+        {location.pathname === "/gamescreen" ? <HeaderGiochi /> : <Header />}
       </div>
+      
       <main className="min-h-screen relative">
         <Routes>
           <Route path="/" element={<HomePage />} />
