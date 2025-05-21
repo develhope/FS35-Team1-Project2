@@ -1,5 +1,7 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import "./index.css";
+
+// Pagine
 import HomePage from "./Pages/HomePage";
 import Form from "./Pages/Form";
 import FormIscriviti from "./Pages/FormIscriviti";
@@ -15,19 +17,30 @@ import AnteprimaGioco1 from "./Pages/AnteprimaGioco1";
 import AnteprimaGioco2 from "./Pages/AnteprimaGioco2";
 import AnteprimaGioco3 from "./Pages/AnteprimaGioco3";
 import AnteprimaGioco4 from "./Pages/AnteprimaGioco4";
+
+// Componenti
 import Sidebar from "./Components/Sidebar";
 import Header from "./Components/Header";
-import GameScreen from "./logica-giochi/logica-gioco-1/GameScreen";
-import HeaderGiochi from "./Components/HeaderGiochi"; 
+import HeaderGiochi from "./Components/HeaderGiochi";
+
+// Giochi
+import Struttura1Gioco from "./Giochi/Gioco1/Struttura1Gioco";
+import Struttura4Gioco from "./Giochi/Gioco4/Struttura4Gioco";
 
 function App() {
-   const location = useLocation();
+  const location = useLocation();
+  const path = location.pathname;
+
+  // 🧠 Controlla se siamo in una pagina gioco
+  const match = path.match(/^\/struttura(\d+)gioco$/);
+  const livello = match ? `Livello ${match[1]}` : null;
+
   return (
     <>
       <div>
-        {location.pathname === "/gamescreen" ? <HeaderGiochi /> : <Header />}
+        {livello ? <HeaderGiochi titolo={livello} /> : <Header />}
       </div>
-      
+
       <main className="min-h-screen relative">
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -46,7 +59,8 @@ function App() {
           <Route path="/anteprimagioco3" element={<AnteprimaGioco3 />} />
           <Route path="/anteprimagioco4" element={<AnteprimaGioco4 />} />
           <Route path="/sidebar" element={<Sidebar />} />
-          <Route path="/gamescreen" element={<GameScreen/>}  />
+          <Route path="/struttura1gioco" element={<Struttura1Gioco />} />
+          <Route path="/struttura4gioco" element={<Struttura4Gioco />} />
         </Routes>
       </main>
     </>
