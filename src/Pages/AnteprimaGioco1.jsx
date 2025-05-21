@@ -28,7 +28,11 @@ const AnteprimaGioco1 = () => {
         }
       />
 
-      <CallToAction route="/gamescreen" text="iniziamo!" showAlways={true} />
+      <CallToAction
+        route="/struttura1gioco"
+        text="iniziamo!"
+        showAlways={true}
+      />
     </>
   );
 };
