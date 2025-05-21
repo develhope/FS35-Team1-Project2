@@ -1,5 +1,7 @@
 const Struttura4Gioco = ()=>{
-    return
+    return(
+        
+    )
 };
 
 export default Struttura4Gioco;

@@ -17,7 +17,6 @@ import AnteprimaGioco3 from "./Pages/AnteprimaGioco3";
 import AnteprimaGioco4 from "./Pages/AnteprimaGioco4";
 import Sidebar from "./Components/Sidebar";
 import Header from "./Components/Header";
-import GameScreen from "./logica-giochi/logica-gioco-1/GameScreen";
 import HeaderGiochi from "./Components/HeaderGiochi"; 
 
 function App() {
