@@ -1,7 +1,8 @@
-import { useState } from 'react';
-import Level from './Level';
-import Astronauts from './Astronauts';
-import { UserContext } from '../../UserContext';
+import { useState } from "react";
+import Level from "./Level";
+import Astronauts from "./Astronauts";
+import { UserContext } from "../../UserContext";
+import "../../game.css";
 
 const levelsData = [
   { number: 1, question: "Quante mele ci sono?", answer: "3" },
@@ -24,7 +25,7 @@ function GameScreen() {
 
   return (
     <>
-    <div className="bg-blue-100 min-h-screen flex flex-col items-center justify-center">
+      {/*  <div className="bg-blue-100 min-h-screen flex flex-col items-center justify-center">
       <Astronauts level={currentLevel} totalLevels={levelsData.length} />
       {currentLevel < levelsData.length ? (
         <Level
@@ -39,22 +40,12 @@ function GameScreen() {
           <p>Gli astronauti si sono incontrati!</p>
         </div>
       )}
-    </div>
+    </div> */}
 
-
-
-<div className="w-screen h-screen">
-
-  <img
-    src="../immagini/Gioco1/sfondo-gioco-1.svg"
-    alt="sfondo"
-    className="w-full h-full object-cover"
-  />
-</div>
-
-
+      <div className="w-screen h-screen overflow-hidden bggame1">
+        
+      </div>
     </>
-
   );
 }
 
