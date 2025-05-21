@@ -18,6 +18,7 @@ import AnteprimaGioco2 from "./Pages/AnteprimaGioco2";
 import AnteprimaGioco3 from "./Pages/AnteprimaGioco3";
 import AnteprimaGioco4 from "./Pages/AnteprimaGioco4";
 
+
 // Componenti
 import Sidebar from "./Components/Sidebar";
 import Header from "./Components/Header";
@@ -26,6 +27,7 @@ import HeaderGiochi from "./Components/HeaderGiochi";
 // Giochi
 import Struttura1Gioco from "./Giochi/Gioco1/Struttura1Gioco";
 import Struttura4Gioco from "./Giochi/Gioco4/Struttura4Gioco";
+import Livello2 from "./Giochi/Gioco4/Livello2";
 
 function App() {
   const location = useLocation();
@@ -61,6 +63,7 @@ function App() {
           <Route path="/sidebar" element={<Sidebar />} />
           <Route path="/struttura1gioco" element={<Struttura1Gioco />} />
           <Route path="/struttura4gioco" element={<Struttura4Gioco />} />
+          <Route path="/livello2" element={<Livello2/>}/>
         </Routes>
       </main>
     </>

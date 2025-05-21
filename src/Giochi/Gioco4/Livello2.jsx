@@ -1,7 +1,8 @@
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Struttura4Gioco = () => {
+const Livello2 = () => {
   const [showError, setShowError] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const navigate = useNavigate();
@@ -44,13 +45,13 @@ const Struttura4Gioco = () => {
             className="w-30 h-auto object-contain transform scale-x-[-1]"
           />
           <div className="bg-gray-300 w-40 h-30 border border-gray-300 rounded text-center m-auto flex items-center justify-center">
-            6 Oggetti
+            11 Oggetti
           </div>
         </div>
 
         <div className="flex items-start gap-15 p-4 m-auto">
           <div className="bg-gray-300 w-40 h-30 border border-gray-300 rounded text-center m-auto flex items-center justify-center">
-            4 Oggetti
+            15 Oggetti
           </div>
           <img
             src="./immagini/Gioco4/amicodinebula_2_4.svg"
@@ -68,7 +69,7 @@ const Struttura4Gioco = () => {
             className="bg-gray-300 w-10 h-10 border border-gray-300 rounded text-center flex items-center justify-center"
             onClick={() => handleClick(4, 6)}
           >
-            4
+            11
           </button>
 
           <div className="w-10 h-10 text-white rounded flex items-center justify-center text-4xl font-medium" style={{ fontFamily: "monospace" }}>
@@ -79,7 +80,7 @@ const Struttura4Gioco = () => {
             className="bg-gray-300 w-10 h-10 border border-gray-300 rounded text-center flex items-center justify-center"
             onClick={() => handleClick(6, 4)}
           >
-            6
+            15
           </button>
         </div>
 
@@ -98,7 +99,7 @@ const Struttura4Gioco = () => {
       <div
         style={{
           position: "relative",
-          fontSize: "400px",       
+          fontSize: "400px",       // stellona più grande
           color: "yellow",
           userSelect: "none",
           lineHeight: 1,
@@ -133,13 +134,11 @@ const Struttura4Gioco = () => {
 
 
     <button
-      className="absolute bottom-3 right-3 bg-orange-600 text-white px-3 py-1 rounded shadow "
+      className="absolute bottom-3 right-3 bg-orange-600 text-white px-3 py-1 rounded shadow"
       onClick={() => navigate("/livello2")}
     >
-     {/* → */} Prossimo livello
+      Prossimo livello
     </button>
-
-    <p className="absolute bottom-3 left-3  text-white">Hai raccolto <span className="text-yellow-300">100</span> punti</p>
   </>
 )}
 
@@ -148,4 +147,5 @@ const Struttura4Gioco = () => {
   );
 };
 
-export default Struttura4Gioco;
+
+export default Livello2;
