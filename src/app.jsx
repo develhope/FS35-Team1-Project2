@@ -18,15 +18,18 @@ import AnteprimaGioco2 from "./Pages/AnteprimaGioco2";
 import AnteprimaGioco3 from "./Pages/AnteprimaGioco3";
 import AnteprimaGioco4 from "./Pages/AnteprimaGioco4";
 
-// Componenti
 import Sidebar from "./Components/Sidebar";
 import Header from "./Components/Header";
 import HeaderGiochi from "./Components/HeaderGiochi";
 
-// Giochi
 import Struttura1Gioco from "./Giochi/Gioco1/Struttura1Gioco";
 import Struttura3Gioco from "./Giochi/Gioco3/Struttura3Gioco";
 import Struttura4Gioco from "./Giochi/Gioco4/Struttura4Gioco";
+import Livello1Gioco1 from "./Giochi/Gioco1/Livello1Gioco1";
+import Livello2Gioco1 from "./Giochi/Gioco1/Livello2Gioco1";
+import Livello3Gioco1 from "./Giochi/Gioco1/Livello3Gioco1";
+import Livello4Gioco1 from "./Giochi/Gioco1/Livello4Gioco1";
+
 import Livello1Gioco4 from "./Giochi/Gioco4/Livello1Gioco4";
 import Livello1Gioco3 from "./Giochi/Gioco3/Livello1Gioco3";
 import Livello2Gioco3 from "./Giochi/Gioco3/Livello2Gioco3";
@@ -40,6 +43,8 @@ import Livello5Gioco4 from "./Giochi/Gioco4/Livello5Gioco4";
 function App() {
   const location = useLocation();
   const path = location.pathname;
+const match = path.match(/^\/(struttura\d+gioco|livello\d+)$/);
+const livello = match ? `Livello ${match[1].match(/\d+/)[0]}` : null;
 
   // 🧠 Determina se mostrare HeaderGiochi e quale titolo usare
   let titolo = null;
@@ -82,6 +87,10 @@ function App() {
           <Route path="/livello2gioco3" element={<Livello2Gioco3 />} />
           <Route path="/livello3gioco3" element={<Livello3Gioco3 />} />
           <Route path="/livello4gioco3" element={<Livello4Gioco3 />} />
+          <Route path="/livello1gioco1" element={<Livello1Gioco1 />} />
+          <Route path="/livello2gioco1" element={<Livello2Gioco1 />} />
+          <Route path="/livello3gioco1" element={<Livello3Gioco1 />} />
+          <Route path="/livello4gioco1" element={<Livello4Gioco1 />} />
           <Route path="/livello2gioco4" element={<Livello2Gioco4 />} />
           <Route path="/livello3gioco4" element={<Livello3Gioco4 />} />
           <Route path="/livello4gioco4" element={<Livello4Gioco4 />} />
