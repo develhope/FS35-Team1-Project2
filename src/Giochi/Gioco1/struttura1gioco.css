@@ -4,3 +4,7 @@
     background-size: cover;
     background-position: center;
 }
+
+.astronauta {
+  transition: left 0.6s ease, top 0.6s ease;
+}
