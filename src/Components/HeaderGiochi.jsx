@@ -3,7 +3,7 @@ const HeaderGiochi = ({ titolo }) => {
     <div className="relative">
       <div className="flex items-center absolute top-8 gap-6 z-[200] m-4 text-white">
         <img
-          src="../immagini/icon/instagram.svg"
+          src="../immagini/icon/sfondo-home.svg"
           alt="instagram"
           className="w-8 invert"
         />

@@ -1,6 +1,13 @@
 .bggame1 {
-    background-image: url("/assets/immagini/sfondo-gioco-1.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+  background-image: url("/assets/immagini/sfondo-gioco-1.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.bggame2 {
+  background-image: url("/assets/immagini/Gioco2/sfondo-gioco-2.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left;
 }
