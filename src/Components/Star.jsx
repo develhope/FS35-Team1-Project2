@@ -1,6 +1,6 @@
 const Star = ()=>{
     return(
-        <div className="absolute top-[80px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+        <div className="absolute bottom-[10px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
       <div
         style={{
           position: "relative",
