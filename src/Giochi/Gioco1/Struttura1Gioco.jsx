@@ -1,6 +1,6 @@
-// Struttura1Gioco.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Star from "../../Components/Star";
 import "./Struttura1gioco.css";
 
 const Struttura1Gioco = ({
@@ -95,65 +95,28 @@ const Struttura1Gioco = ({
 
         {/* RISPOSTA CORRETTA */}
         {isCorretto && (
-  <>
-    <div className="absolute top-[60px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20">
-      <div
-        style={{
-          position: "relative",
-          fontSize: "400px",
-          color: "yellow",
-          userSelect: "none",
-          lineHeight: 1,
-          width: "320px",
-          height: "320px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
-        }}
-      >
-        ★
-        <span
-          style={{
-            position: "absolute",
-            top: "56%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            color: "white",
-            fontWeight: "700",
-            fontSize: "15px",
-            textAlign: "center",
-            width: "80%",
-            userSelect: "none",
-            pointerEvents: "none",
-          }}
-        >
-          {isFinalLevel ? "Livello completato!" : "Risposta\nesatta!"}
-        </span>
-      </div>
-    </div>
+          <>
+            <Star messaggio={isFinalLevel ? "Livello completato!" : "Risposta esatta!"} />
 
-    {/* LIVELLI INTERMEDI */}
-    {!isFinalLevel ? (
-      <>
-        <button
-          className="absolute bottom-[-50px] right-11 bg-orange-600 text-white px-3 py-1 rounded shadow"
-          onClick={() => navigate(prossimoLivelloLink)}
-        >
-          Prossimo livello
-        </button>
-        <p className="absolute bottom-3 left-3 text-black">
-          Hai raccolto <span className="text-yellow-300">50</span> punti
-        </p>
-      </>
-    ) : (
-      // LIVELLO FINALE
-      <p className="absolute bottom-3 left-1/2 transform -translate-x-1/2 text-black  ">
-        Hai totalizzato <span className="text-yellow-300 font-bold">200</span> punti!
-      </p>
-    )}
-  </>
-)}
+            {!isFinalLevel ? (
+              <>
+                <button
+                  className="absolute bottom-[-50px] right-11 bg-orange-600 text-white px-3 py-1 rounded shadow"
+                  onClick={() => navigate(prossimoLivelloLink)}
+                >
+                  Prossimo livello
+                </button>
+                <p className="absolute bottom-3 left-3 text-black">
+                  Hai raccolto <span className="text-yellow-300">50</span> punti
+                </p>
+              </>
+            ) : (
+              <p className="absolute bottom-3 left-1/2 transform -translate-x-1/2 text-black">
+                Hai totalizzato <span className="text-yellow-300 font-bold">200</span> punti!
+              </p>
+            )}
+          </>
+        )}
       </article>
     </div>
   );
