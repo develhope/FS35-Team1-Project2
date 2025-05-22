@@ -24,10 +24,11 @@ import HeaderGiochi from "./Components/HeaderGiochi";
 
 import Struttura1Gioco from "./Giochi/Gioco1/Struttura1Gioco";
 import Struttura4Gioco from "./Giochi/Gioco4/Struttura4Gioco";
-import Livello1 from "./Giochi/Gioco1/Livello1";
-import Livello2 from "./Giochi/Gioco1/Livello2";
-import Livello3 from "./Giochi/Gioco1/Livello3";
-import Livello4 from "./Giochi/Gioco1/Livello4";
+import Livello1Gioco1 from "./Giochi/Gioco1/Livello1Gioco1";
+import Livello2Gioco1 from "./Giochi/Gioco1/Livello2Gioco1";
+import Livello3Gioco1 from "./Giochi/Gioco1/Livello3Gioco1";
+import Livello4Gioco1 from "./Giochi/Gioco1/Livello4Gioco1";
+
 
 function App() {
   const location = useLocation();
@@ -62,10 +63,10 @@ const livello = match ? `Livello ${match[1].match(/\d+/)[0]}` : null;
           <Route path="/sidebar" element={<Sidebar />} />
           <Route path="/struttura1gioco" element={<Struttura1Gioco />} />
           <Route path="/struttura4gioco" element={<Struttura4Gioco />} />
-          <Route path="/livello1" element={<Livello1 />} />
-          <Route path="/livello2" element={<Livello2 />} />
-          <Route path="/livello3" element={<Livello3 />} />
-          <Route path="/livello4" element={<Livello4 />} />
+          <Route path="/livello1gioco1" element={<Livello1Gioco1 />} />
+          <Route path="/livello2gioco1" element={<Livello2Gioco1 />} />
+          <Route path="/livello3gioco1" element={<Livello3Gioco1 />} />
+          <Route path="/livello4gioco1" element={<Livello4Gioco1 />} />
         </Routes>
       </main>
     </>

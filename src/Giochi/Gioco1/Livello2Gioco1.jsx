@@ -1,6 +1,6 @@
 import Struttura1Gioco from "./Struttura1Gioco";
 
-const Livello2 = () => {
+const Livello2Gioco1 = () => {
   return (
     <Struttura1Gioco
       traccia="Quanti pesci ci sono?"
@@ -27,4 +27,4 @@ const Livello2 = () => {
   );
 };
 
-export default Livello2;
+export default Livello2Gioco1;

@@ -1,6 +1,6 @@
 import Struttura1Gioco from "./Struttura1Gioco";
 
-const Livello4 = () => {
+const Livello4Gioco1 = () => {
   return (
     <Struttura1Gioco
       imgs={[
@@ -26,4 +26,4 @@ const Livello4 = () => {
   );
 };
 
-export default Livello4;
+export default Livello4Gioco1;
