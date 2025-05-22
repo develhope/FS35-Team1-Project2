@@ -12,3 +12,8 @@
   background-position: left;
   
 }
+
+
+.astronauta {
+  transition: left 0.6s ease, top 0.6s ease;
+}
