@@ -26,6 +26,7 @@ import HeaderGiochi from "./Components/HeaderGiochi";
 
 // Giochi
 import Struttura1Gioco from "./Giochi/Gioco1/Struttura1Gioco";
+import Struttura3Gioco from "./Giochi/Gioco3/Struttura3Gioco";
 import Struttura4Gioco from "./Giochi/Gioco4/Struttura4Gioco";
 import Livello2 from "./Giochi/Gioco4/Livello2";
 
@@ -64,6 +65,7 @@ function App() {
           <Route path="/struttura1gioco" element={<Struttura1Gioco />} />
           <Route path="/struttura4gioco" element={<Struttura4Gioco />} />
           <Route path="/livello2" element={<Livello2/>}/>
+          <Route path="/struttura3gioco" element={<Struttura3Gioco/>} />
         </Routes>
       </main>
     </>
