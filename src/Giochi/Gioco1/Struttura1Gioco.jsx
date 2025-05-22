@@ -14,7 +14,7 @@ const Struttura1Gioco = ({
   nebula,
   prossimoLivelloLink,
   isFinalLevel = false,
-  posizioneAstronauti = { donna: 60, maschio: 230, },
+  posizioneAstronauti = { donna: 60, maschio: 230 },
 }) => {
   const [risposta, setRisposta] = useState(null);
   const navigate = useNavigate();
@@ -22,27 +22,27 @@ const Struttura1Gioco = ({
   const isCorretto = risposta === rispostaCorretta;
 
   return (
-    <div className="w-screen h-screen overflow-hidden bggame1">
+    <div className="w-screen h-screen overflow-hidden bggame1 relative">
       {/* astronauti */}
       <div className="relative w-auto gap-30 mt-22 flex">
         <img
-  src="../immagini/Gioco1/astronautagioco1donna.svg"
-  alt="astronauta donna"
-  className="absolute w-24 astronauta"
-  style={{
-    left: `${posizioneAstronauti.donna.left}px`,
-    top: `${posizioneAstronauti.donna.top}px`,
-  }}
-/>
-<img
-  src="../immagini/Gioco1/astronautagioco1maschio.svg"
-  alt="astronauta maschio"
-  className="absolute w-24 astronauta"
-  style={{
-    left: `${posizioneAstronauti.maschio.left}px`,
-    top: `${posizioneAstronauti.maschio.top}px`,
-  }}
-/>
+          src="../immagini/Gioco1/astronautagioco1donna.svg"
+          alt="astronauta donna"
+          className="absolute w-24 astronauta"
+          style={{
+            left: `${posizioneAstronauti.donna.left}px`,
+            top: `${posizioneAstronauti.donna.top}px`,
+          }}
+        />
+        <img
+          src="../immagini/Gioco1/astronautagioco1maschio.svg"
+          alt="astronauta maschio"
+          className="absolute w-24 astronauta"
+          style={{
+            left: `${posizioneAstronauti.maschio.left}px`,
+            top: `${posizioneAstronauti.maschio.top}px`,
+          }}
+        />
       </div>
 
       {/* contenuto */}
@@ -95,30 +95,65 @@ const Struttura1Gioco = ({
 
         {/* RISPOSTA CORRETTA */}
         {isCorretto && (
-          <div className="absolute top-[30%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-            <div className="p-2 mt-22 relative w-60 h-60 bg-yellow-400 rounded-full shadow-xl flex flex-col items-center justify-center text-white">
-              <svg className="w-16 h-16 mb-2" fill="white" viewBox="0 0 24 24">
-                <path d="M12 2l2.4 6.9H22l-5.6 4.2 2.4 6.9L12 16.2 5.2 20l2.4-6.9L2 8.9h7.6z" />
-              </svg>
-              <p className="text-lg font-bold text-white">Livello completato!</p>
-              {!isFinalLevel ? (
-                <>
-                  <button
-                    onClick={() => navigate(prossimoLivelloLink)}
-                    className="mt-3 px-4 py-1 bg-white text-yellow-600 rounded-full shadow-md font-semibold text-sm"
-                  >
-                    Prossimo livello
-                  </button>
-                  <p className="text-sm mt-2">Hai raccolto 50 punti</p>
-                </>
-              ) : (
-                <p className="text-sm mt-3 px-3 text-center">
-                  Hai totalizzato <strong>200 punti!</strong>
-                </p>
-              )}
-            </div>
-          </div>
-        )}
+  <>
+    <div className="absolute top-[60px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-20">
+      <div
+        style={{
+          position: "relative",
+          fontSize: "400px",
+          color: "yellow",
+          userSelect: "none",
+          lineHeight: 1,
+          width: "320px",
+          height: "320px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
+        }}
+      >
+        ★
+        <span
+          style={{
+            position: "absolute",
+            top: "56%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            color: "white",
+            fontWeight: "700",
+            fontSize: "15px",
+            textAlign: "center",
+            width: "80%",
+            userSelect: "none",
+            pointerEvents: "none",
+          }}
+        >
+          {isFinalLevel ? "Livello completato!" : "Risposta\nesatta!"}
+        </span>
+      </div>
+    </div>
+
+    {/* LIVELLI INTERMEDI */}
+    {!isFinalLevel ? (
+      <>
+        <button
+          className="absolute bottom-[-50px] right-11 bg-orange-600 text-white px-3 py-1 rounded shadow"
+          onClick={() => navigate(prossimoLivelloLink)}
+        >
+          Prossimo livello
+        </button>
+        <p className="absolute bottom-3 left-3 text-black">
+          Hai raccolto <span className="text-yellow-300">50</span> punti
+        </p>
+      </>
+    ) : (
+      // LIVELLO FINALE
+      <p className="absolute bottom-3 left-1/2 transform -translate-x-1/2 text-black  ">
+        Hai totalizzato <span className="text-yellow-300 font-bold">200</span> punti!
+      </p>
+    )}
+  </>
+)}
       </article>
     </div>
   );
