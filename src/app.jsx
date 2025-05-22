@@ -18,7 +18,6 @@ import AnteprimaGioco2 from "./Pages/AnteprimaGioco2";
 import AnteprimaGioco3 from "./Pages/AnteprimaGioco3";
 import AnteprimaGioco4 from "./Pages/AnteprimaGioco4";
 
-
 // Componenti
 import Sidebar from "./Components/Sidebar";
 import Header from "./Components/Header";
@@ -28,21 +27,30 @@ import HeaderGiochi from "./Components/HeaderGiochi";
 import Struttura1Gioco from "./Giochi/Gioco1/Struttura1Gioco";
 import Struttura3Gioco from "./Giochi/Gioco3/Struttura3Gioco";
 import Struttura4Gioco from "./Giochi/Gioco4/Struttura4Gioco";
-import Livello2 from "./Giochi/Gioco4/Livello2";
+import Livello2Gioco4 from "./Giochi/Gioco4/Livello2Gioco4";
+import Livello1Gioco3 from "./Giochi/Gioco3/Livello1Gioco3";
+import Livello2Gioco3 from "./Giochi/Gioco3/Livello2Gioco3";
+import Livello3Gioco3 from "./Giochi/Gioco3/Livello3Gioco3";
+import Livello4Gioco3 from "./Giochi/Gioco3/Livello4Gioco3";
 
 function App() {
   const location = useLocation();
   const path = location.pathname;
 
-  // 🧠 Controlla se siamo in una pagina gioco
-  const match = path.match(/^\/struttura(\d+)gioco$/);
-  const livello = match ? `Livello ${match[1]}` : null;
+  // 🧠 Determina se mostrare HeaderGiochi e quale titolo usare
+  let titolo = null;
+
+  if (path.includes("struttura")) {
+    const match = path.match(/struttura(\d+)gioco/);
+    if (match) titolo = `Livello ${match[1]}`;
+  } else if (path.includes("livello")) {
+    const match = path.match(/livello(\d+)gioco(\d+)/);
+    if (match) titolo = `Livello ${match[1]}`;
+  }
 
   return (
     <>
-      <div>
-        {livello ? <HeaderGiochi titolo={livello} /> : <Header />}
-      </div>
+      <div>{titolo ? <HeaderGiochi titolo={titolo} /> : <Header />}</div>
 
       <main className="min-h-screen relative">
         <Routes>
@@ -63,9 +71,13 @@ function App() {
           <Route path="/anteprimagioco4" element={<AnteprimaGioco4 />} />
           <Route path="/sidebar" element={<Sidebar />} />
           <Route path="/struttura1gioco" element={<Struttura1Gioco />} />
+          <Route path="/struttura3gioco" element={<Struttura3Gioco />} />
           <Route path="/struttura4gioco" element={<Struttura4Gioco />} />
-          <Route path="/livello2" element={<Livello2/>}/>
-          <Route path="/struttura3gioco" element={<Struttura3Gioco/>} />
+          <Route path="/livello2gioco4" element={<Livello2Gioco4 />} />
+          <Route path="/livello1gioco3" element={<Livello1Gioco3 />} />
+          <Route path="/livello2gioco3" element={<Livello2Gioco3 />} />
+          <Route path="/livello3gioco3" element={<Livello3Gioco3 />} />
+          <Route path="/livello4gioco3" element={<Livello4Gioco3 />} />
         </Routes>
       </main>
     </>
