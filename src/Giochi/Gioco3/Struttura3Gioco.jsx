@@ -6,11 +6,11 @@ const Struttura3Gioco = ({
   istruzioniTesto,
   risposteCorrette,
   livelloSuccessivoPath,
-  blocchiGioco, // L'array dei blocchi già ordinati e con i colori
-  gridCols,      // NUOVA PROP: es. 'grid-cols-2', 'grid-cols-3'
-  gapX,          // NUOVA PROP: es. 'gap-x-0', 'gap-x-6'
-  gapY,          // NUOVA PROP: es. 'gap-y-4', 'gap-y-6'
-  gridWidth,     // NUOVA PROP: es. 'w-[160px]', 'w-[250px]'
+  blocchiGioco,
+  gridCols,
+  gapX,
+  gapY,
+  gridWidth,
 }) => {
   const navigate = useNavigate();
   const [associazioni, setAssociazioni] = useState({});
@@ -73,16 +73,13 @@ const Struttura3Gioco = ({
         position: "relative",
       }}
     >
-      {/* Cornice centrale con bordo giallo + contenuto */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <div className="border-4 border-yellow-400 bg-white rounded-xl p-4 w-[340px] h-[490px] text-center shadow-xl relative pb-32">
-          {/* Testo */}
           <h1 className="text-lg pt-4 pl-1 font-bold text-black mb-2">
             {titoloLivello}
           </h1>
           <p className="text-sm text-gray-600 mb-4">{istruzioniTesto}</p>
 
-          {/* Blocchi - Ora usiamo le props per la griglia */}
           <div className={`grid ${gridCols} ${gapY} ${gapX} justify-items-center mx-auto ${gridWidth}`}>
             {blocchiGioco.map((blocco, index) => (
               <div
@@ -93,28 +90,46 @@ const Struttura3Gioco = ({
                 onDrop={() => handleDrop(dragData, blocco.valore)}
                 className={`rounded p-2 cursor-grab text-center flex items-center justify-center w-20 h-20 shadow-lg ${getBackgroundColorClass(blocco.colore)} ${
                   blocco.tipo === 'numero'
-                    ? "text-6xl font-medium"
-                    : "font-bold"
+                    ? "text-5xl font-extralight"
+                    : ""
                 }`}
               >
-                {blocco.valore}
+                {blocco.immagineSrc ? (
+                  <img
+                    src={blocco.immagineSrc}
+                    alt={blocco.valore}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                ) : (
+                  <span className={blocco.tipo === 'frutto' ? "font-bold" : ""}>
+                    {blocco.valore}
+                  </span>
+                )}
               </div>
             ))}
           </div>
-
-          {/* CODICE DELLA SCIMMIA LASCIATO INALTERATO */}
-          <img
-            src="./immagini/Gioco3/scimmia_gioco_3.svg"
-            alt="Scimmia"
-            className="w-35 absolute bottom-0 left-45"
-          />
         </div>
       </div>
 
-      {/* Risposta esatta */}
+      {/* NUOVA LOGICA QUI: Mostra una sola scimmia basata su rispostaEsatta */}
+      {!rispostaEsatta ? (
+        // Mostra la scimmietta normale se la risposta non è ancora esatta
+        <img
+          src="./immagini/Gioco3/scimmia_gioco_3.svg"
+          alt="Scimmia"
+          className="w-35 absolute bottom-10 right-3"
+        />
+      ) : (
+        // Mostra la scimmietta esultante se la risposta è esatta
+        <img
+          src="./immagini/Gioco3/scimmietta_felice_3.svg"
+          alt="Scimmia Esultante"
+          className="w-50 absolute bottom-10 right-3" // Manteniamo la stessa posizione fixed per il cambio effetto
+        />
+      )}
+
       {rispostaEsatta && (
         <>
-          {/* Stella gialla */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
             <div
               style={{
@@ -151,13 +166,9 @@ const Struttura3Gioco = ({
               </span>
             </div>
           </div>
-
-          {/* Punteggio */}
           <p className="absolute bottom-3 left-3 text-white">
             Hai raccolto <span className="text-yellow-300">100</span> punti
           </p>
-
-          {/* Bottone livello successivo */}
           <button
             className="absolute bottom-3 right-3 bg-orange-600 text-white px-3 py-1 rounded shadow"
             onClick={() => navigate(livelloSuccessivoPath)}

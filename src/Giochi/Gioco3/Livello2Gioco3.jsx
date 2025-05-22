@@ -5,12 +5,12 @@ import Struttura3Gioco from "./Struttura3Gioco"; // Assicurati che il percorso s
 const Livello2Gioco3 = () => {
   // 1. Definisci l'array dei blocchi per il Livello 2, con l'ordine e i colori desiderati
   const blocchiPerLivello2 = [
-    { tipo: 'numero', valore: "2", colore: 'pink' },       // Riga 1, Colonna 1
-    { tipo: 'frutto', valore: "tre banane", colore: 'lilac' },      // Riga 1, Colonna 2
-    { tipo: 'frutto', valore: "una pera", colore: 'pink' },         // Riga 1, Colonna 3
-    { tipo: 'numero', valore: "3", colore: 'yellow' },     // Riga 2, Colonna 1
-    { tipo: 'frutto', valore: "due mele", colore: 'blue' },       // Riga 2, Colonna 2
-    { tipo: 'numero', valore: "1", colore: 'yellow' },     // Riga 2, Colonna 3
+    { tipo: 'numero', valore: "2", colore: 'pink' },       
+    { tipo: 'frutto', valore: "tre banane", colore: 'lilac', immagineSrc:"/immagini/Gioco3/Banane.svg" },
+    { tipo: 'frutto', valore: "una pera", colore: 'pink', immagineSrc: "/immagini/Gioco3/Pera.svg"},   
+    { tipo: 'numero', valore: "3", colore: 'yellow' },     
+    { tipo: 'frutto', valore: "due mele", colore: 'blue', immagineSrc:"/immagini/Gioco3/Apple.svg" },   
+    { tipo: 'numero', valore: "1", colore: 'yellow' },     
   ];
 
   // 2. Definisci le associazioni corrette per il Livello 2
@@ -21,18 +21,14 @@ const Livello2Gioco3 = () => {
     "3": "tre banane",
   };
 
-  // 3. Configurazione della griglia per 3 colonne
-  // I blocchi sono w-20 (80px). Con 3 colonne, servono 2 gap.
-  // Assumendo gap-x-6 (24px) come nella foto (sembra più spazioso del Livello 1)
-  // Larghezza totale = (3 * 80px) + (2 * 24px) = 240px + 48px = 288px
   const gridCalcWidth = 'w-[288px]';
 
   return (
     <Struttura3Gioco
-      titoloLivello="Livello 2" // Titolo dalla foto
+      titoloLivello="Unisci i frutti con la quantità numerica giusta!"
       istruzioniTesto="Trascina il numero giusto sull’immagine giusta o viceversa."
       risposteCorrette={risposteCorretteLivello2}
-      livelloSuccessivoPath="/livello3" // Imposta il percorso al prossimo livello
+      livelloSuccessivoPath="/livello3gioco3" // Imposta il percorso al prossimo livello
       blocchiGioco={blocchiPerLivello2}
       // NUOVE PROPS PER LA GRIGLIA (3 colonne e gap-x-6)
       gridCols="grid-cols-3" // Ora 3 colonne
