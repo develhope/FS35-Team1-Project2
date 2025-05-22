@@ -18,11 +18,11 @@ const Livello2Gioco1 = () => {
       opz3="6"
       rispostaCorretta="6"
       nebula="../../immagini/Gioco1/nebula giochi.png"
-      prossimoLivelloLink="/livello3"
-       posizioneAstronauti={{
-  donna: { left: 70, top: 60 },
-  maschio: { left: 210, top: 20 },
-}}
+      prossimoLivelloLink="/livello3gioco1"
+      posizioneAstronauti={{
+        donna: { left: 70, top: 60 },
+        maschio: { left: 210, top: 20 },
+      }}
     />
   );
 };

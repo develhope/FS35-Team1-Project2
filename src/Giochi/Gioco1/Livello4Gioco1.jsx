@@ -16,12 +16,10 @@ const Livello4Gioco1 = () => {
       rispostaCorretta="8"
       nebula="../../immagini/Gioco1/nebula giochi.png"
       isFinalLevel={true}
-    posizioneAstronauti={{
-  donna: { left: 100, top: 60 },
-  maschio: { left: 193, top: 46 },
-}}
-
-
+      posizioneAstronauti={{
+        donna: { left: 100, top: 60 },
+        maschio: { left: 193, top: 46 },
+      }}
     />
   );
 };
