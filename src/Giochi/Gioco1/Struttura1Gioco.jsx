@@ -23,7 +23,7 @@ const Struttura1Gioco = ({
 
   return (
     <div className="w-screen h-screen overflow-hidden bggame1 relative">
-      {/* astronauti */}
+      {/* Astronauti */}
       <div className="relative w-auto gap-30 mt-22 flex">
         <img
           src="../immagini/Gioco1/astronautagioco1donna.svg"
@@ -45,7 +45,7 @@ const Struttura1Gioco = ({
         />
       </div>
 
-      {/* contenuto */}
+      {/* Contenuto */}
       <article className="relative text-center mt-50 h-80 w-64 mx-auto border-6 border-yellow-400 bg-white p-6 rounded-xl shadow-md">
         <h4 className="text-15px mb-2">{traccia}</h4>
         <h5 className="text-[12px] mb-2">{sottotraccia}</h5>
@@ -88,16 +88,17 @@ const Struttura1Gioco = ({
           />
         </div>
 
-        {/* ERRORE */}
+        {/* Risposta errata */}
         {risposta && !isCorretto && (
-          <p className="text-red-500 mt-4">Risposta errata</p>
+          <div className="absolute bottom-3 text-[13px] left-[6px] bg-red-600 text-white px-1 py-1 rounded shadow">
+            Risposta errata. Ritenta!
+          </div>
         )}
 
-        {/* RISPOSTA CORRETTA */}
+        {/* Risposta corretta */}
         {isCorretto && (
           <>
-            <Star messaggio={isFinalLevel ? "Livello completato!" : "Risposta esatta!"} />
-
+            <Star />
             {!isFinalLevel ? (
               <>
                 <button
@@ -112,7 +113,8 @@ const Struttura1Gioco = ({
               </>
             ) : (
               <p className="absolute bottom-3 left-1/2 transform -translate-x-1/2 text-black">
-                Hai totalizzato <span className="text-yellow-300 font-bold">200</span> punti!
+                Hai totalizzato{" "}
+                <span className="text-yellow-300 font-bold">200</span> punti!
               </p>
             )}
           </>
