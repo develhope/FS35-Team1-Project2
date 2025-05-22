@@ -27,11 +27,15 @@ import HeaderGiochi from "./Components/HeaderGiochi";
 import Struttura1Gioco from "./Giochi/Gioco1/Struttura1Gioco";
 import Struttura3Gioco from "./Giochi/Gioco3/Struttura3Gioco";
 import Struttura4Gioco from "./Giochi/Gioco4/Struttura4Gioco";
-import Livello2Gioco4 from "./Giochi/Gioco4/Livello2Gioco4";
+import Livello1Gioco4 from "./Giochi/Gioco4/Livello1Gioco4";
 import Livello1Gioco3 from "./Giochi/Gioco3/Livello1Gioco3";
 import Livello2Gioco3 from "./Giochi/Gioco3/Livello2Gioco3";
 import Livello3Gioco3 from "./Giochi/Gioco3/Livello3Gioco3";
 import Livello4Gioco3 from "./Giochi/Gioco3/Livello4Gioco3";
+import Livello2Gioco4 from "./Giochi/Gioco4/Livello2Gioco4";
+import Livello3Gioco4 from "./Giochi/Gioco4/Livello3Gioco4";
+import Livello4Gioco4 from "./Giochi/Gioco4/Livello4Gioco4";
+import Livello5Gioco4 from "./Giochi/Gioco4/Livello5Gioco4";
 
 function App() {
   const location = useLocation();
@@ -73,11 +77,15 @@ function App() {
           <Route path="/struttura1gioco" element={<Struttura1Gioco />} />
           <Route path="/struttura3gioco" element={<Struttura3Gioco />} />
           <Route path="/struttura4gioco" element={<Struttura4Gioco />} />
-          <Route path="/livello2gioco4" element={<Livello2Gioco4 />} />
+          <Route path="/livello1gioco4" element={<Livello1Gioco4 />} />
           <Route path="/livello1gioco3" element={<Livello1Gioco3 />} />
           <Route path="/livello2gioco3" element={<Livello2Gioco3 />} />
           <Route path="/livello3gioco3" element={<Livello3Gioco3 />} />
           <Route path="/livello4gioco3" element={<Livello4Gioco3 />} />
+          <Route path="/livello2gioco4" element={<Livello2Gioco4 />} />
+          <Route path="/livello3gioco4" element={<Livello3Gioco4 />} />
+          <Route path="/livello4gioco4" element={<Livello4Gioco4 />} />
+          <Route path="/livello5gioco4" element={<Livello5Gioco4 />} />
         </Routes>
       </main>
     </>
