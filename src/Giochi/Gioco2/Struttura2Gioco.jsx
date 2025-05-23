@@ -120,11 +120,13 @@ function GameStructure() {
             </div>
           </div>
         )}
+        
         {showFeedback && isLevelCorrect === false && (
-          <p className="pl-2 text-l md:text-2xl font-bold text-red-500 mt-4 animate-pulse">
-            Risposta errata! Riprova!
+          <p className="text-l md:text-2xl font-bold text-red-500 mt-4 animate-pulse">
+            Risposta errata! 
           </p>
         )}
+        
         {/* Bottoni "Avanti" o "Riprova" con padding ripristinato */}
         <div className="mt-4 flex gap-4">
           {showNextLevelButton && (

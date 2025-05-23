@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import GameStructure from "./Struttura2Gioco"
 
 const levelConfig = {
   level: 1,
