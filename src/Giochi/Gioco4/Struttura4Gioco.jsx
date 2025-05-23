@@ -2,20 +2,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Star from "../../Components/Star";
 
-const Struttura4Gioco = () => {
+const Struttura4Gioco = (props) => {
   const [showError, setShowError] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const navigate = useNavigate();
 
-  const handleClick = (first, second) => {
-    if (first > second) {
-      setShowError(false);
-      setShowSuccess(true);
-    } else {
-      setShowError(true);
-      setShowSuccess(false);
-    }
-  };
+
 
   return (
     <>
@@ -45,13 +37,13 @@ const Struttura4Gioco = () => {
             className="w-30 h-auto object-contain transform scale-x-[-1]"
           />
           <div className="bg-gray-300 w-40 h-30 border border-gray-300 rounded text-center m-auto flex items-center justify-center">
-            6 Oggetti
+             {props.domanda1}
           </div>
         </div>
 
         <div className="flex items-start gap-15 p-4 m-auto">
           <div className="bg-gray-300 w-40 h-30 border border-gray-300 rounded text-center m-auto flex items-center justify-center">
-            4 Oggetti
+            {props.domanda2}
           </div>
           <img
             src="./immagini/Gioco4/amicodinebula_2_4.svg"
@@ -61,27 +53,37 @@ const Struttura4Gioco = () => {
         </div>
 
         <p className="m-auto justify-center text-white text-center">
-          E' Maggiore
+          {props.condizione}
         </p>
 
         <div className="flex items-center justify-center gap-2 mt-1">
-          <button
-            className="bg-gray-300 w-10 h-10 border border-gray-300 rounded text-center flex items-center justify-center"
-            onClick={() => handleClick(4, 6)}
-          >
-            4
-          </button>
+
+      <button
+  className="bg-gray-300 w-10 h-10 border border-gray-300 rounded text-center flex items-center justify-center"
+  onClick={() =>
+    props.valore1 === props.rispostaCorretta
+      ? (setShowSuccess(true), setShowError(false))
+      : (setShowError(true), setShowSuccess(false))
+  }
+>
+  {props.valore1}
+</button>
 
           <div className="w-10 h-10 text-white rounded flex items-center justify-center text-4xl font-medium" style={{ fontFamily: "monospace" }}>
-            &gt;
+          {props.comparazione}
           </div>
 
-          <button
-            className="bg-gray-300 w-10 h-10 border border-gray-300 rounded text-center flex items-center justify-center"
-            onClick={() => handleClick(6, 4)}
-          >
-            6
-          </button>
+       <button
+  className="bg-gray-300 w-10 h-10 border border-gray-300 rounded text-center flex items-center justify-center"
+  onClick={() =>
+    props.valore2 === props.rispostaCorretta
+      ? (setShowSuccess(true), setShowError(false))
+      : (setShowError(true), setShowSuccess(false))
+  }
+>
+  {props.valore2}
+</button>
+
         </div>
 
         
@@ -98,7 +100,7 @@ const Struttura4Gioco = () => {
 
     <button
       className="absolute bottom-3 right-3 bg-orange-600 text-white px-3 py-1 rounded shadow "
-      onClick={() => navigate("/livello2")}
+       onClick={() => navigate(props.destinazione)}
     >
      {/* → */} Prossimo livello
     </button>

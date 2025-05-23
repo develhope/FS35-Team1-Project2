@@ -1,25 +1,37 @@
+// src/components/Livello3Gioco3.jsx
+import React from "react";
 import Struttura3Gioco from "./Struttura3Gioco";
 
 const Livello3Gioco3 = () => {
+  const blocchiPerLivello3 = [
+    { tipo: 'numero', valore: "due dita", colore: 'yellow', immagineSrc: "/immagini/Gioco3/mano_2.svg" },
+    { tipo: 'frutto', valore: "tre banane", colore: 'blue', immagineSrc: "/immagini/Gioco3/Banane.svg" },
+    { tipo: 'frutto', valore: "cinque pere", colore: 'blue', immagineSrc: "/immagini/Gioco3/cinque_pere.svg" },
+    { tipo: 'numero', valore: "tre dita", colore: 'yellow', immagineSrc: "/immagini/Gioco3/mano_3.svg" },
+    { tipo: 'frutto', valore: "due mele", colore: 'blue', immagineSrc: "/immagini/Gioco3/Apple.svg" },
+    { tipo: 'numero', valore: "cinque dita", colore: 'yellow', immagineSrc: "/immagini/Gioco3/mano_5.svg" },
+  ];
+
+  // Le tue associazioni corrette sono già qui!
+  const risposteCorretteLivello3 = {
+    "due dita": "due mele",
+    "tre dita": "tre banane",
+    "cinque dita": "cinque pere",
+  };
+
+  const gridCalcWidth = 'w-[280px]';
+
   return (
     <Struttura3Gioco
-      traccia="Quante mele ci sono?"
-      sottotraccia="Aiutati contando con le dita"
-    //   imgs={[
-    //     "https://i.etsystatic.com/15835007/r/il/ffcf81/3319408935/il_570xN.3319408935_5a1a.jpg",
-    //     "https://i.etsystatic.com/15835007/r/il/ffcf81/3319408935/il_570xN.3319408935_5a1a.jpg",
-    //     "https://i.etsystatic.com/15835007/r/il/ffcf81/3319408935/il_570xN.3319408935_5a1a.jpg"
-    //   ]}
-      opz1="4"
-      opz2="5"
-      opz3="3"
-      rispostaCorretta="3"
-      nebula="../../immagini/Gioco1/nebula giochi.png"
-      prossimoLivelloLink="/livello2"
-     posizioneAstronauti={{
-  donna: { left: 60, top: 60 },
-  maschio: { left: 230, top: 20 },
-}}
+      titoloLivello="Conta quante dita ci sono nella mano e unisci i frutti con la quantità giusta!"
+      istruzioniTesto="Trascina il numero giusto sull’immagine giusta o viceversa."
+      risposteCorrette={risposteCorretteLivello3} // Questo viene passato alla Struttura3Gioco
+      livelloSuccessivoPath="/livello4gioco3"
+      blocchiGioco={blocchiPerLivello3}
+      gridCols="grid-cols-3"
+      gapX="gap-x-5"
+      gapY="gap-y-6"
+      gridWidth={gridCalcWidth}
     />
   );
 };
