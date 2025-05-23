@@ -8,8 +8,8 @@ const Livello4Gioco1 = () => {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4UwlMaJ43rCKg-W-C_3j-66UCbMOweWgtew&s",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYJqYHuAHNUgmnOaOL2X4X40LlVaep9ezG3A&s"
       ]}
-      traccia="Quante fragole ci sono?"
-      sottotraccia="Conta bene!"
+      traccia=""
+      sottotraccia="Conta le fragole e poi le banane ed in fine dimmi la somma di questi due frutti"
       opz1="2"
       opz2="8"
       opz3="4"
