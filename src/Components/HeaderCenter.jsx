@@ -48,6 +48,7 @@ const HeaderCenter = () => {
         </p>
       );
       break;
+      
     case "/gamepage-3":
       centerContent = (
         <p className={commonClassname}>
@@ -69,6 +70,7 @@ const HeaderCenter = () => {
         </p>
       );
       break;
+      
     case "/anteprimagioco2":
       centerContent = (
         <p className={commonClassname}>

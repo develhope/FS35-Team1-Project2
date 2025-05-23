@@ -1,10 +1,14 @@
 import { useNavigate } from "react-router-dom";
+import HeaderFineLivelli from "./HeaderFineLivelli";
+
+
 
 const StrutturaVittoria = ({ sfondo, immagine1, immagine2, frase, punti }) => {
 const navigate = useNavigate();
 
   return (
     <>
+     
       <div
         style={{
           backgroundImage: `url('${sfondo}')`,
@@ -15,7 +19,12 @@ const navigate = useNavigate();
           width: "100%",
           position: "relative",
         }}
-      >
+      >  
+   <HeaderFineLivelli />
+     
+     
+
+
         <div className="absolute inset-0 flex justify-center items-center">
           <div className="flex flex-col items-center text-center">
             <div className="flex gap-3 mt-20">

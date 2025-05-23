@@ -40,6 +40,7 @@ import Livello3Gioco4 from "./Giochi/Gioco4/Livello3Gioco4";
 import Livello4Gioco4 from "./Giochi/Gioco4/Livello4Gioco4";
 import Livello5Gioco4 from "./Giochi/Gioco4/Livello5Gioco4";
 
+
 function App() {
   const location = useLocation();
   const path = location.pathname;
@@ -59,7 +60,11 @@ const livello = match ? `Livello ${match[1].match(/\d+/)[0]}` : null;
 
   return (
     <>
-      <div>{titolo ? <HeaderGiochi titolo={titolo} /> : <Header />}</div>
+     {/* Nasconde l'header SOLO su /livello5gioco4 */}
+{path !== "/livello5gioco4" && (
+  <div>{titolo ? <HeaderGiochi titolo={titolo} /> : <Header />}</div>
+)}
+
 
       <main className="min-h-screen relative">
         <Routes>
