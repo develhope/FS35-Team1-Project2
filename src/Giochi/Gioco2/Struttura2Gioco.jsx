@@ -1,24 +1,25 @@
-// src/GameStructure.jsx
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { GAME_LEVELS } from "./levelsConfig";
+import Star from "../../Components/Star";
 
 function GameStructure() {
-  // Stato del gioco
+  
   const [currentLevelIndex, setCurrentLevelIndex] = useState(0); // 0 = Livello 1
   const [planetsData, setPlanetsData] = useState([]); // Dati di tutti i pianeti nel livello
   const [selectedOrder, setSelectedOrder] = useState([]); // Per i livelli di ordinamento (Livello 1,2,3)
   const [feedbackMessage, setFeedbackMessage] = useState("");
   const [isCorrect, setIsCorrect] = useState(null); // null (nessun controllo), true (corretto), false (errato)
   const [score, setScore] = useState(0);
+  const [resetFlag, setResetFlag] = useState(false);
 
   // Stato specifico per la gestione dell'input nei livelli di associazione (Livello 4,5)
   const [activePlanetForInput, setActivePlanetForInput] = useState(null); // ID del pianeta su cui si sta inserendo il numero
   const [numberInput, setNumberInput] = useState(""); // Valore temporaneo dell'input numerico
 
-  // Ottiene la configurazione del livello corrente
+  // serve per la configurazione del livello corrente
   const currentLevelConfig = GAME_LEVELS[currentLevelIndex];
 
-  // Effetto per inizializzare o resettare il livello quando currentLevelIndex cambia
+  //inizializza o resetta il livello quando currentLevelIndex cambia
   useEffect(() => {
     if (!currentLevelConfig) {
       setFeedbackMessage("Congratulazioni! Hai completato tutti i livelli!");
@@ -26,66 +27,69 @@ function GameStructure() {
       return;
     }
 
-    // Resetta tutti gli stati specifici del livello
+    //resetta tutti gli stati specifici del livello
     setSelectedOrder([]);
     setIsCorrect(null);
     setFeedbackMessage(currentLevelConfig.instructions);
-    setActivePlanetForInput(null); // Assicurati che l'input non sia attivo all'inizio del livello
-    setNumberInput(""); // Pulisci l'input temporaneo
+    setActivePlanetForInput(null); 
+    setNumberInput("");
 
-    // Inizializza i dati dei pianeti per il livello corrente.
-    // Aggiungiamo 'isSelected' e 'userInput' (per i pianeti vuoti) a ogni oggetto pianeta.
+    //inserisco 'isSelected' e 'userInput' (per i pianeti vuoti) a ogni oggetto pianeta.
     const initialPlanets = currentLevelConfig.planets.map((p) => ({
       ...p,
-      isSelected: false, // Per i livelli di ordinamento, indica se è stato cliccato
-      userInput: p.value !== null ? String(p.value) : "", // userInput sarà una stringa per l'input HTML. Prepopola con value se non è null.
+      isSelected: false, // indica se sono stati cliccati
+      userInput: p.value !== null ? String(p.value) : "", //userInput sarà una stringa per l'input HTML
     }));
     setPlanetsData(initialPlanets);
-  }, [currentLevelIndex, currentLevelConfig]); // Si riesegue quando l'indice del livello o la configurazione cambiano
+  }, [currentLevelIndex, currentLevelConfig, resetFlag]); //si riesegue quando l'indice del livello o la configurazione cambiano
 
   // Gestore del click su un pianeta
   const handlePlanetClick = (clickedPlanetId) => {
-    if (!currentLevelConfig) return; // Non fare nulla se il gioco è finito
+    if (!currentLevelConfig) return; //gli diciamo di non fare nulla se il gioco è finito
 
     if (
       currentLevelConfig.gameMode === "smallToBig" ||
       currentLevelConfig.gameMode === "bigToSmall"
     ) {
-      // Logica per i livelli di ordinamento (Livello 1, 2, 3)
+      //logica per i livelli di ordinamento (Livello 1, 2, 3)
       setPlanetsData((prevPlanets) => {
         const clickedPlanet = prevPlanets.find((p) => p.id === clickedPlanetId);
 
-        // Se il pianeta esiste e non è già stato selezionato
+        //se il pianeta esiste e non è già stato selezionato
         if (clickedPlanet && !clickedPlanet.isSelected) {
           const updatedPlanets = prevPlanets.map((p) =>
             p.id === clickedPlanetId
-              ? { ...p, isSelected: true } // Marca il pianeta come selezionato
+              ? { ...p, isSelected: true } // allora devi marcare il pianeta come selezionato
               : p
           );
-          const newSelectedOrder = [...selectedOrder, clickedPlanetId]; // Aggiungi all'ordine di selezione
+          const newSelectedOrder = [...selectedOrder, clickedPlanetId]; //aggiungono all'ordine di selezione
           setSelectedOrder(newSelectedOrder);
 
-          // Se tutti i pianeti sono stati selezionati, controlla la risposta automaticamente
+          //se tutti i pianeti sono stati selezionati, controlla la risposta automaticamente
           if (newSelectedOrder.length === updatedPlanets.length) {
             checkAnswer(newSelectedOrder);
           }
-          return updatedPlanets; // Aggiorna lo stato dei pianeti
+          return updatedPlanets; //aggiorna lo stato dei pianeti
         }
-        return prevPlanets; // Nessun cambiamento se già selezionato o non trovato
+        return prevPlanets; //non deve dare nessun cambiamento se già selezionato o non trovato il pianeta
       });
+      //qui gestisco l'ombra nei pianeti nel momento in cui vengono selezionati
     } else if (currentLevelConfig.gameMode.startsWith("associate")) {
-      // Logica per i livelli di associazione (Livello 4, 5)
-      const clickedPlanet = planetsData.find((p) => p.id === clickedPlanetId);
+      setPlanetsData((prevPlanets) =>
+        prevPlanets.map((p) =>
+          p.id === clickedPlanetId ? { ...p, isSelected: true } : p
+        )
+      );
 
-      // Se il pianeta esiste ed è uno di quelli "vuoti" (value === null)
+      const clickedPlanet = planetsData.find((p) => p.id === clickedPlanetId);
       if (clickedPlanet && clickedPlanet.value === null) {
-        setActivePlanetForInput(clickedPlanetId); // Imposta quale pianeta sta ricevendo l'input
-        setNumberInput(String(clickedPlanet.userInput || "")); // Prepopola l'input con il valore già inserito o una stringa vuota
+        setActivePlanetForInput(clickedPlanetId);
+        setNumberInput(String(clickedPlanet.userInput || ""));
       }
     }
   };
 
-  // Funzione per controllare la risposta del livello corrente
+  //funzione per controllare la risposta del livello corrente
   const checkAnswer = (orderToCheck = selectedOrder) => {
     if (!currentLevelConfig) return;
 
@@ -95,7 +99,7 @@ function GameStructure() {
       currentLevelConfig.gameMode === "smallToBig" ||
       currentLevelConfig.gameMode === "bigToSmall"
     ) {
-      // Per i livelli di ordinamento, confronta l'ordine degli ID
+      //per i livelli di ordinamento, confronta l'ordine degli ID
       if (orderToCheck.length !== currentLevelConfig.expectedOrder.length) {
         correct = false;
       } else {
@@ -107,13 +111,13 @@ function GameStructure() {
         }
       }
     } else if (currentLevelConfig.gameMode.startsWith("associate")) {
-      // Per i livelli di associazione, controlla i valori inseriti nei pianeti vuoti
+      //per i livelli di associazione, controlla i valori inseriti nei pianeti vuoti
       for (const planet of planetsData) {
         if (planet.value === null) {
-          // Considera solo i pianeti che dovevano essere riempiti
+          //considera solo i pianeti che dovevano essere riempiti
           const expectedValue =
             currentLevelConfig.expectedAssociations[planet.id];
-          // Confronta l'input dell'utente (convertito a numero) con il valore atteso
+          //confronta l'input dell'utente (convertito a numero) con il valore atteso
           if (parseInt(planet.userInput, 10) !== expectedValue) {
             correct = false;
             break;
@@ -122,18 +126,17 @@ function GameStructure() {
       }
     }
 
-    setIsCorrect(correct); // Aggiorna lo stato di correttezza
+    setIsCorrect(correct); //aggiorna lo stato di correttezza
     if (correct) {
-      setFeedbackMessage("Risposta esatta!");
-      setScore((prevScore) => prevScore + 100); // Aumenta il punteggio
+      setScore((prevScore) => prevScore + 100); //aumenta il punteggio
     } else {
       setFeedbackMessage("Risposta errata! Riprova!");
     }
   };
 
-  // Gestore per l'input nel campo numerico (per Livello 4 e 5)
+  //gestore per l'input nel campo numerico (per Livello 4 e 5)
   const handleNumberInputChange = (e) => {
-    // Permetti solo numeri (opzionale, ma buona pratica)
+    //permette di inserire solo numeri
     const value = e.target.value;
     if (/^\d*$/.test(value)) {
       // Regex per permettere solo cifre
@@ -141,45 +144,62 @@ function GameStructure() {
     }
   };
 
-  // Conferma il numero inserito dall'utente per il pianeta attivo
+  //conferma il numero inserito dall'utente per il pianeta attivo
   const confirmNumberInput = () => {
     setPlanetsData((prevPlanets) =>
       prevPlanets.map((p) =>
         p.id === activePlanetForInput
-          ? { ...p, userInput: numberInput } // Salva il numero inserito nello stato del pianeta
+          ? { ...p, userInput: numberInput } //salva il numero inserito nello stato del pianeta
           : p
       )
     );
-    setActivePlanetForInput(null); // Nasconde l'input panel
-    setNumberInput(""); // Pulisce il campo input temporaneo
+    setActivePlanetForInput(null); //nasconde l'input panel
+    setNumberInput(""); //pulisce il campo input temporaneo
   };
 
-  // Passa al livello successivo
+  //passa al livello successivo
   const goToNextLevel = () => {
     setCurrentLevelIndex((prevIndex) => prevIndex + 1);
   };
 
-  // Resetta il livello corrente (ricaricandolo)
+  //resetta il livello corrente (ricaricandolo)
   const resetLevel = () => {
-    // Resetta l'indice del livello per riattivare l'useEffect e ricaricare il livello
-    setCurrentLevelIndex(currentLevelIndex);
+    setResetFlag((prev) => !prev); //inverte il flag ogni volta
   };
 
-  // Se non ci sono più livelli (fine del gioco)
+  //se non ci sono più livelli (ultimissima pagina)
   if (!currentLevelConfig) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bggame2 text-white p-5 relative">
-        <h1 className="text-4xl font-bold text-yellow-400 mb-4">
-          Fine del Gioco!
+        <img
+          src="/assets/immagini/Gioco2/astronauta biondo su pianeta.svg"
+          alt="astronauta vincente"
+          className=" absolute w-45 top-20"
+        />
+        <h1 className="z-50 mt-75 text-3xl font-bold text-white mb-4">
+          Complimenti!
         </h1>
-        <p className="text-xl text-center mb-6">{feedbackMessage}</p>
-        <div className="text-2xl text-blue-300">Punti Totali: {score}</div>
-        <button
-          onClick={() => setCurrentLevelIndex(0)} // Bottone per ricominciare dall'inizio
-          className="mt-8 px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 text-xl font-semibold"
-        >
-          Ricomincia
-        </button>
+        <p className="z-50 text-l text-center mb-6">
+          Grazie a te Marco ha ritrovato tutti i numeri persi nell’universo!
+        </p>
+        <p className=" z-50 text-l text-center mb-6 ">
+          Hai raccolto {score} punti, corri a comprare la tua nuova skin!
+        </p>
+        <div className="z-50 text-2xl text-blue-100">Punti Totali: {score}</div>
+        <div className="flex gap-10">
+          <button
+            onClick={() => setCurrentLevelIndex(0)} //bottone che deve portare alla pagina dove ci sono tutti i livelli e giochi
+            className="mt-8 px-6 py-3 bg-yellow-400 text-black rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 text-xl font-semibold"
+          >
+            Ricomincia
+          </button>
+          <button
+            onClick={() => setCurrentLevelIndex(0)} //bottone che deve portare allo shop
+            className="mt-8 px-6 py-3 bg-yellow-400 text-black rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 text-xl font-semibold"
+          >
+            Shop
+          </button>
+        </div>
       </div>
     );
   }
@@ -187,23 +207,24 @@ function GameStructure() {
   // Renderizzazione del componente principale
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bggame2 text-white p-5 relative overflow-hidden">
-      {/* Astronauta (posizione fissa in alto a destra) */}
-      <img
-        src="../../public/assets/immagini/Gioco2/astronauta-gioco-2.svg"
-        alt="Astronauta"
-        className="absolute bottom-10 right-3 w-30 h-auto md:w-32 lg:w-40"
-      />
+      <div className="bg-white rounded-xl border-amber-400 border-4 h-125 w-80 mt-20">
+        {/* Astronauta (posizione fissa in basso a destra) */}
+        <img
+          src="../../public/assets/immagini/Gioco2/astronauta-gioco-2.svg"
+          alt="Astronauta"
+          className="absolute bottom-5 right-1 w-35 h-auto md:w-32 lg:w-40"
+        />
 
-      <p className="text-lg md:text-xl text-center mb-6 max-w-2xl">
-        {feedbackMessage}
-      </p>
+        <p className="text-black text-sm p-5 md:text-xl text-center mb-3 max-w-2xl">
+          {feedbackMessage}
+        </p>
 
-      <div className="flex flex-wrap justify-center gap-5 md:gap-8 lg:gap-10 mb-8">
-        {planetsData.map((planet) => (
-          <div
-            key={planet.id}
-            className={`
-                            relative w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40
+        <div className="flex flex-wrap justify-center gap-5 md:gap-8 lg:gap-10 mb-8">
+          {planetsData.map((planet) => (
+            <div
+              key={planet.id}
+              className={`
+                            relative md:w-36 md:h-36 lg:w-40 lg:h-40
                             bg-contain bg-no-repeat bg-center
                             flex items-center justify-center
                             text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-800
@@ -211,6 +232,7 @@ function GameStructure() {
                             border-4 border-transparent
                             transition-all duration-300 ease-in-out
                             shadow-xl
+                            ${planet.size}
                             ${
                               planet.isSelected
                                 ? "border-green-500 shadow-green-500/50"
@@ -218,84 +240,89 @@ function GameStructure() {
                             }
                             ${planet.value === null ? "empty-planet" : ""}
                         `}
-            // `style` è necessario per le immagini di sfondo dinamiche
-            style={{ backgroundImage: `url(${planet.image})` }}
-            onClick={() => handlePlanetClick(planet.id)}
-          >
-            {/* Questo span mostra il numero. Se planet.value è null, mostra planet.userInput. */}
-            <span className="bg-white/70 px-3 py-1 rounded-lg text-gray-800 pointer-events-none">
-              {planet.value !== null ? planet.value : planet.userInput}
-            </span>
-          </div>
-        ))}
-      </div>
-
-      {/* UI per l'input numerico (mostrato solo se activePlanetForInput è settato) */}
-      {activePlanetForInput && (
-        <div className="flex gap-4 mb-8">
-          <input
-            type="number" // Assicura che la tastiera numerica appaia su mobile
-            value={numberInput}
-            onChange={handleNumberInputChange}
-            placeholder="Inserisci numero"
-            className="p-3 text-lg rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
-          />
-          <button
-            onClick={confirmNumberInput}
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 text-lg font-semibold"
-          >
-            Conferma
-          </button>
+              // `style` è necessario per le immagini di sfondo dinamiche
+              style={{ backgroundImage: `url(${planet.image})` }}
+              onClick={() => handlePlanetClick(planet.id)}
+            >
+              {/* Questo span mostra il numero. Se planet.value è null, mostra planet.userInput. */}
+              <span className="bg-white/40 px-1  rounded-lg text-gray-800 pointer-events-none">
+                {planet.value !== null ? planet.value : planet.userInput}
+              </span>
+            </div>
+          ))}
         </div>
-      )}
 
-      {/* Bottone "Controlla Risposta" per i livelli di associazione.
+        {/* UI per l'input numerico (mostrato solo se activePlanetForInput è settato) */}
+        {activePlanetForInput && (
+          <div className="flex gap-4 mb-8">
+            <input
+              type="number" // Assicura che la tastiera numerica appaia su mobile
+              value={numberInput}
+              onChange={handleNumberInputChange}
+              placeholder="Inserisci"
+              className={`ml-2 p-1 w-20 text-sm text-center rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800 ${
+                activePlanetForInput?.isSelected
+                  ? "border-green-500 shadow-green-500/50"
+                  : ""
+              }`}
+            />
+            <button
+              onClick={confirmNumberInput}
+              className=" bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 text-sm p-2 font-semibold"
+            >
+              Conferma
+            </button>
+          </div>
+        )}
+
+        {/* Bottone "Controlla Risposta" per i livelli di associazione.
                 Mostrato solo se siamo in modalità associazione, nessun input attivo, e la risposta non è ancora stata controllata. */}
-      {currentLevelConfig.gameMode.startsWith("associate") &&
-        !activePlanetForInput &&
-        isCorrect === null && (
+        {currentLevelConfig.gameMode.startsWith("associate") &&
+          !activePlanetForInput &&
+          isCorrect === null && (
+            <button
+              onClick={() => checkAnswer()}
+              className="ml-2 p-2 bg-purple-600 text-white rounded-lg shadow-lg hover:bg-purple-700 transition-colors duration-300 text-ms font-bold mb-6"
+            >
+              Controlla Risposta
+            </button>
+          )}
+
+        {/* Feedback visivo: stella o messaggio di errore */}
+        {isCorrect === true && (
+          <div className="absolute top-50 left-1/2 transform -translate-x-1/2 -translate-y-[40%] z-50 pointer-events-none">
+            <div className="scale-75 md:scale-90">
+              <Star />
+            </div>
+          </div>
+        )}
+        {isCorrect === false && (
+          <p className="pl-2 text-l md:text-2xl font-bold text-red-500 mt-4 animate-pulse">
+            Risposta errata! Riprova!
+          </p>
+        )}
+
+        {/* Bottoni di navigazione: Prossimo livello o Riprova */}
+        {isCorrect === true && (
           <button
-            onClick={() => checkAnswer()}
-            className="px-8 py-4 bg-purple-600 text-white rounded-lg shadow-lg hover:bg-purple-700 transition-colors duration-300 text-xl font-bold mb-6"
+            onClick={goToNextLevel}
+            className="ml-2 mt-8 px-4 py-2 bg-orange-400 text-white rounded-lg shadow-lg hover:bg-green-700 transition-colors duration-300 text-l font-bold"
           >
-            Controlla Risposta
+            Prossimo livello
+          </button>
+        )}
+        {isCorrect === false && (
+          <button
+            onClick={resetLevel}
+            className="m-2 px-4 py-2 bg-red-600 text-white rounded-lg shadow-lg hover:bg-red-700 transition-colors duration-300 text-xl font-bold"
+          >
+            Riprova
           </button>
         )}
 
-      {/* Feedback visivo: stella o messaggio di errore */}
-      {isCorrect === true && (
-        <img
-          src="../../immagini/icon/stellina-active.svg"
-          alt="Risposta Esatta!"
-          className=" absolute w-70 h-70 md:w-24 md:h-24 lg:w-28 lg:h-28 mt-4 animate-bounce"
-        />
-      )}
-      {isCorrect === false && (
-        <p className="text-xl md:text-2xl font-bold text-red-500 mt-4 animate-pulse">
-          Risposta errata! Riprova!
-        </p>
-      )}
-
-      {/* Bottoni di navigazione: Prossimo livello o Riprova */}
-      {isCorrect === true && (
-        <button
-          onClick={goToNextLevel}
-          className="mt-8 px-8 py-4 bg-green-600 text-white rounded-lg shadow-lg hover:bg-green-700 transition-colors duration-300 text-xl font-bold"
-        >
-          Prossimo livello
-        </button>
-      )}
-      {isCorrect === false && (
-        <button
-          onClick={resetLevel}
-          className="mt-8 px-8 py-4 bg-red-600 text-white rounded-lg shadow-lg hover:bg-red-700 transition-colors duration-300 text-xl font-bold"
-        >
-          Riprova
-        </button>
-      )}
-
-      <div className="text-xl md:text-2xl mt-8 text-blue-300 font-semibold">
-        Punti: {score}
+        <div className="text-l md:text-2xl mt-2 pl-2 text-blue-300 font-semibold">
+          Punti: {score}
+        </div>
       </div>
     </div>
   );

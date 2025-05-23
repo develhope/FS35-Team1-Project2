@@ -6,10 +6,10 @@ export const GAME_LEVELS = [
     instructions:
       `Metti in ordine dal numero più piccolo al più grande. Clicca sui pianeti per selezionarli.`,
     planets: [
-      { id: "planet_4", value: 4, image: "/immagini/Pianeti/pianeta4.svg" }, // Nota: percorsi immagini spesso da /public o simili in React
-      { id: "planet_1", value: 1, image: "/immagini/Pianeti/pianeta1.svg" },
-      { id: "planet_2", value: 2, image: "/immagini/Pianeti/pianeta2.svg" },
-      { id: "planet_3", value: 3, image: "/immagini/Pianeti/pianeta3.svg" },
+      { id: "planet_4", value: 4, image: "/immagini/Pianeti/pianeta4.svg", size: "w-24 h-24" }, 
+      { id: "planet_1", value: 1, image: "/immagini/Pianeti/pianeta1.svg", size: "w-24 h-24" },
+      { id: "planet_2", value: 2, image: "/immagini/Pianeti/pianeta2.svg", size: "w-24 h-24" },
+      { id: "planet_3", value: 3, image: "/immagini/Pianeti/pianeta3.svg", size: "w-24 h-24" },
     ],
     expectedOrder: ["planet_1", "planet_2", "planet_3", "planet_4"],
   },
@@ -20,12 +20,12 @@ export const GAME_LEVELS = [
     instructions:
       "Metti in ordine crescente. Clicca sui pianeti per selezionarli.",
     planets: [
-      { id: "planet_5", value: 5, image: "/immagini/Pianeti/pianeta5.svg" },
-      { id: "planet_1", value: 1, image: "/immagini/Pianeti/pianeta1.svg" },
-      { id: "planet_6", value: 6, image: "/immagini/Pianeti/pianeta6.svg" },
-      { id: "planet_2", value: 2, image: "/immagini/Pianeti/pianeta2.svg" },
-      { id: "planet_3", value: 3, image: "/immagini/Pianeti/pianeta3.svg" },
-      { id: "planet_4", value: 4, image: "/immagini/Pianeti/pianeta4.svg" },
+      { id: "planet_5", value: 5, image: "/immagini/Pianeti/pianeta5.svg", size: "w-20 h-20" },
+      { id: "planet_1", value: 1, image: "/immagini/Pianeti/pianeta1.svg", size: "w-20 h-20" },
+      { id: "planet_6", value: 6, image: "/immagini/Pianeti/pianeta6.svg", size: "w-20 h-20" },
+      { id: "planet_2", value: 2, image: "/immagini/Pianeti/pianeta2.svg", size: "w-20 h-20" },
+      { id: "planet_3", value: 3, image: "/immagini/Pianeti/pianeta3.svg", size: "w-20 h-20" },
+      { id: "planet_4", value: 4, image: "/immagini/Pianeti/pianeta4.svg", size: "w-20 h-20" },
     ],
     expectedOrder: [
       "planet_1",
@@ -43,12 +43,12 @@ export const GAME_LEVELS = [
     instructions:
       "Metti in ordine decrescente. Clicca sui pianeti per selezionarli.",
     planets: [
-      { id: "planet_5", value: 5, image: "/immagini/Pianeti/pianeta5.svg" },
-      { id: "planet_1", value: 1, image: "/immagini/Pianeti/pianeta1.svg" },
-      { id: "planet_6", value: 6, image: "/immagini/Pianeti/pianeta6.svg" },
-      { id: "planet_2", value: 2, image: "/immagini/Pianeti/pianeta2.svg" },
-      { id: "planet_3", value: 3, image: "/immagini/Pianeti/pianeta3.svg" },
-      { id: "planet_4", value: 4, image: "/immagini/Pianeti/pianeta4.svg" },
+      { id: "planet_5", value: 5, image: "/immagini/Pianeti/pianeta5.svg", size: "w-20 h-20" },
+      { id: "planet_1", value: 1, image: "/immagini/Pianeti/pianeta1.svg", size: "w-20 h-20" },
+      { id: "planet_6", value: 6, image: "/immagini/Pianeti/pianeta6.svg", size: "w-20 h-20" },
+      { id: "planet_2", value: 2, image: "/immagini/Pianeti/pianeta2.svg", size: "w-20 h-20" },
+      { id: "planet_3", value: 3, image: "/immagini/Pianeti/pianeta3.svg", size: "w-20 h-20" },
+      { id: "planet_4", value: 4, image: "/immagini/Pianeti/pianeta4.svg", size: "w-20 h-20" },
     ],
     expectedOrder: [
       "planet_6",
@@ -64,57 +64,67 @@ export const GAME_LEVELS = [
     level: 4,
     gameMode: "associateNumbersAsc",
     instructions:
-      "Alcuni pianeti non hanno i loro numeri! In ordine crescente, quali numeri appartengono al pianeta?",
+      "Alcuni pianeti non hanno i loro numeri! In ordine crescente, seleziona il pianeta e inserisci il numero",
     planets: [
       {
         id: "planet_filled_1",
         value: 1,
         image: "/immagini/Pianeti/pianeta1.svg",
+        size: "w-15 h-15"
       },
       {
         id: "planet_empty_A",
         value: null,
         image: "/immagini/Pianeti/pianeta2.svg",
+        size: "w-15 h-15"
       },
       {
         id: "planet_filled_3",
         value: 3,
         image: "/immagini/Pianeti/pianeta3.svg",
+        size: "w-15 h-15"
       },
       {
         id: "planet_empty_B",
         value: null,
         image: "/immagini/Pianeti/pianeta4.svg",
+        size: "w-15 h-15"
       },
       {
         id: "planet_empty_C",
         value: null,
         image: "/immagini/Pianeti/pianeta5.svg",
+        size: "w-15 h-15"
       },
       {
         id: "planet_filled_6",
         value: 6,
         image: "/immagini/Pianeti/pianeta6.svg",
+        size: "w-15 h-15"
       },
       {
         id: "planet_filled_7",
         value: 7,
         image: "/immagini/Pianeti/pianeta7.svg",
+        size: "w-15 h-15"
       },
       {
         id: "planet_empty_D",
         value: null,
         image: "/immagini/Pianeti/pianeta8.svg",
+        size: "w-15 h-15"
       },
       {
         id: "planet_empty_E",
         value: null,
         image: "/immagini/Pianeti/pianeta9.svg",
+        size: "w-15 h-15"
       },
       {
         id: "planet_filled_10",
         value: 10,
         image: "/immagini/Pianeti/pianeta1.svg",
+        size: "w-15 h-15"
       },
     ],
     expectedAssociations: {
@@ -136,51 +146,61 @@ export const GAME_LEVELS = [
         id: "planet_filled_10",
         value: 10,
         image: "/immagini/Pianeti/pianeta1.svg",
+        size: "w-15 h-15"
       },
       {
         id: "planet_empty_A",
         value: null,
         image: "/immagini/Pianeti/pianeta2.svg",
+        size: "w-15 h-15"
       },
       {
         id: "planet_filled_8",
         value: 8,
         image: "/immagini/Pianeti/pianeta3.svg",
+        size: "w-15 h-15"
       },
       {
         id: "planet_empty_B",
         value: null,
         image: "/immagini/Pianeti/pianeta4.svg",
+        size: "w-15 h-15"
       },
       {
         id: "planet_empty_C",
         value: null,
         image: "/immagini/Pianeti/pianeta5.svg",
+        size: "w-15 h-15"
       },
       {
         id: "planet_filled_5",
         value: 5,
         image: "/immagini/Pianeti/pianeta6.svg",
+        size: "w-15 h-15"
       },
       {
         id: "planet_filled_4",
         value: 4,
         image: "/immagini/Pianeti/pianeta7.svg",
+        size: "w-15 h-15"
       },
       {
         id: "planet_empty_D",
         value: null,
         image: "/immagini/Pianeti/pianeta8.svg",
+        size: "w-15 h-15"
       },
       {
         id: "planet_empty_E",
         value: null,
         image: "/immagini/Pianeti/pianeta9.svg",
+        size: "w-15 h-15"
       },
       {
         id: "planet_filled_1",
         value: 1,
         image: "/immagini/Pianeti/pianeta1.svg",
+        size: "w-15 h-15"
       },
     ],
     expectedAssociations: {
