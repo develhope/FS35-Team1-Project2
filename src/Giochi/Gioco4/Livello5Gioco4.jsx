@@ -1,54 +1,13 @@
-import { useNavigate } from "react-router-dom";
+ import StrutturaVittoria from "../../Components/StrutturaVittoria"
 
-const FineGioco4 = ({ punti }) => {
-const navigate = useNavigate();
+const Livello5Gioco4=()=>{
+  return(
+<StrutturaVittoria 
+  punti={150} // Replace with actual points for Game 4
+  sfondo="/immagini/Gioco4/backgroundgioco4.svg"
+  immagine1="./immagini/Gioco4/amicodinebula_1_4.svg"
+  immagine2="./immagini/Gioco4/amicodinebula_2_4.svg"
+  frase="Grazie a te gli amichetti di Nebula sanno chi di loro ha più oggetti!"
+/>)}
 
-  return (
-    <>
-      <div
-        style={{
-          backgroundImage: "url('/immagini/Gioco4/backgroundgioco4.svg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          minHeight: "100vh",
-          width: "100%",
-          position: "relative",
-        }}
-      >
-        <div className="absolute inset-0 flex justify-center items-center">
-          <div className="flex flex-col items-center text-center">
-            <div className="flex gap-3 mt-20">
-              <img
-                src="./immagini/Gioco4/amicodinebula_1_4.svg"
-                alt=""
-                className="w-40 h-auto object-contain transform scale-x-[-1]"
-              />
-              <img
-                src="./immagini/Gioco4/amicodinebula_2_4.svg"
-                alt=""
-                className="w-40 h-auto object-contain"
-              />
-            </div>
-
-            <div className="w-80 px-4 mt-10">
-              <h1 className="text-black text-4xl font-bold pb-2">Complimenti!</h1>
-              <p className="text-black mt-2">
-                Grazie a te gli amichetti di Nebula sanno chi di loro ha più oggetti!
-                <br />
-                <p className="text-white mt-2">Hai raccolto {punti} punti, corri a comprare la tua nuova skin!</p>
-              </p>
-              <div className="flex gap-10 justify-center pt-5">
-                <button className="bg-yellow-300 hover:bg-yellow-200 w-20 h-10  rounded text-center flex items-center justify-center"   onClick={() => navigate("/shop")}>Shop</button>
-                <button className="bg-yellow-300 hover:bg-yellow-200 w-20 h-10  rounded text-center flex items-center justify-center"  onClick={() => navigate("/")}>Livelli</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
-
-export default FineGioco4;
+export default Livello5Gioco4
