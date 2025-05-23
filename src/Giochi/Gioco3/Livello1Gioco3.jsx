@@ -1,5 +1,5 @@
 import React from "react";
-import Struttura3Gioco from "./Struttura3Gioco";
+import  Struttura3Gioco from "./Struttura3Gioco";
 
 const Livello1Gioco3 = () => {
   const blocchiPerLivello1 = [
