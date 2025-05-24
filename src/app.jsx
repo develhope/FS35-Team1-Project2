@@ -38,15 +38,12 @@ import Livello2Gioco4 from "./Giochi/Gioco4/Livello2Gioco4";
 import Livello3Gioco4 from "./Giochi/Gioco4/Livello3Gioco4";
 import Livello4Gioco4 from "./Giochi/Gioco4/Livello4Gioco4";
 import Livello5Gioco4 from "./Giochi/Gioco4/Livello5Gioco4";
-<<<<<<< HEAD
 import Livello5Gioco1 from "./Giochi/Gioco1/Livello5Gioco1";
-=======
 import Livello1Gioco2 from "./Giochi/Gioco2/Livello1Gioco2";
 import Livello2Gioco2 from "./Giochi/Gioco2/Livello2Gioco2";
 import Livello3Gioco2 from "./Giochi/Gioco2/Livello3Gioco2";
 import Livello4Gioco2 from "./Giochi/Gioco2/Livello4gioco2";
 import Livello5Gioco2 from "./Giochi/Gioco2/Livello5Gioco2";
->>>>>>> d30a8984ccb3bd73bdfe94174e0444b563574bb1
 
 
 function App() {
@@ -101,9 +98,7 @@ const livello = match ? `Livello ${match[1].match(/\d+/)[0]}` : null;
           <Route path="/livello2gioco1" element={<Livello2Gioco1 />} />
           <Route path="/livello3gioco1" element={<Livello3Gioco1 />} />
           <Route path="/livello4gioco1" element={<Livello4Gioco1 />} />
-<<<<<<< HEAD
           <Route path="/livello5gioco1" element={<Livello5Gioco1 />} />
-=======
           <Route path="/livello1gioco2" element={<Livello1Gioco2 />} />
           <Route path="/livello2gioco2" element={<Livello2Gioco2 />} />
           <Route path="/livello3gioco2" element={<Livello3Gioco2 />} />
@@ -114,7 +109,6 @@ const livello = match ? `Livello ${match[1].match(/\d+/)[0]}` : null;
           <Route path="/livello3gioco3" element={<Livello3Gioco3 />} />
           <Route path="/livello4gioco3" element={<Livello4Gioco3 />} />
           <Route path="/livello1gioco4" element={<Livello1Gioco4 />} />
->>>>>>> d30a8984ccb3bd73bdfe94174e0444b563574bb1
           <Route path="/livello2gioco4" element={<Livello2Gioco4 />} />
           <Route path="/livello3gioco4" element={<Livello3Gioco4 />} />
           <Route path="/livello4gioco4" element={<Livello4Gioco4 />} />
