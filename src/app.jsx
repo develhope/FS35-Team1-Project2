@@ -52,7 +52,7 @@ function App() {
   const location = useLocation();
   const path = location.pathname;
   const match = path.match(/^\/(struttura\d+gioco|livello\d+)$/);
-  const livello = match ? `Livello ${match[1].match(/\d+/)[0]}` : null;
+  match ? `Livello ${match[1].match(/\d+/)[0]}` : null;
 
   // 🧠 Determina se mostrare HeaderGiochi e quale titolo usare
   let titolo = null;
@@ -67,7 +67,7 @@ function App() {
 
   return (
     <>
-{!["/livello5gioco4", "/livello5gioco1"].includes(path) && (
+{!["/livello5gioco4", "/livello5gioco1","/vittoriagioco3"].includes(path) && (
   <div>{titolo ? <HeaderGiochi titolo={titolo} /> : <Header />}</div>
 )}
 
