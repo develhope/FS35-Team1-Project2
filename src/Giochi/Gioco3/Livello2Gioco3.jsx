@@ -6,7 +6,7 @@ const Livello2Gioco3 = () => {
   // 1. Definisci l'array dei blocchi per il Livello 2, con l'ordine e i colori desiderati
   const blocchiPerLivello2 = [
     { tipo: 'numero', valore: "2", colore: 'pink' },       
-    { tipo: 'frutto', valore: "tre banane", colore: 'lilac', immagineSrc:"/immagini/Gioco3/Banane.svg" },
+    { tipo: 'frutto', valore: "tre banane", colore: 'lilac', immagineSrc:"/immagini/Gioco3/trebanane.png" },
     { tipo: 'frutto', valore: "una pera", colore: 'pink', immagineSrc: "/immagini/Gioco3/Pera.svg"},   
     { tipo: 'numero', valore: "3", colore: 'yellow' },     
     { tipo: 'frutto', valore: "due mele", colore: 'blue', immagineSrc:"/immagini/Gioco3/Apple.svg" },   

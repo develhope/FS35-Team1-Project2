@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Star from "../../Components/Star";
 
+
 const Struttura3Gioco = ({
   titoloLivello,
   istruzioniTesto,
@@ -63,6 +64,7 @@ const Struttura3Gioco = ({
   };
 
   return (
+    <>
     <div
       style={{
         backgroundImage: "url('/immagini/sfondoproseguogiochi.svg')",
@@ -107,6 +109,7 @@ const Struttura3Gioco = ({
                   </span>
                 )}
               </div>
+              
             ))}
           </div>
         </div>
@@ -118,14 +121,14 @@ const Struttura3Gioco = ({
         <img
           src="./immagini/Gioco3/scimmia_gioco_3.svg"
           alt="Scimmia"
-          className="w-35 absolute bottom-10 right-3"
+          className="w-30 absolute bottom-12 right-2"
         />
       ) : (
         // Mostra la scimmietta esultante se la risposta è esatta
         <img
           src="./immagini/Gioco3/scimmietta_felice_3.svg"
           alt="Scimmia Esultante"
-          className="w-50 absolute bottom-10 right-3" // Manteniamo la stessa posizione fixed per il cambio effetto
+          className="w-50 absolute bottom-10 right-1" // Manteniamo la stessa posizione fixed per il cambio effetto
         />
       )}
 
@@ -150,6 +153,7 @@ const Struttura3Gioco = ({
         </div>
       )}
     </div>
+    </>
   );
 };
 

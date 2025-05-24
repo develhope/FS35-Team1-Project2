@@ -4,7 +4,7 @@ import  Struttura3Gioco from "./Struttura3Gioco";
 const Livello1Gioco3 = () => {
   const blocchiPerLivello1 = [
     { tipo: 'numero', valore: "2", colore: 'pink' },
-    { tipo: 'frutto', valore: "tre banane", colore: 'lilac', immagineSrc: "/immagini/Gioco3/Banane.svg" }, // AGGIUNTO immagineSrc
+    { tipo: 'frutto', valore: "tre banane", colore: 'lilac', immagineSrc: "/immagini/Gioco3/trebanane.png" }, // AGGIUNTO immagineSrc
     { tipo: 'frutto', valore: "due mele", colore: 'blue', immagineSrc: "/immagini/Gioco3/Apple.svg" },     // AGGIUNTO immagineSrc
     { tipo: 'numero', valore: "3", colore: 'yellow' },
   ];
