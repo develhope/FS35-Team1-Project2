@@ -1,7 +1,5 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import "./index.css";
-
-// Pagine
 import HomePage from "./Pages/HomePage";
 import Form from "./Pages/Form";
 import FormIscriviti from "./Pages/FormIscriviti";
@@ -25,6 +23,7 @@ import HeaderGiochi from "./Components/HeaderGiochi";
 import Struttura1Gioco from "./Giochi/Gioco1/Struttura1Gioco";
 import Struttura3Gioco from "./Giochi/Gioco3/Struttura3Gioco";
 import Struttura4Gioco from "./Giochi/Gioco4/Struttura4Gioco";
+import Struttura2Gioco from "./Giochi/Gioco2/Struttura2Gioco";
 import Livello1Gioco1 from "./Giochi/Gioco1/Livello1Gioco1";
 import Livello2Gioco1 from "./Giochi/Gioco1/Livello2Gioco1";
 import Livello3Gioco1 from "./Giochi/Gioco1/Livello3Gioco1";
@@ -39,7 +38,15 @@ import Livello2Gioco4 from "./Giochi/Gioco4/Livello2Gioco4";
 import Livello3Gioco4 from "./Giochi/Gioco4/Livello3Gioco4";
 import Livello4Gioco4 from "./Giochi/Gioco4/Livello4Gioco4";
 import Livello5Gioco4 from "./Giochi/Gioco4/Livello5Gioco4";
+<<<<<<< HEAD
 import Livello5Gioco1 from "./Giochi/Gioco1/Livello5Gioco1";
+=======
+import Livello1Gioco2 from "./Giochi/Gioco2/Livello1Gioco2";
+import Livello2Gioco2 from "./Giochi/Gioco2/Livello2Gioco2";
+import Livello3Gioco2 from "./Giochi/Gioco2/Livello3Gioco2";
+import Livello4Gioco2 from "./Giochi/Gioco2/Livello4gioco2";
+import Livello5Gioco2 from "./Giochi/Gioco2/Livello5Gioco2";
+>>>>>>> d30a8984ccb3bd73bdfe94174e0444b563574bb1
 
 
 function App() {
@@ -87,16 +94,27 @@ const livello = match ? `Livello ${match[1].match(/\d+/)[0]}` : null;
           <Route path="/struttura1gioco" element={<Struttura1Gioco />} />
           <Route path="/struttura3gioco" element={<Struttura3Gioco />} />
           <Route path="/struttura4gioco" element={<Struttura4Gioco />} />
-          <Route path="/livello1gioco4" element={<Livello1Gioco4 />} />
-          <Route path="/livello1gioco3" element={<Livello1Gioco3 />} />
-          <Route path="/livello2gioco3" element={<Livello2Gioco3 />} />
-          <Route path="/livello3gioco3" element={<Livello3Gioco3 />} />
-          <Route path="/livello4gioco3" element={<Livello4Gioco3 />} />
+          <Route path="/struttura2gioco" element={<Struttura2Gioco />} />
+          
+         
           <Route path="/livello1gioco1" element={<Livello1Gioco1 />} />
           <Route path="/livello2gioco1" element={<Livello2Gioco1 />} />
           <Route path="/livello3gioco1" element={<Livello3Gioco1 />} />
           <Route path="/livello4gioco1" element={<Livello4Gioco1 />} />
+<<<<<<< HEAD
           <Route path="/livello5gioco1" element={<Livello5Gioco1 />} />
+=======
+          <Route path="/livello1gioco2" element={<Livello1Gioco2 />} />
+          <Route path="/livello2gioco2" element={<Livello2Gioco2 />} />
+          <Route path="/livello3gioco2" element={<Livello3Gioco2 />} />
+          <Route path="/livello4gioco2" element={<Livello4Gioco2 />} />
+          <Route path="/livello5gioco2" element={<Livello5Gioco2 />} />
+          <Route path="/livello1gioco3" element={<Livello1Gioco3 />} />
+          <Route path="/livello2gioco3" element={<Livello2Gioco3 />} />
+          <Route path="/livello3gioco3" element={<Livello3Gioco3 />} />
+          <Route path="/livello4gioco3" element={<Livello4Gioco3 />} />
+          <Route path="/livello1gioco4" element={<Livello1Gioco4 />} />
+>>>>>>> d30a8984ccb3bd73bdfe94174e0444b563574bb1
           <Route path="/livello2gioco4" element={<Livello2Gioco4 />} />
           <Route path="/livello3gioco4" element={<Livello3Gioco4 />} />
           <Route path="/livello4gioco4" element={<Livello4Gioco4 />} />
