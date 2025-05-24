@@ -16,7 +16,7 @@ const HeaderFineLivelli = () => {
       >
         <img
           className="w-[25px] filter invert brightness-200"
-          src="/immagini/icon/facebook.svg"
+          src="/immagini/icon/sfondo-home.svg"
           alt="Home"
         />
       </button>

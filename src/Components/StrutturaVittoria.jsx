@@ -5,9 +5,10 @@ const StrutturaVittoria = ({
   sfondo,
   immagine1,
   immagine2,
+  isVittoriaGioco3 = false,
   frase,
   punti,
-  flipDonna = true,           // di default ribalta
+  flipDonna = true, // di default ribalta
   donnaClass = "",
   maschioClass = "",
 }) => {
@@ -32,14 +33,21 @@ const StrutturaVittoria = ({
           <div className="flex gap-3 mt-20">
             <img
               src={immagine1}
-              alt=""
-              className={`w-40 h-auto object-contain ${flipDonna ? "transform scale-x-[-1]" : ""} ${donnaClass}`}
+              className={`h-auto object-contain w-50 ${
+                isVittoriaGioco3
+                  ? "mx-auto transform-none" // larghezza w-40 e centrata, senza flip
+                  : flipDonna
+                  ? "transform scale-x-[-1]"
+                  : ""
+              } ${donnaClass}`}
             />
-            <img
-              src={immagine2}
-              alt=""
-              className={`w-40 h-auto object-contain ${maschioClass}`}
-            />
+            {!isVittoriaGioco3 && immagine2 && (
+              <img
+                src={immagine2}
+                alt=""
+                className={`w-40 h-auto object-contain ${maschioClass}`}
+              />
+            )}
           </div>
 
           <div className="w-80 px-4 mt-10">
