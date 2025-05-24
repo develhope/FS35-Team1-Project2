@@ -3,7 +3,9 @@ import StrutturaVittoria from "../../Components/StrutturaVittoria";
 const Livello5Gioco1 = () => {
   return (
     <div className="relative">
-      <StrutturaVittoria
+      
+      <img className="bg-transparent z-30 w-[50px] absolute top-[130px] left-[164px]" src="/immagini/Gioco1/cuorepaginafinale.png" alt="" />
+       <StrutturaVittoria
         punti={200}
         sfondo="/immagini/Gioco1/sfondo-gioco-1.svg"
         immagine1="./immagini/Gioco1/astronautagioco1donna.svg"
@@ -13,6 +15,8 @@ const Livello5Gioco1 = () => {
         donnaClass="translate-y-3 translate-x-3"
         maschioClass="-translate-x-3"
       />
+      
+     
     </div>
   );
 };
