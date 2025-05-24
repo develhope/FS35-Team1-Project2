@@ -39,6 +39,7 @@ import Livello2Gioco4 from "./Giochi/Gioco4/Livello2Gioco4";
 import Livello3Gioco4 from "./Giochi/Gioco4/Livello3Gioco4";
 import Livello4Gioco4 from "./Giochi/Gioco4/Livello4Gioco4";
 import Livello5Gioco4 from "./Giochi/Gioco4/Livello5Gioco4";
+import Livello5Gioco1 from "./Giochi/Gioco1/Livello5Gioco1";
 
 
 function App() {
@@ -60,8 +61,7 @@ const livello = match ? `Livello ${match[1].match(/\d+/)[0]}` : null;
 
   return (
     <>
-     {/* Nasconde l'header SOLO su /livello5gioco4 */}
-{path !== "/livello5gioco4" && (
+{!["/livello5gioco4", "/livello5gioco1"].includes(path) && (
   <div>{titolo ? <HeaderGiochi titolo={titolo} /> : <Header />}</div>
 )}
 
@@ -96,6 +96,7 @@ const livello = match ? `Livello ${match[1].match(/\d+/)[0]}` : null;
           <Route path="/livello2gioco1" element={<Livello2Gioco1 />} />
           <Route path="/livello3gioco1" element={<Livello3Gioco1 />} />
           <Route path="/livello4gioco1" element={<Livello4Gioco1 />} />
+          <Route path="/livello5gioco1" element={<Livello5Gioco1 />} />
           <Route path="/livello2gioco4" element={<Livello2Gioco4 />} />
           <Route path="/livello3gioco4" element={<Livello3Gioco4 />} />
           <Route path="/livello4gioco4" element={<Livello4Gioco4 />} />

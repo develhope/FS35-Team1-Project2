@@ -1,27 +1,62 @@
-const HeaderFineLivelli =()=>{
+import { useNavigate } from "react-router-dom";
 
-    return(
+const HeaderFineLivelli = () => {
+  const navigate = useNavigate();
 
-        <>
-         
-     <div className="bg-transparent p-4 gap-16 flex justify-between ">
-      <button>
-<img className="w-[25px] filter invert brightness-200" src="/immagini/icon/facebook.svg" alt="" />
+  return (
+    <div className="bg-transparent p-4 gap-16 flex justify-between z-50 relative">
+      {/* Facebook icon => Home */}
+      <button
+        onClick={() => {
+          console.log("Click su Home");
+          navigate("/");
+        }}
+        className="focus:outline-none"
+        aria-label="Home"
+      >
+        <img
+          className="w-[25px] filter invert brightness-200"
+          src="/immagini/icon/facebook.svg"
+          alt="Home"
+        />
       </button>
 
-      <div className=" flex gap-3 ">
-             <button>
-<img className="w-[20px] filter invert brightness-200" src="/immagini/icon/profile.svg" alt="" />
-      </button>
-           <button>
-<img className="w-[30px] filter invert brightness-200" src="/immagini/icon/usp-delivery-store.svg" alt="" />
-      </button>
+      <div className="flex gap-3">
+        {/* Profile icon => Profile */}
+        <button
+          onClick={() => {
+            console.log("Click su Profile");
+            navigate("/profile");
+          }}
+          className="focus:outline-none"
+          aria-label="Profile"
+        >
+          <img
+            className="w-[20px] filter invert brightness-200"
+            src="/immagini/icon/profile.svg"
+            alt="Profile"
+          />
+        </button>
+
+        {/* Shop icon => Shop */}
+        <button
+          onClick={() => {
+            console.log("Click su Shop");
+            navigate("/shop");
+          }}
+          className="focus:outline-none"
+          aria-label="Shop"
+        >
+          <img
+            className="w-[30px] filter invert brightness-200"
+            src="/immagini/icon/usp-delivery-store.svg"
+            alt="Shop"
+          />
+        </button>
       </div>
-  
+    </div>
+  );
+};
 
-      </div>
-        
-        </>
-    )
-}
-export default HeaderFineLivelli
+export default HeaderFineLivelli;
+
