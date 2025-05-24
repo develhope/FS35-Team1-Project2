@@ -34,10 +34,12 @@ import Livello1Gioco3 from "./Giochi/Gioco3/Livello1Gioco3";
 import Livello2Gioco3 from "./Giochi/Gioco3/Livello2Gioco3";
 import Livello3Gioco3 from "./Giochi/Gioco3/Livello3Gioco3";
 import Livello4Gioco3 from "./Giochi/Gioco3/Livello4Gioco3";
+
 import Livello2Gioco4 from "./Giochi/Gioco4/Livello2Gioco4";
 import Livello3Gioco4 from "./Giochi/Gioco4/Livello3Gioco4";
 import Livello4Gioco4 from "./Giochi/Gioco4/Livello4Gioco4";
 import Livello5Gioco4 from "./Giochi/Gioco4/Livello5Gioco4";
+import VittoriaGioco3 from "./Giochi/Gioco3/VittoriaGioco3.jsx";
 import Livello5Gioco1 from "./Giochi/Gioco1/Livello5Gioco1";
 import Livello1Gioco2 from "./Giochi/Gioco2/Livello1Gioco2";
 import Livello2Gioco2 from "./Giochi/Gioco2/Livello2Gioco2";
@@ -49,8 +51,8 @@ import Livello5Gioco2 from "./Giochi/Gioco2/Livello5Gioco2";
 function App() {
   const location = useLocation();
   const path = location.pathname;
-const match = path.match(/^\/(struttura\d+gioco|livello\d+)$/);
-const livello = match ? `Livello ${match[1].match(/\d+/)[0]}` : null;
+  const match = path.match(/^\/(struttura\d+gioco|livello\d+)$/);
+  const livello = match ? `Livello ${match[1].match(/\d+/)[0]}` : null;
 
   // 🧠 Determina se mostrare HeaderGiochi e quale titolo usare
   let titolo = null;
@@ -108,6 +110,7 @@ const livello = match ? `Livello ${match[1].match(/\d+/)[0]}` : null;
           <Route path="/livello2gioco3" element={<Livello2Gioco3 />} />
           <Route path="/livello3gioco3" element={<Livello3Gioco3 />} />
           <Route path="/livello4gioco3" element={<Livello4Gioco3 />} />
+          <Route path="/vittoriagioco3" element={<VittoriaGioco3 />} />
           <Route path="/livello1gioco4" element={<Livello1Gioco4 />} />
           <Route path="/livello2gioco4" element={<Livello2Gioco4 />} />
           <Route path="/livello3gioco4" element={<Livello3Gioco4 />} />

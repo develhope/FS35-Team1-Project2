@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Star from "../../Components/Star";
 
+
 const Struttura3Gioco = ({
   titoloLivello,
   istruzioniTesto,
@@ -20,32 +21,29 @@ const Struttura3Gioco = ({
   const [rispostaErrata, setRispostaErrata] = useState(false);
 
   const handleDrop = (trascinato, target) => {
-    const nuovo = { ...associazioni, [trascinato]: target };
-    setAssociazioni(nuovo);
+  const nuovo = { ...associazioni, [trascinato]: target };
+  setAssociazioni(nuovo);
 
-    const isMatchDirect = risposteCorrette[trascinato] === target;
-    const isMatchInverse = Object.entries(risposteCorrette).find(
-      ([numero, frutto]) => frutto === trascinato && numero === target
+  const isMatch =
+    risposteCorrette[trascinato] === target ||
+    risposteCorrette[target] === trascinato;
+
+  if (isMatch) {
+    const tutteCorrette = Object.entries(risposteCorrette).every(
+      ([numero, frutto]) =>
+        nuovo[numero] === frutto || nuovo[frutto] === numero
     );
 
-    const corretto = isMatchDirect || isMatchInverse;
-
-    if (corretto) {
-      const tutteCorrette = Object.entries(risposteCorrette).every(
-        ([numero, frutto]) =>
-          nuovo[numero] === frutto || nuovo[frutto] === numero
-      );
-
-      if (tutteCorrette) {
-        setRispostaEsatta(true);
-        setRispostaErrata(false);
-      } else {
-        setRispostaErrata(false);
-      }
+    if (tutteCorrette) {
+      setRispostaEsatta(true);
+      setRispostaErrata(false);
     } else {
-      setRispostaErrata(true);
+      setRispostaErrata(false);
     }
-  };
+  } else {
+    setRispostaErrata(true);
+  }
+};
 
   const getBackgroundColorClass = (colore) => {
     switch (colore) {
@@ -63,6 +61,7 @@ const Struttura3Gioco = ({
   };
 
   return (
+    <>
     <div
       style={{
         backgroundImage: "url('/immagini/sfondoproseguogiochi.svg')",
@@ -76,7 +75,7 @@ const Struttura3Gioco = ({
     >
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <div className="border-4 border-yellow-400 bg-white rounded-xl p-4 w-[340px] h-[490px] text-center shadow-xl relative pb-32">
-          <h1 className="text-lg pt-4 pl-1 font-bold text-black mb-2">
+          <h1 className="text-base font-bold pt-1 text-black mb-2">
             {titoloLivello}
           </h1>
           <p className="text-sm text-gray-600 mb-4">{istruzioniTesto}</p>
@@ -107,6 +106,7 @@ const Struttura3Gioco = ({
                   </span>
                 )}
               </div>
+              
             ))}
           </div>
         </div>
@@ -118,14 +118,14 @@ const Struttura3Gioco = ({
         <img
           src="./immagini/Gioco3/scimmia_gioco_3.svg"
           alt="Scimmia"
-          className="w-35 absolute bottom-10 right-3"
+          className="w-30 absolute bottom-12 right-2"
         />
       ) : (
         // Mostra la scimmietta esultante se la risposta è esatta
         <img
           src="./immagini/Gioco3/scimmietta_felice_3.svg"
           alt="Scimmia Esultante"
-          className="w-50 absolute bottom-10 right-3" // Manteniamo la stessa posizione fixed per il cambio effetto
+          className="w-50 absolute bottom-10 right-1" // Manteniamo la stessa posizione fixed per il cambio effetto
         />
       )}
 
@@ -150,6 +150,7 @@ const Struttura3Gioco = ({
         </div>
       )}
     </div>
+    </>
   );
 };
 

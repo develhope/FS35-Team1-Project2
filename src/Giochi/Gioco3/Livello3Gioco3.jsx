@@ -4,12 +4,42 @@ import Struttura3Gioco from "./Struttura3Gioco";
 
 const Livello3Gioco3 = () => {
   const blocchiPerLivello3 = [
-    { tipo: 'numero', valore: "due dita", colore: 'yellow', immagineSrc: "/immagini/Gioco3/mano_2.svg" },
-    { tipo: 'frutto', valore: "tre banane", colore: 'blue', immagineSrc: "/immagini/Gioco3/Banane.svg" },
-    { tipo: 'frutto', valore: "cinque pere", colore: 'blue', immagineSrc: "/immagini/Gioco3/cinque_pere.svg" },
-    { tipo: 'numero', valore: "tre dita", colore: 'yellow', immagineSrc: "/immagini/Gioco3/mano_3.svg" },
-    { tipo: 'frutto', valore: "due mele", colore: 'blue', immagineSrc: "/immagini/Gioco3/Apple.svg" },
-    { tipo: 'numero', valore: "cinque dita", colore: 'yellow', immagineSrc: "/immagini/Gioco3/mano_5.svg" },
+    {
+      tipo: "numero",
+      valore: "due dita",
+      colore: "yellow",
+      immagineSrc: "/immagini/Gioco3/mano_2.svg",
+    },
+    {
+      tipo: "frutto",
+      valore: "tre banane",
+      colore: "blue",
+      immagineSrc: "/immagini/Gioco3/trebanane.png",
+    },
+    {
+      tipo: "frutto",
+      valore: "cinque pere",
+      colore: "blue",
+      immagineSrc: "/immagini/Gioco3/cinquepere.png",
+    },
+    {
+      tipo: "numero",
+      valore: "tre dita",
+      colore: "yellow",
+      immagineSrc: "/immagini/Gioco3/mano_3.svg",
+    },
+    {
+      tipo: "frutto",
+      valore: "due mele",
+      colore: "blue",
+      immagineSrc: "/immagini/Gioco3/Apple.svg",
+    },
+    {
+      tipo: "numero",
+      valore: "cinque dita",
+      colore: "yellow",
+      immagineSrc: "/immagini/Gioco3/mano_5.svg",
+    },
   ];
 
   // Le tue associazioni corrette sono già qui!
@@ -19,7 +49,7 @@ const Livello3Gioco3 = () => {
     "cinque dita": "cinque pere",
   };
 
-  const gridCalcWidth = 'w-[280px]';
+  const gridCalcWidth = "w-[280px]";
 
   return (
     <Struttura3Gioco
