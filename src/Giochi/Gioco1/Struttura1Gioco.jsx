@@ -14,24 +14,26 @@ const Struttura1Gioco = ({
   nebula,
   prossimoLivelloLink,
   isFinalLevel = false,
-  posizioneAstronauti = { donna: 60, maschio: 230 },
+  posizioneAstronauti = { donna: { left: 60, top: 0 }, maschio: { left: 230, top: 0 } },
 }) => {
   const [risposta, setRisposta] = useState(null);
+  const [isLeaving, setIsLeaving] = useState(false);
   const navigate = useNavigate();
 
   const isCorretto = risposta === rispostaCorretta;
 
   useEffect(() => {
     if (isCorretto && isFinalLevel) {
+      setIsLeaving(true);
       const timer = setTimeout(() => {
         navigate(prossimoLivelloLink);
-      }, 500);
+      }, 600); // Match con la durata CSS
       return () => clearTimeout(timer);
     }
   }, [isCorretto, isFinalLevel, navigate, prossimoLivelloLink]);
 
   return (
-    <div className="w-screen h-screen overflow-hidden bggame1 relative">
+    <div className={`w-screen h-screen overflow-hidden bggame1 relative ${isLeaving ? "fade-out" : ""}`}>
       {/* Astronauti */}
       <div className="relative w-auto gap-30 mt-22 flex">
         <img
