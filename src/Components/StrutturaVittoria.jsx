@@ -27,7 +27,6 @@ const StrutturaVittoria = ({
       }}
     >
       <HeaderFineLivelli />
-
       <div className="absolute inset-0 flex justify-center items-center">
         <div className="flex flex-col items-center text-center">
           <div className="flex gap-3 mt-20">

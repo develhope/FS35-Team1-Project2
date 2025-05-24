@@ -130,7 +130,6 @@ const Struttura3Gioco = ({
             className="w-50 absolute bottom-10 right-0" // Manteniamo la stessa posizione fixed per il cambio effetto
           />
         )}
-
         {rispostaEsatta && (
           <>
             <Star />
@@ -145,7 +144,6 @@ const Struttura3Gioco = ({
             </button>
           </>
         )}
-
         {rispostaErrata && !rispostaEsatta && (
           <div className="absolute bottom-[100px] text-[13px] left-[30px] bg-red-600 text-white px-1 py-1 rounded shadow">
             Risposta errata. Ritenta!
