@@ -99,7 +99,7 @@ function GameStructure() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bggame2 text-white p-5 relative overflow-hidden">
       <img
-        src="../../public/assets/immagini/Gioco2/astronauta-gioco-2.svg"
+        src="/assets/immagini/Gioco2/astronauta-gioco-2.svg"
         alt="Astronauta"
         className="absolute z-50 right-1 bottom-5 w-35 h-auto md:w-32 lg:w-40"
       />
@@ -120,13 +120,13 @@ function GameStructure() {
             </div>
           </div>
         )}
-        
+
         {showFeedback && isLevelCorrect === false && (
           <p className="text-l md:text-2xl font-bold text-red-500 mt-4 animate-pulse">
-            Risposta errata! 
+            Risposta errata!
           </p>
         )}
-        
+
         {/* Bottoni "Avanti" o "Riprova" con padding ripristinato */}
         <div className="mt-4 flex gap-4">
           {showNextLevelButton && (

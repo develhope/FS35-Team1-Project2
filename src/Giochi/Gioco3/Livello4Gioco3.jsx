@@ -9,19 +9,19 @@ const Livello4Gioco3 = () => {
       tipo: "numero",
       valore: "due dita",
       colore: "yellow",
-      immagineSrc: "/immagini/Gioco3/mano_2.svg",
+      immagineSrc: "/assets/immagini/Gioco3/mano_2.svg",
     },
     {
       tipo: "frutto",
       valore: "tre banane",
       colore: "blue",
-      immagineSrc: "/immagini/Gioco3/trebanane.png",
+      immagineSrc: "/assets/immagini/Gioco3/trebanane.png",
     }, // Esempio: "una fragola"
     {
       tipo: "numero",
       valore: "tre dita",
       colore: "yellow",
-      immagineSrc: "/immagini/Gioco3/mano_3.svg",
+      immagineSrc: "/assets/immagini/Gioco3/mano_3.svg",
     },
 
     // Seconda riga
@@ -29,19 +29,19 @@ const Livello4Gioco3 = () => {
       tipo: "frutto",
       valore: "cinque pere",
       colore: "blue",
-      immagineSrc: "/immagini/Gioco3/cinquepere.png",
+      immagineSrc: "/assets/immagini/Gioco3/cinquepere.png",
     },
     {
       tipo: "frutto",
       valore: "due mele",
       colore: "blue",
-      immagineSrc: "/immagini/Gioco3/Apple.svg",
+      immagineSrc: "/assets/immagini/Gioco3/Apple.svg",
     }, // Esempio: "un dito"
     {
       tipo: "numero",
       valore: "quattro dita",
       colore: "yellow",
-      immagineSrc: "/immagini/Gioco3/mano_4.svg",
+      immagineSrc: "/assets/immagini/Gioco3/mano_4.svg",
     }, // Esempio: "quattro arance"
 
     // Terza riga
@@ -49,23 +49,23 @@ const Livello4Gioco3 = () => {
       tipo: "numero",
       valore: "cinque dita",
       colore: "yellow",
-      immagineSrc: "/immagini/Gioco3/mano_5.svg",
+      immagineSrc: "/assets/immagini/Gioco3/mano_5.svg",
     },
     {
       tipo: "frutto",
       valore: "quattro fragole",
       colore: "blue",
-      immagineSrc: "/immagini/Gioco3/fragole.png",
+      immagineSrc: "/assets/immagini/Gioco3/fragole.png",
     },
   ];
 
   // 2. Definisci le associazioni corrette per il Livello 5
   // Adatta queste associazioni in base ai frutti/numeri che deciderai di usare
   const risposteCorretteLivello4 = {
-    "due dita" : "due mele",
-    "tre dita" : "tre banane",
-    "quattro dita" : "quattro fragole",
-    "cinque dita" : "cinque pere",
+    "due dita": "due mele",
+    "tre dita": "tre banane",
+    "quattro dita": "quattro fragole",
+    "cinque dita": "cinque pere",
   };
 
   const gridCalcWidth = "w-[280px]"; // <--- AGGIORNATO PER 3 COLONNE e gap-x-6
@@ -82,6 +82,7 @@ const Livello4Gioco3 = () => {
       gapX="gap-x-6" // <--- SUGGERISCO QUESTO gap per migliore estetica/spazio
       gapY="gap-y-2" // Gap verticale (come Livello 1, 2, 3)
       gridWidth={gridCalcWidth} // Larghezza calcolata
+      versioneCompatta
     />
   );
 };

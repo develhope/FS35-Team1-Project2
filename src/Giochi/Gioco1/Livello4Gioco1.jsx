@@ -14,7 +14,7 @@ const Livello4Gioco1 = () => {
       opz2="8"
       opz3="4"
       rispostaCorretta="8"
-      nebula="../../immagini/Gioco1/nebula giochi.png"
+      nebula="/assets/immagini/Gioco1/nebulagames.png"
       isFinalLevel={true}
       prossimoLivelloLink="/livello5gioco1" // 🔥 QUESTO È IL PEZZO IMPORTANTE
       posizioneAstronauti={{
