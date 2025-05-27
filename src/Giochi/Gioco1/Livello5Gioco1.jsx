@@ -17,7 +17,6 @@ const Livello5Gioco1 = () => {
         alt=""
       />
       <StrutturaVittoria
-        punti={200}
         sfondo="/assets/immagini/Gioco1/sfondo-gioco-1.svg"
         immagine1="/assets/immagini/Gioco1/astronautagioco1donna.svg"
         immagine2="/assets/immagini/Gioco1/astronautagioco1maschio.svg"

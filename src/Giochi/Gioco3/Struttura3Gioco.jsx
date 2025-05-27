@@ -1,6 +1,7 @@
-import React, { useState, useRef, useMemo } from "react";
+import React, { useState, useRef, useMemo, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Star from "../../Components/Star";
+import { PointsContext } from "../../PointsContext.jsx";
 
 const Struttura3Gioco = ({
   titoloLivello,
@@ -15,6 +16,7 @@ const Struttura3Gioco = ({
   versioneCompatta,
   isLivello4 = true,
 }) => {
+  const { points, setPoints } = useContext(PointsContext);
   const navigate = useNavigate();
   const [associazioni, setAssociazioni] = useState({});
   const [dragData, setDragData] = useState(null);
@@ -24,6 +26,11 @@ const Struttura3Gioco = ({
   const [blocchiEvidenziati, setBlocchiEvidenziati] = useState([]);
   const [blocchiErrati, setBlocchiErrati] = useState([]);
   const ghostRef = useRef(null);
+  
+   const handleLevel = () => {
+    setPoints((prevPoints) => prevPoints + 50);
+    navigate(livelloSuccessivoPath);
+  }
 
   const handleDrop = (trascinato, target) => {
     if (!trascinato || !target) return;
@@ -244,11 +251,11 @@ const Struttura3Gioco = ({
                   : "absolute left-[15px] text-black"
               }`}
             >
-              Hai raccolto <span className="text-yellow-300">100</span> punti
+              Hai raccolto <span className="text-yellow-300">{points}</span> punti
             </p>
             <button
               className="absolute bottom-4 right-28 bg-orange-600 text-white px-4 py-2 text-sm sm:text-base rounded md:right-76"
-              onClick={() => navigate(livelloSuccessivoPath)}
+              onClick={() => handleLevel()}
             >
               Prossimo livello
             </button>
