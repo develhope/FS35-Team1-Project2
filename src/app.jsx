@@ -75,7 +75,7 @@ function App() {
         (gameLevelHeaderTitle ? (
           <HeaderGiochi titolo={gameLevelHeaderTitle} />
         ) : (
-          <Header />
+          <HeaderFineLivelli />
         ))}
 
       <main className="min-h-screen relative">

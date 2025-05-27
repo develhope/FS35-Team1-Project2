@@ -9,7 +9,6 @@ import Livello3Gioco2 from "./Livello3Gioco2.jsx";
 import Livello4Gioco2 from "./Livello4gioco2.jsx";
 import Livello5Gioco2 from "./Livello5Gioco2.jsx";
 
-
 const LEVEL_COMPONENTS = [
   Livello1Gioco2,
   Livello2Gioco2,
@@ -65,41 +64,44 @@ function GameStructure() {
   // Calcola il titolo dell'header in base al livello corrente
   const headerTitle = `Livello ${currentLevelIndex + 1}`;
 
-
   // Se non ci sono più livelli
   if (!CurrentLevelComponent) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bggame2 text-white p-5 relative">
-        <img
-          src="/assets/immagini/Gioco2/astronauta biondo su pianeta.svg"
-          alt="astronauta vincente"
-          className="absolute w-45 top-15"
-        />
-        <h1 className="z-50 mt-75 text-3xl font-bold text-white mb-4">
-          Complimenti!
-        </h1>
-        <p className="z-50 text-l text-center mb-6">
-          Grazie a te Marco ha ritrovato tutti i numeri persi nell’universo!
-        </p>
-        <p className="z-50 text-l text-center mb-6 ">
-          Hai raccolto {score} punti, corri a comprare la tua nuova skin!
-        </p>
-        <div className="z-50 text-2xl text-blue-100">Punti Totali: {score}</div>
-        <div className="flex gap-10">
-          <button
-            onClick={() => navigate("/shop")}
-            className="mt-8 px-4 py-3 bg-yellow-400 text-black rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 text-xl font-semibold"
-          >
-            Shop
-          </button>
-          <button
-            onClick={() => currentLevelIndex()}
-            className="mt-8 px-6 py-3 bg-yellow-400 text-black rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 text-xl font-semibold"
-          >
-            Prosegui
-          </button>
+      <>
+        <div className="flex flex-col items-center justify-center min-h-screen bggame2 text-white p-5 relative">
+          <img
+            src="/assets/immagini/Gioco2/astronauta biondo su pianeta.svg"
+            alt="astronauta vincente"
+            className="absolute w-45 top-15"
+          />
+          <h1 className="z-50 mt-75 text-3xl font-bold text-white mb-4">
+            Complimenti!
+          </h1>
+          <p className="z-50 text-l text-center mb-6">
+            Grazie a te Marco ha ritrovato tutti i numeri persi nell’universo!
+          </p>
+          <p className="z-50 text-l text-center mb-6 ">
+            Hai raccolto {score} punti, corri a comprare la tua nuova skin!
+          </p>
+          <div className="z-50 text-2xl text-blue-100">
+            Punti Totali: {score}
+          </div>
+          <div className="flex gap-10">
+            <button
+              onClick={() => navigate("/shop")}
+              className="mt-8 px-4 py-3 bg-yellow-400 text-black rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 text-xl font-semibold"
+            >
+              Shop
+            </button>
+            <button
+              onClick={() => currentLevelIndex()}
+              className="mt-8 px-6 py-3 bg-yellow-400 text-black rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 text-xl font-semibold"
+            >
+              Prosegui
+            </button>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 
