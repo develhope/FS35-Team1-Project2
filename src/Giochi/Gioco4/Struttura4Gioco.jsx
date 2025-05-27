@@ -22,7 +22,7 @@ const Struttura4Gioco = (props) => {
 
           <div className="flex items-start ">
             <img
-              src="./immagini/Gioco4/amicodinebula_1_4.svg"
+              src="/assets/immagini/Gioco4/amicodinebula_1_4.svg"
               alt=""
               className="w-30 h-auto ml-4 object-contain transform scale-x-[-1]"
             />
@@ -36,7 +36,7 @@ const Struttura4Gioco = (props) => {
               {props.domanda2}
             </div>
             <img
-              src="./immagini/Gioco4/amicodinebula_2_4.svg"
+              src="/assets/immagini/Gioco4/amicodinebula_2_4.svg"
               alt=""
               className="w-25 object-contain transform"
             />

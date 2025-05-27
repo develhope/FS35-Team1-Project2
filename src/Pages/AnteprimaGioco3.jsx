@@ -20,7 +20,7 @@ const AnteprimaGioco3 = () => {
         img={
           <img
             className="w-40"
-            src="../../immagini/Gioco3/scimmia_home_3.svg"
+            src="/assets/immagini/Gioco3/scimmia_home_3.svg"
             alt="Scimmietta Astronauta"
           />
         }

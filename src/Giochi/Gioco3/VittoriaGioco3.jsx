@@ -9,7 +9,7 @@ const VittoriaGioco3 = () => {
       <div className="w-full max-w-md md:max-w-3xl">
         <StrutturaVittoria
           punti={150}
-          immagine1="./immagini/Gioco3/scimmia_home_3.svg"
+          immagine1="/assets/immagini/Gioco3/scimmia_home_3.svg"
           frase="Grazie a te la scimmietta è riuscita a comprare tutti i frutti richiesti dalla mamma!"
           isVittoriaGioco3={true} // flag attivo per questo gioco
           sfondo="/immagini/sfondoproseguogiochi.svg"

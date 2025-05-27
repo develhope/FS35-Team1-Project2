@@ -218,15 +218,7 @@ const Struttura3Gioco = ({
             <img
               src="/assets/immagini/Gioco3/scimmia_gioco_3.svg"
               alt="Scimmia"
-              className={`absolute right-1 w-30 sm:w-24 md:w-38 object-contain z-10 ${
-                isLivello4
-                  ? versioneCompatta
-                    ? "top-72 sm:top-72 md:top-72"
-                    : "top-84 sm:top-76 md:top-76"
-                  : versioneCompatta
-                  ? "top-90 sm:top-76 md:top-38"
-                  : "top-96 sm:top-70 md:top-38"
-              }`}
+              className="absolute top-[70%] right-0 w-30 sm:w-28 md:w-36 object-contain z-10"
             />
           ) : (
             <img
@@ -234,7 +226,7 @@ const Struttura3Gioco = ({
               alt="Scimmia Esultante"
               className={`absolute ${
                 versioneCompatta
-                  ? "bottom-8 right-[-10px] w-36 sm:w-28 md:w-60"
+                  ? "bottom-8 right-[-10px] w-40 sm:w-28 md:w-60"
                   : "bottom-8 right-0 w-40 sm:w-34 md:w-60"
               } object-contain z-10 animate-bounce`}
             />

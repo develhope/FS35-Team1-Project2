@@ -67,7 +67,6 @@ function GameStructure() {
   // Calcola il titolo dell'header in base al livello corrente
   const headerTitle = `Livello ${currentLevelIndex + 1}`;
 
-
   // Se non ci sono più livelli
   if (!CurrentLevelComponent) {
     return (

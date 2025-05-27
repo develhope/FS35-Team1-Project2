@@ -14,7 +14,7 @@ const Livello5Gioco1 = () => {
       <img
         className="bg-transparent z-30 w-[50px] absolute top-[130px] left-[164px]"
         src="/assets/immagini/Gioco1/cuorepaginafinale.png"
-        alt=""
+        alt="Cuore"
       />
       <StrutturaVittoria
         sfondo="/assets/immagini/Gioco1/sfondo-gioco-1.svg"
