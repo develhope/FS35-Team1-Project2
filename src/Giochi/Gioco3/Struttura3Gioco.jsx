@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import Star from "../../Components/Star";
 
@@ -128,6 +128,10 @@ const Struttura3Gioco = ({
     }
   };
 
+  const blocchi = useMemo(
+    () => blocchiGioco.sort(() => Math.random() - 0.5),
+    []
+  );
   return (
     <div
       style={{
@@ -150,7 +154,7 @@ const Struttura3Gioco = ({
           <div
             className={`grid ${gridCols} ${gapY} ${gapX} justify-items-center mx-auto ${gridWidth}`}
           >
-            {blocchiGioco.map((blocco, index) => {
+            {blocchi.map((blocco, index) => {
               const valore = blocco.valore;
               const bgColor = getBackgroundColorClass(blocco.colore);
               const isEvidenziato = blocchiEvidenziati.includes(valore);
