@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Star from "../../Components/Star";
-
+import HeaderGioco2 from "./HeaderGioco2.jsx";
 // Importa tutti i componenti dei livelli
 import Livello1Gioco2 from "./Livello1Gioco2.jsx";
 import Livello2Gioco2 from "./Livello2Gioco2.jsx";
@@ -24,6 +25,8 @@ function GameStructure() {
   const [isLevelCorrect, setIsLevelCorrect] = useState(null); // true/false per il feedback visivo
   const [showNextLevelButton, setShowNextLevelButton] = useState(false); // Nuovo stato per il bottone "Avanti"
   const [showRetryLevelButton, setShowRetryLevelButton] = useState(false); // Nuovo stato per il bottone "Riprova"
+
+  const navigate = useNavigate();
 
   const handleLevelComplete = () => {
     setIsLevelCorrect(true);
@@ -59,6 +62,9 @@ function GameStructure() {
   // Determina quale componente livello mostrare
   const CurrentLevelComponent = LEVEL_COMPONENTS[currentLevelIndex];
 
+  // Calcola il titolo dell'header in base al livello corrente
+  const headerTitle = `Livello ${currentLevelIndex + 1}`;
+
   // Se non ci sono più livelli
   if (!CurrentLevelComponent) {
     return (
@@ -80,16 +86,16 @@ function GameStructure() {
         <div className="z-50 text-2xl text-blue-100">Punti Totali: {score}</div>
         <div className="flex gap-10">
           <button
-            onClick={() => setCurrentLevelIndex(0)} // Questo bottone dovrebbe portare a una pagina di selezione livelli o alla home
+            onClick={() => navigate("/shop")}
             className="mt-8 px-4 py-3 bg-yellow-400 text-black rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 text-xl font-semibold"
           >
-            Ricomincia
+            Shop
           </button>
           <button
-            onClick={() => console.log("Vai allo Shop")} // Questo bottone dovrebbe portare allo shop
+            onClick={() => currentLevelIndex()}
             className="mt-8 px-6 py-3 bg-yellow-400 text-black rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 text-xl font-semibold"
           >
-            Shop
+            Prosegui
           </button>
         </div>
       </div>
@@ -98,12 +104,14 @@ function GameStructure() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bggame2 text-white p-5 relative overflow-hidden">
+      <HeaderGioco2 titolo={headerTitle} />
+
       <img
         src="../../public/assets/immagini/Gioco2/astronauta-gioco-2.svg"
         alt="Astronauta"
         className="absolute z-50 right-1 bottom-5 w-35 h-auto md:w-32 lg:w-40"
       />
-      <div className="bg-white rounded-xl border-amber-400 border-4 h-125 w-80 mt-20 flex flex-col items-center relative">
+      <div className="bg-white rounded-xl border-amber-400 border-4 h-125 w-80 mt-10 flex flex-col items-center relative">
         <CurrentLevelComponent
           onLevelComplete={handleLevelComplete}
           onLevelFail={handleLevelFail}
@@ -113,20 +121,19 @@ function GameStructure() {
         />
         {/* Feedback visivo: stella o messaggio di errore, gestito centralmente */}
         {showFeedback && isLevelCorrect === true && (
-          // Ho ripristinato le classi originali che avevi fornito per la stella
           <div className="absolute top-100 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none">
             <div className="scale-75 md:scale-90">
               <Star />
             </div>
           </div>
         )}
-        
+
         {showFeedback && isLevelCorrect === false && (
           <p className="text-l md:text-2xl font-bold text-red-500 mt-4 animate-pulse">
-            Risposta errata! 
+            Risposta errata!
           </p>
         )}
-        
+
         {/* Bottoni "Avanti" o "Riprova" con padding ripristinato */}
         <div className="mt-4 flex gap-4">
           {showNextLevelButton && (

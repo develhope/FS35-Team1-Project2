@@ -1,5 +1,4 @@
 import AnteprimaGiochi from "../Components/AnteprimaGiochi";
-import { Link } from "react-router-dom";
 import CallToAction from "../Components/CallToAction";
 
 const AnteprimaGioco1 = () => {
@@ -29,8 +28,8 @@ const AnteprimaGioco1 = () => {
       />
 
       <CallToAction
-        route="/struttura1gioco"
-        text="iniziamo!"
+        route="/livello1gioco1"
+        text="Iniziamo!"
         showAlways={true}
       />
     </>

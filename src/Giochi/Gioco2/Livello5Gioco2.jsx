@@ -33,7 +33,7 @@ const levelConfig = {
     {
       id: "planet_empty_C",
       value: null,
-      image: "/immagini/Pianeti/pianeta5.svg",
+      image: "/immagini/Pianeti/pianeta7.svg",
       size: "w-15 h-15",
     },
     {

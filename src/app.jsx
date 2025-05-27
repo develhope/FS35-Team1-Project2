@@ -47,23 +47,30 @@ import Livello5Gioco2 from "./Giochi/Gioco2/Livello5Gioco2";
 function App() {
   const location = useLocation();
   const path = location.pathname;
-const match = path.match(/^\/(struttura\d+gioco|livello\d+)$/);
-const livello = match ? `Livello ${match[1].match(/\d+/)[0]}` : null;
 
-  // 🧠 Determina se mostrare HeaderGiochi e quale titolo usare
-  let titolo = null;
+  const isGioco2Path =
+    path.startsWith("/struttura2gioco") || path.includes("gioco2");
 
-  if (path.includes("struttura")) {
-    const match = path.match(/struttura(\d+)gioco/);
-    if (match) titolo = `Livello ${match[1]}`;
-  } else if (path.includes("livello")) {
-    const match = path.match(/livello(\d+)gioco(\d+)/);
-    if (match) titolo = `Livello ${match[1]}`;
+  let gameLevelHeaderTitle = null;
+  const matchLivelloGioco = path.match(/\/livello(\d+)gioco(\d+)/);
+
+  if (matchLivelloGioco) {
+    const livello = matchLivelloGioco[1];
+    const gioco = matchLivelloGioco[2];
+    if (gioco !== "2") {
+      gameLevelHeaderTitle = `Livello ${livello}`;
+    }
   }
 
   return (
     <>
-      <div>{titolo ? <HeaderGiochi titolo={titolo} /> : <Header />}</div>
+      {/* Condiziona la visualizzazione dell'Header globale o di HeaderGiochi */}
+      {!isGioco2Path &&
+        (gameLevelHeaderTitle ? (
+          <HeaderGiochi titolo={gameLevelHeaderTitle} />
+        ) : (
+          <Header />
+        ))}
 
       <main className="min-h-screen relative">
         <Routes>
@@ -87,8 +94,7 @@ const livello = match ? `Livello ${match[1].match(/\d+/)[0]}` : null;
           <Route path="/struttura3gioco" element={<Struttura3Gioco />} />
           <Route path="/struttura4gioco" element={<Struttura4Gioco />} />
           <Route path="/struttura2gioco" element={<Struttura2Gioco />} />
-          
-         
+
           <Route path="/livello1gioco1" element={<Livello1Gioco1 />} />
           <Route path="/livello2gioco1" element={<Livello2Gioco1 />} />
           <Route path="/livello3gioco1" element={<Livello3Gioco1 />} />

@@ -12,7 +12,7 @@ const Form = () => {
         <h2 className="text-[18px]">Prima di partire... facciamo squadra!</h2>
         <h3 className="text-[14px] px-[56px]">
           Il quiz serve a conoscerti meglio e ci piace sapere chi ci sta
-          aiutando. <br /> Sei con un genitore?
+          aiutando. <br /> Sei il genitore?
         </h3>
       </div>
 
