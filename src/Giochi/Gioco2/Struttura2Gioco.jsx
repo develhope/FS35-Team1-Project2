@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Star from "../../Components/Star";
 import HeaderGioco2 from "./HeaderGioco2.jsx";
@@ -8,6 +8,8 @@ import Livello2Gioco2 from "./Livello2Gioco2.jsx";
 import Livello3Gioco2 from "./Livello3Gioco2.jsx";
 import Livello4Gioco2 from "./Livello4gioco2.jsx";
 import Livello5Gioco2 from "./Livello5Gioco2.jsx";
+
+import { PointsContext } from "../../PointsContext.jsx";
 
 
 const LEVEL_COMPONENTS = [
@@ -19,8 +21,8 @@ const LEVEL_COMPONENTS = [
 ];
 
 function GameStructure() {
+  const { points, setPoints } = useContext(PointsContext);
   const [currentLevelIndex, setCurrentLevelIndex] = useState(0); // 0 = Livello 1
-  const [score, setScore] = useState(0);
   const [showFeedback, setShowFeedback] = useState(false); // Per mostrare la stella/messaggio di errore
   const [isLevelCorrect, setIsLevelCorrect] = useState(null); // true/false per il feedback visivo
   const [showNextLevelButton, setShowNextLevelButton] = useState(false); // Nuovo stato per il bottone "Avanti"
@@ -82,9 +84,9 @@ function GameStructure() {
           Grazie a te Marco ha ritrovato tutti i numeri persi nell’universo!
         </p>
         <p className="z-50 text-l text-center mb-6 ">
-          Hai raccolto {score} punti, corri a comprare la tua nuova skin!
+          Hai raccolto {points} punti, corri a comprare la tua nuova skin!
         </p>
-        <div className="z-50 text-2xl text-blue-100">Punti Totali: {score}</div>
+        <div className="z-50 text-2xl text-blue-100">Punti Totali: {points}</div>
         <div className="flex gap-10">
           <button
             onClick={() => navigate("/shop")}
@@ -116,8 +118,8 @@ function GameStructure() {
         <CurrentLevelComponent
           onLevelComplete={handleLevelComplete}
           onLevelFail={handleLevelFail}
-          score={score} // Passa il punteggio attuale
-          setScore={setScore} // Passa la funzione per aggiornare il punteggio
+          score={points} // Passa il punteggio attuale
+          setScore={setPoints} // Passa la funzione per aggiornare il punteggio
           isGameFeedbackActive={showFeedback} // Passa anche lo stato di showFeedback
         />
         {/* Feedback visivo: stella o messaggio di errore, gestito centralmente */}
@@ -157,7 +159,7 @@ function GameStructure() {
         {/* Punti totali sempre visibili */}
       </div>
       <div className="text-l md:text-2xl pl-2 text-blue-300 font-semibold">
-        Punti: {score}
+        Punti: {points}
       </div>
     </div>
   );

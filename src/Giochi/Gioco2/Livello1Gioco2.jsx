@@ -85,6 +85,7 @@ function Livello1Gioco2({
   };
 
   const checkAnswer = (orderToCheck) => {
+    console.log("Utilizzo di checkAnswer")
     let correct = true;
     if (orderToCheck.length !== levelConfig.expectedOrder.length) {
       correct = false;
@@ -100,7 +101,7 @@ function Livello1Gioco2({
     if (correct) {
       setFeedbackMessage("Corretto! Ottimo lavoro!");
       setLevelStatus("correct");
-      setScore((prevScore) => prevScore + 100); // Aggiorna il punteggio globale
+      setScore((prevScore) => prevScore + 50); // Aggiorna il punteggio globale
       onLevelComplete(); // Notifica il componente padre
     } else {
       setFeedbackMessage("Risposta errata! Riprova!");

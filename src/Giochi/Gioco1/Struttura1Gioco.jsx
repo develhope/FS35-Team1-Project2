@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Star from "../../Components/Star";
 import "./Struttura1gioco.css";
+import { PointsContext } from "../../PointsContext";
 
 const Struttura1Gioco = ({
   imgs = [],
@@ -16,6 +17,7 @@ const Struttura1Gioco = ({
   isFinalLevel = false,
   posizioneAstronauti = { donna: { left: 60, top: 0 }, maschio: { left: 230, top: 0 } },
 }) => {
+  const { points, setPoints } = useContext(PointsContext);
   const [risposta, setRisposta] = useState(null);
   const [isLeaving, setIsLeaving] = useState(false);
   const navigate = useNavigate();
@@ -31,6 +33,12 @@ const Struttura1Gioco = ({
       return () => clearTimeout(timer);
     }
   }, [isCorretto, isFinalLevel, navigate, prossimoLivelloLink]);
+
+useEffect(() => {
+  if (isCorretto) {
+    setPoints((prevPoints) => prevPoints + 50);
+  }
+}, [isCorretto, setPoints]);
 
   return (
     <div className={`w-screen h-screen overflow-hidden bggame1 relative ${isLeaving ? "fade-out" : ""}`}>
@@ -110,6 +118,7 @@ const Struttura1Gioco = ({
         )}
 
         {/* Risposta corretta - solo se NON è il livello finale */}
+        
         {isCorretto && !isFinalLevel && (
           <>
             <Star />
@@ -120,7 +129,7 @@ const Struttura1Gioco = ({
               Prossimo livello
             </button>
             <p className="absolute bottom-3 left-3 text-black">
-              Hai raccolto <span className="text-yellow-300">50</span> punti
+              Hai raccolto <span className="text-yellow-300">{points}</span> punti
             </p>
           </>
         )}

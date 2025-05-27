@@ -4,12 +4,15 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./app";
 import { UserProvider } from "./UserContext";
+import { PointsProvider } from "./PointsContext";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <UserProvider>
-        <App />
+        <PointsProvider>
+          <App />
+        </PointsProvider>
       </UserProvider>
     </BrowserRouter>
   </StrictMode>
