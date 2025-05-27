@@ -5,11 +5,11 @@ const AnteprimaGiochi = ({ gioco, title, text, media, img }) => {
   return (
     <>
       <div>
-        <div className="text-center">
+        <div className="text-center mt-20">
           <h1 className="text-2xl mt-3">{title}</h1>
         </div>
 
-        <div className=" flex items-center mt-14 px-12 gap-4">
+        <div className=" flex items-center mt-8 px-11 gap-4">
           <div className="overflow-hidden rounded-full">{media}</div>
 
           <p className="ml-4 a">{text}</p>

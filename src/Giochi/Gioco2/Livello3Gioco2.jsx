@@ -9,7 +9,7 @@ const levelConfig = {
     {
       id: "planet_5",
       value: 5,
-      image: "/immagini/Pianeti/pianeta5.svg",
+      image: "/immagini/Pianeti/pianeta8.svg",
       size: "w-20 h-20",
     },
     {
@@ -27,7 +27,7 @@ const levelConfig = {
     {
       id: "planet_2",
       value: 2,
-      image: "/immagini/Pianeti/pianeta2.svg",
+      image: "/immagini/Pianeti/pianeta9.svg",
       size: "w-20 h-20",
     },
     {
