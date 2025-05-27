@@ -46,6 +46,11 @@ import Livello2Gioco2 from "./Giochi/Gioco2/Livello2Gioco2";
 import Livello3Gioco2 from "./Giochi/Gioco2/Livello3Gioco2";
 import Livello4Gioco2 from "./Giochi/Gioco2/Livello4gioco2";
 import Livello5Gioco2 from "./Giochi/Gioco2/Livello5Gioco2";
+import { useEffect } from "react";
+
+
+import Login from "./Pages/Login.jsx"
+
 
 
 function App() {
@@ -121,6 +126,9 @@ function App() {
           <Route path="/livello3gioco4" element={<Livello3Gioco4 />} />
           <Route path="/livello4gioco4" element={<Livello4Gioco4 />} />
           <Route path="/livello5gioco4" element={<Livello5Gioco4 />} />
+
+        
+          <Route path="/login" element={<Login/>} />
         </Routes>
       </main>
     </>

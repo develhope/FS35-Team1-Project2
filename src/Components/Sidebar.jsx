@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Sidebar = () => {
   const [isVisible, setIsVisible] = useState(true);
 
-  if (!isVisible) return null; // Se non visibile, non renderizza nulla
+  if (!isVisible) return null;
 
   return (
     <div className="flex z-50 flex-col space-y-4 p-4 w-full max-w-xs h-screen relative bg-white shadow-md">
@@ -32,6 +32,9 @@ const Sidebar = () => {
         </div>
         <div>
           <Link to="/form">Quiz</Link>
+        </div>
+         <div>
+          <Link to="/login">Login</Link>
         </div>
         <div>
           <Link to="/feedback">Feedback</Link>
