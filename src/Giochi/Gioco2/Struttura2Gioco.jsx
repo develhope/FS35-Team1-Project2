@@ -2,14 +2,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Star from "../../Components/Star";
 import HeaderGioco2 from "./HeaderGioco2.jsx";
-// Importa tutti i componenti dei livelli
+
 import Livello1Gioco2 from "./Livello1Gioco2.jsx";
 import Livello2Gioco2 from "./Livello2Gioco2.jsx";
 import Livello3Gioco2 from "./Livello3Gioco2.jsx";
 import Livello4Gioco2 from "./Livello4gioco2.jsx";
 import Livello5Gioco2 from "./Livello5Gioco2.jsx";
 
-// Mappa l'indice del livello al componente React corrispondente
+
 const LEVEL_COMPONENTS = [
   Livello1Gioco2,
   Livello2Gioco2,
@@ -64,6 +64,7 @@ function GameStructure() {
 
   // Calcola il titolo dell'header in base al livello corrente
   const headerTitle = `Livello ${currentLevelIndex + 1}`;
+
 
   // Se non ci sono più livelli
   if (!CurrentLevelComponent) {
