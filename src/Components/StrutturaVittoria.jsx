@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import HeaderFineLivelli from "./HeaderFineLivelli";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { PointsContext } from "../PointsContext";
 
 const StrutturaVittoria = ({
   sfondo,
@@ -8,7 +9,6 @@ const StrutturaVittoria = ({
   immagine2,
   isVittoriaGioco3 = false,
   frase,
-  punti,
   flipDonna = true, // di default ribalta
   donnaClass = "",
   maschioClass = "",
@@ -27,6 +27,8 @@ const StrutturaVittoria = ({
     window.addEventListener("resize", checkIpadMini);
     return () => window.removeEventListener("resize", checkIpadMini);
   }, []);
+
+  const { points } = useContext(PointsContext);
 
   return (
     <div
@@ -94,7 +96,7 @@ const StrutturaVittoria = ({
               {frase}
             </p>
             <p className={`text-white mt-2 ${isIpadMini ? "text-lg" : ""}`}>
-              Hai raccolto {punti} punti, corri a comprare la tua nuova skin!
+              Hai raccolto {points} punti, corri a comprare la tua nuova skin!
             </p>
 
             <div className="flex gap-10 justify-center pt-5">

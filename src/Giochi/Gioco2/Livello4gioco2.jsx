@@ -153,7 +153,7 @@ function Livello4Gioco2({
     if (correct) {
       setFeedbackMessage("Corretto! Ottimo lavoro!");
       setLevelStatus("correct");
-      setScore((prevScore) => prevScore + 100);
+      setScore((prevScore) => prevScore + 50);
       onLevelComplete();
     } else {
       setFeedbackMessage("Risposta errata! Riprova!");

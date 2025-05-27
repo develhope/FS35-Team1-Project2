@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Star from "../../Components/Star";
 import HeaderGioco2 from "./HeaderGioco2.jsx";
@@ -9,6 +9,9 @@ import Livello3Gioco2 from "./Livello3Gioco2.jsx";
 import Livello4Gioco2 from "./Livello4gioco2.jsx";
 import Livello5Gioco2 from "./Livello5Gioco2.jsx";
 
+import { PointsContext } from "../../PointsContext.jsx";
+
+
 const LEVEL_COMPONENTS = [
   Livello1Gioco2,
   Livello2Gioco2,
@@ -18,8 +21,8 @@ const LEVEL_COMPONENTS = [
 ];
 
 function GameStructure() {
+  const { points, setPoints } = useContext(PointsContext);
   const [currentLevelIndex, setCurrentLevelIndex] = useState(0); // 0 = Livello 1
-  const [score, setScore] = useState(0);
   const [showFeedback, setShowFeedback] = useState(false); // Per mostrare la stella/messaggio di errore
   const [isLevelCorrect, setIsLevelCorrect] = useState(null); // true/false per il feedback visivo
   const [showNextLevelButton, setShowNextLevelButton] = useState(false); // Nuovo stato per il bottone "Avanti"
@@ -67,41 +70,37 @@ function GameStructure() {
   // Se non ci sono più livelli
   if (!CurrentLevelComponent) {
     return (
-      <>
-        <div className="flex flex-col items-center justify-center min-h-screen bggame2 text-white p-5 relative">
-          <img
-            src="/assets/immagini/Gioco2/astronauta biondo su pianeta.svg"
-            alt="astronauta vincente"
-            className="absolute w-45 top-15"
-          />
-          <h1 className="z-50 mt-75 text-3xl font-bold text-white mb-4">
-            Complimenti!
-          </h1>
-          <p className="z-50 text-l text-center mb-6">
-            Grazie a te Marco ha ritrovato tutti i numeri persi nell’universo!
-          </p>
-          <p className="z-50 text-l text-center mb-6 ">
-            Hai raccolto {score} punti, corri a comprare la tua nuova skin!
-          </p>
-          <div className="z-50 text-2xl text-blue-100">
-            Punti Totali: {score}
-          </div>
-          <div className="flex gap-10">
-            <button
-              onClick={() => navigate("/shop")}
-              className="mt-8 px-4 py-3 bg-yellow-400 text-black rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 text-xl font-semibold"
-            >
-              Shop
-            </button>
-            <button
-              onClick={() => currentLevelIndex()}
-              className="mt-8 px-6 py-3 bg-yellow-400 text-black rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 text-xl font-semibold"
-            >
-              Prosegui
-            </button>
-          </div>
+      <div className="flex flex-col items-center justify-center min-h-screen bggame2 text-white p-5 relative">
+        <img
+          src="/assets/immagini/Gioco2/astronauta biondo su pianeta.svg"
+          alt="astronauta vincente"
+          className="absolute w-45 top-15"
+        />
+        <h1 className="z-50 mt-75 text-3xl font-bold text-white mb-4">
+          Complimenti!
+        </h1>
+        <p className="z-50 text-l text-center mb-6">
+          Grazie a te Marco ha ritrovato tutti i numeri persi nell’universo!
+        </p>
+        <p className="z-50 text-l text-center mb-6 ">
+          Hai raccolto {points} punti, corri a comprare la tua nuova skin!
+        </p>
+        <div className="z-50 text-2xl text-blue-100">Punti Totali: {points}</div>
+        <div className="flex gap-10">
+          <button
+            onClick={() => navigate("/shop")}
+            className="mt-8 px-4 py-3 bg-yellow-400 text-black rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 text-xl font-semibold"
+          >
+            Shop
+          </button>
+          <button
+            onClick={() => currentLevelIndex()}
+            className="mt-8 px-6 py-3 bg-yellow-400 text-black rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 text-xl font-semibold"
+          >
+            Prosegui
+          </button>
         </div>
-      </>
+      </div>
     );
   }
 
@@ -118,8 +117,8 @@ function GameStructure() {
         <CurrentLevelComponent
           onLevelComplete={handleLevelComplete}
           onLevelFail={handleLevelFail}
-          score={score} // Passa il punteggio attuale
-          setScore={setScore} // Passa la funzione per aggiornare il punteggio
+          score={points} // Passa il punteggio attuale
+          setScore={setPoints} // Passa la funzione per aggiornare il punteggio
           isGameFeedbackActive={showFeedback} // Passa anche lo stato di showFeedback
         />
         {/* Feedback visivo: stella o messaggio di errore, gestito centralmente */}
@@ -159,7 +158,7 @@ function GameStructure() {
         {/* Punti totali sempre visibili */}
       </div>
       <div className="text-l md:text-2xl pl-2 text-blue-300 font-semibold">
-        Punti: {score}
+        Punti: {points}
       </div>
     </div>
   );
