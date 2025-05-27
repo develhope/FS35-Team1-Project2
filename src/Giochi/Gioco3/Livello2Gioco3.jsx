@@ -5,23 +5,38 @@ import Struttura3Gioco from "./Struttura3Gioco"; // Assicurati che il percorso s
 const Livello2Gioco3 = () => {
   // 1. Definisci l'array dei blocchi per il Livello 2, con l'ordine e i colori desiderati
   const blocchiPerLivello2 = [
-    { tipo: 'numero', valore: "2", colore: 'pink' },       
-    { tipo: 'frutto', valore: "tre banane", colore: 'lilac', immagineSrc:"/immagini/Gioco3/trebanane.png" },
-    { tipo: 'frutto', valore: "una pera", colore: 'pink', immagineSrc: "/immagini/Gioco3/Pera.svg"},   
-    { tipo: 'numero', valore: "3", colore: 'yellow' },     
-    { tipo: 'frutto', valore: "due mele", colore: 'blue', immagineSrc:"/immagini/Gioco3/Apple.svg" },   
-    { tipo: 'numero', valore: "1", colore: 'yellow' },     
+    { tipo: "numero", valore: "2", colore: "pink" },
+    {
+      tipo: "frutto",
+      valore: "tre banane",
+      colore: "lilac",
+      immagineSrc: "/assets/immagini/Gioco3/trebanane.png",
+    },
+    {
+      tipo: "frutto",
+      valore: "una pera",
+      colore: "pink",
+      immagineSrc: "/assets/immagini/Gioco3/Pera.svg",
+    },
+    { tipo: "numero", valore: "3", colore: "yellow" },
+    {
+      tipo: "frutto",
+      valore: "due mele",
+      colore: "blue",
+      immagineSrc: "/assets/immagini/Gioco3/Apple.svg",
+    },
+    { tipo: "numero", valore: "1", colore: "yellow" },
   ];
 
   // 2. Definisci le associazioni corrette per il Livello 2
   // Basandoci sui contenuti, le associazioni logiche dovrebbero essere:
   const risposteCorretteLivello2 = {
-    "1": "una pera",
-    "2": "due mele",
-    "3": "tre banane",
+    1: "una pera",
+    2: "due mele",
+    3: "tre banane",
   };
 
-  const gridCalcWidth = 'w-[288px]';
+  const gridCalcWidth = "w-[288px]";
 
   return (
     <Struttura3Gioco
@@ -32,8 +47,8 @@ const Livello2Gioco3 = () => {
       blocchiGioco={blocchiPerLivello2}
       // NUOVE PROPS PER LA GRIGLIA (3 colonne e gap-x-6)
       gridCols="grid-cols-3" // Ora 3 colonne
-      gapX="gap-x-6"         // Gap orizzontale come nella foto
-      gapY="gap-y-4"         // Gap verticale (mantenuto)
+      gapX="gap-x-6" // Gap orizzontale come nella foto
+      gapY="gap-y-4" // Gap verticale (mantenuto)
       gridWidth={gridCalcWidth} // Nuova larghezza calcolata
     />
   );

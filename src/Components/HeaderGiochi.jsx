@@ -1,13 +1,21 @@
+import {Link} from "react-router-dom"
+
 const HeaderGiochi = ({ titolo }) => {
   return (
-    <div className="relative">
-      <div className="flex items-center absolute top-2 gap-22 z-[200] m-4 text-white">
-        <img
-          src="../immagini/icon/sfondo-home.svg"
-          alt="instagram"
-          className="w-8 invert"
-        />
-        <h3 className="text-2xl">{titolo}</h3>
+    <div className="relative w-full max-w-screen-md mx-auto rounded shadow">
+      <div className="flex items-center absolute top-4 mb-5 gap-20 z-[200] p-4 text-white w-full">
+        <div>
+          <Link to="/">
+          <img
+            src="/immagini/icon/sfondo-home.svg"
+            alt="instagram"
+            className="w-8 invert flex-start"
+          />
+          </Link>
+        </div>
+        <div className="flex items-center">
+          <h3 className="text-2xl absolute left-1/2 transform -translate-x-1/2">{titolo}</h3>
+        </div>
       </div>
     </div>
   );

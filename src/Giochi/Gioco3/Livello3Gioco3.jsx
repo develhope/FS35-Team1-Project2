@@ -8,37 +8,37 @@ const Livello3Gioco3 = () => {
       tipo: "numero",
       valore: "due dita",
       colore: "yellow",
-      immagineSrc: "/immagini/Gioco3/mano_2.svg",
+      immagineSrc: "/assets/immagini/Gioco3/mano_2.svg",
     },
     {
       tipo: "frutto",
       valore: "tre banane",
       colore: "blue",
-      immagineSrc: "/immagini/Gioco3/trebanane.png",
+      immagineSrc: "/assets/immagini/Gioco3/trebanane.png",
     },
     {
       tipo: "frutto",
       valore: "cinque pere",
       colore: "blue",
-      immagineSrc: "/immagini/Gioco3/cinquepere.png",
+      immagineSrc: "/assets/immagini/Gioco3/cinquepere.png",
     },
     {
       tipo: "numero",
       valore: "tre dita",
       colore: "yellow",
-      immagineSrc: "/immagini/Gioco3/mano_3.svg",
+      immagineSrc: "/assets/immagini/Gioco3/mano_3.svg",
     },
     {
       tipo: "frutto",
       valore: "due mele",
       colore: "blue",
-      immagineSrc: "/immagini/Gioco3/Apple.svg",
+      immagineSrc: "/assets/immagini/Gioco3/Apple.svg",
     },
     {
       tipo: "numero",
       valore: "cinque dita",
       colore: "yellow",
-      immagineSrc: "/immagini/Gioco3/mano_5.svg",
+      immagineSrc: "/assets/immagini/Gioco3/mano_5.svg",
     },
   ];
 

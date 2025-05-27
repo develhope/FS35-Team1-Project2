@@ -46,6 +46,7 @@ import Livello2Gioco2 from "./Giochi/Gioco2/Livello2Gioco2";
 import Livello3Gioco2 from "./Giochi/Gioco2/Livello3Gioco2";
 import Livello4Gioco2 from "./Giochi/Gioco2/Livello4gioco2";
 import Livello5Gioco2 from "./Giochi/Gioco2/Livello5Gioco2";
+import { useEffect } from "react";
 
 
 import Login from "./Pages/Login.jsx"

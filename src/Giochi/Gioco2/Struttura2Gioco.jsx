@@ -108,7 +108,7 @@ function GameStructure() {
       <HeaderGioco2 titolo={headerTitle} />
 
       <img
-        src="../../public/assets/immagini/Gioco2/astronauta-gioco-2.svg"
+        src="/assets/immagini/Gioco2/astronauta-gioco-2.svg"
         alt="Astronauta"
         className="absolute z-50 right-1 bottom-5 w-35 h-auto md:w-32 lg:w-40"
       />

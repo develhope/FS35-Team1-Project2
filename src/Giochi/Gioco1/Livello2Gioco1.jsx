@@ -17,7 +17,7 @@ const Livello2Gioco1 = () => {
       opz2="8"
       opz3="6"
       rispostaCorretta="6"
-      nebula="../../immagini/Gioco1/nebula giochi.png"
+      nebula="/assets/immagini/Gioco1/nebulagames.png"
       prossimoLivelloLink="/livello3gioco1"
       posizioneAstronauti={{
         donna: { left: 70, top: 60 },

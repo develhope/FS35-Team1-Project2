@@ -10,7 +10,7 @@ const Struttura4Gioco = (props) => {
   return (
     <>
       <div className="bggame4">
-        <div className="bg-white rounded-xl border-amber-400 border-4 h-140 w-85  mt-20 absolute top-70 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className="bg-white/85 rounded-xl border-amber-400 border-4 h-140 w-85  mt-20 absolute top-70 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <div className="flex justify-center text-center mt-3 m-auto p-5">
             <p className="text-black">
               Dimmi qual’è il riquadro con il numero più alto di oggetti! <br/>
@@ -24,13 +24,13 @@ const Struttura4Gioco = (props) => {
               alt=""
               className="w-30 h-auto ml-4 object-contain transform scale-x-[-1]"
             />
-            <div className="bg-gray-300 w-40 h-30 border border-gray-300 rounded text-center m-auto flex items-center justify-center">
+            <div className="bg-white w-40 h-30 border border-gray-300 rounded text-center m-auto flex items-center justify-center">
               {props.domanda1}
             </div>
           </div>
 
           <div className="flex items-start gap-8 p-4 m-auto">
-            <div className="bg-gray-300 w-40 h-30 border border-gray-300 rounded text-center m-auto flex items-center justify-center">
+            <div className="bg-white w-40 h-30 border border-gray-300 rounded text-center m-auto flex items-center justify-center">
               {props.domanda2}
             </div>
             <img
@@ -46,7 +46,7 @@ const Struttura4Gioco = (props) => {
 
           <div className="flex items-center justify-center gap-2 ">
             <button
-              className="bg-gray-300 w-10 h-10 border border-gray-300 rounded text-center flex items-center justify-center"
+              className="bg-white w-10 h-10 border border-gray-300 rounded text-center flex items-center justify-center"
               onClick={() =>
                 props.valore1 === props.rispostaCorretta
                   ? (setShowSuccess(true), setShowError(false))
@@ -64,7 +64,7 @@ const Struttura4Gioco = (props) => {
             </div>
 
             <button
-              className="bg-gray-300 w-10 h-10 border border-gray-300 rounded text-center flex items-center justify-center"
+              className="bg-white w-10 h-10 border border-gray-300 rounded text-center flex items-center justify-center"
               onClick={() =>
                 props.valore2 === props.rispostaCorretta
                   ? (setShowSuccess(true), setShowError(false))
