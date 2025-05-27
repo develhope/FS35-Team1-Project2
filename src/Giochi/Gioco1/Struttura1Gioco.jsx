@@ -76,21 +76,24 @@ const Struttura1Gioco = ({
 
         <div className="flex gap-3.5 mt-8 justify-center">
           {[opz1, opz2, opz3].map((opzione, i) => (
-            <button
-              key={i}
-              onClick={() => setRisposta(opzione)}
-              className="w-8 h-8 rounded-full bg-gray-300 text-lg font-bold flex items-center justify-center"
-              style={{
-                color:
-                  opzione === opz1
-                    ? "#21C8C8"
-                    : opzione === opz2
-                    ? "#F5A42B"
-                    : "#EA3C3C",
-              }}
-            >
-              {opzione}
-            </button>
+          <button
+  key={i}
+  onClick={() => setRisposta(opzione)}
+  className={`w-8 h-8 rounded-full bg-gray-300 text-lg font-bold flex items-center justify-center transition-shadow duration-300 ${
+    risposta === opzione ? "shadow-[0_0_10px_3px_#00FF00]" : ""
+  }`}
+  style={{
+    color:
+      opzione === opz1
+        ? "#21C8C8"
+        : opzione === opz2
+        ? "#F5A42B"
+        : "#EA3C3C",
+  }}
+>
+  {opzione}
+</button>
+
           ))}
           <img
             className="absolute bottom-[-20px] left-[190px] w-[70px]"
