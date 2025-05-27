@@ -45,7 +45,7 @@ useEffect(() => {
       {/* Astronauti */}
       <div className="relative w-auto gap-30 mt-22 flex">
         <img
-          src="../immagini/Gioco1/astronautagioco1donna.svg"
+          src="/assets/immagini/Gioco1/astronautagioco1donna.svg"
           alt="astronauta donna"
           className="absolute w-24 astronauta"
           style={{
@@ -54,7 +54,7 @@ useEffect(() => {
           }}
         />
         <img
-          src="../immagini/Gioco1/astronautagioco1maschio.svg"
+          src="/assets/immagini/Gioco1/astronautagioco1maschio.svg"
           alt="astronauta maschio"
           className="absolute w-24 astronauta"
           style={{

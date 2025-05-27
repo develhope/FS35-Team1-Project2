@@ -10,7 +10,7 @@ import Livello4Gioco2 from "./Livello4gioco2.jsx";
 import Livello5Gioco2 from "./Livello5Gioco2.jsx";
 
 import { PointsContext } from "../../PointsContext.jsx";
-
+import HeaderFineLivelli from "../../Components/HeaderFineLivelli.jsx";
 
 const LEVEL_COMPONENTS = [
   Livello1Gioco2,
@@ -69,14 +69,19 @@ function GameStructure() {
 
   // Se non ci sono più livelli
   if (!CurrentLevelComponent) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-screen bggame2 text-white p-5 relative">
+  return (
+    <div className="min-h-screen flex flex-col bggame2 text-white">
+      {/* HEADER visibile normalmente */}
+      <HeaderFineLivelli />
+
+      {/* CONTENUTO */}
+      <div className="flex flex-col items-center justify-center flex-1 pl-4 pr-4 relative">
         <img
           src="/assets/immagini/Gioco2/astronauta biondo su pianeta.svg"
           alt="astronauta vincente"
-          className="absolute w-45 top-15"
+          className="absolute w-45 top-6"
         />
-        <h1 className="z-50 mt-75 text-3xl font-bold text-white mb-4">
+        <h1 className="z-50 mt-65 text-3xl font-bold text-white mb-4">
           Complimenti!
         </h1>
         <p className="z-50 text-l text-center mb-6">
@@ -85,7 +90,9 @@ function GameStructure() {
         <p className="z-50 text-l text-center mb-6 ">
           Hai raccolto {points} punti, corri a comprare la tua nuova skin!
         </p>
-        <div className="z-50 text-2xl text-blue-100">Punti Totali: {points}</div>
+        <div className="z-50 text-2xl text-blue-100">
+          Punti Totali: {points}
+        </div>
         <div className="flex gap-10">
           <button
             onClick={() => navigate("/shop")}
@@ -94,15 +101,16 @@ function GameStructure() {
             Shop
           </button>
           <button
-            onClick={() => currentLevelIndex()}
+            onClick={() => setCurrentLevelIndex(0)} // fix: era currentLevelIndex()
             className="mt-8 px-6 py-3 bg-yellow-400 text-black rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 text-xl font-semibold"
           >
             Prosegui
           </button>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bggame2 text-white p-5 relative overflow-hidden">

@@ -3,7 +3,7 @@ import StrutturaVittoria from "../../Components/StrutturaVittoria";
 const VittoriaGioco3 = () => {
   return (
     <div
-      className="min-h-screen bg-cover bg-center p-4 md:p-8 flex justify-center items-center"
+      className="min-h-screen bg-cover bg-center md:p-8 flex justify-center items-center"
       style={{ backgroundImage: "url('/immagini/sfondoproseguogiochi.svg')" }}
     >
       <div className="w-full max-w-md md:max-w-3xl">

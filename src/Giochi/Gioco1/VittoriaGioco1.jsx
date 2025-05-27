@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import StrutturaVittoria from "../../Components/StrutturaVittoria";
 import "./Struttura1gioco.css";
 
-const Livello5Gioco1 = () => {
+const VittoriaGioco1 = () => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -29,4 +29,4 @@ const Livello5Gioco1 = () => {
   );
 };
 
-export default Livello5Gioco1;
+export default VittoriaGioco1;
