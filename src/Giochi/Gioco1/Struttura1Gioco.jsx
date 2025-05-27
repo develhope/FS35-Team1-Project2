@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Star from "../../Components/Star";
 import "./Struttura1gioco.css";
@@ -14,15 +14,26 @@ const Struttura1Gioco = ({
   nebula,
   prossimoLivelloLink,
   isFinalLevel = false,
-  posizioneAstronauti = { donna: 60, maschio: 230 },
+  posizioneAstronauti = { donna: { left: 60, top: 0 }, maschio: { left: 230, top: 0 } },
 }) => {
   const [risposta, setRisposta] = useState(null);
+  const [isLeaving, setIsLeaving] = useState(false);
   const navigate = useNavigate();
 
   const isCorretto = risposta === rispostaCorretta;
 
+  useEffect(() => {
+    if (isCorretto && isFinalLevel) {
+      setIsLeaving(true);
+      const timer = setTimeout(() => {
+        navigate(prossimoLivelloLink);
+      }, 600); // Match con la durata CSS
+      return () => clearTimeout(timer);
+    }
+  }, [isCorretto, isFinalLevel, navigate, prossimoLivelloLink]);
+
   return (
-    <div className="w-screen h-screen overflow-hidden bggame1 relative">
+    <div className={`w-screen h-screen overflow-hidden bggame1 relative ${isLeaving ? "fade-out" : ""}`}>
       {/* Astronauti */}
       <div className="relative w-auto gap-30 mt-22 flex">
         <img
@@ -95,28 +106,19 @@ const Struttura1Gioco = ({
           </div>
         )}
 
-        {/* Risposta corretta */}
-        {isCorretto && (
+        {/* Risposta corretta - solo se NON è il livello finale */}
+        {isCorretto && !isFinalLevel && (
           <>
             <Star />
-            {!isFinalLevel ? (
-              <>
-                <button
-                  className="absolute bottom-[-50px] right-11 bg-orange-600 text-white px-3 py-1 rounded shadow"
-                  onClick={() => navigate(prossimoLivelloLink)}
-                >
-                  Prossimo livello
-                </button>
-                <p className="absolute bottom-3 left-3 text-black">
-                  Hai raccolto <span className="text-yellow-300">50</span> punti
-                </p>
-              </>
-            ) : (
-              <p className="absolute bottom-3 left-1/2 transform -translate-x-1/2 text-black">
-                Hai totalizzato{" "}
-                <span className="text-yellow-300 font-bold">200</span> punti!
-              </p>
-            )}
+            <button
+              className="absolute bottom-[-50px] right-11 bg-orange-600 text-white px-3 py-1 rounded shadow"
+              onClick={() => navigate(prossimoLivelloLink)}
+            >
+              Prossimo livello
+            </button>
+            <p className="absolute bottom-3 left-3 text-black">
+              Hai raccolto <span className="text-yellow-300">50</span> punti
+            </p>
           </>
         )}
       </article>

@@ -38,11 +38,13 @@ import Livello2Gioco4 from "./Giochi/Gioco4/Livello2Gioco4";
 import Livello3Gioco4 from "./Giochi/Gioco4/Livello3Gioco4";
 import Livello4Gioco4 from "./Giochi/Gioco4/Livello4Gioco4";
 import Livello5Gioco4 from "./Giochi/Gioco4/Livello5Gioco4";
+import Livello5Gioco1 from "./Giochi/Gioco1/Livello5Gioco1";
 import Livello1Gioco2 from "./Giochi/Gioco2/Livello1Gioco2";
 import Livello2Gioco2 from "./Giochi/Gioco2/Livello2Gioco2";
 import Livello3Gioco2 from "./Giochi/Gioco2/Livello3Gioco2";
 import Livello4Gioco2 from "./Giochi/Gioco2/Livello4gioco2";
 import Livello5Gioco2 from "./Giochi/Gioco2/Livello5Gioco2";
+
 
 function App() {
   const location = useLocation();
@@ -99,6 +101,7 @@ function App() {
           <Route path="/livello2gioco1" element={<Livello2Gioco1 />} />
           <Route path="/livello3gioco1" element={<Livello3Gioco1 />} />
           <Route path="/livello4gioco1" element={<Livello4Gioco1 />} />
+          <Route path="/livello5gioco1" element={<Livello5Gioco1 />} />
           <Route path="/livello1gioco2" element={<Livello1Gioco2 />} />
           <Route path="/livello2gioco2" element={<Livello2Gioco2 />} />
           <Route path="/livello3gioco2" element={<Livello3Gioco2 />} />
