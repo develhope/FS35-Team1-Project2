@@ -10,7 +10,7 @@ const Livello4Gioco4 = () => {
       valore1={17} // Pulsante sinistro
       valore2={13} // Pulsante destro
       rispostaCorretta={13} 
-      destinazione={"/livello5gioco4"}
+      destinazione={"/vittoriagioco4"}
     />
   );
 };
