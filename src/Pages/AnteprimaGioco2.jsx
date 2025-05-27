@@ -23,7 +23,7 @@ const AnteprimaGioco2 = () => {
         img={
           <img
             className="w-40"
-            src="/public/assets/immagini/Gioco2/astronauta biondo su pianeta.svg"
+            src="/assets/immagini/Gioco2/astronauta biondo su pianeta.svg"
             alt="Astronauta biondo su pianeta"
           />
         }

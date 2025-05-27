@@ -40,7 +40,7 @@ const StrutturaVittoria = ({
         position: "relative",
       }}
     >
-      <HeaderFineLivelli />
+      <HeaderFineLivelli/>
 
       <div className="absolute inset-0 flex justify-center items-center">
         <div
