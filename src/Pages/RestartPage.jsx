@@ -1,8 +1,9 @@
-// src/Pages/RestartPage.jsx
+
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../UserContext';
-import games from './games'; // Assicurati che questo percorso sia corretto.
+import games from './games'; 
+
 
 const RestartPage = () => {
     const { userData } = useContext(UserContext);
@@ -36,15 +37,8 @@ const RestartPage = () => {
             }}
             className="text-white relative"
         >
-            {/* Header / Icone in alto - CODICE INVARIATO */}
-            <div className="absolute top-4 left-4">
-                {/* <button onClick={() => navigate(-1)} className="text-white text-3xl">←</button> */}
-                {/* O inserisci le tue icone di back e carrello se presenti */}
-            </div>
-            <div className="absolute top-4 right-4 flex items-center gap-2">
-                {/* <img src="/path/to/user-avatar.svg" alt="Avatar" className="w-8 h-8 rounded-full" /> */}
-                {/* <img src="/path/to/cart-icon.svg" alt="Carrello" className="w-8 h-8" /> */}
-            </div>
+            {/* Header */}
+            
 
 
             <div className="text-center mt-10">
@@ -72,7 +66,7 @@ const RestartPage = () => {
                 </div>
             </div>
 
-            {/* Sezione Giochi e Livelli (CODICE INVARIATO) */}
+            {/* Sezione Giochi e Livelli */}
             <div className="w-full max-w-2xl px-4">
                 {games.map(game => (
                     <div key={game.id} className="mb-8 flex flex-col items-center">
@@ -84,7 +78,10 @@ const RestartPage = () => {
                                 className="max-w-full max-h-full object-contain"
                             />
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-4">{game.name}</h3>
+                        <h3 className="text-xl font-bold text-white mb-4"
+                         style={{ textShadow: '2px 2px 6px rgba(0, 0, 0, 0.7)' }}
+                        
+                        >{game.name}</h3>
 
                         {/* Livelli cliccabili */}
                         <div className="flex flex-wrap justify-center gap-4">
