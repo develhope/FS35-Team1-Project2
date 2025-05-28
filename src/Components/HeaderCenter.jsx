@@ -97,6 +97,7 @@ const HeaderCenter = () => {
       break;
     case "/sidebar":
       centerContent = null;
+      break;
     default:
       centerContent = (
         <img src="./immagini/logo.svg" className="w-20" alt="Logo" />
