@@ -15,7 +15,10 @@ const Struttura1Gioco = ({
   nebula,
   prossimoLivelloLink,
   isFinalLevel = false,
-  posizioneAstronauti = { donna: { left: 60, top: 0 }, maschio: { left: 230, top: 0 } },
+  posizioneAstronauti = {
+    donna: { left: 60, top: 0 },
+    maschio: { left: 230, top: 0 },
+  },
 }) => {
   const { points, setPoints } = useContext(PointsContext);
   const [risposta, setRisposta] = useState(null);
@@ -34,14 +37,18 @@ const Struttura1Gioco = ({
     }
   }, [isCorretto, isFinalLevel, navigate, prossimoLivelloLink]);
 
-useEffect(() => {
-  if (isCorretto) {
-    setPoints((prevPoints) => prevPoints + 50);
-  }
-}, [isCorretto, setPoints]);
+  useEffect(() => {
+    if (isCorretto) {
+      setPoints((prevPoints) => prevPoints + 50);
+    }
+  }, [isCorretto, setPoints]);
 
   return (
-    <div className={`w-screen h-screen overflow-hidden bggame1 relative ${isLeaving ? "fade-out" : ""}`}>
+    <div
+      className={`w-screen h-screen overflow-hidden bggame1 relative ${
+        isLeaving ? "fade-out" : ""
+      }`}
+    >
       {/* Astronauti */}
       <div className="relative w-auto gap-30 mt-22 flex">
         <img
@@ -84,24 +91,23 @@ useEffect(() => {
 
         <div className="flex gap-3.5 mt-8 justify-center">
           {[opz1, opz2, opz3].map((opzione, i) => (
-          <button
-  key={i}
-  onClick={() => setRisposta(opzione)}
-  className={`w-8 h-8 rounded-full bg-gray-300 text-lg font-bold flex items-center justify-center transition-shadow duration-300 ${
-    risposta === opzione ? "shadow-[0_0_10px_3px_#00FF00]" : ""
-  }`}
-  style={{
-    color:
-      opzione === opz1
-        ? "#21C8C8"
-        : opzione === opz2
-        ? "#F5A42B"
-        : "#EA3C3C",
-  }}
->
-  {opzione}
-</button>
-
+            <button
+              key={i}
+              onClick={() => setRisposta(opzione)}
+              className={`w-8 h-8 rounded-full bg-gray-300 text-lg font-bold flex items-center justify-center transition-shadow duration-300 ${
+                risposta === opzione ? "shadow-[0_0_10px_3px_#00FF00]" : ""
+              }`}
+              style={{
+                color:
+                  opzione === opz1
+                    ? "#21C8C8"
+                    : opzione === opz2
+                    ? "#F5A42B"
+                    : "#EA3C3C",
+              }}
+            >
+              {opzione}
+            </button>
           ))}
           <img
             className="absolute bottom-[-20px] left-[190px] w-[70px]"
@@ -112,27 +118,30 @@ useEffect(() => {
 
         {/* Risposta errata */}
         {risposta && !isCorretto && (
-          <div className="absolute bottom-3 text-[13px] left-[6px] bg-red-600 text-white px-1 py-1 rounded shadow">
+          <div className="text-sm md:text-2xl font-bold text-red-500 mt-4 animate-pulse">
             Risposta errata. Ritenta!
           </div>
         )}
 
         {/* Risposta corretta - solo se NON è il livello finale */}
-        
+
         {isCorretto && !isFinalLevel && (
           <>
-            <Star />
+            <div className="scale-75 md:scale-90">
+              <Star />
+            </div>
             <button
-              className="absolute bottom-[-50px] right-11 bg-orange-600 text-white px-3 py-1 rounded shadow"
+              className="mt-5 px-4 py-2 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600 transition-colors duration-300 font-semibold"
               onClick={() => navigate(prossimoLivelloLink)}
             >
               Prossimo livello
             </button>
-            <p className="absolute bottom-3 left-3 text-black">
-              Hai raccolto <span className="text-yellow-300">{points}</span> punti
-            </p>
           </>
         )}
+
+        <p className="absolute top-80 left-3 text-white">
+          Hai raccolto <span className="text-yellow-300">{points}</span> punti
+        </p>
       </article>
     </div>
   );

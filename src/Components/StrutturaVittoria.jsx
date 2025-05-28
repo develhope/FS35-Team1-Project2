@@ -12,6 +12,8 @@ const StrutturaVittoria = ({
   flipDonna = true, // di default ribalta
   donnaClass = "",
   maschioClass = "",
+  testoNero = false,
+  pbianco=true,
 }) => {
   const navigate = useNavigate();
 
@@ -42,7 +44,7 @@ const StrutturaVittoria = ({
         position: "relative",
       }}
     >
-      <HeaderFineLivelli/>
+      <HeaderFineLivelli />
 
       <div className="absolute inset-0 flex justify-center items-center">
         <div
@@ -83,19 +85,27 @@ const StrutturaVittoria = ({
           </div>
 
           <div
-            className={`mt-10 ${isIpadMini ? "w-full max-w-md" : "w-80"} px-4`}
+            className={`mt- ${isIpadMini ? "w-full max-w-md" : "w-80"} px-4`}
           >
             <h1
-              className={`text-black font-bold pb-2 ${
+              className={`mt-5 font-bold pb-2 ${
                 isIpadMini ? "text-5xl" : "text-4xl"
-              }`}
+              } ${testoNero ? "text-black" : "text-white"}`}
             >
               Complimenti!
             </h1>
-            <p className={`text-black mt-2 ${isIpadMini ? "text-lg" : ""}`}>
+            <p
+              className={`${testoNero ? "text-black" : "text-white"} mt-2 ${
+                isIpadMini ? "text-lg" : ""
+              }`}
+            >
               {frase}
             </p>
-            <p className={`text-white mt-2 ${isIpadMini ? "text-lg" : ""}`}>
+            <p
+              className={`${pbianco ? "text-white" : "text-black"} mt-2 ${
+                isIpadMini ? "text-lg" : ""
+              }`}
+            >
               Hai raccolto {points} punti, corri a comprare la tua nuova skin!
             </p>
 

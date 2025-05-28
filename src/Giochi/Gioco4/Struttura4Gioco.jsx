@@ -15,8 +15,11 @@ const Struttura4Gioco = (props) => {
         <div className="bg-white/85 rounded-xl border-amber-400 border-4 h-140 w-85  mt-20 absolute top-70 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <div className="flex justify-center text-center mt-3 m-auto p-5">
             <p className="text-black">
-              Dimmi qual’è il riquadro con il numero più alto di oggetti! <br/>
-              <span className="text-sm text-gray-500">Inizia col numero più alto, fai poi lo stesso con il numero più basso.</span>
+              Dimmi qual’è il riquadro con il numero più alto di oggetti! <br />
+              <span className="text-sm text-gray-500">
+                Inizia col numero più alto, fai poi lo stesso con il numero più
+                basso.
+              </span>
             </p>
           </div>
 
@@ -49,9 +52,11 @@ const Struttura4Gioco = (props) => {
           <div className="flex items-center justify-center gap-2 ">
             <button
               className="bg-white w-10 h-10 border border-gray-300 rounded text-center flex items-center justify-center"
-              onClick={() => 
+              onClick={() =>
                 props.valore1 === props.rispostaCorretta
-                  ? (setShowSuccess(true), setShowError(false), setPoints((prevPoints) => prevPoints + 50))
+                  ? (setShowSuccess(true),
+                    setShowError(false),
+                    setPoints((prevPoints) => prevPoints + 50))
                   : (setShowError(true), setShowSuccess(false))
               }
             >
@@ -69,7 +74,9 @@ const Struttura4Gioco = (props) => {
               className="bg-white w-10 h-10 border border-gray-300 rounded text-center flex items-center justify-center"
               onClick={() =>
                 props.valore2 === props.rispostaCorretta
-                  ? (setShowSuccess(true), setShowError(false), setPoints((prevPoints) => prevPoints + 50))
+                  ? (setShowSuccess(true),
+                    setShowError(false),
+                    setPoints((prevPoints) => prevPoints + 50))
                   : (setShowError(true), setShowSuccess(false))
               }
             >
@@ -78,7 +85,7 @@ const Struttura4Gioco = (props) => {
           </div>
 
           {showError && (
-            <div className="absolute top-135 bg-red-600 text-white px-1 py-1 rounded shadow">
+            <div className="ml-4 text-sm md:text-2xl font-bold text-red-500 mt-4 animate-pulse">
               Risposta errata. Ritenta!
             </div>
           )}
@@ -88,19 +95,19 @@ const Struttura4Gioco = (props) => {
               <div className="scale-75 md:scale-90">
                 <Star />
               </div>
-
-              <button
-                className="absolute top-120 left-5 w-70 h-10 bg-orange-600 text-white px-3 py-1 rounded shadow "
-                onClick={() => navigate(props.destinazione)}
-              >
-                {/* → */} Prossimo livello
-              </button>
-
-              <p className="absolute top-139 left-0  text-white">
-                Hai raccolto <span className="text-yellow-300">{points}</span> punti
-              </p>
+              <div className="flex justify-center -mt-8">
+                <button
+                  className="left-18 px-4 py-2 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600 transition-colors duration-300 font-semibold"
+                  onClick={() => navigate(props.destinazione)}
+                >
+                  {/* → */} Prossimo livello
+                </button>
+              </div>
             </>
           )}
+          <p className="absolute top-139 left-14  text-white">
+            Hai raccolto <span className="text-yellow-300">{points}</span> punti
+          </p>
         </div>
       </div>
     </>

@@ -24,6 +24,8 @@ const VittoriaGioco1 = () => {
         flipDonna={false}
         donnaClass="translate-y-3 translate-x-3"
         maschioClass="-translate-x-3"
+        testoNero={false}
+        pbianco={true}
       />
     </div>
   );
