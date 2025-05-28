@@ -60,7 +60,7 @@ const handleLogin = ()=>{
           <Link to="/form">Quiz</Link>
         </div>
         <div>
-          {userData.isLogged ? (
+          {userData && userData.isLogged ? (
             <Link to="/" onClick={handleLogout}>
               Logout
             </Link>

@@ -39,7 +39,8 @@ const GameSection = () => {
     { title: "Chi ne ha di più?", image: "./immagini/orso astronauta.svg", path: "/anteprimagioco4" },
   ];
 
-  const currentGameList = userData.isLogged ? gameListRegistered : gameListUnregistered; 
+  const currentGameList = userData && userData.isLogged ? gameListRegistered : gameListUnregistered;
+
 
   const sectionTitle = "I nostri giochi";
 
