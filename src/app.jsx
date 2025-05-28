@@ -89,6 +89,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/form" element={<Form />} />
           <Route path="/quiz" element={<Quiz />} />
+          <Route path="/restart" element={<RestartPage />} />
           <Route path="/gamepage-1" element={<GamePage1 />} />
           <Route path="/gamepage-2" element={<GamePage2 />} />
           <Route path="/gamepage-3" element={<GamePage3 />} />
