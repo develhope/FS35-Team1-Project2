@@ -1,6 +1,7 @@
-import React, { useState, useRef, useMemo } from "react";
+import React, { useState, useRef, useMemo, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Star from "../../Components/Star";
+import { PointsContext } from "../../PointsContext.jsx";
 
 const Struttura3Gioco = ({
   titoloLivello,
@@ -15,6 +16,7 @@ const Struttura3Gioco = ({
   versioneCompatta,
   isLivello4 = true,
 }) => {
+  const { points, setPoints } = useContext(PointsContext);
   const navigate = useNavigate();
   const [associazioni, setAssociazioni] = useState({});
   const [dragData, setDragData] = useState(null);
@@ -24,6 +26,11 @@ const Struttura3Gioco = ({
   const [blocchiEvidenziati, setBlocchiEvidenziati] = useState([]);
   const [blocchiErrati, setBlocchiErrati] = useState([]);
   const ghostRef = useRef(null);
+  
+   const handleLevel = () => {
+    setPoints((prevPoints) => prevPoints + 50);
+    navigate(livelloSuccessivoPath);
+  }
 
   const handleDrop = (trascinato, target) => {
     if (!trascinato || !target) return;
@@ -211,15 +218,7 @@ const Struttura3Gioco = ({
             <img
               src="/assets/immagini/Gioco3/scimmia_gioco_3.svg"
               alt="Scimmia"
-              className={`absolute right-1 w-30 sm:w-24 md:w-38 object-contain z-10 ${
-                isLivello4
-                  ? versioneCompatta
-                    ? "top-72 sm:top-72 md:top-72"
-                    : "top-84 sm:top-76 md:top-76"
-                  : versioneCompatta
-                  ? "top-90 sm:top-76 md:top-38"
-                  : "top-96 sm:top-70 md:top-38"
-              }`}
+              className="absolute top-[70%] right-0 w-30 sm:w-28 md:w-36 object-contain z-10"
             />
           ) : (
             <img
@@ -227,7 +226,7 @@ const Struttura3Gioco = ({
               alt="Scimmia Esultante"
               className={`absolute ${
                 versioneCompatta
-                  ? "bottom-8 right-[-10px] w-36 sm:w-28 md:w-60"
+                  ? "bottom-8 right-[-10px] w-40 sm:w-28 md:w-60"
                   : "bottom-8 right-0 w-40 sm:w-34 md:w-60"
               } object-contain z-10 animate-bounce`}
             />
@@ -244,11 +243,11 @@ const Struttura3Gioco = ({
                   : "absolute left-[15px] text-black"
               }`}
             >
-              Hai raccolto <span className="text-yellow-300">100</span> punti
+              Hai raccolto <span className="text-yellow-300">{points}</span> punti
             </p>
             <button
               className="absolute bottom-4 right-28 bg-orange-600 text-white px-4 py-2 text-sm sm:text-base rounded md:right-76"
-              onClick={() => navigate(livelloSuccessivoPath)}
+              onClick={() => handleLevel()}
             >
               Prossimo livello
             </button>

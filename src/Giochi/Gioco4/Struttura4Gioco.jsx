@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Star from "../../Components/Star";
+import { PointsContext } from "../../PointsContext";
 
 const Struttura4Gioco = (props) => {
   const [showError, setShowError] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const navigate = useNavigate();
+  const { points, setPoints } = useContext(PointsContext);
 
   return (
     <>
@@ -20,7 +22,7 @@ const Struttura4Gioco = (props) => {
 
           <div className="flex items-start ">
             <img
-              src="./immagini/Gioco4/amicodinebula_1_4.svg"
+              src="/assets/immagini/Gioco4/amicodinebula_1_4.svg"
               alt=""
               className="w-30 h-auto ml-4 object-contain transform scale-x-[-1]"
             />
@@ -34,7 +36,7 @@ const Struttura4Gioco = (props) => {
               {props.domanda2}
             </div>
             <img
-              src="./immagini/Gioco4/amicodinebula_2_4.svg"
+              src="/assets/immagini/Gioco4/amicodinebula_2_4.svg"
               alt=""
               className="w-25 object-contain transform"
             />
@@ -47,9 +49,9 @@ const Struttura4Gioco = (props) => {
           <div className="flex items-center justify-center gap-2 ">
             <button
               className="bg-white w-10 h-10 border border-gray-300 rounded text-center flex items-center justify-center"
-              onClick={() =>
+              onClick={() => 
                 props.valore1 === props.rispostaCorretta
-                  ? (setShowSuccess(true), setShowError(false))
+                  ? (setShowSuccess(true), setShowError(false), setPoints((prevPoints) => prevPoints + 50))
                   : (setShowError(true), setShowSuccess(false))
               }
             >
@@ -67,7 +69,7 @@ const Struttura4Gioco = (props) => {
               className="bg-white w-10 h-10 border border-gray-300 rounded text-center flex items-center justify-center"
               onClick={() =>
                 props.valore2 === props.rispostaCorretta
-                  ? (setShowSuccess(true), setShowError(false))
+                  ? (setShowSuccess(true), setShowError(false), setPoints((prevPoints) => prevPoints + 50))
                   : (setShowError(true), setShowSuccess(false))
               }
             >
@@ -95,7 +97,7 @@ const Struttura4Gioco = (props) => {
               </button>
 
               <p className="absolute top-139 left-0  text-white">
-                Hai raccolto <span className="text-yellow-300">100</span> punti
+                Hai raccolto <span className="text-yellow-300">{points}</span> punti
               </p>
             </>
           )}

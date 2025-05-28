@@ -3,7 +3,7 @@ import CallToAction from "../Components/CallToAction";
 import { Link } from "react-router-dom";
 
 const Form = () => {
-  const [scelta, setScelta] = useState("");
+  const [scelta, setScelta] = useState(false);
 
   return (
     <>
@@ -62,7 +62,12 @@ const Form = () => {
           )}
           <div>
             <Link to="/quiz">
-              <CallToAction route="/quiz"text="Continua" disabled={!scelta} />
+              <CallToAction
+                route="/quiz"
+                text="Continua"
+                showAlways={true}
+                disabled={!scelta || scelta === "bambino"}
+              />
             </Link>
           </div>
         </div>

@@ -21,13 +21,13 @@ const AnteprimaGioco4 = () => {
           <div className="flex gap-6">
             <img
               className="w-35 transform scale-x-[-1] "
-              src="../../immagini/Gioco4/amicodinebula_1_4.svg"
+              src="/assets/immagini/Gioco4/amicodinebula_1_4.svg"
               alt="Amici di Nebula"
             />
 
             <img
               className="w-35"
-              src="../../immagini/Gioco4/amicodinebula_2_4.svg"
+              src="/assets/immagini/Gioco4/amicodinebula_2_4.svg"
               alt="Amici di Nebula"
             />
           </div>

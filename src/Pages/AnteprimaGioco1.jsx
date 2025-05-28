@@ -21,7 +21,7 @@ const AnteprimaGioco1 = () => {
         img={
           <img
             className="w-[250px]"
-            src="../../immagini/Gioco1/astronauti.svg"
+            src="/assets/immagini/Gioco1/astronauti.svg"
             alt="astronauti"
           />
         }

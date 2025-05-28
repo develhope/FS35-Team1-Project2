@@ -1,11 +1,21 @@
 const Input = (props) => {
-    const { label = props.name } = props;
-    return (
-        <>
-        <label htmlFor={props.name} className="mr-4 flex items-center mt-4 ml-9">{label}{props.required && "*"}</label>
-        <input {...props} className="rounded-full px-10 py-2 ml-10 bg-neutral-300 mt-2" />
-        </>
-    );
+  const { label = props.name } = props;
+
+  return (
+    <div className="flex flex-col items-center w-full">
+      <label
+        htmlFor={props.name}
+        className="text-sm mt-4 mb-1 text-center w-full max-w-md"
+      >
+        {label}
+        {props.required && "*"}
+      </label>
+      <input
+        {...props}
+        className="rounded-full px-6 py-2 bg-neutral-300 "
+      />
+    </div>
+  );
 };
 
 export default Input;

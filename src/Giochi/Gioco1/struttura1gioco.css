@@ -13,7 +13,7 @@
 }
 
 .bggame4 {
-  background-image: url("../../../immagini/Gioco4/backgroundgioco4.svg");
+  background-image: url("/assets/immagini/Gioco4/backgroundgioco4.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

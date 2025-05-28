@@ -26,7 +26,7 @@ const FormIscriviti = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const userDataToSave = { ...formData, isRegistered: true };
+    const userDataToSave = { ...formData, isRegistered: true, isLogged: true};
     setUserData(userDataToSave);
     localStorage.setItem("userData", JSON.stringify(userDataToSave));
 
@@ -99,7 +99,7 @@ const FormIscriviti = () => {
           </div>
 
           <div className="mt-10 flex justify-center">
-            <CallToAction text="Inizia L'avventura" route="/" />
+            <CallToAction text="Inizia L'avventura" route="/" showAlways={true} disabled = {false} />
           </div>
         </form>
 

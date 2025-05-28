@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Star from "../../Components/Star";
 import "./Struttura1gioco.css";
+import { PointsContext } from "../../PointsContext";
 
 const Struttura1Gioco = ({
   imgs = [],
@@ -16,6 +17,7 @@ const Struttura1Gioco = ({
   isFinalLevel = false,
   posizioneAstronauti = { donna: { left: 60, top: 0 }, maschio: { left: 230, top: 0 } },
 }) => {
+  const { points, setPoints } = useContext(PointsContext);
   const [risposta, setRisposta] = useState(null);
   const [isLeaving, setIsLeaving] = useState(false);
   const navigate = useNavigate();
@@ -32,12 +34,18 @@ const Struttura1Gioco = ({
     }
   }, [isCorretto, isFinalLevel, navigate, prossimoLivelloLink]);
 
+useEffect(() => {
+  if (isCorretto) {
+    setPoints((prevPoints) => prevPoints + 50);
+  }
+}, [isCorretto, setPoints]);
+
   return (
     <div className={`w-screen h-screen overflow-hidden bggame1 relative ${isLeaving ? "fade-out" : ""}`}>
       {/* Astronauti */}
       <div className="relative w-auto gap-30 mt-22 flex">
         <img
-          src="../immagini/Gioco1/astronautagioco1donna.svg"
+          src="/assets/immagini/Gioco1/astronautagioco1donna.svg"
           alt="astronauta donna"
           className="absolute w-24 astronauta"
           style={{
@@ -46,7 +54,7 @@ const Struttura1Gioco = ({
           }}
         />
         <img
-          src="../immagini/Gioco1/astronautagioco1maschio.svg"
+          src="/assets/immagini/Gioco1/astronautagioco1maschio.svg"
           alt="astronauta maschio"
           className="absolute w-24 astronauta"
           style={{
@@ -76,21 +84,24 @@ const Struttura1Gioco = ({
 
         <div className="flex gap-3.5 mt-8 justify-center">
           {[opz1, opz2, opz3].map((opzione, i) => (
-            <button
-              key={i}
-              onClick={() => setRisposta(opzione)}
-              className="w-8 h-8 rounded-full bg-gray-300 text-lg font-bold flex items-center justify-center"
-              style={{
-                color:
-                  opzione === opz1
-                    ? "#21C8C8"
-                    : opzione === opz2
-                    ? "#F5A42B"
-                    : "#EA3C3C",
-              }}
-            >
-              {opzione}
-            </button>
+          <button
+  key={i}
+  onClick={() => setRisposta(opzione)}
+  className={`w-8 h-8 rounded-full bg-gray-300 text-lg font-bold flex items-center justify-center transition-shadow duration-300 ${
+    risposta === opzione ? "shadow-[0_0_10px_3px_#00FF00]" : ""
+  }`}
+  style={{
+    color:
+      opzione === opz1
+        ? "#21C8C8"
+        : opzione === opz2
+        ? "#F5A42B"
+        : "#EA3C3C",
+  }}
+>
+  {opzione}
+</button>
+
           ))}
           <img
             className="absolute bottom-[-20px] left-[190px] w-[70px]"
@@ -107,6 +118,7 @@ const Struttura1Gioco = ({
         )}
 
         {/* Risposta corretta - solo se NON è il livello finale */}
+        
         {isCorretto && !isFinalLevel && (
           <>
             <Star />
@@ -117,7 +129,7 @@ const Struttura1Gioco = ({
               Prossimo livello
             </button>
             <p className="absolute bottom-3 left-3 text-black">
-              Hai raccolto <span className="text-yellow-300">50</span> punti
+              Hai raccolto <span className="text-yellow-300">{points}</span> punti
             </p>
           </>
         )}

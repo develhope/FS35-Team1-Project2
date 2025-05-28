@@ -1,10 +1,36 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate} from "react-router-dom";
+import { UserContext } from "../UserContext";
 
 const Sidebar = () => {
+  const { userData, setUserData } = useContext(UserContext);
+
   const [isVisible, setIsVisible] = useState(true);
 
-  if (!isVisible) return null; // Se non visibile, non renderizza nulla
+  const navigate = useNavigate();
+
+  if (!isVisible) return null;
+
+   
+const handleLogout = () => {
+  const updatedUserData = { ...userData, isLogged: false };
+  setUserData(updatedUserData);
+  localStorage.setItem("userData", JSON.stringify(updatedUserData)); // aggiorna anche nel localStorage
+  navigate("/login");
+};
+
+const handleLogin = ()=>{
+    const updatedUserData = { ...userData, isLogged: true};
+  setUserData(updatedUserData);
+  localStorage.setItem("userData", JSON.stringify(updatedUserData)); // aggiorna anche nel localStorage
+  navigate("/");
+}
+  
+  // const handleLogout = () => {
+  //   setUserData(null);
+  //   localStorage.removeItem("userData");
+  //   navigate("/login");
+  // };
 
   return (
     <div className="flex z-50 flex-col space-y-4 p-4 w-full max-w-xs h-screen relative bg-white shadow-md">
@@ -32,6 +58,15 @@ const Sidebar = () => {
         </div>
         <div>
           <Link to="/form">Quiz</Link>
+        </div>
+        <div>
+          {userData.isLogged ? (
+            <Link to="/" onClick={handleLogout}>
+              Logout
+            </Link>
+          ) : (
+            <Link to="/login" onClick={handleLogin}>Login</Link>
+          )}
         </div>
         <div>
           <Link to="/feedback">Feedback</Link>

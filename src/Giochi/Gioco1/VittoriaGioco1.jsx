@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import StrutturaVittoria from "../../Components/StrutturaVittoria";
 import "./Struttura1gioco.css";
 
-const Livello5Gioco1 = () => {
+const VittoriaGioco1 = () => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -14,10 +14,9 @@ const Livello5Gioco1 = () => {
       <img
         className="bg-transparent z-30 w-[50px] absolute top-[130px] left-[164px]"
         src="/assets/immagini/Gioco1/cuorepaginafinale.png"
-        alt=""
+        alt="Cuore"
       />
       <StrutturaVittoria
-        punti={200}
         sfondo="/assets/immagini/Gioco1/sfondo-gioco-1.svg"
         immagine1="/assets/immagini/Gioco1/astronautagioco1donna.svg"
         immagine2="/assets/immagini/Gioco1/astronautagioco1maschio.svg"
@@ -30,4 +29,4 @@ const Livello5Gioco1 = () => {
   );
 };
 
-export default Livello5Gioco1;
+export default VittoriaGioco1;

@@ -16,10 +16,10 @@ const Livello4Gioco1 = () => {
       rispostaCorretta="8"
       nebula="/assets/immagini/Gioco1/nebulagames.png"
       isFinalLevel={true}
-      prossimoLivelloLink="/livello5gioco1" // 🔥 QUESTO È IL PEZZO IMPORTANTE
+      prossimoLivelloLink="/vittoriagioco1" // 🔥 QUESTO È IL PEZZO IMPORTANTE
       posizioneAstronauti={{
-        donna: { left: 100, top: 60 },
-        maschio: { left: 193, top: 46 },
+        donna: { left: 90, top: 60 },
+        maschio: { left: 190, top: 46 },
       }}
     />
   );
