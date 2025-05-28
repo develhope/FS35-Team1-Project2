@@ -109,7 +109,7 @@ const Struttura4Gioco = (props) => {
               className="absolute top-103 left-6.5 w-70 h-10 bg-orange-600 text-white px-3 py-1 rounded shadow"
               onClick={() => navigate(props.destinazione)}
             >
-              Prossimo livello
+              {props.avanti}
             </button>
 
             <p className="absolute top-138 left-18.5 text-white">

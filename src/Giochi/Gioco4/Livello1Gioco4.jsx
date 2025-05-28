@@ -10,6 +10,7 @@ const Livello1Gioco4 = () => {
       rispostaCorretta1={4} 
       rispostaCorretta2={2} 
       destinazione={"/livello2gioco4"}
+      avanti="Prossimo Livello"
     />
   );
 };
