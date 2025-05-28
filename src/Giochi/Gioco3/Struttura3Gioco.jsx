@@ -227,7 +227,7 @@ const Struttura3Gioco = ({
               className={`absolute ${
                 versioneCompatta
                   ? "bottom-8 right-[-10px] w-40 sm:w-28 md:w-60"
-                  : "bottom-8 right-0 w-40 sm:w-34 md:w-60"
+                  : "bottom-8 right-0 left-48 w-40 sm:w-34 md:w-60"
               } object-contain z-10 animate-bounce`}
             />
           )}
