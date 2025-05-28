@@ -6,6 +6,7 @@ import FormIscriviti from "./Pages/FormIscriviti";
 import Quiz from "./Pages/Quiz";
 import LaDiscalculia from "./Pages/LaDiscalculia";
 import Profile from "./Pages/Profile";
+import RestartPage from "./Pages/RestartPage.jsx";
 import Shop from "./Pages/Shop";
 import GamePage1 from "./Pages/GamePage1";
 import GamePage2 from "./Pages/GamePage2";
