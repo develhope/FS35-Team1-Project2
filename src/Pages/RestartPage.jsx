@@ -2,7 +2,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../UserContext';
-import games from './games'; 
+import games from './games';
+import HeaderFineLivelli from '../Components/HeaderFineLivelli'; 
 
 
 const RestartPage = () => {
@@ -32,16 +33,17 @@ const RestartPage = () => {
                 position: "relative",
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "center",
-                paddingTop: "60px",
+                //alignItems: "center",
+                //paddingTop: "60px",
             }}
             className="text-white relative"
         >
             {/* Header */}
+            <HeaderFineLivelli/>
             
 
 
-            <div className="text-center mt-10">
+            <div className="text-center mt-8">
                 <h1 className="text-3xl font-bold text-white mb-2">Bentornato!</h1>
                 <h2 className="text-2xl font-semibold text-white mb-8">Continuiamo a giocare!</h2>
 

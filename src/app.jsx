@@ -64,7 +64,7 @@ function App() {
     path.startsWith("/struttura2gioco") || path.includes("gioco2");
 
   const isVittoriaPath = path.startsWith("/vittoria"); // ✅ Gestisce tutti i "vittoriagiocoX"
-
+  const isRestartPage = path === "/restart" 
   let gameLevelHeaderTitle = null;
   const matchLivelloGioco = path.match(/\/livello(\d+)gioco(\d+)/);
 
@@ -79,7 +79,7 @@ function App() {
   return (
     <>
       {/* ✅ Non mostra l'Header se sei in una schermata di vittoria */}
-      {!isGioco2Path && !isVittoriaPath &&
+      {!isGioco2Path && !isVittoriaPath && !isRestartPage &&
         (gameLevelHeaderTitle ? (
           <HeaderGiochi titolo={gameLevelHeaderTitle} />
         ) : (
