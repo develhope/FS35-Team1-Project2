@@ -38,9 +38,18 @@ const Struttura1Gioco = ({
       setPoints((prevPoints) => prevPoints + 50);
     }
   }, [isCorretto, setPoints]);
+  useEffect(() => {
+    if (isCorretto) {
+      setPoints((prevPoints) => prevPoints + 50);
+    }
+  }, [isCorretto, setPoints]);
 
   return (
-    <div className={`w-screen h-screen overflow-hidden bggame1 relative ${isLeaving ? "fade-out" : ""}`}>
+    <div
+      className={`w-screen h-screen overflow-hidden bggame1 relative ${
+        isLeaving ? "fade-out" : ""
+      }`}
+    >
       {/* Astronauti */}
       <div className="relative w-auto gap-30 mt-22 flex">
         <img
@@ -109,9 +118,12 @@ const Struttura1Gioco = ({
         )}
 
         {/* Risposta corretta - solo se NON è il livello finale */}
+
         {isCorretto && !isFinalLevel && (
           <>
-            <Star />
+            <div className="scale-75 md:scale-90">
+              <Star />
+            </div>
             <button
               className="absolute top-[330px] md:top-[490px] right-11 md:left-[180px] md:right-auto bg-orange-600 text-white px-3 py-1 rounded shadow md:text-[25px]"
               onClick={() => navigate(prossimoLivelloLink)}
@@ -124,6 +136,10 @@ const Struttura1Gioco = ({
             </p>
           </>
         )}
+
+        <p className="absolute top-80 left-3 text-white">
+          Hai raccolto <span className="text-yellow-300">{points}</span> punti
+        </p>
       </article>
     </div>
   );
