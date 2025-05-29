@@ -19,10 +19,11 @@ const games = [
         image: '/assets/immagini/Gioco2/astronauta biondo su pianeta.svg', // Sostituisci con la tua immagine reale
         levelButtonClass: 'bg-blue-200 text-black border-2 border-black', 
         levels: [
-            { id: 1, path: '/livello1gioco2' },
-            { id: 2, path: '/livello2gioco2' },
-            { id: 3, path: '/livello3gioco2' },
-            { id: 4, path: '/livello4gioco2' },
+            { id: 1, path: '/struttura2gioco' },
+            { id: 2, path: '/struttura2gioco' },
+            { id: 3, path: '/struttura2gioco' },
+            { id: 4, path: '/struttura2gioco' },
+            { id: 5, path: '/struttura2gioco' }
             
         ],
     },
