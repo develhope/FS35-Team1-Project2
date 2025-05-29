@@ -44,17 +44,14 @@ import Livello3Gioco4 from "./Giochi/Gioco4/Livello3Gioco4";
 import Livello4Gioco4 from "./Giochi/Gioco4/Livello4Gioco4";
 import VittoriaGioco4 from "./Giochi/Gioco4/VittoriaGioco4.jsx";
 
-
 import Livello1Gioco2 from "./Giochi/Gioco2/Livello1Gioco2";
 import Livello2Gioco2 from "./Giochi/Gioco2/Livello2Gioco2";
 import Livello3Gioco2 from "./Giochi/Gioco2/Livello3Gioco2";
 import Livello4Gioco2 from "./Giochi/Gioco2/Livello4gioco2";
 import Livello5Gioco2 from "./Giochi/Gioco2/Livello5Gioco2";
 
-import Login from "./Pages/Login.jsx"
-
-
-
+import Login from "./Pages/Login.jsx";
+import AnteprimaGiochi from "./Components/AnteprimaGiochi.jsx";
 
 function App() {
   const location = useLocation();
@@ -64,7 +61,7 @@ function App() {
     path.startsWith("/struttura2gioco") || path.includes("gioco2");
 
   const isVittoriaPath = path.startsWith("/vittoria"); // ✅ Gestisce tutti i "vittoriagiocoX"
-  const isRestartPage = path === "/restart" 
+  const isRestartPage = path === "/restart";
   let gameLevelHeaderTitle = null;
   const matchLivelloGioco = path.match(/\/livello(\d+)gioco(\d+)/);
 
@@ -79,7 +76,9 @@ function App() {
   return (
     <>
       {/* ✅ Non mostra l'Header se sei in una schermata di vittoria */}
-      {!isGioco2Path && !isVittoriaPath && !isRestartPage &&
+      {!isGioco2Path &&
+        !isVittoriaPath &&
+        !isRestartPage &&
         (gameLevelHeaderTitle ? (
           <HeaderGiochi titolo={gameLevelHeaderTitle} />
         ) : (
@@ -110,7 +109,7 @@ function App() {
           <Route path="/struttura2gioco" element={<Struttura2Gioco />} />
           <Route path="/struttura3gioco" element={<Struttura3Gioco />} />
           <Route path="/struttura4gioco" element={<Struttura4Gioco />} />
-          
+
           <Route path="/livello1gioco1" element={<Livello1Gioco1 />} />
           <Route path="/livello2gioco1" element={<Livello2Gioco1 />} />
           <Route path="/livello3gioco1" element={<Livello3Gioco1 />} />
@@ -135,8 +134,7 @@ function App() {
           <Route path="/livello4gioco4" element={<Livello4Gioco4 />} />
           <Route path="/vittoriagioco4" element={<VittoriaGioco4 />} />
 
-        
-          <Route path="/login" element={<Login/>} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </main>
     </>

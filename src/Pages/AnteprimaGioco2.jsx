@@ -9,7 +9,7 @@ const AnteprimaGioco2 = () => {
       <AnteprimaGiochi
         gioco="Gioco 2"
         title="Metti in ordine"
-        text="Il nostro amico astronauta ha trovato dei numeri sparsi nello spazio. Aiutalo a rimetterli in ordine!"
+        text="L'astronauta ha trovato dei numeri sparsi nello spazio. Aiutalo a rimetterli in ordine!"
         media={
           <video
             src="../../immagini/freepik__creami-lillustrazione-per-bambini-di-un-astronauta__80674.mp4"
@@ -17,7 +17,7 @@ const AnteprimaGioco2 = () => {
             muted
             loop
             playsInline
-            className="w-185 h-30 object-cover"
+            className="w-176 h-36 object-cover rounded-full"
           />
         }
         img={

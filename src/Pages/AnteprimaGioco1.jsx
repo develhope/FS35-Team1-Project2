@@ -15,7 +15,7 @@ const AnteprimaGioco1 = () => {
             muted
             loop
             playsInline
-            className="w-185 h-35 object-cover"
+            className="w-170 h-36 object-cover rounded-full"
           />
         }
         img={

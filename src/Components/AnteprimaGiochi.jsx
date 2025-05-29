@@ -1,27 +1,32 @@
 import CallToAction from "./CallToAction";
-import Header from "./Header";
 
-const AnteprimaGiochi = ({ gioco, title, text, media, img }) => {
+const AnteprimaGiochi = ({ title, text, media, img }) => {
   return (
-    <>
+    <div
+      className="flex flex-col justify-between items-center px-4"
+      style={{
+        height: "calc(100vh - 64px)", // lascia spazio per l'header
+        
+        paddingTop: "80px",
+      }}
+    >
+      <div className="text-center relative">
+        <h1 className="text-2xl mt-3">{title}</h1>
+      </div>
+
+      <div className="flex items-center">
+        <div className="overflow-hidden rounded-full">
+          {media}
+        </div>
+        <p className="ml-2">{text}</p>
+      </div>
+
+      <div>{img}</div>
+
       <div>
-        <div className="text-center mt-20">
-          <h1 className="text-2xl mt-3">{title}</h1>
-        </div>
-
-        <div className=" flex items-center mt-8 px-11 gap-4">
-          <div className="overflow-hidden rounded-full">{media}</div>
-
-          <p className="ml-4 a">{text}</p>
-        </div>
-
-        <div className="relative flex flex-col items-center mt-4 gap-8 p-6">
-          {img}
-        </div>
-
         <CallToAction text="Iniziamo!" />
       </div>
-    </>
+    </div>
   );
 };
 
