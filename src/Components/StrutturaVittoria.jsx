@@ -84,11 +84,7 @@ const StrutturaVittoria = ({
           </div>
 
           <div
-<<<<<<< HEAD
-            className={`mt- ${isIpadMini ? "w-full max-w-md" : "w-80"} px-4`}
-=======
             className={`mt-6 ${isIpadMini ? "w-full max-w-md" : "w-80"} px-4`}
->>>>>>> main
           >
             <h1
               className={`mt-5 font-bold pb-2 ${
