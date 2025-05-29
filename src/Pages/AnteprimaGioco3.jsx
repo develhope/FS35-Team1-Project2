@@ -13,24 +13,18 @@ const AnteprimaGioco3 = () => {
             muted
             loop
             playsInline
-            className="w-200 h-34 object-cover rounded-full md:h-70 md:w-180"
+            className="w-200 h-36 object-cover rounded-full md:h-68 md:w-190"
           />
         }
         img={
           <img
-            className="w-40 md:w-70"
+            className="w-40 md:w-70 md:mt-3"
             src="/assets/immagini/Gioco3/scimmia_home_3.svg"
             alt="Scimmietta Astronauta"
           />
         }
-      />
-      <div>
-      <CallToAction
         route="/livello1gioco3"
-        text="Iniziamo!"
-        showAlways={true}
       />
-      </div>
     </>
   );
 };
