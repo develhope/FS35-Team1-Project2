@@ -40,7 +40,6 @@ const StrutturaVittoria = ({
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         minHeight: "100vh",
-        width: "100%",
         position: "relative",
       }}
     >
@@ -85,7 +84,11 @@ const StrutturaVittoria = ({
           </div>
 
           <div
+<<<<<<< HEAD
             className={`mt- ${isIpadMini ? "w-full max-w-md" : "w-80"} px-4`}
+=======
+            className={`mt-6 ${isIpadMini ? "w-full max-w-md" : "w-80"} px-4`}
+>>>>>>> main
           >
             <h1
               className={`mt-5 font-bold pb-2 ${
@@ -109,16 +112,16 @@ const StrutturaVittoria = ({
               Hai raccolto {points} punti, corri a comprare la tua nuova skin!
             </p>
 
-            <div className="flex gap-10 justify-center pt-5">
+            <div className="flex gap-10 justify-center pt-3 md:pt-10">
               <button
-                className="bg-yellow-300 hover:bg-yellow-200 w-20 h-10 rounded flex items-center justify-center"
+                className="bg-yellow-300 hover:bg-yellow-200 w-20 h-10 rounded flex items-center justify-center md:w-50 md:h-20 md:text-xl"
                 onClick={() => navigate("/shop")}
               >
                 Shop
               </button>
               <button
-                className="bg-yellow-300 hover:bg-yellow-200 w-20 h-10 rounded flex items-center justify-center"
-                onClick={() => navigate("/restart")}
+                className="bg-yellow-300 hover:bg-yellow-200 w-20 h-10 rounded flex items-center justify-center md:w-50 md:h-20 md:text-xl"
+                onClick={() => navigate("/")}
               >
                 Livelli
               </button>
