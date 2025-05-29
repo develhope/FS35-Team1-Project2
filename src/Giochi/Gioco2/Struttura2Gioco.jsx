@@ -93,18 +93,18 @@ function GameStructure() {
         <div className="z-50 text-2xl text-blue-100">
           Punti Totali: {points}
         </div>
-        <div className="flex gap-10">
+        <div className="flex gap-10 pt-4">
           <button
             onClick={() => navigate("/shop")}
-            className="mt-8 px-4 py-3 bg-yellow-400 text-black rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 text-xl font-semibold"
+            className="bg-yellow-300 text-black hover:bg-yellow-200 w-20 h-10 rounded flex items-center justify-center"
           >
             Shop
           </button>
           <button
             onClick={() => setCurrentLevelIndex(0)} // fix: era currentLevelIndex()
-            className="mt-8 px-6 py-3 bg-yellow-400 text-black rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 text-xl font-semibold"
+            className="bg-yellow-300 text-black hover:bg-yellow-200 w-20 h-10 rounded flex items-center justify-center"
           >
-            Prosegui
+            Livelli
           </button>
         </div>
       </div>
@@ -151,7 +151,7 @@ function GameStructure() {
               onClick={goToNextLevel}
               className="px-4 py-2 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600 transition-colors duration-300 text-xl font-semibold"
             >
-              Avanti
+              Prossimo livello
             </button>
           )}
           {showRetryLevelButton && (

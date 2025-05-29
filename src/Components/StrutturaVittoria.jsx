@@ -9,11 +9,13 @@ const StrutturaVittoria = ({
   immagine2,
   isVittoriaGioco3 = false,
   frase,
-  flipDonna = true,
+  flipDonna = true, // di default ribalta
   donnaClass = "",
   maschioClass = "",
 }) => {
   const navigate = useNavigate();
+
+  // Stato per identificare se siamo in iPad Mini (schermo tra 600px e 768px)
   const [isIpadMini, setIsIpadMini] = useState(false);
 
   useEffect(() => {
@@ -36,7 +38,6 @@ const StrutturaVittoria = ({
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         minHeight: "100vh",
-        width: "100%",
         position: "relative",
       }}
     >
@@ -59,7 +60,7 @@ const StrutturaVittoria = ({
             <img
               src={immagine1}
               className={`h-auto object-contain ${
-                isIpadMini ? "w-50 mb-6" : "w-50"
+                isIpadMini ? "w-60 mb-6" : "w-50"
               } ${
                 isVittoriaGioco3
                   ? "mx-auto transform-none"
@@ -80,55 +81,38 @@ const StrutturaVittoria = ({
             )}
           </div>
 
-          <div className="mb-[100px]">
-            <div
-              className={`mt-10 ${
-                isIpadMini ? "w-full max-w-md" : "w-80"
-              } px-4`}
+          <div
+            className={`mt-6 ${isIpadMini ? "w-full max-w-md" : "w-80"} px-4`}
+          >
+            <h1
+              className={`text-black font-bold pb-2 ${
+                isIpadMini ? "text-5xl" : "text-4xl"
+              }`}
             >
-              <h1
-                className={`p-1.5 text-black font-bold pb-2 ${
-                  isIpadMini ? "text-5xl" : "text-4xl"
-                }`}
-              >
-                Complimenti!
-              </h1>
-              <p
-                className={`text-black p-3.5 mt-2 ${
-                  isIpadMini ? "text-3xl" : ""
-                }`}
-              >
-                {frase}
-              </p>
-              <p
-                className={`text-white p-3.5 mt-2 ${
-                  isIpadMini ? "text-3xl" : ""
-                }`}
-              >
-                Hai raccolto {points} punti, corri a comprare la tua nuova skin!
-              </p>
+              Complimenti!
+            </h1>
+            <p className={`text-black mt-2 ${isIpadMini ? "text-lg" : ""}`}>
+              {frase}
+            </p>
+            <p className={`text-white mt-2 ${isIpadMini ? "text-lg" : ""}`}>
+              Hai raccolto {points} punti, corri a comprare la tua nuova skin!
+            </p>
 
-              <div className="flex gap-10 justify-center pt-5">
-                <button
-                  className={`bg-yellow-300 hover:bg-yellow-200 w-20 h-10 rounded flex items-center justify-center ${
-                    isIpadMini ? "px-14 py-8 text-3xl" : ""
-                  }`}
-                  onClick={() => navigate("/shop")}
-                >
-                  Shop
-                </button>
-                <button
-                  className={`bg-yellow-300 hover:bg-yellow-200 w-20 h-10 rounded flex items-center justify-center ${
-                    isIpadMini ? "px-14 py-8 text-3xl" : ""
-                  }`}
-                  onClick={() => navigate("/")}
-                >
-                  Livelli
-                </button>
-              </div>
+            <div className="flex gap-10 justify-center pt-3 md:pt-10">
+              <button
+                className="bg-yellow-300 hover:bg-yellow-200 w-20 h-10 rounded flex items-center justify-center md:w-50 md:h-20 md:text-xl"
+                onClick={() => navigate("/shop")}
+              >
+                Shop
+              </button>
+              <button
+                className="bg-yellow-300 hover:bg-yellow-200 w-20 h-10 rounded flex items-center justify-center md:w-50 md:h-20 md:text-xl"
+                onClick={() => navigate("/")}
+              >
+                Livelli
+              </button>
             </div>
           </div>
-
         </div>
       </div>
     </div>

@@ -1,13 +1,39 @@
 import Header from "../Components/Header";
 
+const GameStatus = ({ title, starsActive, description }) => {
+  const totalStars = 4;
+
+  return (
+    <section className={starsActive === 1 ? "" : "text-neutral-300"}>
+      <div className="flex items-center pb-1">
+        <h3 className="pr-7">{title}</h3>
+        {[...Array(totalStars)].map((_, i) => (
+          <img
+            key={i}
+            src={`./immagini/icon/${
+              i < starsActive ? "stellina-active" : "stellina-inactive"
+            }.svg`}
+            className={`w-[22px] ${i > 0 ? "ml-2" : ""}`}
+            alt="star"
+          />
+        ))}
+      </div>
+      <div className="pb-4">
+        <p>{description}</p>
+      </div>
+    </section>
+  );
+};
+
 function Profile() {
   return (
     <div>
-      
-      
+      <Header />
+
       <div className="flex flex-col items-center mt-20">
         <img
           src="./immagini/nebula icon.png"
+          alt="Profilo"
           className="w-[168px] rounded-full"
         />
         <p className="flex items-center justify-center mt-5 w-[103px]">
@@ -16,87 +42,26 @@ function Profile() {
       </div>
 
       <div className="ml-8 mt-8">
-        <section>
-          <div className="flex">
-            <h3 className="pr-7">Gioco 1</h3>
-            <img
-              src="./immagini/icon/stellina-active.svg"
-              className="w-[22px]"
-            />
-          </div>
-          <div className="pb-4">
-            <p className="">
+        <GameStatus
+          title="Gioco 1"
+          starsActive={1}
+          description={
+            <>
               Apprendista <br /> dei numeri
-            </p>
-          </div>
-          <div></div>
-        </section>
-
-        <section className="text-neutral-300">
-          <div className="flex pb-1">
-            <h3 className="pr-7">Gioco 2</h3>
-            <img
-              src="./immagini/icon/stellina-inactive.svg"
-              className="w-[22px]"
-            />
-            <img
-              src="./immagini/icon/stellina-inactive.svg"
-              className="w-[22px] ml-2"
-            />
-          </div>
-          <div className="pb-4">
-            <p>
+            </>
+          }
+        />
+        <GameStatus
+          title="Gioco 2"
+          starsActive={0}
+          description={
+            <>
               Maestro <br /> della matematica
-            </p>
-          </div>
-          <div></div>
-        </section>
-        <section className="text-neutral-300">
-          <div className="flex">
-            <h3 className="pr-7">Gioco 3</h3>
-            <img
-              src="./immagini/icon/stellina-inactive.svg"
-              className="w-[22px]"
-            />
-            <img
-              src="./immagini/icon/stellina-inactive.svg"
-              className="w-[22px] ml-2"
-            />
-            <img
-              src="./immagini/icon/stellina-inactive.svg"
-              className="w-[22px] ml-2"
-            />
-          </div>
-          <div className="pb-4">
-            <p>Frase x</p>
-          </div>
-          <div></div>
-        </section>
-        <section className="text-neutral-300">
-          <div className="flex">
-            <h3 className="pr-7">Gioco 4</h3>
-            <img
-              src="./immagini/icon/stellina-inactive.svg"
-              className="w-[22px]"
-            />
-            <img
-              src="./immagini/icon/stellina-inactive.svg"
-              className="w-[22px] ml-2"
-            />
-            <img
-              src="./immagini/icon/stellina-inactive.svg"
-              className="w-[22px] ml-2"
-            />
-            <img
-              src="./immagini/icon/stellina-inactive.svg"
-              className="w-[22px] ml-2"
-            />
-          </div>
-          <div className="pb-4">
-            <p>Frase x </p>
-          </div>
-          <div></div>
-        </section>
+            </>
+          }
+        />
+        <GameStatus title="Gioco 3" starsActive={0} description="Frase x" />
+        <GameStatus title="Gioco 4" starsActive={0} description="Frase x" />
       </div>
     </div>
   );

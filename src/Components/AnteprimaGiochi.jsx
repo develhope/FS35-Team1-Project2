@@ -1,27 +1,43 @@
 import CallToAction from "./CallToAction";
-import Header from "./Header";
 
-const AnteprimaGiochi = ({ gioco, title, text, media, img }) => {
+const AnteprimaGiochi = ({ title, text, media, img, route }) => {
+  if (!route) {
+    console.warn(
+      "Warning: manca la prop 'route' per il bottone in AnteprimaGiochi"
+    );
+  }
+
   return (
-    <>
-      <div>
-        <div className="text-center mt-20">
-          <h1 className="text-2xl mt-3">{title}</h1>
-        </div>
-
-        <div className=" flex items-center mt-8 px-11 gap-4">
-          <div className="overflow-hidden rounded-full">{media}</div>
-
-          <p className="ml-4 a">{text}</p>
-        </div>
-
-        <div className="relative flex flex-col items-center mt-4 gap-8 p-6">
-          {img}
-        </div>
-
-        <CallToAction text="Iniziamo!" />
+    <div
+      className="flex flex-col justify-between items-center px-4"
+      style={{
+        height: "calc(100vh - 64px)", // spazio per l'header
+        paddingTop: "76px",
+      }}
+    >
+      <div className="text-center relative md:mt-4">
+        <h1 className="text-2xl">{title}</h1>
       </div>
-    </>
+
+      <div className="flex items-center gap-4">
+        <div className="overflow-hidden rounded-full">{media}</div>
+        <p className="ml-2 md:text-xl">{text}</p>
+      </div>
+
+      <div className="flex flex-col justify-center items-center w-full">
+        <div className="mb-6 md:mb-0 md:pr-6 md:pb-8 ">{img}</div>
+
+        {/* Bottone visibile solo su mobile */}
+        <div className="flex justify-center mt-2 md:hidden w-full max-w-xs mx-auto">
+          {route && <CallToAction text="Iniziamo!" route={route} showAlways />}
+        </div>
+
+        {/* Bottone visibile solo su tablet e desktop */}
+        <div className="hidden md:flex justify-center mt-4 w-full max-w-xs mx-auto">
+          {route && <CallToAction text="Iniziamo!" route={route} showAlways />}
+        </div>
+      </div>
+    </div>
   );
 };
 

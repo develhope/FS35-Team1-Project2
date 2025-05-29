@@ -25,15 +25,31 @@ const Struttura3Gioco = ({
   const [rispostaErrata, setRispostaErrata] = useState(false);
   const [blocchiEvidenziati, setBlocchiEvidenziati] = useState([]);
   const [blocchiErrati, setBlocchiErrati] = useState([]);
+  const [blocchiDisabilitati, setBlocchiDisabilitati] = useState(false); // <-- Nuovo stato
   const ghostRef = useRef(null);
-  
-   const handleLevel = () => {
+
+  const handleLevel = () => {
     setPoints((prevPoints) => prevPoints + 50);
     navigate(livelloSuccessivoPath);
-  }
+  };
+
+  const handleRetry = () => {
+    const nuoveAssociazioni = { ...associazioni };
+    blocchiErrati.forEach((valore) => {
+      Object.keys(nuoveAssociazioni).forEach((chiave) => {
+        if (chiave === valore || nuoveAssociazioni[chiave] === valore) {
+          delete nuoveAssociazioni[chiave];
+        }
+      });
+    });
+    setAssociazioni(nuoveAssociazioni);
+    setRispostaErrata(false);
+    setBlocchiErrati([]);
+    setBlocchiDisabilitati(false); // <-- Riabilita i blocchi
+  };
 
   const handleDrop = (trascinato, target) => {
-    if (!trascinato || !target) return;
+    if (!trascinato || !target || blocchiDisabilitati) return; // Blocca se disabilitati
 
     const nuovo = { ...associazioni, [trascinato]: target };
     setAssociazioni(nuovo);
@@ -67,6 +83,14 @@ const Struttura3Gioco = ({
       if (!nuoviErrati.includes(trascinato)) nuoviErrati.push(trascinato);
       if (!nuoviErrati.includes(target)) nuoviErrati.push(target);
       setBlocchiErrati(nuoviErrati);
+
+      // Se l'utente ha fatto associazioni per tutti i blocchi e ci sono errori,
+      // disabilita i blocchi per obbligare a usare "Riprova"
+      const tentativiCompletati =
+        Object.keys(nuovo).length === blocchiGioco.length;
+      if (tentativiCompletati) {
+        setBlocchiDisabilitati(true);
+      }
     }
 
     setDragData(null);
@@ -74,6 +98,7 @@ const Struttura3Gioco = ({
   };
 
   const handleDragStart = (e, valore) => {
+    if (blocchiDisabilitati) return; // Blocca il drag se disabilitati
     setDragData(valore);
     const original = e.currentTarget;
     const ghostEle = original.cloneNode(true);
@@ -104,10 +129,12 @@ const Struttura3Gioco = ({
   };
 
   const onTouchStart = (valore) => {
+    if (blocchiDisabilitati) return;
     setDragData(valore);
   };
 
   const onTouchEnd = (e) => {
+    if (blocchiDisabilitati) return;
     const touch = e.changedTouches[0];
     const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY);
     const valoreTarget = dropTarget?.closest("[data-valore]")?.dataset?.valore;
@@ -131,14 +158,15 @@ const Struttura3Gioco = ({
       case "yellow":
         return "#FFEB3B";
       default:
-        return "#E5E7EB"; // fallback grigio
+        return "#E5E7EB";
     }
   };
 
   const blocchi = useMemo(
-    () => blocchiGioco.sort(() => Math.random() - 0.5),
-    []
+    () => blocchiGioco.slice().sort(() => Math.random() - 0.5),
+    [blocchiGioco]
   );
+
   return (
     <div
       style={{
@@ -169,29 +197,41 @@ const Struttura3Gioco = ({
               const isHover = targetHover === valore;
 
               const shadowColor = isEvidenziato
-                ? "shadow-[0_0_12px_4px_rgba(34,197,94,0.7)]" // verde
+                ? "shadow-[0_0_12px_4px_rgba(34,197,94,0.7)]"
                 : isErrato
-                ? "shadow-[0_0_12px_4px_rgba(239,68,68,0.7)]" // rosso
+                ? "shadow-[0_0_12px_4px_rgba(239,68,68,0.7)]"
                 : "shadow-md";
 
               return (
                 <div
                   key={valore || index}
-                  draggable
-                  onDragStart={(e) => handleDragStart(e, valore)}
-                  onDragEnd={handleDragEnd}
+                  draggable={!blocchiDisabilitati}
+                  onDragStart={(e) =>
+                    !blocchiDisabilitati && handleDragStart(e, valore)
+                  }
+                  onDragEnd={() => !blocchiDisabilitati && handleDragEnd()}
                   onDragOver={(e) => {
-                    e.preventDefault();
-                    setTargetHover(valore);
+                    if (!blocchiDisabilitati) {
+                      e.preventDefault();
+                      setTargetHover(valore);
+                    }
                   }}
-                  onDragLeave={() => setTargetHover(null)}
-                  onDrop={() => handleDrop(dragData, valore)}
-                  onTouchStart={() => onTouchStart(valore)}
-                  onTouchEnd={onTouchEnd}
+                  onDragLeave={() =>
+                    !blocchiDisabilitati && setTargetHover(null)
+                  }
+                  onDrop={() =>
+                    !blocchiDisabilitati && handleDrop(dragData, valore)
+                  }
+                  onTouchStart={() =>
+                    !blocchiDisabilitati && onTouchStart(valore)
+                  }
+                  onTouchEnd={(e) => !blocchiDisabilitati && onTouchEnd(e)}
                   data-valore={valore}
-                  className={`rounded p-2 cursor-grab text-center flex items-center justify-center w-20 h-20 ${shadowColor} ${
-                    isHover ? "ring-4 ring-blue-400" : ""
-                  } ${
+                  className={`rounded p-2 text-center flex items-center justify-center w-20 h-20 ${
+                    blocchiDisabilitati
+                      ? "opacity-50 cursor-not-allowed"
+                      : "cursor-grab"
+                  } ${shadowColor} ${isHover ? "ring-4 ring-blue-400" : ""} ${
                     blocco.tipo === "numero" ? "text-5xl font-extralight" : ""
                   }`}
                   style={{ backgroundColor: bgColor }}
@@ -236,27 +276,38 @@ const Struttura3Gioco = ({
         {rispostaEsatta && (
           <>
             <Star />
-            <p
-              className={`${
-                isLivello4
-                  ? "absolute mt-2 bottom-[80px] left-8 text-black"
-                  : "absolute left-[15px] text-black"
-              }`}
-            >
-              Hai raccolto <span className="text-yellow-300">{points}</span> punti
-            </p>
             <button
-              className="absolute bottom-4 right-28 bg-orange-600 text-white px-4 py-2 text-sm sm:text-base rounded md:right-76"
-              onClick={() => handleLevel()}
+              className="absolute bottom-4 right-34 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600 transition-colors duration-300 text-xl py-2 px-4 font-semibold sm:text-base md:right-76"
+              onClick={handleLevel}
             >
-              Prossimo livello
+              Avanti
             </button>
           </>
         )}
 
+        <p
+          className={`${
+            isLivello4
+              ? "absolute  text-l md:text-2xl pl-2 text-blue-300 font-semibold left-34"
+              : "absolute left-[15px] text-black"
+          }`}
+        >
+          Punti: <span className="text-yellow-300">{points}</span>
+        </p>
+
         {rispostaErrata && !rispostaEsatta && (
-          <div className="absolute bottom-[15px] left-8 sm:left-6 bg-red-600 text-white text-xs sm:text-sm px-2 py-1 rounded shadow">
-            Risposta errata. Ritenta!
+          <div>
+            <div className="text-l md:text-2xl bottom-[90px] left-14 font-bold text-red-500 mt-4 animate-pulse absolute">
+              <span>Risposta errata!</span>
+            </div>
+            <div>
+              <button
+                onClick={handleRetry}
+                className="absolute px-6 py-3 bottom-[40px] left-18 bg-red-500 text-white rounded-lg shadow-md hover:bg-red-600 transition-colors duration-300 text-s font-semibold"
+              >
+                Riprova
+              </button>
+            </div>
           </div>
         )}
       </div>

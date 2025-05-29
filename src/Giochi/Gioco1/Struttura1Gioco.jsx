@@ -44,12 +44,12 @@ const Struttura1Gioco = ({
       {/* Astronauti */}
       <div className="relative w-auto gap-30 mt-22 flex">
         <img
-          src="../immagini/Gioco1/astronautagioco1donna.svg"
+          src="/assets/immagini/Gioco1/astronautagioco1donna.svg"
           alt="astronauta donna"
           className="absolute top-[60px] left-[60px] md:left-[205px] md:top-[150px] w-24 md:w-35 astronauta"
         />
         <img
-          src="../immagini/Gioco1/astronautagioco1maschio.svg"
+          src="/assets/immagini/Gioco1/astronautagioco1maschio.svg"
           alt="astronauta maschio"
           className="absolute top-[20px] left-[230px] md:left-[465px] md:top-[80px] w-24 md:w-35 astronauta"
         />
