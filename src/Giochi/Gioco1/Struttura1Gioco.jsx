@@ -107,7 +107,7 @@ const Struttura1Gioco = ({
 
         {/* Risposta errata */}
         {risposta && !isCorretto && (
-          <p className="text-l md:text-2xl font-bold text-red-500 mt-4 animate-pulse absolute bottom-2.5 left-18">
+          <p className="text-l md:text-2xl font-bold text-red-500 mt-4 animate-pulse absolute bottom-2.5 md:bottom-[-1px] left-18 md:left-44">
             Risposta errata!
           </p>
         )}
@@ -119,7 +119,7 @@ const Struttura1Gioco = ({
               <Star />
             </div>
             <button
-              className="absolute right-20 bottom-[-5px] px-2 py-2 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600 transition-colors duration-300 text-sm font-semibold"
+              className="absolute right-20 md:right-50 md:text-2xl md:bottom-[-6px] bottom-[-5px] px-2 py-2 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600 transition-colors duration-300 text-sm font-semibold"
               onClick={() => navigate(prossimoLivelloLink)}
             >
               Prossimo livello
@@ -127,7 +127,7 @@ const Struttura1Gioco = ({
           </>
         )}
 
-        <p className="absolute top-80 left-3 text-white">
+        <p className="absolute top-80 left-3 md:top-122 md:text-2xl text-white">
           Hai raccolto <span className="text-yellow-300">{points}</span> punti
         </p>
       </article>
