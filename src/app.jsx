@@ -50,7 +50,9 @@ import Livello2Gioco2 from "./Giochi/Gioco2/Livello2Gioco2";
 import Livello3Gioco2 from "./Giochi/Gioco2/Livello3Gioco2";
 import Livello4Gioco2 from "./Giochi/Gioco2/Livello4gioco2";
 import Livello5Gioco2 from "./Giochi/Gioco2/Livello5Gioco2";
+
 import Login from "./Pages/Login.jsx"
+import ChiSiamo from "./Pages/ChiSiamo.jsx";
 
 
 
@@ -136,6 +138,7 @@ function App() {
 
         
           <Route path="/login" element={<Login/>} />
+          <Route path="/chiSiamo" element={<ChiSiamo/>} />
         </Routes>
       </main>
     </>
