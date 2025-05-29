@@ -54,6 +54,7 @@ import ChiSiamo from "./Pages/ChiSiamo.jsx";
 
 import Login from "./Pages/Login.jsx";
 import AnteprimaGiochi from "./Components/AnteprimaGiochi.jsx";
+import VittoriaGioco2 from "./Giochi/Gioco2/VittoriaGioco2.jsx";
 
 function App() {
   const location = useLocation();
@@ -123,6 +124,7 @@ function App() {
           <Route path="/livello3gioco2" element={<Livello3Gioco2 />} />
           <Route path="/livello4gioco2" element={<Livello4Gioco2 />} />
           <Route path="/livello5gioco2" element={<Livello5Gioco2 />} />
+          <Route path="/vittoriagioco2" element={<VittoriaGioco2 />} />
 
           <Route path="/livello1gioco3" element={<Livello1Gioco3 />} />
           <Route path="/livello2gioco3" element={<Livello2Gioco3 />} />
