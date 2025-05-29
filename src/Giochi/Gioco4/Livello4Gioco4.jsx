@@ -3,14 +3,14 @@ import Struttura4Gioco from "./Struttura4Gioco";
 const Livello4Gioco4 = () => {
   return (
     <Struttura4Gioco
-      domanda1="17 Oggetti" // Pulsante sopra
-      domanda2="13 Oggetti" // Pulsante sotto
+     domanda1={<img src="/assets/immagini/Gioco4/cookies9.png" />} // immagine1
+     domanda2={<img src="/assets/immagini/Gioco4/cookies8.png" />} // immagine2
       condizione="È minore"
       comparazione="<"
-      valore1={17} // Pulsante sinistro
-      valore2={13} // Pulsante destro
-      rispostaCorretta={13} 
+      rispostaCorretta1={8} 
+      rispostaCorretta2={9} 
       destinazione={"/vittoriagioco4"}
+       avanti="Fine Gioco"
     />
   );
 };
