@@ -241,7 +241,7 @@ const Struttura2Gioco = ({
                 ${planet.size}
                 ${
                   planet.isSelected
-                    ? "border-green-500 shadow-green-500/50"
+                    ? "border-green-900 shadow-green-500/80"
                     : ""
                 }
               `}
@@ -310,8 +310,8 @@ const Struttura2Gioco = ({
 
           {levelStatus === "incorrect" && (
             <>
-              <div className="w-45 md:w-64 text-l md:text-2xl font-bold text-red-500 mt-1 animate-pulse absolute">
-                <span className="absolute top-20 md:top-50 left-5">
+              <div className="w-45 md:w-64 text-l md:text-2xl font-bold text-red-500 mt-1 animate-pulse absolute top-100 md:top-158 left-22 md:left-38">
+                <span className="">
                   Risposta errata!
                 </span>
               </div>
@@ -325,7 +325,7 @@ const Struttura2Gioco = ({
           )}
         </div>
       </div>
-      <p className="absolute top-150 left-8 text-white">
+      <p className="absolute top-150 left-8 text-white md:text-2xl md:top-235 md:left-32">
         Hai raccolto <span className="text-yellow-300">{points}</span> punti
       </p>
     </div>
