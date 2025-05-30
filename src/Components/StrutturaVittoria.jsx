@@ -12,6 +12,8 @@ const StrutturaVittoria = ({
   flipDonna = true, // di default ribalta
   donnaClass = "",
   maschioClass = "",
+  testoNero = false,
+  pbianco=true,
 }) => {
   const navigate = useNavigate();
 
@@ -38,11 +40,10 @@ const StrutturaVittoria = ({
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         minHeight: "100vh",
-        width: "100%",
         position: "relative",
       }}
     >
-      <HeaderFineLivelli/>
+      <HeaderFineLivelli />
 
       <div className="absolute inset-0 flex justify-center items-center">
         <div
@@ -83,32 +84,40 @@ const StrutturaVittoria = ({
           </div>
 
           <div
-            className={`mt-10 ${isIpadMini ? "w-full max-w-md" : "w-80"} px-4`}
+            className={`mt-6 ${isIpadMini ? "w-full max-w-md" : "w-80"} px-4`}
           >
             <h1
-              className={`text-black font-bold pb-2 ${
+              className={`mt-5 font-bold pb-2 ${
                 isIpadMini ? "text-5xl" : "text-4xl"
-              }`}
+              } ${testoNero ? "text-black" : "text-white"}`}
             >
               Complimenti!
             </h1>
-            <p className={`text-black mt-2 ${isIpadMini ? "text-lg" : ""}`}>
+            <p
+              className={`${testoNero ? "text-black" : "text-white"} mt-2 ${
+                isIpadMini ? "text-lg" : ""
+              }`}
+            >
               {frase}
             </p>
-            <p className={`text-white mt-2 ${isIpadMini ? "text-lg" : ""}`}>
+            <p
+              className={`${pbianco ? "text-white" : "text-black"} mt-2 ${
+                isIpadMini ? "text-lg" : ""
+              }`}
+            >
               Hai raccolto {points} punti, corri a comprare la tua nuova skin!
             </p>
 
-            <div className="flex gap-10 justify-center pt-5">
+            <div className="flex gap-10 justify-center pt-3 md:pt-10">
               <button
-                className="bg-yellow-300 hover:bg-yellow-200 w-20 h-10 rounded flex items-center justify-center"
+                className="bg-yellow-300 hover:bg-yellow-200 w-20 h-10 rounded flex items-center justify-center md:w-50 md:h-20 md:text-xl"
                 onClick={() => navigate("/shop")}
               >
                 Shop
               </button>
               <button
-                className="bg-yellow-300 hover:bg-yellow-200 w-20 h-10 rounded flex items-center justify-center"
-                onClick={() => navigate("/restart")}
+                className="bg-yellow-300 hover:bg-yellow-200 w-20 h-10 rounded flex items-center justify-center md:w-50 md:h-20 md:text-xl"
+                onClick={() => navigate("/")}
               >
                 Livelli
               </button>

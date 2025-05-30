@@ -69,6 +69,9 @@ const handleLogin = ()=>{
           )}
         </div>
         <div>
+          <Link to="/chiSiamo">Chi Siamo</Link>
+        </div>
+        <div>
           <Link to="/feedback">Feedback</Link>
         </div>
       </div>

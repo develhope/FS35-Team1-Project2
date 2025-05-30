@@ -6,15 +6,15 @@ const VittoriaGioco1 = () => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setShow(true), 20); // Delay per attivare animazione CSS
+    setTimeout(() => setShow(true), 20); 
   }, []);
 
   return (
     <div className={`relative ${show ? "fade-in" : ""}`}>
       <img
-        className="bg-transparent z-30 w-[50px] absolute top-[130px] left-[164px]"
+        className="bg-transparent z-30 w-[50px] md:w-[100px] absolute top-[130px] md:top-[150px] left-[164px] md:left-[325px]"
         src="/assets/immagini/Gioco1/cuorepaginafinale.png"
-        alt="Cuore"
+        alt=""
       />
       <StrutturaVittoria
         sfondo="/assets/immagini/Gioco1/sfondo-gioco-1.svg"
@@ -22,11 +22,12 @@ const VittoriaGioco1 = () => {
         immagine2="/assets/immagini/Gioco1/astronautagioco1maschio.svg"
         frase="Grazie a te i due astronauti innamorati si sono ritrovati!"
         flipDonna={false}
-        donnaClass="translate-y-3 translate-x-3"
-        maschioClass="-translate-x-3"
+        donnaClass="translate-y-3 translate-x-3 md:-translate-x-[100px] md:translate-y-[205px]"
+        maschioClass="-translate-x-3 md:-translate-x-[-80px] md:translate-y-[-80px]"
       />
     </div>
   );
 };
 
 export default VittoriaGioco1;
+
