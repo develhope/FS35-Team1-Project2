@@ -79,8 +79,8 @@ const Livello4Gioco3 = () => {
       blocchiGioco={blocchiPerLivello4}
       // PROPS PER LA GRIGLIA
       gridCols="grid-cols-3" // <--- CAMBIATO QUI per 3 colonne
-      gapX="gap-x-6" // <--- SUGGERISCO QUESTO gap per migliore estetica/spazio
-      gapY="gap-y-2" // Gap verticale (come Livello 1, 2, 3)
+      gapX="gap-x-6 md:gap-x-34" // <--- SUGGERISCO QUESTO gap per migliore estetica/spazio
+      gapY="gap-y-2 md:gap-y-6" // Gap verticale (come Livello 1, 2, 3)
       gridWidth={gridCalcWidth} // Larghezza calcolata
       versioneCompatta
     />

@@ -9,7 +9,7 @@ const Livello1Gioco3 = () => {
     { tipo: 'numero', valore: "3", colore: 'yellow' },
   ];
 
-  const gridCalcWidth = 'w-[180px]'; 
+  const gridCalcWidth = 'w-[180px] md:w-60'; 
 
   return (
     <Struttura3Gioco
@@ -23,8 +23,8 @@ const Livello1Gioco3 = () => {
       blocchiGioco={blocchiPerLivello1}
       // PROPS PER LA GRIGLIA
       gridCols="grid-cols-2"
-      gapX="gap-x-5"        // Gap orizzontale di 20px
-      gapY="gap-y-6"        // Gap verticale di 24px (6 unità Tailwind)
+      gapX="gap-x-5 md:gap-x-10"        // Gap orizzontale di 20px
+      gapY="gap-y-6 md:gap-y-10"        // Gap verticale di 24px (6 unità Tailwind)
       gridWidth={gridCalcWidth} // Larghezza calcolata per 2 colonne e gap-x-5
     />
   );
