@@ -49,6 +49,18 @@ const levelConfig = {
       image: "/immagini/Pianeti/pianeta8.svg",
       size: "w-15 h-15",
     },
+    {
+      id: "planet_empty_8",
+      value: 8,
+      image: "/immagini/Pianeti/pianeta9.svg",
+      size: "w-15 h-15",
+    },
+    {
+      id: "planet_empty_E",
+      value: null,
+      image: "/immagini/Pianeti/pianeta2.svg",
+      size: "w-15 h-15",
+    },
   ],
   // Per i giochi di associazione, expectedOrder conterrà gli ID e i valori attesi per i pianeti
   // Questo include sia i pianeti già "riempiti" che quelli da riempire
@@ -60,6 +72,8 @@ const levelConfig = {
     { id: "planet_empty_C", value: 5 },
     { id: "planet_filled_6", value: 6 },
     { id: "planet_empty_D", value: 7 },
+    { id: "planet_empty_8", value: 8 },
+    { id: "planet_empty_E", value: 9 },
   ],
 };
 
