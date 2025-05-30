@@ -36,7 +36,7 @@ const Livello2Gioco3 = () => {
     3: "tre banane",
   };
 
-  const gridCalcWidth = "w-[288px]";
+  const gridCalcWidth = "w-[288px] md:w-60";
 
   return (
     <Struttura3Gioco
@@ -47,8 +47,8 @@ const Livello2Gioco3 = () => {
       blocchiGioco={blocchiPerLivello2}
       // NUOVE PROPS PER LA GRIGLIA (3 colonne e gap-x-6)
       gridCols="grid-cols-3" // Ora 3 colonne
-      gapX="gap-x-6" // Gap orizzontale come nella foto
-      gapY="gap-y-4" // Gap verticale (mantenuto)
+      gapX="gap-x-6 md:gap-x-35" // Gap orizzontale come nella foto
+      gapY="gap-y-4  md:gap-y-12" // Gap verticale (mantenuto)
       gridWidth={gridCalcWidth} // Nuova larghezza calcolata
     />
   );

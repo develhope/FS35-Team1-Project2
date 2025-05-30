@@ -117,7 +117,7 @@ const StrutturaVittoria = ({
               </button>
               <button
                 className="bg-yellow-300 hover:bg-yellow-200 w-20 h-10 rounded flex items-center justify-center md:w-50 md:h-20 md:text-xl"
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/restart")}
               >
                 Livelli
               </button>
