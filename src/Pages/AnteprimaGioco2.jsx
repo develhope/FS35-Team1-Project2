@@ -29,7 +29,7 @@ const AnteprimaGioco2 = () => {
         }
       />
       <CallToAction
-        route="/struttura2gioco"
+        route="/livello1gioco2"
         text="Iniziamo!"
         showAlways={true}
       />

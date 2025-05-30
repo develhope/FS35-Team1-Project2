@@ -49,38 +49,32 @@ import Livello2Gioco2 from "./Giochi/Gioco2/Livello2Gioco2";
 import Livello3Gioco2 from "./Giochi/Gioco2/Livello3Gioco2";
 import Livello4Gioco2 from "./Giochi/Gioco2/Livello4gioco2";
 import Livello5Gioco2 from "./Giochi/Gioco2/Livello5Gioco2";
+import VittoriaGioco2 from "./Giochi/Gioco2/VittoriaGioco2.jsx";
 
 import ChiSiamo from "./Pages/ChiSiamo.jsx";
 
 import Login from "./Pages/Login.jsx";
 import AnteprimaGiochi from "./Components/AnteprimaGiochi.jsx";
-import VittoriaGioco2 from "./Giochi/Gioco2/VittoriaGioco2.jsx";
+
 
 function App() {
   const location = useLocation();
   const path = location.pathname;
 
-  const isGioco2Path =
-    path.startsWith("/struttura2gioco") || path.includes("gioco2");
-
-  const isVittoriaPath = path.startsWith("/vittoria"); // ✅ Gestisce tutti i "vittoriagiocoX"
+  const isVittoriaPath = path.startsWith("/vittoria"); 
   const isRestartPage = path === "/restart";
   let gameLevelHeaderTitle = null;
   const matchLivelloGioco = path.match(/\/livello(\d+)gioco(\d+)/);
 
   if (matchLivelloGioco) {
     const livello = matchLivelloGioco[1];
-    const gioco = matchLivelloGioco[2];
-    if (gioco !== "2") {
-      gameLevelHeaderTitle = `Livello ${livello}`;
-    }
+    gameLevelHeaderTitle = `Livello ${livello}`
   }
 
   return (
     <>
       {/* ✅ Non mostra l'Header se sei in una schermata di vittoria */}
-      {!isGioco2Path &&
-        !isVittoriaPath &&
+      { !isVittoriaPath &&
         !isRestartPage &&
         (gameLevelHeaderTitle ? (
           <HeaderGiochi titolo={gameLevelHeaderTitle} />
