@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 
-const HeaderFineLivelli = () => {
+const HeaderFineLivelli = (
+  
+) => {
   const navigate = useNavigate();
 
   return (
