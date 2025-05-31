@@ -5,12 +5,12 @@ const HeaderCenter = () => {
   const location = useLocation();
 
   let centerContent = null;
-  const commonClassname = "text-center font-[Arial] font-bold"
+  const commonClassname = "text-center font-[Arial] font-bold md:text-xl"
 
   switch (location.pathname) {
     case "/":
       centerContent = (
-        <img src="./immagini/logo.svg" className="w-20" alt="Logo" />
+        <img src="./immagini/logo.svg" className="w-20 md:w-30 " alt="Logo" />
       );
       break;
     case "/form":

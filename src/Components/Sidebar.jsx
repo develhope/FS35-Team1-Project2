@@ -33,24 +33,24 @@ const handleLogin = ()=>{
   // };
 
   return (
-    <div className="flex z-50 flex-col space-y-4 p-4 w-full max-w-xs h-screen relative bg-white shadow-md">
+    <div className="flex z-50 flex-col w-full h-screen relative bg-white shadow-md">
       {/* X in alto a destra */}
       <Link to="/">
         <img
           src="immagini/icon/cross-small.svg"
           alt="Chiudi"
-          className="w-[15px] absolute top-4 right-4 cursor-pointer hover:opacity-70 transition-opacity"
+          className="w-5 md:w-7 absolute top-10 right-8 cursor-pointer hover:opacity-70 transition-opacity"
           onClick={() => setIsVisible(false)}
         />
       </Link>
 
       {/* Logo centrato */}
       <div className="flex justify-center mt-6 mb-10">
-        <img className="w-[111px]" src="immagini/logo.svg" alt="Logo" />
+        <img className="w-25 md:w-35" src="immagini/logo.svg" alt="Logo" />
       </div>
 
       {/* Link */}
-      <div className="space-y-15">
+      <div className="space-y-8 pl-4 md:text-3xl md:space-y-14 md:pt-10">
         {" "}
         {/* spaziatura tra i link */}
         <div>

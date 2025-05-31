@@ -5,18 +5,14 @@ import GamePageSection from "../Components/GamePageSection";
 const GamePage1 = () => {
   return (
     <>
-      
       <main className="flex flex-col justify-center items-center mt-18">
         <GamePageSection
           title="Conta con Nebula"
-          video={
-            <video
-              src="./immagini/freepik__creami-lillustrazione-per-bambini-di-un-astronauta__80674.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-185 h-35 object-cover"
+          img={
+            <img
+              className="w-60 mx-auto md:w-100 md:mt-3"
+              src="/assets/immagini/Gioco1/astronauti.svg"
+              alt="astronauti"
             />
           }
           description="Aiuta i due astronauti innamorati ad incontrarsi. Risolvi tutti i livelli del gioco!"

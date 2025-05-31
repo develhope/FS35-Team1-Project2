@@ -15,12 +15,12 @@ const AnteprimaGioco1 = () => {
             muted
             loop
             playsInline
-            className="w-160 h-40 object-cover rounded-full"
+            className="w-160 h-40 object-cover rounded-full md:h-68 md:w-130"
           />
         }
         img={
           <img
-            className="w-[250px]"
+            className="w-60 md:w-110 md:mt-3"
             src="/assets/immagini/Gioco1/astronauti.svg"
             alt="astronauti"
           />

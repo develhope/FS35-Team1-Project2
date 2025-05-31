@@ -13,14 +13,14 @@ const Header = () => {
   const shopPath = userData ? "/shop" : formPath;
 
   return (
-    <div className="fixed top-0 left-0 flex z-50 bg-white justify-between items-center w-full p-2 font-[Arial] font-bold h-20">
+    <div className="fixed top-0 left-0 flex z-50 bg-white justify-between items-center w-full p-2 font-[Arial] font-bold h-20 md:h-30">
       <div className="w-20">
         {location.pathname === "/" ? (
           <button>
             <Link to="/sidebar">
               <img
                 src="./immagini/icon/hamburger.svg"
-                className="w-6 ml-1"
+                className="w-6 ml-1 md:w-10"
                 alt="menu"
               />
             </Link>
@@ -30,7 +30,7 @@ const Header = () => {
             <Link onClick={() => navigate(-1)}>
               <img
                 src="./immagini/icon/arrow-left.svg"
-                className="w-3 ml-1"
+                className="w-3 ml-1 md:w-6"
                 alt="menu"
               />
             </Link>
@@ -42,14 +42,14 @@ const Header = () => {
         <Link to={profilePath} className="pr-2">
           <img
             src="../immagini/icon/profile.svg"
-            className="w-5 mt-1"
+            className="w-5 mt-1 md:w-7"
             alt="profile"
           />
         </Link>
         <Link to={shopPath}>
           <img
             src="./immagini/icon/usp-delivery-store.svg"
-            className="w-8"
+            className="w-8 md:w-10"
             alt="shop"
           />
         </Link>

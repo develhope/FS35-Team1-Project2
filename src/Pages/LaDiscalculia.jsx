@@ -35,7 +35,7 @@ const LaDiscalculia = () => {
 
   return (
     <>
-      <div className="mt-20">
+      <div className="mt-20 md:mt-40">
         {sezioni.map((sezione, index) => (
           <SezioniLaDiscalculia key={index} {...sezione} />
         ))}

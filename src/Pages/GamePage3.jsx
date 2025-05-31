@@ -8,14 +8,11 @@ const GamePage3 = () => {
       <main className="flex flex-col justify-center items-center mt-18">
         <GamePageSection
           title="Trova la coppia"
-          video={
-            <video
-              src="./immagini/freepik__creami-lillustrazione-per-bambini-di-un-astronauta__80674.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-185 h-35 object-cover"
+          img={
+            <img
+              className="w-40 mx-auto md:w-60 md:mt-3"
+              src="/assets/immagini/Gioco3/scimmia_home_3.svg"
+              alt="Scimmietta Astronauta"
             />
           }
           description="La scimmietta astronauta ha una lista della spesa e deve raccogliere la quantità di frutti richiesta dalla mamma."

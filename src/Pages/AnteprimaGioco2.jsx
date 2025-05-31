@@ -1,11 +1,9 @@
 import AnteprimaGiochi from "../Components/AnteprimaGiochi";
 import CallToAction from "../Components/CallToAction";
-import Header from "../Components/Header";
 
 const AnteprimaGioco2 = () => {
   return (
     <>
-    <Header></Header>
       <AnteprimaGiochi
         gioco="Gioco 2"
         title="Metti in ordine"
@@ -17,12 +15,12 @@ const AnteprimaGioco2 = () => {
             muted
             loop
             playsInline
-            className="w-170 h-38 object-cover rounded-full"
+            className="w-170 h-38 object-cover rounded-full md:h-68 md:w-145 md:mt-10"
           />
         }
         img={
           <img
-            className="w-40"
+            className="w-40 md:w-70"
             src="/assets/immagini/Gioco2/astronauta biondo su pianeta.svg"
             alt="Astronauta biondo su pianeta"
           />
