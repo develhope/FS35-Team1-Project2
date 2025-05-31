@@ -15,8 +15,8 @@ const AnteprimaGiochi = ({ title, text, media, img, route }) => {
         paddingTop: "76px",
       }}
     >
-      <div className="text-center relative md:mt-4">
-        <h1 className="text-2xl">{title}</h1>
+      <div className="text-center relative md:mt-15">
+        <h1 className="text-2xl md:text-4xl">{title}</h1>
       </div>
 
       <div className="flex items-center gap-4">

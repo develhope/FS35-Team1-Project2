@@ -14,19 +14,19 @@ const AnteprimaGioco4 = () => {
             muted
             loop
             playsInline
-            className="w-170 h-38 object-cover rounded-full"
+            className="w-170 h-38 object-cover rounded-full md:h-68 md:w-130"
           />
         }
         img={
           <div className="flex gap-6">
             <img
-              className="w-35 transform scale-x-[-1] "
+              className="w-35 transform scale-x-[-1] md:w-80 md:mt-3"
               src="/assets/immagini/Gioco4/amicodinebula_1_4.svg"
               alt="Amici di Nebula"
             />
 
             <img
-              className="w-35"
+              className="w-35 md:w-70 md:mt-3"
               src="/assets/immagini/Gioco4/amicodinebula_2_4.svg"
               alt="Amici di Nebula"
             />
