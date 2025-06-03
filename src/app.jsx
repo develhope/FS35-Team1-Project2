@@ -51,8 +51,10 @@ import Livello4Gioco2 from "./Giochi/Gioco2/Livello4gioco2";
 import Livello5Gioco2 from "./Giochi/Gioco2/Livello5Gioco2";
 
 import ChiSiamo from "./Pages/ChiSiamo.jsx";
-
 import Login from "./Pages/Login.jsx";
+import NewsLetter from "./Pages/NewsLetter.jsx";
+import FAQ from "./Pages/FAQ.jsx";
+import Privacy from "./Pages/Privacy.jsx";
 import AnteprimaGiochi from "./Components/AnteprimaGiochi.jsx";
 
 function App() {
@@ -139,6 +141,9 @@ function App() {
         
           <Route path="/login" element={<Login/>} />
           <Route path="/chiSiamo" element={<ChiSiamo/>} />
+          <Route path="/newsLetter" element={<NewsLetter/>}/>
+          <Route path="/faq" element={<FAQ/>}/>
+          <Route path="/privacy" element={<Privacy/>}/>
         </Routes>
       </main>
     </>
