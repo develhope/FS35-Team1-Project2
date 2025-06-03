@@ -29,7 +29,7 @@ const CallToAction = ({ text, disabled = false, route = "/form", showAlways=fals
       <button
         onClick={handleClick}
         disabled={disabled}
-        className={`w-[240px] h-[52px] rounded-[20px] bg-[#A7D6E0] md:w-[320px] md:text-xl ${
+        className={`w-60 h-13 rounded-2xl bg-[#A7D6E0] md:w-80 md:text-2xl  ${
           disabled
             ? "opacity-30 cursor-not-allowed"
             : "hover:bg-[#92c6d2] cursor-pointer"

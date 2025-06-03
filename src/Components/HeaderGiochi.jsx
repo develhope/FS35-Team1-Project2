@@ -5,11 +5,11 @@ const HeaderGiochi = ({ titolo }) => {
     <div className="relative w-full max-w-screen-md mx-auto rounded shadow">
       <div className="flex items-center absolute top-4 mb-5 gap-20 z-[200] p-4 text-white w-full">
         <div>
-          <Link to="/">
+          <Link to="/restart">
           <img
-            src="/immagini/icon/sfondo-home.svg"
+            src="/immagini/icon/arrow-left.svg"
             alt="instagram"
-            className="w-8 invert flex-start"
+            className="w-5 invert flex-start"
           />
           </Link>
         </div>

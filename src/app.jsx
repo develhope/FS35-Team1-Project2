@@ -49,6 +49,7 @@ import Livello2Gioco2 from "./Giochi/Gioco2/Livello2Gioco2";
 import Livello3Gioco2 from "./Giochi/Gioco2/Livello3Gioco2";
 import Livello4Gioco2 from "./Giochi/Gioco2/Livello4gioco2";
 import Livello5Gioco2 from "./Giochi/Gioco2/Livello5Gioco2";
+import VittoriaGioco2 from "./Giochi/Gioco2/VittoriaGioco2.jsx";
 
 import ChiSiamo from "./Pages/ChiSiamo.jsx";
 import Login from "./Pages/Login.jsx";
@@ -57,31 +58,25 @@ import FAQ from "./Pages/FAQ.jsx";
 import Privacy from "./Pages/Privacy.jsx";
 import AnteprimaGiochi from "./Components/AnteprimaGiochi.jsx";
 
+
 function App() {
   const location = useLocation();
   const path = location.pathname;
 
-  const isGioco2Path =
-    path.startsWith("/struttura2gioco") || path.includes("gioco2");
-
-  const isVittoriaPath = path.startsWith("/vittoria"); // ✅ Gestisce tutti i "vittoriagiocoX"
+  const isVittoriaPath = path.startsWith("/vittoria"); 
   const isRestartPage = path === "/restart";
   let gameLevelHeaderTitle = null;
   const matchLivelloGioco = path.match(/\/livello(\d+)gioco(\d+)/);
 
   if (matchLivelloGioco) {
     const livello = matchLivelloGioco[1];
-    const gioco = matchLivelloGioco[2];
-    if (gioco !== "2") {
-      gameLevelHeaderTitle = `Livello ${livello}`;
-    }
+    gameLevelHeaderTitle = `Livello ${livello}`
   }
 
   return (
     <>
       {/* ✅ Non mostra l'Header se sei in una schermata di vittoria */}
-      {!isGioco2Path &&
-        !isVittoriaPath &&
+      { !isVittoriaPath &&
         !isRestartPage &&
         (gameLevelHeaderTitle ? (
           <HeaderGiochi titolo={gameLevelHeaderTitle} />
@@ -125,6 +120,7 @@ function App() {
           <Route path="/livello3gioco2" element={<Livello3Gioco2 />} />
           <Route path="/livello4gioco2" element={<Livello4Gioco2 />} />
           <Route path="/livello5gioco2" element={<Livello5Gioco2 />} />
+          <Route path="/vittoriagioco2" element={<VittoriaGioco2 />} />
 
           <Route path="/livello1gioco3" element={<Livello1Gioco3 />} />
           <Route path="/livello2gioco3" element={<Livello2Gioco3 />} />

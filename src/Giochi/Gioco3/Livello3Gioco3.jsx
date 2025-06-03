@@ -59,8 +59,8 @@ const Livello3Gioco3 = () => {
       livelloSuccessivoPath="/livello4gioco3"
       blocchiGioco={blocchiPerLivello3}
       gridCols="grid-cols-3"
-      gapX="gap-x-5"
-      gapY="gap-y-6"
+      gapX="gap-x-5 md:gap-x-34"
+      gapY="gap-y-6 md:gap-y-8"
       gridWidth={gridCalcWidth}
     />
   );

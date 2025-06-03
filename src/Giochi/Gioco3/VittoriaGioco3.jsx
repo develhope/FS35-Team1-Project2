@@ -13,6 +13,8 @@ const VittoriaGioco3 = () => {
           frase="Grazie a te la scimmietta è riuscita a comprare tutti i frutti richiesti dalla mamma!"
           isVittoriaGioco3={true} // flag attivo per questo gioco
           sfondo="/immagini/sfondoproseguogiochi.svg"
+          testoNero={true}
+          pbianco={false}
         />
       </div>
     </div>

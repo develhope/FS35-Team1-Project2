@@ -31,7 +31,7 @@ const handleShare = () => {
     <Link to={"/privacy"}><p className="mt-7 pb-2 text-base">@2025 All rights reserved. <span className="cursor-pointer hover:underline active:text-white">Privacy Policy</span></p></Link>
    </div>
     </footer>
-    );
-  };
- 
-  export default Footer;
+  );
+};
+
+export default Footer;

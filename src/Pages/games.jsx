@@ -23,7 +23,7 @@ const games = [
             { id: 2, path: '/livello2gioco2' },
             { id: 3, path: '/livello3gioco2' },
             { id: 4, path: '/livello4gioco2' },
-            
+            { id: 5, path: '/livello5gioco2' },
         ],
     },
     {

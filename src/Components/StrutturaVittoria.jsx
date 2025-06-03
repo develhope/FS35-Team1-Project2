@@ -12,6 +12,8 @@ const StrutturaVittoria = ({
   flipDonna = true, // di default ribalta
   donnaClass = "",
   maschioClass = "",
+  testoNero = false,
+  pbianco=true,
 }) => {
   const navigate = useNavigate();
 
@@ -85,16 +87,24 @@ const StrutturaVittoria = ({
             className={`mt-6 ${isIpadMini ? "w-full max-w-md" : "w-80"} px-4`}
           >
             <h1
-              className={`text-black font-bold pb-2 ${
+              className={`mt-5 font-bold pb-2 ${
                 isIpadMini ? "text-5xl" : "text-4xl"
-              }`}
+              } ${testoNero ? "text-black" : "text-white"}`}
             >
               Complimenti!
             </h1>
-            <p className={`text-black mt-2 ${isIpadMini ? "text-lg" : ""}`}>
+            <p
+              className={`${testoNero ? "text-black" : "text-white"} mt-2 ${
+                isIpadMini ? "text-lg" : ""
+              }`}
+            >
               {frase}
             </p>
-            <p className={`text-white mt-2 ${isIpadMini ? "text-lg" : ""}`}>
+            <p
+              className={`${pbianco ? "text-white" : "text-black"} mt-2 ${
+                isIpadMini ? "text-lg" : ""
+              }`}
+            >
               Hai raccolto {points} punti, corri a comprare la tua nuova skin!
             </p>
 
@@ -107,7 +117,7 @@ const StrutturaVittoria = ({
               </button>
               <button
                 className="bg-yellow-300 hover:bg-yellow-200 w-20 h-10 rounded flex items-center justify-center md:w-50 md:h-20 md:text-xl"
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/restart")}
               >
                 Livelli
               </button>

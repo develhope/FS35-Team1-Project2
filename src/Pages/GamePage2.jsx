@@ -8,14 +8,11 @@ const GamePage2 = () => {
       <main className="flex flex-col justify-center items-center mt-18">
         <GamePageSection
           title="Metti in ordine"
-          video={
-            <video
-              src="./immagini/freepik__creami-lillustrazione-per-bambini-di-un-astronauta__80674.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-185 h-35 object-cover"
+          img={
+            <img
+              className="w-40 mx-auto md:w-50"
+              src="/assets/immagini/Gioco2/astronauta biondo su pianeta.svg"
+              alt="Astronauta biondo su pianeta"
             />
           }
           description="L'astronauta Marco ha trovato dei numeri sparsi nello spazio. Aiutalo a rimetterli in ordine!"
@@ -38,7 +35,7 @@ const GamePage2 = () => {
               la sequenza.
               <br />
               <br />
-              💡 Usa la logica, l'intuizione… e se vuoi, anche le dita per
+              💡 Usa la logica, l'intuizione e se vuoi, anche le dita per
               contare! <br />
               <br />
               🌟 Ogni serie completata ti avvicina a una nuova stella nel cielo

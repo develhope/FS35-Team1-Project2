@@ -5,17 +5,17 @@ const SezioniLaDiscalculia = (props) => {
     return (
       <>
         <div className="ml-10 rounded-tl-4xl rounded-bl-4xl " style={{ backgroundColor: `#${props.bg}` }}>
-          <h2 className="  p-3 text-white font-medium text-2xl">{props.title}</h2>
+          <h2 className="  p-3 text-white font-medium text-2xl md:text-4xl">{props.title}</h2>
         </div>
   
         <div className={`relative flex mt-2 ${isReverseColumns ? "flex-col items-center" : isReverse ? "flex-row-reverse gap-6 mr-2.5" : isLastRevers ? "pb-14" : "flex-row gap-7"}`}>
-          <p className={`font-[Arial]  ml-2.5 text-[14px] pt-4 font-bold ${isLastRevers ? "ml-22" : ""}`}>
+          <p className={`font-[Arial] md:text-2xl mr-4 ml-4 text-[14px] pt-4 font-bold ${isLastRevers ? "ml-22 md:ml-45" : ""}`}>
             {props.text}
           </p>
           <img
             src={props.srcImg}
             alt=""
-            className={` ${isLastRevers ? "w-30 absolute bottom-[-28px]" :isReverseColumns ? "w-[220px] mt-7" : "w-30 mt-7 z-10"}`}
+            className={` ${isLastRevers ? "w-30 md:w-50 md:ml-2 absolute bottom-[-28px]" :isReverseColumns ? "w-[220px] mt-7 md:w-80" : "w-30 mt-7 md:w-35 md:ml-4 z-10"}`}
           />
         </div>
       </>
