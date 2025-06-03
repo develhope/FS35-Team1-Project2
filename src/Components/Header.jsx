@@ -39,20 +39,41 @@ const Header = () => {
       </div>
       <HeaderCenter />
       <div className="flex w-20 justify-end">
-        <Link to={profilePath} className="pr-2">
-          <img
-            src="../immagini/icon/profile.svg"
-            className="w-5 mt-1 md:w-7"
-            alt="profile"
-          />
-        </Link>
-        <Link to={shopPath}>
-          <img
-            src="./immagini/icon/usp-delivery-store.svg"
-            className="w-8 md:w-10"
-            alt="shop"
-          />
-        </Link>
+        {userData.isLogged ? (
+          <>
+            <Link to={profilePath} className="pr-2">
+              <img
+                src="../immagini/icon/profile.svg"
+                className="w-5 mt-1 md:w-7"
+                alt="profile"
+              />
+            </Link>
+            <Link to={shopPath}>
+              <img
+                src="./immagini/icon/usp-delivery-store.svg"
+                className="w-8 md:w-10"
+                alt="shop"
+              />
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link to={formPath} className="pr-2">
+              <img
+                src="../immagini/icon/profile.svg"
+                className="w-5 mt-1 md:w-7"
+                alt="profile"
+              />
+            </Link>
+            <Link to={formPath}>
+              <img
+                src="./immagini/icon/usp-delivery-store.svg"
+                className="w-8 md:w-10"
+                alt="shop"
+              />
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

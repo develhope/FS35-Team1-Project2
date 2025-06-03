@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react"; // Importa useContext
 import { UserContext } from "../UserContext"; // Importa il tuo UserContext
 
-const CallToAction = ({ text, disabled = false, route = "/form", showAlways=false }) => {
+const CallToAction = ({ text, disabled = false, route = "/form", showAlways=false}) => {
   const navigate = useNavigate();
   const { userData } = useContext(UserContext); // Accedi ai dati dell'utente
 
@@ -12,7 +12,7 @@ const CallToAction = ({ text, disabled = false, route = "/form", showAlways=fals
     }
   };
    // Determina se mostrare il bottone
-   const shouldShowButton = !userData || showAlways; //mostra sempre se showAlways è true
+   const shouldShowButton = !userData.isLogged || showAlways; //mostra sempre se showAlways è true
 
    if (!shouldShowButton) {
      return null;
@@ -23,7 +23,6 @@ const CallToAction = ({ text, disabled = false, route = "/form", showAlways=fals
   //   return null; // Se userData esiste (utente iscritto), non mostrare nulla
   // }
   
-
   return (
     <div className="flex items-center justify-center">
       <button
