@@ -1,11 +1,13 @@
 const FAQ = () => {
   return (
     <>
-      <div className="px-4 mt-20  rounded sm:px-6">
-        <div className="max-w-xl mx-auto p-6 bg-cyan-900 rounded-2xl shadow-md border border-gray-200 text-center text-white">
-          <h1 className="text-3xl text-center mb-6 ">
+     <div className="px-4 mt-20 sm:px-5 md:px-10 lg:px-15 md:mt-40 lg:mt-40">
+  <div className="max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto p-6 md:p-10 lg:p-14 bg-[#47c7e4] rounded-2xl shadow-md border border-gray-200 text-center text-white">
+    <h1 className="text-2xl md:text-4xl lg:text-5xl tracking-wide">
             Domande Frequenti (FAQ)
           </h1>
+          <br />
+          <p className="lg:text-3xl md:text-2xl">
           <p>👶 A chi è rivolta l'app SpaceMath?</p>
           <p>
             SpaceMath è pensata per bambini dai 5 agli 11 anni con difficoltà
@@ -56,6 +58,7 @@ const FAQ = () => {
             Puoi giocare alla maggior parte dei livelli anche offline. Alcune
             funzioni, come lo shop o gli aggiornamenti, richiedono una
             connessione internet.
+          </p>
           </p>
         </div>
       </div>
