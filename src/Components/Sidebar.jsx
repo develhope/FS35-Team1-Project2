@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate} from "react-router-dom";
 import { UserContext } from "../UserContext";
+import Feedback from "./Feedback";
 
 const Sidebar = () => {
   const { userData, setUserData } = useContext(UserContext);
@@ -25,12 +26,7 @@ const handleLogin = ()=>{
   localStorage.setItem("userData", JSON.stringify(updatedUserData)); // aggiorna anche nel localStorage
   navigate("/");
 }
-  
-  // const handleLogout = () => {
-  //   setUserData(null);
-  //   localStorage.removeItem("userData");
-  //   navigate("/login");
-  // };
+
 
   return (
     <div className="flex z-50 flex-col w-full h-screen relative bg-white shadow-md">
@@ -72,7 +68,7 @@ const handleLogin = ()=>{
           <Link to="/chiSiamo">Chi Siamo</Link>
         </div>
         <div>
-          <Link to="/feedback">Feedback</Link>
+          <Feedback>Feedback</Feedback>
         </div>
       </div>
     </div>
