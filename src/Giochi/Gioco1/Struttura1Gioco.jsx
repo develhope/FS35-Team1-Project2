@@ -38,11 +38,6 @@ const Struttura1Gioco = ({
       setPoints((prevPoints) => prevPoints + 50);
     }
   }, [isCorretto, setPoints]);
-  useEffect(() => {
-    if (isCorretto) {
-      setPoints((prevPoints) => prevPoints + 50);
-    }
-  }, [isCorretto, setPoints]);
 
   return (
     <div
@@ -112,32 +107,27 @@ const Struttura1Gioco = ({
 
         {/* Risposta errata */}
         {risposta && !isCorretto && (
-          <div className="absolute bottom-[6px] md:bottom-[-60px] text-[10px] left-[6px] md:left-[140px]  md:text-[23px] bg-red-600 text-white px-1 py-1 rounded shadow">
-            Risposta errata. Ritenta!
-          </div>
+          <p className="text-l md:text-2xl font-bold text-red-500 mt-4 animate-pulse absolute bottom-2.5 md:bottom-[-1px] left-18 md:left-44">
+            Risposta errata!
+          </p>
         )}
 
         {/* Risposta corretta - solo se NON è il livello finale */}
-
         {isCorretto && !isFinalLevel && (
           <>
-            <div className="scale-75 md:scale-90">
+            <div className="scale-75 md:scale-90 ">
               <Star />
             </div>
             <button
-              className="absolute top-[330px] md:top-[490px] right-11 md:left-[180px] md:right-auto bg-orange-600 text-white px-3 py-1 rounded shadow md:text-[25px]"
+              className="absolute right-20 md:right-50 md:text-2xl md:bottom-[-6px] bottom-[-5px] px-2 py-2 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600 transition-colors duration-300 text-sm font-semibold"
               onClick={() => navigate(prossimoLivelloLink)}
             >
               Prossimo livello
             </button>
-
-            <p className="absolute bottom-3 left-3 text-black md:bottom-[-5px] md:text-[25px]">
-              Hai raccolto <span className="text-yellow-300">{points}</span> punti
-            </p>
           </>
         )}
 
-        <p className="absolute top-80 left-3 text-white">
+        <p className="absolute top-80 left-3 md:top-122 md:text-2xl text-white">
           Hai raccolto <span className="text-yellow-300">{points}</span> punti
         </p>
       </article>

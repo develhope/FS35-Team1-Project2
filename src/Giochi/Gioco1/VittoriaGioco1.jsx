@@ -12,7 +12,7 @@ const VittoriaGioco1 = () => {
   return (
     <div className={`relative ${show ? "fade-in" : ""}`}>
       <img
-        className="bg-transparent z-30 w-[50px] md:w-[100px] absolute top-[130px] md:top-[150px] left-[164px] md:left-[325px]"
+        className="bg-transparent z-30 w-[50px] md:w-[100px] absolute top-[90px] md:top-[150px] left-[180px] md:left-[325px]"
         src="/assets/immagini/Gioco1/cuorepaginafinale.png"
         alt=""
       />
@@ -30,4 +30,3 @@ const VittoriaGioco1 = () => {
 };
 
 export default VittoriaGioco1;
-
