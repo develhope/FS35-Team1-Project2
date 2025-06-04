@@ -62,101 +62,105 @@ const Quiz = () => {
 
   return (
     <>
-      <div className="p-5 mt-6">
-        <div className="flex flex-col justify-center items-center py-[50px] space-y-7 text-center">
-          <h1 className="text-2xl font-semibold">{domande[step].titolo}</h1>
-          <h2 className="text-[18px]">{domande[step].sottotitolo}</h2>
+      <div className="p-5 mt-6 md:pt-10 md:mt-12 ">
+        <div className="flex flex-col justify-center items-center py-[50px] space-y-7 text-center md:py-[30px] md:space-y-10" >
+          <h1 className="text-2xl md:text-[30px] font-semibold">{domande[step].titolo}</h1>
+          <h2 className="text-[18px] md:text-[25px]">{domande[step].sottotitolo}</h2>
         </div>
 
-        <div className="flex flex-col justify-center items-center space-y-10 text-center px-4">
-          <form className="space-y-5">
+        <div className="flex flex-col justify-center items-center space-y-10 text-center px-4    ">
+          <form className="space-y-5 md:space-y-6">
             {domande[step].opzioni.map((opzione, index) => (
-              <label key={index} className="flex items-center space-x-5">
+              <label key={index} className="flex items-center space-x-5 md:text-lg">
                 <input
                   type="radio"
                   name={`scelta-${step}`}
                   value={opzione}
-                  className="w-5 h-5"
+                  className="w-5 h-5 md:w-6 md:h-6"
                   checked={selezione === opzione}
                   onChange={() => setSelezione(opzione)}
                 />
-                <span>{opzione}</span>
+                <span className="md:text-[25px]">{opzione}</span>
               </label>
             ))}
           </form>
 
           {step < domande.length - 1 ? (
-            <div className="flex items-center space-x-5">
+            <div className="flex items-center space-x-5 md:space-x-10 md:mt-6">
               {step > 0 && (
                 <button onClick={indietro}>
                   <img
                     src="./immagini/icon/arrow-left.svg"
                     alt="Freccia sinistra"
-                    className="w-6 h-6"
+                    className="w-6 h-6 md:w-7 md:h-7"
                   />
                 </button>
               )}
 
-              <p>Domanda successiva</p>
+              <p className="text-base md:text-[25px] ml-[30px]">Domanda successiva</p>
 
               <button onClick={avanti} disabled={!selezione}>
                 <img
                   src="./immagini/icon/arrow-right.svg"
                   alt="Freccia destra"
-                  className={`w-6 h-6 ${
+                  className={`w-6 h-6 md:w-7 md:h-7 ${
                     !selezione ? "opacity-30 cursor-not-allowed" : ""
                   }`}
                 />
               </button>
             </div>
           ) : (
-            <div className="flex flex-col items-center space-y-2">
+            <div className="flex flex-col items-center space-y-4 md:space-y-6">
               <div>
                 <Link to="/form-iscriviti">
-                  <CallToAction text="TERMINA IL QUIZ" disabled={!selezione} route="/form-iscriviti" />
+                  <CallToAction
+                    text="TERMINA IL QUIZ"
+                    disabled={!selezione}
+                    route="/form-iscriviti"
+                  />
                 </Link>
               </div>
 
               <p
-                className="text-sm flex items-center cursor-pointer"
+                className="text-sm md:text-base flex items-center cursor-pointer"
                 onClick={indietro}
               >
                 <img
                   src="./immagini/icon/arrow-left.svg"
                   alt="Freccia sinistra"
-                  className="w-4 h-4 mr-1 "
+                  className="w-4 h-4 mr-1 md:w-5 md:h-5"
                 />
                 Domanda precedente
               </p>
             </div>
           )}
 
+          {/* Pianeti e immagini decorative */}
           <img
             src="./immagini/perform.png"
             alt="NebulaForm"
-            className="w-70"
+            className="w-70 md:w-[340px] md:mt-10"
           />
           <img
-        src="/immagini/pianeti/pianeta8.svg"
-        className="w-20 absolute left-7 planet-rotate planet-shadow"
-        alt="Pianeta1"
-      />
-      <img
-        src="/immagini/pianeti/pianeta1.svg"
-        className="w-10 absolute left-15 mt-50 planet-rotate planet-shadow"
-        alt="Pianeta2"
-      />
-      <img
-        src="/immagini/pianeti/pianeta2.svg"
-        className="w-10 absolute left-70 mt-30 planet-rotate planet-shadow"
-        alt="Pianeta2"
-      />
-      <img
-        src="/immagini/pianeti/pianeta4.svg"
-        className="w-15 absolute left-65 mb-50 planet-bounce planet-shadow"
-        alt="Pianeta3"
-      />
-      
+            src="/immagini/pianeti/pianeta8.svg"
+            className="w-20 md:w-26 absolute left-7 md:left-36 planet-rotate planet-shadow"
+            alt="Pianeta1"
+          />
+          <img
+            src="/immagini/pianeti/pianeta1.svg"
+            className="w-10 md:w-18 absolute bottom-56  left-15 md:left-40 mt-50 planet-rotate planet-shadow"
+            alt="Pianeta2"
+          />
+          <img
+            src="/immagini/pianeti/pianeta2.svg"
+            className="w-10 md:w-18 absolute bottom-68 md:bottom-[290px] left-70 md:left-[520px] mt-30 planet-rotate planet-shadow"
+            alt="Pianeta3"
+          />
+          <img
+            src="/immagini/pianeti/pianeta4.svg"
+            className="w-15 md:w-24 absolute left-65 md:left-[470px] mb-50 planet-bounce planet-shadow"
+            alt="Pianeta4"
+          />
         </div>
       </div>
     </>
