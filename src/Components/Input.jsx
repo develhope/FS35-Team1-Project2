@@ -12,7 +12,7 @@ const Input = (props) => {
       </label>
       <input
         {...props}
-        className="rounded-full px-6 py-2 bg-neutral-300 md:py-3 md:text-5xl "
+        className="rounded-full px-6 py-2 bg-neutral-300 md:py-3 md:text-3xl "
       />
     </div>
   );
