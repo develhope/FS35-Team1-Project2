@@ -19,7 +19,7 @@ const Struttura1Gioco = ({
     donna: { default: "top-[60px] left-[60px]", md: "md:top-[100px] md:left-[80px]" },
     maschio: { default: "top-[20px] left-[230px]", md: "md:top-[50px] md:left-[250px]" },
   },
-  nuovaPosizioneAstronauti, // per aggiornare posizione al momento giusto (optional)
+  nuovaPosizioneAstronauti,
   setPosizioneAstronauti,
 }) => {
   const { points, setPoints } = useContext(PointsContext);
@@ -36,18 +36,12 @@ const Struttura1Gioco = ({
       if (nuovaPosizioneAstronauti && setPosizioneAstronauti) {
         setPosizioneAstronauti(nuovaPosizioneAstronauti);
       }
-    }
-  }, [isCorretto, setPoints, nuovaPosizioneAstronauti, setPosizioneAstronauti]);
 
-  useEffect(() => {
-    if (isCorretto && isFinalLevel) {
-      setIsLeaving(true);
-      const timer = setTimeout(() => {
-        navigate(prossimoLivelloLink);
-      }, 600);
-      return () => clearTimeout(timer);
+      if (isFinalLevel) {
+        setIsLeaving(true); // solo effetto, nessun redirect
+      }
     }
-  }, [isCorretto, isFinalLevel, navigate, prossimoLivelloLink]);
+  }, [isCorretto, setPoints, nuovaPosizioneAstronauti, setPosizioneAstronauti, isFinalLevel]);
 
   return (
     <div
@@ -72,7 +66,7 @@ const Struttura1Gioco = ({
       {/* Contenuto */}
       <article className="md:flex md:flex-col md:justify-center md:mt-[380px] md:w-[600px] md:h-[480px] article relative text-center mt-50 h-80 w-[300px] mx-auto border-6 border-yellow-400 bg-white p-6 rounded-xl shadow-md">
         <h4 className="md:text-[30px] text-15px mb-2">{traccia}</h4>
-        <h5 className="text-[12px] mb-2  md:text-2xl">{sottotraccia}</h5>
+        <h5 className="text-[12px] mb-2 md:text-2xl">{sottotraccia}</h5>
 
         <div className="flex gap-2 mt-4 flex-wrap justify-center md:gap-6">
           {imgs.map((img, index) =>
@@ -121,19 +115,20 @@ const Struttura1Gioco = ({
           </p>
         )}
 
-        {isCorretto && !isFinalLevel && (
-          <>
-            <div className="scale-75 md:scale-90">
-              <Star />
-            </div>
-            <button
-              className="absolute right-20 md:right-50 md:text-2xl md:bottom-[-6px] bottom-[-5px] px-2 py-2 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600 transition-colors duration-300 text-sm font-semibold"
-              onClick={() => navigate(prossimoLivelloLink)}
-            >
-              Prossimo livello
-            </button>
-          </>
-        )}
+   {isCorretto && (
+  <>
+    <div className="scale-75 md:scale-90">
+      <Star />
+    </div>
+    <button
+      className="absolute right-20 md:right-50 md:text-2xl md:bottom-[-6px] bottom-[-5px] px-2 py-2 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600 transition-colors duration-300 text-sm font-semibold"
+      onClick={() => navigate(prossimoLivelloLink)}
+    >
+      {isFinalLevel ? "Vai alla vittoria" : "Prossimo livello"}
+    </button>
+  </>
+)}
+
 
         <p className="absolute top-80 left-3 md:top-122 md:text-2xl text-white">
           Hai raccolto <span className="text-yellow-300">{points}</span> punti
