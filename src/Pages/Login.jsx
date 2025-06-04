@@ -46,7 +46,7 @@ const Login = () => {
   return (
     <div className="overflow-hidden min-h-screen flex flex-col justify-center px-6">
       <div className="flex flex-col items-center gap-3">
-        <h1 className="text-2xl text-center">
+        <h1 className="text-2xl text-center md:text-[30px]">
           Continua la tua avventura spaziale con Nebula!
         </h1>
       </div>
