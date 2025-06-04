@@ -15,6 +15,12 @@ const Struttura1Gioco = ({
   nebula,
   prossimoLivelloLink,
   isFinalLevel = false,
+  posizioneAstronauti = {
+    donna: { default: "top-[60px] left-[60px]", md: "md:top-[100px] md:left-[80px]" },
+    maschio: { default: "top-[20px] left-[230px]", md: "md:top-[50px] md:left-[250px]" },
+  },
+  nuovaPosizioneAstronauti, // per aggiornare posizione al momento giusto (optional)
+  setPosizioneAstronauti,
 }) => {
   const { points, setPoints } = useContext(PointsContext);
   const [risposta, setRisposta] = useState(null);
@@ -24,20 +30,24 @@ const Struttura1Gioco = ({
   const isCorretto = risposta === rispostaCorretta;
 
   useEffect(() => {
+    if (isCorretto) {
+      setPoints((prevPoints) => prevPoints + 50);
+
+      if (nuovaPosizioneAstronauti && setPosizioneAstronauti) {
+        setPosizioneAstronauti(nuovaPosizioneAstronauti);
+      }
+    }
+  }, [isCorretto, setPoints, nuovaPosizioneAstronauti, setPosizioneAstronauti]);
+
+  useEffect(() => {
     if (isCorretto && isFinalLevel) {
       setIsLeaving(true);
       const timer = setTimeout(() => {
         navigate(prossimoLivelloLink);
-      }, 600); // Match con la durata CSS
+      }, 600);
       return () => clearTimeout(timer);
     }
   }, [isCorretto, isFinalLevel, navigate, prossimoLivelloLink]);
-
-  useEffect(() => {
-    if (isCorretto) {
-      setPoints((prevPoints) => prevPoints + 50);
-    }
-  }, [isCorretto, setPoints]);
 
   return (
     <div
@@ -50,12 +60,12 @@ const Struttura1Gioco = ({
         <img
           src="/assets/immagini/Gioco1/astronautagioco1donna.svg"
           alt="astronauta donna"
-          className="absolute top-[60px] left-[60px] md:left-[205px] md:top-[150px] w-24 md:w-35 astronauta"
+          className={`w-24 md:w-35 astronauta absolute ${posizioneAstronauti.donna.default} ${posizioneAstronauti.donna.md}`}
         />
         <img
           src="/assets/immagini/Gioco1/astronautagioco1maschio.svg"
           alt="astronauta maschio"
-          className="absolute top-[20px] left-[230px] md:left-[465px] md:top-[80px] w-24 md:w-35 astronauta"
+          className={`w-24 md:w-35 astronauta absolute ${posizioneAstronauti.maschio.default} ${posizioneAstronauti.maschio.md}`}
         />
       </div>
 
@@ -105,17 +115,15 @@ const Struttura1Gioco = ({
           />
         </div>
 
-        {/* Risposta errata */}
         {risposta && !isCorretto && (
           <p className="text-l md:text-2xl font-bold text-red-500 mt-4 animate-pulse absolute bottom-2.5 md:bottom-[-1px] left-18 md:left-44">
             Risposta errata!
           </p>
         )}
 
-        {/* Risposta corretta - solo se NON è il livello finale */}
         {isCorretto && !isFinalLevel && (
           <>
-            <div className="scale-75 md:scale-90 ">
+            <div className="scale-75 md:scale-90">
               <Star />
             </div>
             <button
