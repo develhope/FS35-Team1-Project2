@@ -24,7 +24,7 @@ const handleShare = () => {
   <img src="immagini/logo.svg" alt="logo space math" className="w-full h-24 p-2 border-b-1 border-white" />
       
 
-<div className="flex flex-col font-medium items-center justify-around mt-4 text-lg md:text-2xl lg:text-3xl space-y-4">
+<div className="flex flex-col font-medium items-center justify-around mt-4 text-lg md:text-3xl lg:text-3xl space-y-4">
   <p 
     onClick={handleShare} 
     className="cursor-pointer hover:underline active:text-white"
