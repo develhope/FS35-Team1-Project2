@@ -1,7 +1,8 @@
 import React, { useState, useRef, useMemo, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Star from "../../Components/Star";
 import { PointsContext } from "../../PointsContext.jsx";
+import { UserContext } from "../../UserContext.jsx";
 
 const Struttura3Gioco = ({
   titoloLivello,
@@ -17,7 +18,15 @@ const Struttura3Gioco = ({
   isLivello4 = true,
 }) => {
   const { points, setPoints } = useContext(PointsContext);
+  const { userData, setUserData } = useContext(UserContext);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Estrai gameId e levelId dalla URL e CONVERTI levelId in numero
+  const match = location.pathname.match(/\/livello(\d+)gioco(\d+)/);
+  const currentLevelId = match ? parseInt(match[1], 10) : null; // <--- MODIFICA QUI
+  const currentGameId = match ? `game${match[2]}` : null;
+
   const [associazioni, setAssociazioni] = useState({});
   const [dragData, setDragData] = useState(null);
   const [targetHover, setTargetHover] = useState(null);
@@ -25,11 +34,26 @@ const Struttura3Gioco = ({
   const [rispostaErrata, setRispostaErrata] = useState(false);
   const [blocchiEvidenziati, setBlocchiEvidenziati] = useState([]);
   const [blocchiErrati, setBlocchiErrati] = useState([]);
-  const [blocchiDisabilitati, setBlocchiDisabilitati] = useState(false); // <-- Nuovo stato
+  const [blocchiDisabilitati, setBlocchiDisabilitati] = useState(false);
   const ghostRef = useRef(null);
 
   const handleLevel = () => {
     setPoints((prevPoints) => prevPoints + 50);
+
+    if (currentGameId && currentLevelId) {
+      setUserData((prevUserData) => {
+        const newCompletedLevels = { ...prevUserData.completedLevels };
+        if (!newCompletedLevels[currentGameId]) {
+          newCompletedLevels[currentGameId] = {};
+        }
+        newCompletedLevels[currentGameId][currentLevelId] = true;
+        return {
+          ...prevUserData,
+          completedLevels: newCompletedLevels,
+        };
+      });
+    }
+
     navigate(livelloSuccessivoPath);
   };
 
@@ -45,11 +69,11 @@ const Struttura3Gioco = ({
     setAssociazioni(nuoveAssociazioni);
     setRispostaErrata(false);
     setBlocchiErrati([]);
-    setBlocchiDisabilitati(false); // <-- Riabilita i blocchi
+    setBlocchiDisabilitati(false);
   };
 
   const handleDrop = (trascinato, target) => {
-    if (!trascinato || !target || blocchiDisabilitati) return; // Blocca se disabilitati
+    if (!trascinato || !target || blocchiDisabilitati) return;
 
     const nuovo = { ...associazioni, [trascinato]: target };
     setAssociazioni(nuovo);
@@ -84,8 +108,6 @@ const Struttura3Gioco = ({
       if (!nuoviErrati.includes(target)) nuoviErrati.push(target);
       setBlocchiErrati(nuoviErrati);
 
-      // Se l'utente ha fatto associazioni per tutti i blocchi e ci sono errori,
-      // disabilita i blocchi per obbligare a usare "Riprova"
       const tentativiCompletati =
         Object.keys(nuovo).length === blocchiGioco.length;
       if (tentativiCompletati) {
@@ -98,7 +120,7 @@ const Struttura3Gioco = ({
   };
 
   const handleDragStart = (e, valore) => {
-    if (blocchiDisabilitati) return; // Blocca il drag se disabilitati
+    if (blocchiDisabilitati) return;
     setDragData(valore);
     const original = e.currentTarget;
     const ghostEle = original.cloneNode(true);
@@ -316,3 +338,4 @@ const Struttura3Gioco = ({
 };
 
 export default Struttura3Gioco;
+

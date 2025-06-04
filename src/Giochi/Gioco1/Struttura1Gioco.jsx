@@ -1,8 +1,9 @@
 import { useState, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom"; // Importa useLocation
 import Star from "../../Components/Star";
 import "./Struttura1gioco.css";
 import { PointsContext } from "../../PointsContext";
+import { UserContext } from "../../UserContext";
 
 const Struttura1Gioco = ({
   imgs = [],
@@ -17,27 +18,57 @@ const Struttura1Gioco = ({
   isFinalLevel = false,
 }) => {
   const { points, setPoints } = useContext(PointsContext);
+  const { userData, setUserData } = useContext(UserContext);
   const [risposta, setRisposta] = useState(null);
   const [isLeaving, setIsLeaving] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation(); // Ottieni l'oggetto location
+
+  // Estrai gameId e levelId dalla URL
+  // Esempio: /livello1gioco1 -> currentLevelId: '1', currentGameId: 'game1'
+  const match = location.pathname.match(/\/livello(\d+)gioco(\d+)/);
+  const currentLevelId = match ? match[1] : null;
+  const currentGameId = match ? `game${match[2]}` : null;
 
   const isCorretto = risposta === rispostaCorretta;
 
   useEffect(() => {
-    if (isCorretto && isFinalLevel) {
-      setIsLeaving(true);
-      const timer = setTimeout(() => {
-        navigate(prossimoLivelloLink);
-      }, 600); // Match con la durata CSS
-      return () => clearTimeout(timer);
-    }
-  }, [isCorretto, isFinalLevel, navigate, prossimoLivelloLink]);
-
-  useEffect(() => {
     if (isCorretto) {
       setPoints((prevPoints) => prevPoints + 50);
+
+      // Aggiorna lo stato di completamento del livello solo se gameId e levelId sono validi
+      if (currentGameId && currentLevelId) {
+        setUserData((prevUserData) => {
+          const newCompletedLevels = { ...prevUserData.completedLevels };
+          if (!newCompletedLevels[currentGameId]) {
+            newCompletedLevels[currentGameId] = {};
+          }
+          newCompletedLevels[currentGameId][currentLevelId] = true;
+          return {
+            ...prevUserData,
+            completedLevels: newCompletedLevels,
+          };
+        });
+      }
+
+      if (isFinalLevel) {
+        setIsLeaving(true);
+        const timer = setTimeout(() => {
+          navigate(prossimoLivelloLink);
+        }, 600);
+        return () => clearTimeout(timer);
+      }
     }
-  }, [isCorretto, setPoints]);
+  }, [
+    isCorretto,
+    isFinalLevel,
+    navigate,
+    prossimoLivelloLink,
+    setPoints,
+    currentGameId, // Usa currentGameId
+    currentLevelId, // Usa currentLevelId
+    setUserData,
+  ]);
 
   return (
     <div

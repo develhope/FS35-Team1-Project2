@@ -1,7 +1,8 @@
 import { useState, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Star from "../../Components/Star";
-import { PointsContext } from "../../PointsContext.jsx"; 
+import { PointsContext } from "../../PointsContext.jsx";
+import { UserContext } from "../../UserContext.jsx";
 
 const Struttura2Gioco = ({
   levelConfig,
@@ -9,7 +10,14 @@ const Struttura2Gioco = ({
   isFinalLevel = false,
 }) => {
   const { points, setPoints } = useContext(PointsContext);
+  const { userData, setUserData } = useContext(UserContext);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Estrai gameId e levelId dalla URL e CONVERTI levelId in numero
+  const match = location.pathname.match(/\/livello(\d+)gioco(\d+)/);
+  const currentLevelId = match ? parseInt(match[1], 10) : null; // <--- MODIFICA QUI
+  const currentGameId = match ? `game${match[2]}` : null;
 
   const [planetsData, setPlanetsData] = useState(
     levelConfig.planets.map((p) => ({ ...p, isSelected: false, userInput: "" }))
@@ -19,10 +27,9 @@ const Struttura2Gioco = ({
     levelConfig.instructions
   );
   const [levelStatus, setLevelStatus] = useState(null); // 'correct', 'incorrect', null
-  const [activePlanetForInput, setActivePlanetForInput] = useState(null); // Per i livelli di associazione
-  const [numberInput, setNumberInput] = useState(""); // Per i livelli di associazione
+  const [activePlanetForInput, setActivePlanetForInput] = useState(null);
+  const [numberInput, setNumberInput] = useState("");
 
-  // Reset del livello
   const resetLevel = () => {
     setPlanetsData(
       levelConfig.planets.map((p) => ({
@@ -40,11 +47,11 @@ const Struttura2Gioco = ({
   };
 
   useEffect(() => {
-    resetLevel(); // Resetta lo stato quando il componente viene montato o levelConfig cambia (per garantire un reset completo ad ogni cambio livello)
-  }, [levelConfig]); // Dipendenza da levelConfig per resettare il gioco ad ogni nuovo livello
+    resetLevel();
+  }, [levelConfig]);
 
   const handlePlanetClick = (planetId) => {
-    if (levelStatus !== null) return; // Non permette interazioni se il livello è già completato o fallito
+    if (levelStatus !== null) return;
 
     if (
       levelConfig.gameMode === "smallToBig" ||
@@ -76,12 +83,10 @@ const Struttura2Gioco = ({
         return;
       }
 
-      // Deseleziona il pianeta precedentemente attivo
       setPlanetsData((prevPlanets) =>
         prevPlanets.map((p) => (p.isSelected ? { ...p, isSelected: false } : p))
       );
 
-      // Seleziona il nuovo pianeta e abilita l'input
       setPlanetsData((prevPlanets) =>
         prevPlanets.map((p) =>
           p.id === planetId ? { ...p, isSelected: true } : p
@@ -113,14 +118,13 @@ const Struttura2Gioco = ({
         (planet) =>
           planet.id === activePlanetForInput
             ? { ...planet, userInput: value, isSelected: false }
-            : { ...planet, isSelected: false } // Deseleziona tutti gli altri
+            : { ...planet, isSelected: false }
       )
     );
     setActivePlanetForInput(null);
     setNumberInput("");
-    setFeedbackMessage(levelConfig.instructions); // Ripristina l'istruzione
+    setFeedbackMessage(levelConfig.instructions);
 
-    // Aggiungi il pianeta con il numero inserito all'ordine selezionato per il check finale
     setSelectedOrder((prevOrder) => {
       const existingIndex = prevOrder.findIndex(
         (item) => typeof item === "object" && item.id === activePlanetForInput
@@ -153,26 +157,20 @@ const Struttura2Gioco = ({
       levelConfig.gameMode === "associateNumbersAsc" ||
       levelConfig.gameMode === "associateNumbersDesc"
     ) {
-      // Mappa i pianeti attuali per ottenere i loro ID e i valori finali (iniziale o inserito dall'utente)
-      // Non riordinarli qui, li confronteremo direttamente con l'ordine atteso.
       const currentPlanetStates = planetsData.map((p) => ({
         id: p.id,
         value: p.value !== null ? p.value : p.userInput,
       }));
 
-      // Verifica che ogni elemento in expectedOrder sia presente e corretto in currentPlanetStates
       isCorrect = levelConfig.expectedOrder.every((expectedPlanet) => {
         const foundPlanet = currentPlanetStates.find(
           (p) => p.id === expectedPlanet.id
         );
-        // Controlla se il pianeta è stato trovato e se il suo valore corrisponde a quello atteso
         return foundPlanet && foundPlanet.value === expectedPlanet.value;
       });
 
-      // Aggiungi un controllo per assicurarti che non ci siano valori 'null' o 'undefined' dove non dovrebbero
-      // E che tutti i campi vuoti che dovevano essere riempiti siano stati riempiti
       const allUserInputsProvided = levelConfig.planets
-        .filter((p) => p.value === null) // Solo i pianeti che erano inizialmente vuoti
+        .filter((p) => p.value === null)
         .every((emptyPlanet) => {
           const filledPlanet = currentPlanetStates.find(
             (p) => p.id === emptyPlanet.id
@@ -185,14 +183,25 @@ const Struttura2Gioco = ({
         });
 
       isCorrect = isCorrect && allUserInputsProvided;
-
-      // Opzionale: puoi anche controllare che l'utente non abbia inserito numeri in pianeti già riempiti
-      // Anche se la UI dovrebbe prevenire questo.
     }
 
     if (isCorrect) {
       setLevelStatus("correct");
-      setPoints((prevPoints) => prevPoints + 50); // Aggiunge punti
+      setPoints((prevPoints) => prevPoints + 50);
+
+      if (currentGameId && currentLevelId) {
+        setUserData((prevUserData) => {
+          const newCompletedLevels = { ...prevUserData.completedLevels };
+          if (!newCompletedLevels[currentGameId]) {
+            newCompletedLevels[currentGameId] = {};
+          }
+          newCompletedLevels[currentGameId][currentLevelId] = true;
+          return {
+            ...prevUserData,
+            completedLevels: newCompletedLevels,
+          };
+        });
+      }
     } else {
       setLevelStatus("incorrect");
     }
@@ -200,7 +209,7 @@ const Struttura2Gioco = ({
 
   const goToNextLevel = () => {
     if (isFinalLevel) {
-      navigate("/vittoriagioco2"); // O il percorso desiderato per la schermata finale del gioco 2
+      navigate("/vittoriagioco2");
     } else {
       navigate(prossimoLivelloLink);
     }
@@ -333,3 +342,5 @@ const Struttura2Gioco = ({
 };
 
 export default Struttura2Gioco;
+
+

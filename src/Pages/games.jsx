@@ -12,6 +12,7 @@ const games = [
             { id: 3, path: '/livello3gioco1' },
             { id: 4, path: '/livello4gioco1' },
         ],
+        unlockDependency: null, // Nessuna dipendenza per il primo gioco
     },
     {
         id: 'game2',
@@ -25,6 +26,7 @@ const games = [
             { id: 4, path: '/livello4gioco2' },
             { id: 5, path: '/livello5gioco2' },
         ],
+        unlockDependency: "game1", // dipende dal completamento del primo gioco
     },
     {
         id: 'game3',
@@ -38,6 +40,7 @@ const games = [
             { id: 4, path: '/livello4gioco3' },
             
         ],
+        unlockDependency: "game2", // Dipende dal completamento di game2
     },
     {
         id: 'game4',
@@ -51,6 +54,7 @@ const games = [
             { id: 4, path: '/livello4gioco4' },
            
         ],
+        unlockDependency: "game3", // Dipende dal completamento di game3
     },
 ];
 
