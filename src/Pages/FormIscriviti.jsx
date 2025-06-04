@@ -46,12 +46,12 @@ const FormIscriviti = () => {
       <div className="mt-22">
         <div className="px-6 mt-4 flex flex-col items-center gap-3">
           <h1 className="text-[20px]">Pronti a giocare con Nebula?</h1>
-          <h4 className="px-4 text-[12.8px]">
+          <h4 className="px-4 text-[12.8px] md:text-2xl">
             Compila questo modulo e inizia l’avventura!
           </h4>
         </div>
 
-        <form onSubmit={handleSubmit}>
+        <form className="md:mt-4" onSubmit={handleSubmit}>
           <Input
             type="text"
             name="name"
@@ -93,7 +93,7 @@ const FormIscriviti = () => {
               onChange={handleChange}
               className="w-6 h-6 mr-2"
             />
-            <label htmlFor="isParentPermission" className="text-[15px]">
+            <label htmlFor="isParentPermission" className="text-[15px] md:text-2xl">
               Ho il permesso del mio genitore per giocare con Nebula!
             </label>
           </div>
@@ -103,7 +103,7 @@ const FormIscriviti = () => {
           </div>
         </form>
 
-        <div className="text-[12px] w-[280px] mt-10 flex items-center mx-auto text-center">
+        <div className="md:text-xl text-[12px] w-[280px] mt-10 flex items-center mx-auto text-center">
           <p>Niente pubblicità, niente stress, solo giochi e magia con Nebula!</p>
         </div>
       </div>
