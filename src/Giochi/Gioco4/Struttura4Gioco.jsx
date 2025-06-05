@@ -1,7 +1,8 @@
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Star from "../../Components/Star";
 import { PointsContext } from "../../PointsContext";
+import { UserContext } from "../../UserContext";
 
 const Struttura4Gioco = (props) => {
   const [showError, setShowError] = useState(false);
@@ -9,7 +10,17 @@ const Struttura4Gioco = (props) => {
   const [inputValore1, setInputValore1] = useState("");
   const [inputValore2, setInputValore2] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
   const { points, setPoints } = useContext(PointsContext);
+  const { userData, setUserData } = useContext(UserContext);
+
+    
+  const _ = userData; // Assegna userData a una variabile temporanea '_' per evitare errori da eslint
+
+  // Estrai gameId e levelId dalla URL e CONVERTI levelId in numero
+  const match = location.pathname.match(/\/livello(\d+)gioco(\d+)/);
+  const currentLevelId = match ? parseInt(match[1], 10) : null; // <--- MODIFICA QUI
+  const currentGameId = match ? `game${match[2]}` : null;
 
   const handleCheckAnswer = () => {
     const val1 = parseInt(inputValore1);
@@ -19,6 +30,20 @@ const Struttura4Gioco = (props) => {
       setShowSuccess(true);
       setShowError(false);
       setPoints((prevPoints) => prevPoints + 50);
+
+      if (currentGameId && currentLevelId) {
+        setUserData((prevUserData) => {
+          const newCompletedLevels = { ...prevUserData.completedLevels };
+          if (!newCompletedLevels[currentGameId]) {
+            newCompletedLevels[currentGameId] = {};
+          }
+          newCompletedLevels[currentGameId][currentLevelId] = true;
+          return {
+            ...prevUserData,
+            completedLevels: newCompletedLevels,
+          };
+        });
+      }
     } else {
       setShowError(true);
       setShowSuccess(false);
@@ -123,3 +148,4 @@ const Struttura4Gioco = (props) => {
 };
 
 export default Struttura4Gioco;
+
