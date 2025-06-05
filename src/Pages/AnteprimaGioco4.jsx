@@ -32,11 +32,13 @@ const AnteprimaGioco4 = () => {
             />
           </div>
         }
-      />
-      <CallToAction
         route="/livello1gioco4"
-        text="Iniziamo!"
-        showAlways={true}
+        callToAction1Text="Iniziamo!"
+        callToAction1Classes="w-30 text-xl md:w-50"
+        showTwoButtons={true}
+        callToAction2Text="Livelli"
+        callToAction2Route="/restart"
+        callToAction2Classes="w-30 text-xl md:w-50"
       />
     </>
   );

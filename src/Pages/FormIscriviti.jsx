@@ -26,7 +26,7 @@ const FormIscriviti = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const userDataToSave = { ...formData, isRegistered: true, isLogged: true};
+    const userDataToSave = { ...formData, isRegistered: true, isLogged: true };
     setUserData(userDataToSave);
     localStorage.setItem("userData", JSON.stringify(userDataToSave));
 
@@ -93,18 +93,29 @@ const FormIscriviti = () => {
               onChange={handleChange}
               className="w-6 h-6 mr-2"
             />
-            <label htmlFor="isParentPermission" className="text-[15px] md:text-2xl">
+            <label
+              htmlFor="isParentPermission"
+              className="text-[15px] md:text-2xl"
+            >
               Ho il permesso del mio genitore per giocare con Nebula!
             </label>
           </div>
 
           <div className="mt-10 flex justify-center">
-            <CallToAction text="Inizia L'avventura" route="/" showAlways={true} disabled = {false} />
+            <CallToAction
+              text="Inizia L'avventura"
+              route="/"
+              showAlways={true}
+              disabled={false}
+              className="w-60 h-12 md:w-100 md:h-20"
+            />
           </div>
         </form>
 
         <div className="md:text-xl text-[12px] w-[280px] mt-10 flex items-center mx-auto text-center">
-          <p>Niente pubblicità, niente stress, solo giochi e magia con Nebula!</p>
+          <p>
+            Niente pubblicità, niente stress, solo giochi e magia con Nebula!
+          </p>
         </div>
       </div>
     </>

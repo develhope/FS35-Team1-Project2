@@ -16,7 +16,7 @@ const GamePageSection = ({ title, description, instructions, img }) => {
         </div>
       </div>
       <div>
-        <CallToAction text="Iscriviti e gioca!" />
+        <CallToAction text="Iscriviti e gioca!" className="w-60 h-12 md:w-100 md:h-20" />
       </div>
       <Footer />
     </>

@@ -20,16 +20,18 @@ const AnteprimaGioco2 = () => {
         }
         img={
           <img
-            className="w-40 md:w-70"
+            className="w-40 md:w-60"
             src="/assets/immagini/Gioco2/astronauta biondo su pianeta.svg"
             alt="Astronauta biondo su pianeta"
           />
         }
-      />
-      <CallToAction
-        route="/livello1gioco2"
-        text="Iniziamo!"
-        showAlways={true}
+        route="/livello1gioco2" 
+        callToAction1Text="Iniziamo!" 
+        callToAction1Classes="w-30 text-xl md:w-50" 
+        showTwoButtons={true} 
+        callToAction2Text="Livelli"
+        callToAction2Route="/restart"
+        callToAction2Classes="w-30 text-xl md:w-50" 
       />
     </>
   );

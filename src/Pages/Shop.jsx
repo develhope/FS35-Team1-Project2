@@ -23,14 +23,15 @@ const Shop = () => {
   const [purchasable, setPurchasable] = useState([]);
   const [owned, setOwned] = useState([defaultAvatar.id]);
 
-  // Sincronizza stato iniziale con userData
   useEffect(() => {
-  if (userData) {
-    // Assicurati che il default avatar sia sempre presente
-    const purchasedAvatars = userData.purchasedAvatars || [];
-    setOwned([defaultAvatar.id, ...purchasedAvatars.filter(id => id !== defaultAvatar.id)]);
-  }
-}, [userData]);
+    if (userData) {
+      const purchasedAvatars = userData.purchasedAvatars || [];
+      setOwned([
+        defaultAvatar.id,
+        ...purchasedAvatars.filter((id) => id !== defaultAvatar.id),
+      ]);
+    }
+  }, [userData]);
 
   // Calcola avatar acquistabili
   useEffect(() => {
@@ -72,19 +73,20 @@ const Shop = () => {
 
   return (
     <>
-      <div className="p-4 max-w-xs mx-auto mt-18">
-        {
-  avatars.some(avatar => !owned.includes(avatar.id)) ? (
-    <>
-      <h2 className="text-xl font-bold text-center mb-2">Sblocca il tuo avatar</h2>
-      <p className="text-center mb-6 text-sm font-medium">Punti disponibili: {points}</p>
-    </>
-  ) : null
-}
-
+      <div className="p-4 mx-auto items-center mt-18 md:mt-25">
+        {avatars.some((avatar) => !owned.includes(avatar.id)) ? (
+          <>
+            <h2 className="text-xl md:text-4xl font-bold text-center mb-2">
+              Sblocca il tuo avatar
+            </h2>
+            <p className="text-center mb-6 text-sm md:text-xl font-medium">
+              Punti disponibili: {points}
+            </p>
+          </>
+        ) : null}
 
         {/* Lista avatar acquistabili */}
-        <div className="flex flex-col items-center gap-6 mb-4">
+        <div className="flex flex-col items-center gap-6 mb-4 md:grid-cols-2 md:grid">
           {avatars
             .filter((avatar) => !owned.includes(avatar.id)) // Filtra quelli posseduti
             .map((avatar) => {
@@ -98,19 +100,23 @@ const Shop = () => {
                   <img
                     src={`/immagini/${avatar.image}`}
                     alt={avatar.name}
-                    className={`w-35 h-35 rounded-full object-cover transition-opacity duration-300 ${
+                    className={`w-35 h-35 md:w-50 md:h-50 rounded-full object-cover transition-opacity duration-300 ${
                       isPurchasable ? "opacity-100" : "opacity-30"
                     }`}
                   />
-                  <span className="mt-2 text-sm text-gray-700">{avatar.cost} pt</span>
+                  <span className="mt-2 text-sm md:text-lg text-gray-700">
+                    {avatar.cost} pt
+                  </span>
                 </div>
               );
             })}
         </div>
 
         {/* Avatar acquistati */}
-        <h3 className="text-lg font-semibold text-center mb-4">I tuoi avatar</h3>
-        <div className="flex flex-wrap justify-center gap-4">
+        <h3 className="text-lg md:text-3xl font-semibold text-center mb-4 ">
+          I tuoi avatar
+        </h3>
+        <div className="grid grid-cols-2 gap-4 place-items-center mx-auto">
           {owned.map((id) => {
             const avatar =
               id === defaultAvatar.id
@@ -130,7 +136,7 @@ const Shop = () => {
                 <img
                   src={`/immagini/${avatar.image}`}
                   alt={avatar.name}
-                  className="w-25 h-25 rounded-full object-cover cursor-pointer hover:opacity-80 transition"
+                  className="w-25 h-25 md:w-40 md:h-40 rounded-full object-cover cursor-pointer hover:opacity-80 transition"
                 />
               </div>
             );

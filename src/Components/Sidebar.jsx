@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../UserContext";
 import Feedback from "./Feedback";
 import SoundToggle from "./SoundToggle";
@@ -13,21 +13,19 @@ const Sidebar = () => {
 
   if (!isVisible) return null;
 
-   
-const handleLogout = () => {
-  const updatedUserData = { ...userData, isLogged: false };
-  setUserData(updatedUserData);
-  localStorage.setItem("userData", JSON.stringify(updatedUserData)); // aggiorna anche nel localStorage
-  navigate("/login");
-};
+  const handleLogout = () => {
+    const updatedUserData = { ...userData, isLogged: false };
+    setUserData(updatedUserData);
+    localStorage.setItem("userData", JSON.stringify(updatedUserData)); // aggiorna anche nel localStorage
+    navigate("/login");
+  };
 
-const handleLogin = ()=>{
-    const updatedUserData = { ...userData, isLogged: true};
-  setUserData(updatedUserData);
-  localStorage.setItem("userData", JSON.stringify(updatedUserData)); // aggiorna anche nel localStorage
-  navigate("/");
-}
-
+  const handleLogin = () => {
+    const updatedUserData = { ...userData, isLogged: true };
+    setUserData(updatedUserData);
+    localStorage.setItem("userData", JSON.stringify(updatedUserData)); // aggiorna anche nel localStorage
+    navigate("/");
+  };
 
   return (
     <div className="flex z-50 flex-col w-full h-screen relative bg-white shadow-md lg:h-full lg:pb-10">
@@ -53,16 +51,20 @@ const handleLogin = ()=>{
         <div>
           <Link to="/la-discalculia">Cos'è la discalculia</Link>
         </div>
-        <div>
-          <Link to="/form">Quiz</Link>
-        </div>
+        {!(userData && userData.isLogged) && ( // Mostra solo se l'utente NON è loggato
+          <div>
+            <Link to="/form">Quiz</Link>
+          </div>
+        )}
         <div>
           {userData && userData.isLogged ? (
             <Link to="/" onClick={handleLogout}>
               Logout
             </Link>
           ) : (
-            <Link to="/login" onClick={handleLogin}>Login</Link>
+            <Link to="/login" onClick={handleLogin}>
+              Login
+            </Link>
           )}
         </div>
         <div>
@@ -71,8 +73,8 @@ const handleLogin = ()=>{
         <div>
           <Feedback>Feedback</Feedback>
         </div>
-         <div>
-          <SoundToggle/>
+        <div>
+          <SoundToggle />
         </div>
       </div>
     </div>

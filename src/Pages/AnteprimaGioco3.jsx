@@ -23,7 +23,13 @@ const AnteprimaGioco3 = () => {
             alt="Scimmietta Astronauta"
           />
         }
-        route="/livello1gioco3"
+        route="/livello1gioco3" 
+        callToAction1Text="Iniziamo!" 
+        callToAction1Classes="w-30 text-xl md:w-50" 
+        showTwoButtons={true} 
+        callToAction2Text="Livelli"
+        callToAction2Route="/restart"
+        callToAction2Classes="w-30 text-xl md:w-50" 
       />
     </>
   );
