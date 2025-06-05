@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate} from "react-router-dom";
 import { UserContext } from "../UserContext";
 import Feedback from "./Feedback";
+import SoundToggle from "./SoundToggle";
 
 const Sidebar = () => {
   const { userData, setUserData } = useContext(UserContext);
@@ -29,7 +30,7 @@ const handleLogin = ()=>{
 
 
   return (
-    <div className="flex z-50 flex-col w-full h-screen relative bg-white shadow-md">
+    <div className="flex z-50 flex-col w-full h-screen relative bg-white shadow-md lg:h-full lg:pb-10">
       {/* X in alto a destra */}
       <Link to="/">
         <img
@@ -69,6 +70,9 @@ const handleLogin = ()=>{
         </div>
         <div>
           <Feedback>Feedback</Feedback>
+        </div>
+         <div>
+          <SoundToggle/>
         </div>
       </div>
     </div>

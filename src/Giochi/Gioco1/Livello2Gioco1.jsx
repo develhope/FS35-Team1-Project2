@@ -11,7 +11,7 @@ const Livello2Gioco1 = () => {
         "https://image.shutterstock.com/image-vector/cute-ruff-fish-on-white-260nw-1806218740.jpg",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHne979k6i4J3DsiNjq-9HE1QPbCfanAYRYQ&s",
         "https://i.etsystatic.com/12769670/r/il/294b18/1036016067/il_1588xN.1036016067_8fvw.jpg",
-        "https://img.freepik.com/vettori-premium/un-disegno-di-un-pesce-colorato-con-una-coda-color-arcobaleno_1298961-30.jpg?semt=ais_hybrid&w=740"
+        "https://img.freepik.com/vettori-premium/un-disegno-di-un-pesce-colorato-con-una-coda-color-arcobaleno_1298961-30.jpg?semt=ais_hybrid&w=740",
       ]}
       opz1="10"
       opz2="8"
@@ -20,8 +20,8 @@ const Livello2Gioco1 = () => {
       nebula="/assets/immagini/Gioco1/nebulagames.png"
       prossimoLivelloLink="/livello3gioco1"
       posizioneAstronauti={{
-        donna: { left: 65, top: 60 },
-        maschio: { left: 215, top: 20 },
+        donna: { default: "top-[60px] left-[65px]", md: "md:top-[130px] md:left-[225px]" },
+        maschio: { default: "top-[20px] left-[215px]", md: "md:top-[90px] md:left-[430px]" },
       }}
     />
   );

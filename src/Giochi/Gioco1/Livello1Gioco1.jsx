@@ -8,7 +8,7 @@ const Livello1Gioco1 = () => {
       imgs={[
         "https://i.etsystatic.com/15835007/r/il/ffcf81/3319408935/il_570xN.3319408935_5a1a.jpg",
         "https://i.etsystatic.com/15835007/r/il/ffcf81/3319408935/il_570xN.3319408935_5a1a.jpg",
-        "https://i.etsystatic.com/15835007/r/il/ffcf81/3319408935/il_570xN.3319408935_5a1a.jpg"
+        "https://i.etsystatic.com/15835007/r/il/ffcf81/3319408935/il_570xN.3319408935_5a1a.jpg",
       ]}
       opz1="4"
       opz2="5"
@@ -17,8 +17,8 @@ const Livello1Gioco1 = () => {
       nebula="/assets/immagini/Gioco1/nebulagames.png"
       prossimoLivelloLink="/livello2gioco1"
       posizioneAstronauti={{
-        donna: { left: 60, top: 60 },
-        maschio: { left: 230, top: 20 },
+        donna: { default: "top-[60px] left-[60px]", md: "md:top-[150px] md:left-[200px]" },
+        maschio: { default: "top-[20px] left-[230px]", md: "md:top-[70px] md:left-[450px]" },
       }}
     />
   );
