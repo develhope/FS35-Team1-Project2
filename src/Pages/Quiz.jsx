@@ -117,6 +117,7 @@ const Quiz = () => {
                     text="TERMINA IL QUIZ"
                     disabled={!selezione}
                     route="/form-iscriviti"
+                    className="w-60 h-12 md:w-100 md:h-20"
                   />
                 </Link>
               </div>

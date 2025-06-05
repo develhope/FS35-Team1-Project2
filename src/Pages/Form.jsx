@@ -67,6 +67,7 @@ const Form = () => {
                 text="Continua"
                 showAlways={true}
                 disabled={!scelta || scelta === "bambino"}
+                className="w-60 h-12 md:w-100 md:h-20"
               />
             </Link>
           </div>
