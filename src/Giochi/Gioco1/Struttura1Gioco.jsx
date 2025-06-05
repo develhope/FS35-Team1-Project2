@@ -24,6 +24,8 @@ const Struttura1Gioco = ({
   const navigate = useNavigate();
   const location = useLocation(); // Ottieni l'oggetto location
 
+  const _ = userData; // Assegna userData a una variabile temporanea '_' per evitare errori da eslint
+
   // Estrai gameId e levelId dalla URL
   // Esempio: /livello1gioco1 -> currentLevelId: '1', currentGameId: 'game1'
   const match = location.pathname.match(/\/livello(\d+)gioco(\d+)/);

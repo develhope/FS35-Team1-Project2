@@ -14,6 +14,9 @@ const Struttura4Gioco = (props) => {
   const { points, setPoints } = useContext(PointsContext);
   const { userData, setUserData } = useContext(UserContext);
 
+    
+  const _ = userData; // Assegna userData a una variabile temporanea '_' per evitare errori da eslint
+
   // Estrai gameId e levelId dalla URL e CONVERTI levelId in numero
   const match = location.pathname.match(/\/livello(\d+)gioco(\d+)/);
   const currentLevelId = match ? parseInt(match[1], 10) : null; // <--- MODIFICA QUI

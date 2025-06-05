@@ -89,7 +89,7 @@ const RestartPage = () => {
       // Rimuovi il messaggio dopo 3 secondi
       setTimeout(() => {
         setFeedbackMessage(null);
-      }, 3000);
+      }, 2500);
     }
   };
 
@@ -162,7 +162,7 @@ const RestartPage = () => {
             <div key={game.id} className="mb-8 flex flex-col items-center">
               {/* Immagine rappresentativa del gioco (non cliccabile) */}
               <div
-                className={`relative w-48 h-48 md:w-60 md:h-60 mb-4 rounded-full overflow-hidden border-4 border-white-400 shadow-xl flex items-center justify-center ${
+                className={`relative w-48 h-48 md:w-70 md:h-70 mb-4 rounded-full overflow-hidden border-4 border-white-400  shadow-xl flex items-center justify-center ${
                   gameUnlocked ? "bg-white/20" : "bg-gray-700/50" // Colore diverso per i giochi bloccati
                 }`}
               >
@@ -175,12 +175,12 @@ const RestartPage = () => {
                 />
                 {!gameUnlocked && (
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-white text-5xl">🔒</span> {/* Lucchetto */}
+                    <span className="text-white text-5xl">🔒</span> 
                   </div>
                 )}
               </div>
               <h3
-                className={`text-xl font-bold mb-4 ${
+                className={`text-xl font-bold mb-4 md:text-4xl ${
                   gameUnlocked ? "text-white" : "text-gray-400"
                 }`}
                 style={{ textShadow: "2px 2px 6px rgba(0, 0, 0, 0.7)" }}
@@ -203,8 +203,8 @@ const RestartPage = () => {
                       onClick={() =>
                         handleLevelClick(level.path, game.id, level.id)
                       }
-                      className={`relative w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center
-                                               text-2xl font-bold transition-colors duration-200
+                      className={`relative w-16 h-16 md:w-30 md:h-30 rounded-full flex items-center justify-center
+                                               text-2xl md:text-4xl font-bold transition-colors duration-200
                                                ${
                                                  unlocked
                                                    ? game.levelButtonClass
@@ -213,10 +213,10 @@ const RestartPage = () => {
                                                ${isCompleted ? '' : 'shadow-lg'} ` // Rimuovi shadow-lg se completato
                       }
                       style={{
-                        // Applica un box-shadow personalizzato per i livelli completati (effetto neon)
+                        // Applica un box-shadow personalizzato per i livelli completati 
                         ...(isCompleted ? {
-                          boxShadow: '0 0 6px 2px rgba(144, 200, 144, 0.8), 0 0 10px 4px rgba(144, 238, 144, 0.6)', // Bagliore VERDE pastello meno intenso
-                          border: '2px solid rgba(144, 238, 144, 0.9)' // Bordo verde pastello che si fonde
+                          boxShadow: '0 0 6px 2px rgba(144, 200, 144, 0.8), 0 0 10px 4px rgba(144, 238, 144, 0.6)', // Bagliore VERDE pastello 
+                          border: '2px solid rgba(144, 238, 144, 0.9)' // Bordo verde 
                         } : {}) // Nessuna ombra personalizzata per non completati/bloccati
                       }}
                     >
@@ -225,8 +225,8 @@ const RestartPage = () => {
                         <img
                         src="/immagini/stellina.svg"
                         alt="Coroncina"
-                        className="absolute top-0 right-0 w-6 h-6" // Regola w- e h- per la dimensione desiderata
-                        style={{ transform: 'translate(25%, -25%)' }} // Sposta leggermente per posizionamento ottimale
+                        className="absolute top-0 right-0 w-6 h-6 md:w-20 md:h-10" // Regola w- e h- per la dimensione desiderata
+                        style={{ transform: 'translate(25%, -25%)' }} 
                       />
                       )}
                       {!unlocked && (
