@@ -89,53 +89,54 @@ const Struttura1Gioco = ({
         <img
           src="/assets/immagini/Gioco1/astronautagioco1donna.svg"
           alt="astronauta donna"
-          className={`w-24 md:w-35 astronauta absolute ${posizioneAstronauti.donna.default} ${posizioneAstronauti.donna.md}`}
+          className={`w-24 md:w-35 astronauta absolute ${posizioneAstronauti.donna.default} ${posizioneAstronauti.donna.md} ${posizioneAstronauti.donna.lg}`}
         />
         <img
           src="/assets/immagini/Gioco1/astronautagioco1maschio.svg"
           alt="astronauta maschio"
-          className={`w-24 md:w-35 astronauta absolute ${posizioneAstronauti.maschio.default} ${posizioneAstronauti.maschio.md}`}
+          className={`w-24 md:w-35 astronauta absolute ${posizioneAstronauti.maschio.default} ${posizioneAstronauti.maschio.md} ${posizioneAstronauti.maschio.lg}`}
         />
       </div>
 
       {/* Contenuto */}
-      <article className="md:flex md:flex-col md:justify-center md:mt-[380px] md:w-[600px] md:h-[480px] article relative text-center mt-50 h-80 w-[300px] mx-auto border-6 border-yellow-400 bg-white p-6 rounded-xl shadow-md">
-        <h4 className="md:text-[30px] text-15px mb-2">{traccia}</h4>
-        <h5 className="text-[12px] mb-2 md:text-2xl">{sottotraccia}</h5>
-
-        <div className="flex gap-2 mt-4 flex-wrap justify-center md:gap-6">
+      <article className="md:flex md:flex-col md:justify-center md:mt-[380px] lg:mt-[100px] md:w-[600px] lg:w-[600px] md:h-[480px] lg:h-[370px]  article relative text-center mt-50 h-80 w-[300px] mx-auto border-6 border-yellow-400 bg-white p-6 lg:p-2 rounded-xl shadow-md">
+        <h4 className="md:text-[30px] text-15px mb-2 lg:text-[25px]">{traccia}</h4>
+        <h5 className="text-[12px] mb-2 md:text-2xl lg:text-[20px] ">{sottotraccia}</h5>
+ 
+        <div className="flex gap-2 mt-4 lg:mt-[10px]  flex-wrap justify-center md:gap-6 lg:mb-[-20px]">
           {imgs.map((img, index) =>
             img ? (
               <img
                 key={index}
                 src={img}
-                className="w-[50px] md:w-[100px]"
+                className="w-[50px] lg:w-20 md:w-[100px]"
                 alt={`img${index + 1}`}
               />
             ) : null
           )}
         </div>
 
-        <div className="flex gap-5 mt-8 pb-10 justify-center md:gap-8">
+        <div className="lg:pb-6 flex gap-5 mt-8 lg:mt-10 pb-10  justify-center md:gap-8 ">
           {[opz1, opz2, opz3].map((opzione, i) => (
-            <button
-              key={i}
-              onClick={() => setRisposta(opzione)}
-              className={`w-10 h-10 md:w-14 md:h-14 rounded-full bg-gray-300 text-xl md:text-2xl font-bold flex items-center justify-center transition-shadow duration-300 ${
-                risposta === opzione ? "shadow-[0_0_10px_3px_#00FF00]" : ""
-              }`}
-              style={{
-                color:
-                  opzione === opz1
-                    ? "#21C8C8"
-                    : opzione === opz2
-                    ? "#F5A42B"
-                    : "#EA3C3C",
-              }}
-            >
-              {opzione}
-            </button>
-          ))}
+  <button
+    key={i}
+    onClick={() => setRisposta(opzione)}
+    disabled={isCorretto} // Disabilita solo se la risposta è corretta
+    className={`lg:w-10 w-10 h-10 lg:h-10  md:w-14  md:h-14 rounded-full bg-gray-300 text-xl md:text-2xl font-bold flex items-center justify-center transition-shadow duration-300 ${
+      risposta === opzione ? "shadow-[0_0_10px_3px_#00FF00]" : ""
+    } ${isCorretto ? "opacity-50 cursor-not-allowed" : ""}`}
+    style={{
+      color:
+        opzione === opz1
+          ? "#21C8C8"
+          : opzione === opz2
+          ? "#F5A42B"
+          : "#EA3C3C",
+    }}
+  >
+    {opzione}
+  </button>
+))}
 
           <img
             className="absolute bottom-[-20px] w-[70px] left-[230px] md:left-[480px] md:w-[100px]"

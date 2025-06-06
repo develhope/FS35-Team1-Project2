@@ -18,8 +18,8 @@ const Livello4Gioco1 = () => {
       isFinalLevel={true}
       prossimoLivelloLink="/vittoriagioco1"
       posizioneAstronauti={{
-         donna: { default: "top-[50px] left-[90px]", md: "md:top-[130px] md:left-[265px]" },
-         maschio: { default: "top-[40px] left-[190px]", md: "md:top-[120px] md:left-[405px]" },
+         donna: { default: "top-[50px] left-[90px]", md: "md:top-[130px] md:left-[265px]",lg: "lg:top-[10px] lg:left-[445px] lg:w-[75px]" },
+      maschio: { default: "top-[40px] left-[190px]", md: "md:top-[120px] md:left-[405px]",lg: "lg:top-[2px] lg:left-[525px] lg:w-[75px]"  },
       }}
     />
   );
