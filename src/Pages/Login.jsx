@@ -23,20 +23,24 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Controlla le credenziali
-    if (
-      userData.email === formData.email &&
-      userData.password === formData.password
-    ) {
-      const updatedUserData = { ...userData, isLogged: true };
-      setUserData(updatedUserData);
-      localStorage.setItem("userData", JSON.stringify(updatedUserData));
-      navigate("/");
+
+    if (userData) {
+      if (
+        userData.email === formData.email &&
+        userData.password === formData.password
+      ) {
+        const updatedUserData = { ...userData, isLogged: true };
+        setUserData(updatedUserData); 
+        navigate("/"); 
+      } else {
+        alert("Email o password errati. Riprova.");
+      }
     } else {
-      alert("Email o password errati");
+      alert(
+        "Nessun profilo trovato. Si prega di creare un account prima di accedere."
+      );
     }
 
-    // Reset campi
     setFormData({
       email: "",
       password: "",
@@ -52,7 +56,7 @@ const Login = () => {
       </div>
 
       <form
-        onSubmit={handleSubmit} 
+        onSubmit={handleSubmit}
         className="mt-6 w-full max-w-md mx-auto flex flex-col gap-4"
       >
         <Input
@@ -72,13 +76,22 @@ const Login = () => {
           required
         />
 
-        <div className="mt-10 flex justify-center">
+        <div className="mt-10 flex justify-center gap-5 md:gap-20 md:mt-25">
           <CallToAction
             text="Accedi"
-            route={null} // o rimuovilo se CallToAction supporta solo onClick
+            route={null} 
             disabled={false}
-            showAlways={true}
+            showAlways={true} 
             type="submit"
+            className="w-40 md:w-60"
+          />
+          <CallToAction
+            text="Iscriviti"
+            route="/form" 
+            disabled={false}
+            showAlways={true} 
+            type="submit"
+            className="w-40 md:w-60"
           />
         </div>
       </form>

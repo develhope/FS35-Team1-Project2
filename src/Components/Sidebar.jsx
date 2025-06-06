@@ -14,17 +14,21 @@ const Sidebar = () => {
   if (!isVisible) return null;
 
   const handleLogout = () => {
-    const updatedUserData = { ...userData, isLogged: false };
-    setUserData(updatedUserData);
-    localStorage.setItem("userData", JSON.stringify(updatedUserData)); // aggiorna anche nel localStorage
-    navigate("/login");
-  };
+    if (userData) {
+      const updatedUserData = { ...userData, isLogged: false };
+      setUserData(updatedUserData);
 
-  const handleLogin = () => {
-    const updatedUserData = { ...userData, isLogged: true };
-    setUserData(updatedUserData);
-    localStorage.setItem("userData", JSON.stringify(updatedUserData)); // aggiorna anche nel localStorage
-    navigate("/");
+      alert(
+        "Disconnessione avvenuta con successo. I tuoi dati sono al sicuro!"
+      );
+      navigate("/");
+    } else {
+      alert("Nessun utente loggato.");
+      navigate("/quiz");
+    }
+  };
+  const handleLoginClick = () => {
+    navigate("/login");
   };
 
   return (
@@ -62,7 +66,8 @@ const Sidebar = () => {
               Logout
             </Link>
           ) : (
-            <Link to="/login" onClick={handleLogin}>
+            // Quando l'utente clicca su "Login", naviga alla pagina di login.
+            <Link to="/login" onClick={handleLoginClick}>
               Login
             </Link>
           )}
