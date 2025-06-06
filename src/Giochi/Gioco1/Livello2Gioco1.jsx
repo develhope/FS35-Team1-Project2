@@ -20,8 +20,8 @@ const Livello2Gioco1 = () => {
       nebula="/assets/immagini/Gioco1/nebulagames.png"
       prossimoLivelloLink="/livello3gioco1"
       posizioneAstronauti={{
-        donna: { default: "top-[60px] left-[65px]", md: "md:top-[130px] md:left-[225px]" },
-        maschio: { default: "top-[20px] left-[215px]", md: "md:top-[90px] md:left-[430px]" },
+        donna: { default: "top-[60px] left-[65px]", md: "md:top-[130px] md:left-[225px]",lg: "lg:top-[10px] lg:left-[430px] lg:w-[75px]" },
+      maschio: { default: "top-[20px] left-[215px]", md: "md:top-[90px] md:left-[430px]",lg: "lg:top-[2px] lg:left-[540px] lg:w-[75px]"  },
       }}
     />
   );
