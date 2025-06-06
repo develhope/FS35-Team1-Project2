@@ -40,43 +40,44 @@ const Struttura1Gioco = ({
 
   const isCorretto = risposta === rispostaCorretta;
 
-  useEffect(() => {
-    if (isCorretto) {
-      setPoints((prevPoints) => prevPoints + 50);
+ useEffect(() => {
+  if (isCorretto) {
+    setPoints((prevPoints) => prevPoints + 50);
 
-      // Aggiorna lo stato di completamento del livello solo se gameId e levelId sono validi
-      if (currentGameId && currentLevelId) {
-        setUserData((prevUserData) => {
-          const newCompletedLevels = { ...prevUserData.completedLevels };
-          if (!newCompletedLevels[currentGameId]) {
-            newCompletedLevels[currentGameId] = {};
-          }
-          newCompletedLevels[currentGameId][currentLevelId] = true;
-          return {
-            ...prevUserData,
-            completedLevels: newCompletedLevels,
-          };
-        });
-      }
-
-      if (isFinalLevel) {
-        setIsLeaving(true);
-        const timer = setTimeout(() => {
-          navigate(prossimoLivelloLink);
-        }, 600);
-        return () => clearTimeout(timer);
-      }
+    if (currentGameId && currentLevelId) {
+      setUserData((prevUserData) => {
+        const newCompletedLevels = { ...prevUserData.completedLevels };
+        if (!newCompletedLevels[currentGameId]) {
+          newCompletedLevels[currentGameId] = {};
+        }
+        newCompletedLevels[currentGameId][currentLevelId] = true;
+        return {
+          ...prevUserData,
+          completedLevels: newCompletedLevels,
+        };
+      });
     }
-  }, [
-    isCorretto,
-    isFinalLevel,
-    navigate,
-    prossimoLivelloLink,
-    setPoints,
-    currentGameId, // Usa currentGameId
-    currentLevelId, // Usa currentLevelId
-    setUserData,
-  ]);
+
+    // Se NON è il livello finale, vai avanti dopo 600ms
+    if (!isFinalLevel) {
+      setIsLeaving(true);
+      const timer = setTimeout(() => {
+        navigate(prossimoLivelloLink);
+      }, 600);
+      return () => clearTimeout(timer);
+    }
+  }
+}, [
+  isCorretto,
+  isFinalLevel,
+  navigate,
+  prossimoLivelloLink,
+  setPoints,
+  currentGameId,
+  currentLevelId,
+  setUserData,
+]);
+
 
   return (
     <div
@@ -166,7 +167,7 @@ const Struttura1Gioco = ({
 )}
 
 
-        <p className="absolute top-80 left-3 md:top-122 md:text-2xl text-white">
+        <p className="absolute top-80 left-3 md:top-122  lg:top-93 lg:text-xl md:text-2xl text-white">
           Hai raccolto <span className="text-yellow-300">{points}</span> punti
         </p>
       </article>
