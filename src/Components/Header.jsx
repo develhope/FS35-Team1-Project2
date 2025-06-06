@@ -3,7 +3,6 @@ import { useLocation, useNavigate, Link } from "react-router-dom";
 import { UserContext } from "../UserContext";
 import HeaderCenter from "./HeaderCenter";
 
-// Definisci l'array degli avatar qui, o importalo da un file comune
 const avatars = [
   { id: 0, name: "Astronauta", image: "nebula icon.png" }, // Avatar predefinito
   { id: 1, name: "Cane", cost: 100, image: "cane astronauta.svg" },
@@ -15,18 +14,22 @@ const avatars = [
 ];
 
 const Header = () => {
-  const { userData } = useContext(UserContext); // Ottieni userData dal contesto utente
+  const { userData } = useContext(UserContext);
   const location = useLocation();
   const navigate = useNavigate();
 
   const formPath = "/form";
-  const profilePath = userData ? "/profile" : formPath; // Il percorso del profilo dipende se i dati utente esistono
-  const shopPath = userData ? "/shop" : formPath;
 
-  // Trova l'avatar selezionato. Se non c'è, usa l'astronauta di default (id: 0).
+  const profilePath = userData && userData.isLogged ? "/profile" : formPath;
+  const shopPath = userData && userData.isLogged ? "/shop" : formPath;
+
   const selectedAvatar =
-    avatars.find((avatar) => avatar.id === userData?.avatarSelected) || // Cerca l'avatar in base a avatarSelected in userData
-    avatars.find((avatar) => avatar.id === 0); // Fallback all'avatar predefinito
+    userData && userData.avatarSelected !== null
+      ? avatars.find((avatar) => avatar.id === userData.avatarSelected)
+      : avatars.find((avatar) => avatar.id === 0);
+
+  const finalAvatar =
+    selectedAvatar || avatars.find((avatar) => avatar.id === 0);
 
   return (
     <div className="fixed top-0 left-0 flex z-50 bg-white justify-between items-center w-full p-2 font-[Arial] font-bold h-20 md:h-30">
@@ -55,13 +58,13 @@ const Header = () => {
       </div>
       <HeaderCenter />
       <div className="flex w-20 justify-end">
-        {userData.isLogged ? ( // Se l'utente è loggato
+        {userData && userData.isLogged ? (
           <>
             <Link to={profilePath} className="pr-2">
               <img
-                src={`./immagini/${selectedAvatar.image}`} // Usa l'immagine dell'avatar selezionato
-                className="w-8 md:w-15 rounded-full" // Aggiungi rounded-full per un aspetto migliore
-                alt="profile"
+                src={`./immagini/${finalAvatar.image}`}
+                className="w-8 md:w-15 rounded-full"
+                alt={finalAvatar.name}
               />
             </Link>
             <Link to={shopPath}>
@@ -76,16 +79,16 @@ const Header = () => {
           <>
             <Link to={formPath} className="pr-2">
               <img
-                src="../immagini/icon/profile.svg" 
+                src="../immagini/icon/profile.svg"
                 className="w-5 mt-1 md:w-7"
-                alt="profile"
+                alt="profile icon"
               />
             </Link>
             <Link to={formPath}>
               <img
                 src="./immagini/icon/usp-delivery-store.svg"
                 className="w-8 md:w-10"
-                alt="shop"
+                alt="shop icon"
               />
             </Link>
           </>
