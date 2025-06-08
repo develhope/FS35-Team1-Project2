@@ -57,6 +57,7 @@ import NewsLetter from "./Pages/NewsLetter.jsx";
 import FAQ from "./Pages/FAQ.jsx";
 import Privacy from "./Pages/Privacy.jsx";
 import AnteprimaGiochi from "./Components/AnteprimaGiochi.jsx";
+import SoundProvider from "./components/SoundProvider";
 
 
 function App() {
@@ -75,6 +76,7 @@ function App() {
 
   return (
     <>
+     <SoundProvider>
       {/* ✅ Non mostra l'Header se sei in una schermata di vittoria */}
       { !isVittoriaPath &&
         !isRestartPage &&
@@ -142,6 +144,7 @@ function App() {
           <Route path="/privacy" element={<Privacy/>}/>
         </Routes>
       </main>
+      </SoundProvider>
     </>
   );
 }
