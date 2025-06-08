@@ -4,6 +4,7 @@ const AnteprimaGioco1 = () => {
   return (
     <AnteprimaGiochi
       gioco="Gioco 1"
+      gameId="game1"
       title="Conta con Nebula!"
       text="Aiuta i due astronauti innamorati ad incontrarsi. Risolvi tutti i livelli del gioco!"
       media={

@@ -6,6 +6,7 @@ const AnteprimaGioco2 = () => {
     <>
       <AnteprimaGiochi
         gioco="Gioco 2"
+        gameId="game2"
         title="Metti in ordine"
         text="L'astronauta ha trovato dei numeri sparsi nello spazio. Aiutalo a rimetterli in ordine!"
         media={
@@ -25,7 +26,7 @@ const AnteprimaGioco2 = () => {
             alt="Astronauta biondo su pianeta"
           />
         }
-        route="/livello1gioco2" 
+        callToAction1Route="/livello1gioco2" 
         callToAction1Text="Iniziamo!" 
         callToAction1Classes="w-30 text-xl md:w-50" 
         showTwoButtons={true} 
