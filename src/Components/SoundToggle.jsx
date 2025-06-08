@@ -1,27 +1,8 @@
-import { useState, useRef, useEffect } from "react";
-import soundtrack from "../soundtrack/Neon_Nostalgia.mp3";
+
+import { useSound } from "./SoundProvider"; // importa dal context
 
 const SoundToggle = () => {
-  const [isSoundOn, setIsSoundOn] = useState(false);
-  const audioRef = useRef(new Audio(soundtrack));
-
-  useEffect(() => {
-    const audio = audioRef.current;
-    audio.loop = true;
-
-    if (isSoundOn) {
-      audio.play().catch((err) => {
-        console.error("Errore nella riproduzione audio:", err);
-      });
-    } else {
-      audio.pause();
-    }
-
-    // Cleanup on unmount
-    return () => {
-      audio.pause();
-    };
-  }, [isSoundOn]);
+  const { isSoundOn, setIsSoundOn } = useSound(); // usa il context
 
   const handleToggle = () => {
     setIsSoundOn((prev) => !prev);
@@ -40,28 +21,25 @@ const SoundToggle = () => {
         className="sr-only peer"
       />
 
-<div
-  className="
-    relative w-10 h-5 
-    md:w-16 md:h-9 
-    lg:w-16 lg:h-8
-
-    bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 
-    dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 
-    peer-checked:after:translate-x-4 
-    md:peer-checked:after:translate-x-6 
-    lg:peer-checked:after:translate-x-8 
-    peer-checked:after:border-white 
-    after:content-[''] after:absolute  
-    after:bg-white after:border-gray-300 after:border after:rounded-full
-
-    after:h-4 after:w-4  after:top-[2px] after:left-[3px]
-    md:after:h-7 md:after:w-7 md:after:top-[4px] md:after:left-[5px] 
-    lg:after:h-6 lg:after:w-6 
-    after:transition-all dark:border-gray-600 
-    peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600"
-/>
-
+      <div
+        className="
+          relative w-10 h-5 
+          md:w-16 md:h-9 
+          lg:w-16 lg:h-8
+          bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 
+          dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 
+          peer-checked:after:translate-x-4 
+          md:peer-checked:after:translate-x-6 
+          lg:peer-checked:after:translate-x-8 
+          peer-checked:after:border-white 
+          after:content-[''] after:absolute  
+          after:bg-white after:border-gray-300 after:border after:rounded-full
+          after:h-4 after:w-4  after:top-[2px] after:left-[3px]
+          md:after:h-7 md:after:w-7 md:after:top-[4px] md:after:left-[5px] 
+          lg:after:h-6 lg:after:w-6 
+          after:transition-all dark:border-gray-600 
+          peer-checked:bg-blue-600 dark:peer-checked:bg-blue-600"
+      />
     </label>
   );
 };
