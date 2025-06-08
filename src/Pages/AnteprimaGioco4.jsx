@@ -5,6 +5,7 @@ const AnteprimaGioco4 = () => {
     <>
       <AnteprimaGiochi
         gioco="Gioco 4"
+        gameId="game4"
         title="Chi ne ha di più?"
         text="Nebula ha due amichetti alieni, aiutali a capire chi dei due amici ha più oggetti!"
         media={
@@ -32,7 +33,7 @@ const AnteprimaGioco4 = () => {
             />
           </div>
         }
-        route="/livello1gioco4"
+        callToAction1Route="/livello1gioco4"
         callToAction1Text="Iniziamo!"
         callToAction1Classes="w-30 text-xl md:w-50"
         showTwoButtons={true}

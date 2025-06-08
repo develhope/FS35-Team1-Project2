@@ -5,6 +5,7 @@ const AnteprimaGioco3 = () => {
     <>
       <AnteprimaGiochi
         title="Trova la coppia"
+        gameId="game3"
         text="La scimmietta astronauta ha una lista della spesa e deve raccogliere la quantità di frutti richiesta dalla mamma. "
         media={
           <video
@@ -23,7 +24,7 @@ const AnteprimaGioco3 = () => {
             alt="Scimmietta Astronauta"
           />
         }
-        route="/livello1gioco3" 
+        callToAction1Route="/livello1gioco3" 
         callToAction1Text="Iniziamo!" 
         callToAction1Classes="w-30 text-xl md:w-50" 
         showTwoButtons={true} 
