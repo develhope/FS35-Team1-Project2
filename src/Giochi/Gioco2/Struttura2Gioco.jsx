@@ -241,7 +241,7 @@ const Struttura2Gioco = ({
             <div
               key={planet.id}
               className={`
-                relative w-20 h-20 md:w-30 md:h-30 lg:w-40 lg:h-40
+                relative w-20 h-20 md:w-30 md:h-30 lg:w-25 lg:h-25
                 bg-contain bg-no-repeat bg-center
                 flex items-center justify-center
                 text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-800

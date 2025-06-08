@@ -1,6 +1,6 @@
 const HeroSection = () => {
   return (
-    <div className="flex flex-col gap-4 pt-20">
+    <div className="flex flex-col gap-4 pt-20 relative">
       <img src="/immagini/nebula home2.svg" className="w-full" />
       <img
         src="/immagini/pianeti/pianeta2.svg"
@@ -24,7 +24,7 @@ const HeroSection = () => {
       />
       <img
         src="/immagini/pianeti/pianeta7.svg"
-        className="w-30 absolute left-55 md:left-130 mt-125 md:mt-230 planet-bounce planet-shadow"
+        className="w-30 absolute left-55 md:left-130 mt-135 md:mt-230 planet-bounce planet-shadow"
         alt="Pianeta1"
       />
 
