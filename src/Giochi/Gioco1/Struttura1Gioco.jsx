@@ -86,7 +86,7 @@ const Struttura1Gioco = ({
       }`}
     >
       {/* Astronauti */}
-      <div className="relative w-auto gap-30 mt-22 flex">
+      <div className="relative w-auto gap-30 mt-30 flex">
         <img
           src="/assets/immagini/Gioco1/astronautagioco1donna.svg"
           alt="astronauta donna"
@@ -100,7 +100,7 @@ const Struttura1Gioco = ({
       </div>
 
       {/* Contenuto */}
-      <article className="md:flex md:flex-col md:justify-center md:mt-[380px] lg:mt-[100px] md:w-[600px] lg:w-[600px] md:h-[480px] lg:h-[370px]  article relative text-center mt-50 h-80 w-[300px] mx-auto border-6 border-yellow-400 bg-white p-6 lg:p-2 rounded-xl shadow-md">
+      <article className="md:flex md:flex-col md:justify-center md:mt-[380px] lg:mt-[130px] md:w-[600px] lg:w-[600px] md:h-[480px] lg:h-[370px]  article relative text-center mt-50 h-80 w-[300px] mx-auto border-6 border-yellow-400 bg-white p-6 lg:p-2 rounded-xl shadow-md">
         <h4 className="md:text-[30px] text-15px mb-2 lg:text-[25px]">{traccia}</h4>
         <h5 className="text-[12px] mb-2 md:text-2xl lg:text-[20px] ">{sottotraccia}</h5>
  
