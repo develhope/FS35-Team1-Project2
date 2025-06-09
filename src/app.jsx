@@ -58,6 +58,7 @@ import NewsLetter from "./Pages/NewsLetter.jsx";
 import FAQ from "./Pages/FAQ.jsx";
 import Privacy from "./Pages/Privacy.jsx";
 import SoundProvider from "./Components/SoundProvider.jsx";
+import GlobalRippleEffect from "./Components/GlobalRippleEffect";
 
 function App() {
   const location = useLocation();
@@ -84,6 +85,7 @@ function App() {
     <>
       <SoundProvider>
         {/* Non mostra l'Header se sei in una schermata di vittoria */}
+        <GlobalRippleEffect />
         {!isVittoriaPath &&
           !isRestartPage &&
           (gameLevelHeaderTitle ? (
