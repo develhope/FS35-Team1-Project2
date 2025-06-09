@@ -39,8 +39,9 @@ const LaDiscalculia = () => {
         {sezioni.map((sezione, index) => (
           <SezioniLaDiscalculia key={index} {...sezione} />
         ))}
+
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 };
