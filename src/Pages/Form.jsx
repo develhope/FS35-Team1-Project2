@@ -6,8 +6,8 @@ const Form = () => {
   const [scelta, setScelta] = useState(false);
 
   return (
-    <>
-      <div className="flex flex-col justify-center items-center py-[50px] space-y-7 text-center mt-10 md:mt-[100px]">
+    <div className="max-w-3xl mx-auto ">
+      <div className="flex flex-col justify-center items-center py-[70px] space-y-7 text-center mt-10 md:mt-[100px] ">
         <h1 className="text-2xl md:text-[36px]" >Parliamo un pò</h1>
         <h2 className="text-[18px] md:text-[24px] lg:text-[24px] ">Prima di partire... facciamo squadra!</h2>
         <h3 className="text-[14px] px-[56px] md:text-[24px] lg:text-[18px]">
@@ -54,7 +54,7 @@ const Form = () => {
           </form>
 
           {scelta === "bambino" && (
-            <div className="absolute top-full mt-2 left-0 bg-[#292929]/90 text-white rounded-2xl px-6 py-4 text-sm md:text-2xl lg:text-xl  shadow-lg max-w-md z-50 backdrop-blur-sm">
+            <div className="absolute top-full mt-2 left-0 bg-[#292929]/90 text-white rounded-2xl px-6 py-4 text-sm md:text-2xl lg:text-[15px]  shadow-lg max-w-md z-50 backdrop-blur-sm">
               Il quiz è pensato per essere fatto con l’aiuto di un adulto. 💡
               <br />
               Corri a dirlo a mamma e papà!
@@ -76,13 +76,13 @@ const Form = () => {
   <img
     src="./immagini/nebula_primaForm.png"
     alt="NebulaForm"
-    className="w-[120px] md:w-[230px] lg:w-[150px] lg:mr-[20px] object-contain"
+    className="w-[100px] md:w-[200px] lg:w-[150px] lg:mr-[20px] object-contain"
   />
 </div>
 
 
       </div>
-    </>
+    </div>
   );
 };
 

@@ -61,17 +61,17 @@ const Quiz = () => {
   }, [step]);
 
   return (
-    <>
-      <div className="p-5 mt-6 md:pt-10 md:mt-12 ">
-        <div className="flex flex-col justify-center items-center py-[50px] space-y-7 text-center md:py-[30px] md:space-y-10" >
+    <div className="max-w-3xl mx-auto">
+      <div className="p-5 mt-6 md:pt-10 md:mt-12">
+        <div className="flex flex-col justify-center items-center py-[50px] space-y-7 text-center md:py-[30px] md:space-y-10">
           <h1 className="text-2xl md:text-[30px] font-semibold">{domande[step].titolo}</h1>
           <h2 className="text-[18px] md:text-[25px] lg:text-[24px]">{domande[step].sottotitolo}</h2>
         </div>
 
         <div className="flex flex-col justify-center items-center space-y-10 text-center px-4">
-          <form className="space-y-5 md:space-y-6 ">
+          <form className="space-y-5 md:space-y-6">
             {domande[step].opzioni.map((opzione, index) => (
-              <label key={index} className="flex items-center space-x-5 md:text-lg " >
+              <label key={index} className="flex items-center space-x-5 md:text-lg">
                 <input
                   type="radio"
                   name={`scelta-${step}`}
@@ -80,7 +80,7 @@ const Quiz = () => {
                   checked={selezione === opzione}
                   onChange={() => setSelezione(opzione)}
                 />
-                <span className="md:text-[25px]">{opzione}</span>
+                <span className="text-base md:text-lg lg:text-md">{opzione}</span>
               </label>
             ))}
           </form>
@@ -137,34 +137,36 @@ const Quiz = () => {
           )}
 
           {/* Pianeti e immagini decorative */}
-          <img
-            src="./immagini/perform.png"
-            alt="NebulaForm"
-            className="w-70 md:w-[340px] lg:w-[320px] md:mt-10"
-          />
-          <img
-            src="/immagini/pianeti/pianeta8.svg"
-            className="w-20 md:w-26 absolute left-7 md:left-36 lg:left-[290px] planet-rotate planet-shadow"
-            alt="Pianeta1"
-          />
-          <img
-            src="/immagini/pianeti/pianeta1.svg"
-            className="w-10 md:w-18 absolute bottom-56  left-15 md:left-40 lg:left-[360px] mt-50 planet-rotate planet-shadow"
-            alt="Pianeta2"
-          />
-          <img
-            src="/immagini/pianeti/pianeta2.svg"
-            className="w-10 md:w-18 absolute bottom-68 md:bottom-[290px] lg:bottom-[275px] left-70 md:left-[520px] lg:left-[700px] mt-30 planet-rotate planet-shadow"
-            alt="Pianeta3"
-          />
-          <img
-            src="/immagini/pianeti/pianeta4.svg"
-            className="w-15 md:w-24 lg:w-20  absolute left-65 md:left-[470px] lg:left-[700px] mb-50 planet-bounce planet-shadow"
-            alt="Pianeta4"
-          />
+          <div className="flex flex-col gap-4 pt-20 relative">
+            <img
+              src="./immagini/perform.png"
+              alt="NebulaForm"
+              className="w-70 md:w-[340px] lg:w-[320px] md:mt-10"
+            />
+            <img
+              src="/immagini/pianeti/pianeta8.svg"
+              className="w-20 md:w-26 absolute left-[-10px] md:left-[-20px] lg:left-[-100px] planet-rotate planet-shadow"
+              alt="Pianeta1"
+            />
+            <img
+              src="/immagini/pianeti/pianeta1.svg"
+              className="w-10 md:w-18 absolute bottom-56 left-1 md:left-[-15px] lg:left-[-40px] mt-50 planet-rotate planet-shadow"
+              alt="Pianeta2"
+            />
+            <img
+              src="/immagini/pianeti/pianeta2.svg"
+              className="w-10 md:w-18 absolute bottom-68 md:bottom-[290px] lg:bottom-[275px] left-60 md:left-[300px] lg:left-[300px] mt-30 planet-rotate planet-shadow"
+              alt="Pianeta3"
+            />
+            <img
+              src="/immagini/pianeti/pianeta4.svg"
+              className="w-15 md:w-24 lg:w-20 absolute left-50 md:left-[300px] lg:left-[250px] mb-50 planet-bounce planet-shadow"
+              alt="Pianeta4"
+            />
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
