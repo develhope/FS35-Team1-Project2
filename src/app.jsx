@@ -1,4 +1,5 @@
 import { Route, Routes, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import "./index.css";
 import HomePage from "./Pages/HomePage";
 import Form from "./Pages/Form";
@@ -56,94 +57,98 @@ import Login from "./Pages/Login.jsx";
 import NewsLetter from "./Pages/NewsLetter.jsx";
 import FAQ from "./Pages/FAQ.jsx";
 import Privacy from "./Pages/Privacy.jsx";
-import AnteprimaGiochi from "./Components/AnteprimaGiochi.jsx";
-import SoundProvider from "./components/SoundProvider";
-
+import SoundProvider from "./Components/SoundProvider.jsx";
 
 function App() {
   const location = useLocation();
   const path = location.pathname;
 
-  const isVittoriaPath = path.startsWith("/vittoria"); 
+  useEffect(() => {
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+    });
+  }, [location.pathname]); 
+
+  const isVittoriaPath = path.startsWith("/vittoria");
   const isRestartPage = path === "/restart";
   let gameLevelHeaderTitle = null;
   const matchLivelloGioco = path.match(/\/livello(\d+)gioco(\d+)/);
 
   if (matchLivelloGioco) {
     const livello = matchLivelloGioco[1];
-    gameLevelHeaderTitle = `Livello ${livello}`
+    gameLevelHeaderTitle = `Livello ${livello}`;
   }
 
   return (
     <>
-     <SoundProvider>
-      {/* ✅ Non mostra l'Header se sei in una schermata di vittoria */}
-      { !isVittoriaPath &&
-        !isRestartPage &&
-        (gameLevelHeaderTitle ? (
-          <HeaderGiochi titolo={gameLevelHeaderTitle} />
-        ) : (
-          <Header />
-        ))}
+      <SoundProvider>
+        {/* Non mostra l'Header se sei in una schermata di vittoria */}
+        {!isVittoriaPath &&
+          !isRestartPage &&
+          (gameLevelHeaderTitle ? (
+            <HeaderGiochi titolo={gameLevelHeaderTitle} />
+          ) : (
+            <Header />
+          ))}
 
-      <main className="min-h-screen relative">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/form" element={<Form />} />
-          <Route path="/quiz" element={<Quiz />} />
-          <Route path="/restart" element={<RestartPage />} />
-          <Route path="/gamepage-1" element={<GamePage1 />} />
-          <Route path="/gamepage-2" element={<GamePage2 />} />
-          <Route path="/gamepage-3" element={<GamePage3 />} />
-          <Route path="/gamepage-4" element={<GamePage4 />} />
-          <Route path="/form-iscriviti" element={<FormIscriviti />} />
-          <Route path="/la-discalculia" element={<LaDiscalculia />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/anteprimagioco1" element={<AnteprimaGioco1 />} />
-          <Route path="/anteprimagioco2" element={<AnteprimaGioco2 />} />
-          <Route path="/anteprimagioco3" element={<AnteprimaGioco3 />} />
-          <Route path="/anteprimagioco4" element={<AnteprimaGioco4 />} />
-          <Route path="/sidebar" element={<Sidebar />} />
+        <main className="min-h-screen relative">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/form" element={<Form />} />
+            <Route path="/quiz" element={<Quiz />} />
+            <Route path="/restart" element={<RestartPage />} />
+            <Route path="/gamepage-1" element={<GamePage1 />} />
+            <Route path="/gamepage-2" element={<GamePage2 />} />
+            <Route path="/gamepage-3" element={<GamePage3 />} />
+            <Route path="/gamepage-4" element={<GamePage4 />} />
+            <Route path="/form-iscriviti" element={<FormIscriviti />} />
+            <Route path="/la-discalculia" element={<LaDiscalculia />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/anteprimagioco1" element={<AnteprimaGioco1 />} />
+            <Route path="/anteprimagioco2" element={<AnteprimaGioco2 />} />
+            <Route path="/anteprimagioco3" element={<AnteprimaGioco3 />} />
+            <Route path="/anteprimagioco4" element={<AnteprimaGioco4 />} />
+            <Route path="/sidebar" element={<Sidebar />} />
 
-          <Route path="/struttura1gioco" element={<Struttura1Gioco />} />
-          <Route path="/struttura2gioco" element={<Struttura2Gioco />} />
-          <Route path="/struttura3gioco" element={<Struttura3Gioco />} />
-          <Route path="/struttura4gioco" element={<Struttura4Gioco />} />
+            <Route path="/struttura1gioco" element={<Struttura1Gioco />} />
+            <Route path="/struttura2gioco" element={<Struttura2Gioco />} />
+            <Route path="/struttura3gioco" element={<Struttura3Gioco />} />
+            <Route path="/struttura4gioco" element={<Struttura4Gioco />} />
 
-          <Route path="/livello1gioco1" element={<Livello1Gioco1 />} />
-          <Route path="/livello2gioco1" element={<Livello2Gioco1 />} />
-          <Route path="/livello3gioco1" element={<Livello3Gioco1 />} />
-          <Route path="/livello4gioco1" element={<Livello4Gioco1 />} />
-          <Route path="/vittoriagioco1" element={<VittoriaGioco1 />} />
+            <Route path="/livello1gioco1" element={<Livello1Gioco1 />} />
+            <Route path="/livello2gioco1" element={<Livello2Gioco1 />} />
+            <Route path="/livello3gioco1" element={<Livello3Gioco1 />} />
+            <Route path="/livello4gioco1" element={<Livello4Gioco1 />} />
+            <Route path="/vittoriagioco1" element={<VittoriaGioco1 />} />
 
-          <Route path="/livello1gioco2" element={<Livello1Gioco2 />} />
-          <Route path="/livello2gioco2" element={<Livello2Gioco2 />} />
-          <Route path="/livello3gioco2" element={<Livello3Gioco2 />} />
-          <Route path="/livello4gioco2" element={<Livello4Gioco2 />} />
-          <Route path="/livello5gioco2" element={<Livello5Gioco2 />} />
-          <Route path="/vittoriagioco2" element={<VittoriaGioco2 />} />
+            <Route path="/livello1gioco2" element={<Livello1Gioco2 />} />
+            <Route path="/livello2gioco2" element={<Livello2Gioco2 />} />
+            <Route path="/livello3gioco2" element={<Livello3Gioco2 />} />
+            <Route path="/livello4gioco2" element={<Livello4Gioco2 />} />
+            <Route path="/livello5gioco2" element={<Livello5Gioco2 />} />
+            <Route path="/vittoriagioco2" element={<VittoriaGioco2 />} />
 
-          <Route path="/livello1gioco3" element={<Livello1Gioco3 />} />
-          <Route path="/livello2gioco3" element={<Livello2Gioco3 />} />
-          <Route path="/livello3gioco3" element={<Livello3Gioco3 />} />
-          <Route path="/livello4gioco3" element={<Livello4Gioco3 />} />
-          <Route path="/vittoriagioco3" element={<VittoriaGioco3 />} />
+            <Route path="/livello1gioco3" element={<Livello1Gioco3 />} />
+            <Route path="/livello2gioco3" element={<Livello2Gioco3 />} />
+            <Route path="/livello3gioco3" element={<Livello3Gioco3 />} />
+            <Route path="/livello4gioco3" element={<Livello4Gioco3 />} />
+            <Route path="/vittoriagioco3" element={<VittoriaGioco3 />} />
 
-          <Route path="/livello1gioco4" element={<Livello1Gioco4 />} />
-          <Route path="/livello2gioco4" element={<Livello2Gioco4 />} />
-          <Route path="/livello3gioco4" element={<Livello3Gioco4 />} />
-          <Route path="/livello4gioco4" element={<Livello4Gioco4 />} />
-          <Route path="/vittoriagioco4" element={<VittoriaGioco4 />} />
+            <Route path="/livello1gioco4" element={<Livello1Gioco4 />} />
+            <Route path="/livello2gioco4" element={<Livello2Gioco4 />} />
+            <Route path="/livello3gioco4" element={<Livello3Gioco4 />} />
+            <Route path="/livello4gioco4" element={<Livello4Gioco4 />} />
+            <Route path="/vittoriagioco4" element={<VittoriaGioco4 />} />
 
-        
-          <Route path="/login" element={<Login/>} />
-          <Route path="/chiSiamo" element={<ChiSiamo/>} />
-          <Route path="/newsLetter" element={<NewsLetter/>}/>
-          <Route path="/faq" element={<FAQ/>}/>
-          <Route path="/privacy" element={<Privacy/>}/>
-        </Routes>
-      </main>
+            <Route path="/login" element={<Login />} />
+            <Route path="/chiSiamo" element={<ChiSiamo />} />
+            <Route path="/newsLetter" element={<NewsLetter />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/privacy" element={<Privacy />} />
+          </Routes>
+        </main>
       </SoundProvider>
     </>
   );
