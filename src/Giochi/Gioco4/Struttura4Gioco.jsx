@@ -9,17 +9,16 @@ const Struttura4Gioco = (props) => {
   const [showSuccess, setShowSuccess] = useState(false);
   const [inputValore1, setInputValore1] = useState("");
   const [inputValore2, setInputValore2] = useState("");
+  const [retry, setRetry] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const { points, setPoints } = useContext(PointsContext);
   const { userData, setUserData } = useContext(UserContext);
 
-    
-  const _ = userData; // Assegna userData a una variabile temporanea '_' per evitare errori da eslint
+  const _ = userData;
 
-  // Estrai gameId e levelId dalla URL e CONVERTI levelId in numero
   const match = location.pathname.match(/\/livello(\d+)gioco(\d+)/);
-  const currentLevelId = match ? parseInt(match[1], 10) : null; // <--- MODIFICA QUI
+  const currentLevelId = match ? parseInt(match[1], 10) : null;
   const currentGameId = match ? `game${match[2]}` : null;
 
   const handleCheckAnswer = () => {
@@ -29,6 +28,7 @@ const Struttura4Gioco = (props) => {
     if (val1 === props.rispostaCorretta1 && val2 === props.rispostaCorretta2) {
       setShowSuccess(true);
       setShowError(false);
+      setRetry(false);
       setPoints((prevPoints) => prevPoints + 50);
 
       if (currentGameId && currentLevelId) {
@@ -47,17 +47,19 @@ const Struttura4Gioco = (props) => {
     } else {
       setShowError(true);
       setShowSuccess(false);
+      setRetry(true);
     }
   };
 
   return (
     <div className="bggame4">
-      <div className="bg-white/85 rounded-xl  border-amber-400 border-4 h-138 w-85 mt-20 absolute top-70 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        <div className="flex justify-center text-center  m-auto p-5">
+      <div className="bg-white/85 rounded-xl border-amber-400 border-4 h-138 w-85 mt-20 absolute top-70 left-1/2 -translate-x-1/2 -translate-y-1/2 md:mt-60 md:h-180 md:w-180">
+        <div className="flex justify-center text-center m-auto p-5 md:text-xl md:mt-2">
           <p className="text-black">
             Dimmi qual’è il riquadro con il numero più alto di oggetti! <br />
-            <span className="text-sm text-gray-500">
-              Inizia col numero più alto, fai poi lo stesso con il numero più basso.
+            <span className="text-sm text-gray-500 md:text-xl">
+              Inizia col numero più alto, fai poi lo stesso con il numero più
+              basso.
             </span>
           </p>
         </div>
@@ -66,30 +68,32 @@ const Struttura4Gioco = (props) => {
           <img
             src="/assets/immagini/Gioco4/amicodinebula_1_4.svg"
             alt=""
-            className="w-30 h-auto object-contain transform scale-x-[-1]"
+            className="w-30 h-auto object-contain transform scale-x-[-1] md:w-44"
           />
-          <div className="bg-white/50 p-5 h-30 w-30 border border-gray-300 rounded-2xl text-center flex items-center justify-center">
+          <div className="bg-white/50 p-5 h-30 w-30 md:h-36 md:w-36 border border-gray-300 rounded-2xl text-center flex items-center justify-center">
             {props.domanda1}
           </div>
         </div>
 
-    <div className="flex items-center justify-center pt-5 pb-3 gap-10">
-  <div className="bg-white/50 p-5 h-30 w-30 border border-gray-300 rounded-2xl text-center flex items-center justify-center">
-    {props.domanda2}
-  </div>
-  <img
-    src="/assets/immagini/Gioco4/amicodinebula_2_4.svg"
-    alt=""
-    className="w-25 object-contain transform"
-  />
-</div>
+        <div className="flex items-center justify-center pt-5 pb-3 gap-10">
+          <div className="bg-white/50 p-5 h-30 w-30 md:h-36 md:w-36 border border-gray-300 rounded-2xl text-center flex items-center justify-center">
+            {props.domanda2}
+          </div>
+          <img
+            src="/assets/immagini/Gioco4/amicodinebula_2_4.svg"
+            alt=""
+            className="w-25 object-contain transform md:w-36"
+          />
+        </div>
 
-        <p className="justify-center text-black text-center">{props.condizione}</p>
+        <p className="justify-center text-black text-center md:text-xl md:mb-4">
+          {props.condizione}
+        </p>
 
         <div className="flex items-center justify-center gap-2">
           <input
             type="number"
-            className="bg-white w-10 h-10 border border-gray-300 rounded text-center"
+            className="bg-white w-10 h-10 md:w-14 md:h-14 border border-gray-300 rounded text-center"
             value={inputValore1}
             onChange={(e) => setInputValore1(e.target.value)}
           />
@@ -103,42 +107,61 @@ const Struttura4Gioco = (props) => {
 
           <input
             type="number"
-            className="bg-white w-10 h-10 border border-gray-300 rounded text-center"
+            className="bg-white w-10 h-10 md:w-14 md:h-14 border border-gray-300 rounded text-center"
             value={inputValore2}
             onChange={(e) => setInputValore2(e.target.value)}
           />
         </div>
 
-        <div className="flex justify-center mt-3">
-          <button
-            className="bg-orange-600 text-white px-4 py-1 rounded shadow"
-            onClick={handleCheckAnswer}
-          >
-            Controlla Risposta
-          </button>
+        {/* Bottone condizionato */}
+        <div className="flex justify-center mt-3 md:mt-4">
+          {showSuccess ? (
+            <button
+              className="bg-orange-600 text-white px-4 py-1 md:px-6 md:py-2 md:text-2xl rounded-lg shadow-lg hover:bg-orange-700 transition-colors duration-300 text-ms"
+              onClick={() => navigate(props.destinazione)}
+            >
+              {props.avanti || "Prossimo Livello"}
+            </button>
+          ) : retry ? (
+            <button
+              className="bg-red-500 text-white ml-20 md:ml-0 px-4 py-1 md:px-6 md:py-2 md:text-2xl rounded-lg shadow-lg hover:bg-red-600 transition-colors duration-300 text-ms"
+              onClick={() => {
+                setShowError(false);
+                setRetry(false);
+                setInputValore1("");
+                setInputValore2("");
+              }}
+            >
+              Riprova
+            </button>
+          ) : (
+            <button
+              className="bg-purple-600 text-white px-4 py-1 md:px-6 md:py-2 rounded-lg shadow-lg hover:bg-purple-700 transition-colors duration-300 text-ms"
+              onClick={handleCheckAnswer}
+            >
+              Controlla Risposta
+            </button>
+          )}
         </div>
 
+        {/* Messaggi di feedback */}
         {showError && (
-          <div className="absolute top-135 bg-red-600 text-white px-1 py-1 rounded shadow right-15">
-            Risposta errata. Ritenta!
+          <div className="flex flex-col items-center justify-center mt-4">
+            <div className="text-l md:text-2xl bottom-[20px] left-2 font-bold text-red-500 mt-4 animate-pulse absolute">
+              Risposta errata!
+            </div>
           </div>
         )}
 
         {showSuccess && (
           <>
-            <div className="scale-75 md:scale-90">
+            <div className="scale-75 md:scale-150 md:top-200">
               <Star />
             </div>
 
-            <button
-              className="absolute top-103 left-6.5 w-70 h-10 bg-orange-600 text-white px-3 py-1 rounded shadow"
-              onClick={() => navigate(props.destinazione)}
-            >
-              {props.avanti}
-            </button>
-
-            <p className="absolute top-138 left-18.5 text-white">
-              Hai raccolto <span className="text-yellow-300">{points}</span> punti
+            <p className="absolute top-138 left-18.5 text-white md:top-180 md:left-0 md:text-xl">
+              Hai raccolto <span className="text-yellow-300">{points}</span>{" "}
+              punti
             </p>
           </>
         )}
@@ -148,4 +171,3 @@ const Struttura4Gioco = (props) => {
 };
 
 export default Struttura4Gioco;
-
