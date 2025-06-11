@@ -7,7 +7,7 @@
 
   animation: rippleEffect 0.6s ease-out;
   pointer-events: none;
-  z-index: 20;
+  z-index: 9999;
 }
 
 @keyframes rippleEffect {
