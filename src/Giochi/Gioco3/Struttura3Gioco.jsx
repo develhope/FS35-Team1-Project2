@@ -1,6 +1,6 @@
-import React, { useState, useRef, useMemo, useContext } from "react";
+import { useState, useRef, useMemo, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import Star from "../../Components/Star";
+import StarAnimation from "../../Components/StarAnimation";
 import { PointsContext } from "../../PointsContext.jsx";
 import { UserContext } from "../../UserContext.jsx";
 
@@ -208,7 +208,9 @@ const Struttura3Gioco = ({
           <h1 className="text-base font-bold pt-1 text-black mb-2 md:mt-8 md:text-xl">
             {titoloLivello}
           </h1>
-          <p className="text-sm text-gray-600 mb-4 md:mb-10 md:text-xl">{istruzioniTesto}</p>
+          <p className="text-sm text-gray-600 mb-4 md:mb-10 md:text-xl">
+            {istruzioniTesto}
+          </p>
 
           <div
             className={`grid ${gridCols} ${gapY} ${gapX} justify-items-center mx-auto ${gridWidth}`}
@@ -292,16 +294,18 @@ const Struttura3Gioco = ({
                 versioneCompatta
                   ? "bottom-8 right-[-10px] w-40 sm:w-28 md:w-60"
                   : "bottom-8 right-0 w-40 sm:w-34 md:w-60"
-              } object-contain z-10 animate-bounce`}
+              } object-contain z-60 animate-bounce`}
             />
           )}
         </div>
 
         {rispostaEsatta && (
           <>
-            <Star />
+            <div className="fixed z-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <StarAnimation />
+            </div>
             <button
-              className="absolute bottom-4 right-34 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600 transition-colors duration-300 text-xl py-2 px-4 font-semibold sm:text-base md:right-86 md:text-xl"
+              className="z-50 absolute bottom-4 right-34 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600 transition-colors duration-300 text-xl py-2 px-4 font-semibold sm:text-base md:right-86 md:text-xl"
               onClick={handleLevel}
             >
               Avanti
@@ -340,4 +344,3 @@ const Struttura3Gioco = ({
 };
 
 export default Struttura3Gioco;
-
