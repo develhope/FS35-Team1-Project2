@@ -1,6 +1,10 @@
 import { useContext } from "react";
 import Header from "../Components/Header";
 import { UserContext } from "../UserContext";
+import AstronautaGame1 from "../Components/AstronautaGame1";
+import AstronautaGame2 from "../Components/AstronutaGame2";
+import AstronautaGame3 from "../Components/AstronautaGame3";
+import AstronautaGame4 from "../Components/AstronautaGame4";
 
 const avatars = [
   { id: 0, name: "Astronauta", image: "nebula icon.png" }, // Default avatar
@@ -18,31 +22,45 @@ const GameStatus = ({
   completedLevelsCount,
   totalLevelsInGame,
   isGameFullyCompleted,
+  animationComponent: AnimationComponent,
 }) => {
   return (
     // Il colore del testo dipende dal completamento di TUTTI i livelli del gioco
     <section
-      className={isGameFullyCompleted ? "text-black" : "text-neutral-300"}
+      className={`flex justify-between items-start pb-8 ${
+        isGameFullyCompleted ? "text-black" : "text-neutral-300"
+      }`}
     >
-      <div className="flex items-center pb-1 ">
-        <h3 className="md:mr-15 pr-3 text-xl md:text-2xl lg:text-3xl font-semibold">
+      {/* Colonna sinistra: titolo, descrizione e stelline */}
+      <div className="flex-1 pr-4">
+        <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-2">
           {title}
         </h3>
-        {/* Le stelle si colorano in base al numero di livelli completati */}
-        {[...Array(totalLevelsInGame)].map((_, i) => (
-          <img
-            key={i}
-            src={`./immagini/icon/${
-              i < completedLevelsCount ? "stellina-active" : "stellina-inactive"
-            }.svg`}
-            className={`w-[22px] md:w-12 ${i > 0 ? "ml-2" : ""}`}
-            alt="star"
-          />
-        ))}
+
+        <p className="text-sm md:text-xl mb-3">{description}</p>
+
+        <div className="flex">
+          {[...Array(totalLevelsInGame)].map((_, i) => (
+            <img
+              key={i}
+              src={`./immagini/icon/${
+                i < completedLevelsCount
+                  ? "stellina-active"
+                  : "stellina-inactive"
+              }.svg`}
+              className={`w-[22px] md:w-12 ${i > 0 ? "ml-2" : ""}`}
+              alt="star"
+            />
+          ))}
+        </div>
       </div>
-      <div className="pb-4">
-        <p className="text-sm md:text-xl pb-4 md:pb-10">{description}</p>
-      </div>
+
+      {/* Colonna destra: animazione (se presente) */}
+      {AnimationComponent && (
+        <div className=" md:w-250">
+          <AnimationComponent />
+        </div>
+      )}
     </section>
   );
 };
@@ -90,7 +108,7 @@ function Profile() {
   ];
 
   return (
-    <div className="h-screen overflow-hidden">
+    <div className="min-h-screen overflow-y-auto">
       <Header />
 
       <div className="flex flex-col items-center mt-20 md:mt-30 ">
@@ -110,6 +128,28 @@ function Profile() {
         {gameConfigurations.map((game) => {
           const completedCount = countCompletedLevelsForGame(game.id);
           const isFullyCompleted = completedCount === game.totalLevels;
+
+          let currentAnimationComponent = null;
+
+          if (isFullyCompleted) {
+            switch (game.id) {
+              case "game1":
+                currentAnimationComponent = AstronautaGame1;
+                break;
+              case "game2":
+                currentAnimationComponent = AstronautaGame2;
+                break;
+              case "game3":
+                currentAnimationComponent = AstronautaGame3;
+                break;
+              case "game4":
+                currentAnimationComponent = AstronautaGame4;
+                break;
+              default:
+                currentAnimationComponent = null;
+            }
+          }
+
           return (
             <GameStatus
               key={game.id}
@@ -118,6 +158,7 @@ function Profile() {
               completedLevelsCount={completedCount}
               totalLevelsInGame={game.totalLevels}
               isGameFullyCompleted={isFullyCompleted}
+              animationComponent={currentAnimationComponent}
             />
           );
         })}

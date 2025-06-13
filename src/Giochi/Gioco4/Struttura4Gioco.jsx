@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import Star from "../../Components/Star";
+import StarAnimation from "../../Components/StarAnimation";
 import { PointsContext } from "../../PointsContext";
 import { UserContext } from "../../UserContext";
 
@@ -117,7 +117,7 @@ const Struttura4Gioco = (props) => {
         <div className="flex justify-center mt-3 md:mt-4">
           {showSuccess ? (
             <button
-              className="bg-orange-600 text-white px-4 py-1 md:px-6 md:py-2 md:text-2xl rounded-lg shadow-lg hover:bg-orange-700 transition-colors duration-300 text-ms"
+              className="bg-orange-600 text-white z-60 px-4 py-1 md:px-6 md:py-2 md:text-2xl rounded-lg shadow-lg hover:bg-orange-700 transition-colors duration-300 text-ms"
               onClick={() => navigate(props.destinazione)}
             >
               {props.avanti || "Prossimo Livello"}
@@ -136,7 +136,7 @@ const Struttura4Gioco = (props) => {
             </button>
           ) : (
             <button
-              className="bg-purple-600 text-white px-4 py-1 md:px-6 md:py-2 rounded-lg shadow-lg hover:bg-purple-700 transition-colors duration-300 text-ms"
+              className="bg-purple-600 text-white  px-4 py-1 md:px-6 md:py-2 rounded-lg shadow-lg hover:bg-purple-700 transition-colors duration-300 text-ms"
               onClick={handleCheckAnswer}
             >
               Controlla Risposta
@@ -155,8 +155,8 @@ const Struttura4Gioco = (props) => {
 
         {showSuccess && (
           <>
-            <div className="scale-75 md:scale-150 md:top-200">
-              <Star />
+            <div className="fixed z-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <StarAnimation />
             </div>
 
             <p className="absolute top-138 left-18.5 text-white md:top-180 md:left-0 md:text-xl">

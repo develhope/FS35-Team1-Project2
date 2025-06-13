@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import Star from "../../Components/Star";
+import StarAnimation from "../../Components/StarAnimation";
 import { PointsContext } from "../../PointsContext.jsx";
 import { UserContext } from "../../UserContext.jsx";
 
@@ -116,11 +116,10 @@ const Struttura2Gioco = ({
     }
 
     setPlanetsData((prevPlanets) =>
-      prevPlanets.map(
-        (planet) =>
-          planet.id === activePlanetForInput
-            ? { ...planet, userInput: value, isSelected: false }
-            : { ...planet, isSelected: false }
+      prevPlanets.map((planet) =>
+        planet.id === activePlanetForInput
+          ? { ...planet, userInput: value, isSelected: false }
+          : { ...planet, isSelected: false }
       )
     );
     setActivePlanetForInput(null);
@@ -227,8 +226,8 @@ const Struttura2Gioco = ({
 
       <div className="bg-white rounded-xl border-amber-400 border-4 h-125 w-80 md:h-190 md:w-130 mt-3 flex flex-col items-center relative">
         {levelStatus === "correct" && (
-          <div className="absolute top-110 scale-90 md:scale-150 md:top-180 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none">
-            <Star />
+          <div className="fixed z-50 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <StarAnimation />
           </div>
         )}
 
@@ -304,7 +303,7 @@ const Struttura2Gioco = ({
           {levelStatus === "correct" && !isFinalLevel && (
             <button
               onClick={goToNextLevel}
-              className="absolute bottom-5 px-1 py-2 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600 transition-colors duration-300 text-ms md:text-2xl md:bottom-5 md:px-3 md:py-3 font-semibold mt-4"
+              className="absolute z-50 bottom-5 px-1 py-2 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600 transition-colors duration-300 text-ms md:text-2xl md:bottom-5 md:px-3 md:py-3 font-semibold mt-4"
             >
               Prossimo livello
             </button>
@@ -313,7 +312,7 @@ const Struttura2Gioco = ({
           {levelStatus === "correct" && isFinalLevel && (
             <button
               onClick={goToNextLevel}
-              className="px-4 py-2 bottom-5 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600 transition-colors duration-300 text-xl font-semibold mt-4"
+              className="z-50 px-4 py-2 bottom-5 bg-green-500 text-white rounded-lg shadow-md hover:bg-green-600 transition-colors duration-300 text-xl font-semibold mt-4"
             >
               Hai vinto!
             </button>
@@ -322,9 +321,7 @@ const Struttura2Gioco = ({
           {levelStatus === "incorrect" && (
             <>
               <div className="w-45 md:w-64 text-l md:text-2xl font-bold text-red-500 mt-1 animate-pulse absolute top-100 md:top-158 left-22 md:left-38">
-                <span className="">
-                  Risposta errata!
-                </span>
+                <span className="">Risposta errata!</span>
               </div>
               <button
                 onClick={resetLevel}
@@ -344,5 +341,3 @@ const Struttura2Gioco = ({
 };
 
 export default Struttura2Gioco;
-
-

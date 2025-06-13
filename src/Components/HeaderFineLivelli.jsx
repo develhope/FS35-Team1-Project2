@@ -1,9 +1,24 @@
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react"; 
+import { UserContext } from "../UserContext";
 
-const HeaderFineLivelli = (
-  
-) => {
+const avatars = [
+  { id: 0, name: "Astronauta", image: "nebula icon.png" }, // Avatar predefinito
+  { id: 1, name: "Cane", cost: 100, image: "cane astronauta.svg" },
+  { id: 2, name: "Koala", cost: 150, image: "koala astronauta.svg" },
+  { id: 3, name: "Volpe", cost: 200, image: "leone astronauta.svg" },
+  { id: 4, name: "Orso", cost: 150, image: "orso astronauta.svg" },
+  { id: 5, name: "Gatto", cost: 300, image: "gatto astronauta.svg" },
+  { id: 6, name: "Scimmia", cost: 350, image: "scimmia astronauta.svg" },
+];
+
+const HeaderFineLivelli = () => {
   const navigate = useNavigate();
+  const { userData } = useContext(UserContext); 
+
+  const selectedAvatar =
+    avatars.find((avatar) => avatar.id === userData?.avatarSelected) || 
+    avatars.find((avatar) => avatar.id === 0); 
 
   return (
     <div className="bg-transparent p-4 gap-16 flex justify-between z-50 relative">
@@ -23,19 +38,19 @@ const HeaderFineLivelli = (
       </button>
 
       <div className="flex gap-3">
-
         <button
           onClick={() => {
             console.log("Click su Profile");
             navigate("/profile");
           }}
-          className="focus:outline-none "
+          className="focus:outline-none"
           aria-label="Profile"
         >
+          {/* Usa l'immagine dell'avatar selezionato dinamicamente */}
           <img
-            className="w-[20px] md:w-8 filter invert brightness-200"
-            src="/immagini/icon/profile.svg"
-            alt="Profile"
+            className="w-7 md:w-15 rounded-full"
+            src={`/immagini/${selectedAvatar.image}`} // Modificato per usare l'avatar selezionato
+            alt={selectedAvatar.name} // Usa il nome dell'avatar selezionato come alt text
           />
         </button>
 
@@ -59,4 +74,3 @@ const HeaderFineLivelli = (
 };
 
 export default HeaderFineLivelli;
-
