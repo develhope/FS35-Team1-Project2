@@ -26,17 +26,17 @@ const GameSection = () => {
   const { userData } = useContext(UserContext);
 
   const gameListUnregistered = [
-    { title: "Conta con Nebula", image: "./public/assets/immagini/Gioco1/astronauti.svg", path: "/gamepage-1" },
-    { title: "Metti in ordine", image:"./public/assets/immagini/Gioco2/astronauta biondo su pianeta.svg", path: "/gamepage-2" },
-    { title: "Trova la coppia", image: "./public/assets/immagini/Gioco3/scimmia_home_3.svg", path: "/gamepage-3" },
-    { title: "Chi ne ha di più?", image: "./public/assets/immagini/Gioco4/amicidinebulainsieme.svg", path: "/gamepage-4" },
+    { title: "Conta con Nebula", image: "./assets/immagini/Gioco1/astronauti.svg", path: "/gamepage-1" },
+    { title: "Metti in ordine", image:"./assets/immagini/Gioco2/astronauta biondo su pianeta.svg", path: "/gamepage-2" },
+    { title: "Trova la coppia", image: "./assets/immagini/Gioco3/scimmia_home_3.svg", path: "/gamepage-3" },
+    { title: "Chi ne ha di più?", image: "./assets/immagini/Gioco4/amicidinebulainsieme.svg", path: "/gamepage-4" },
   ];
 
   const gameListRegistered = [
-    { title: "Conta con Nebula", image: "./public/assets/immagini/Gioco1/astronauti.svg", path: "/anteprimagioco1" },
-    { title: "Metti in ordine", image: "./public/assets/immagini/Gioco2/astronauta biondo su pianeta.svg", path: "/anteprimagioco2" },
-    { title: "Trova la coppia", image: "./public/assets/immagini/Gioco3/scimmia_home_3.svg", path: "/anteprimagioco3" },
-    { title: "Chi ne ha di più?", image: "./public/assets/immagini/Gioco4/amicidinebulainsieme.svg", path: "/anteprimagioco4" },
+    { title: "Conta con Nebula", image: "./assets/immagini/Gioco1/astronauti.svg", path: "/anteprimagioco1" },
+    { title: "Metti in ordine", image: "./assets/immagini/Gioco2/astronauta biondo su pianeta.svg", path: "/anteprimagioco2" },
+    { title: "Trova la coppia", image: "./assets/immagini/Gioco3/scimmia_home_3.svg", path: "/anteprimagioco3" },
+    { title: "Chi ne ha di più?", image: "./assets/immagini/Gioco4/amicidinebulainsieme.svg", path: "/anteprimagioco4" },
   ];
 
   const currentGameList = userData && userData.isLogged ? gameListRegistered : gameListUnregistered;

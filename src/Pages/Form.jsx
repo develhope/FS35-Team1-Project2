@@ -74,7 +74,7 @@ const Form = () => {
         </div>
 <div className="fixed bottom-20 right-20 translate-x-1/2 md:bottom-10 md:right-14 md:translate-x-0 z-10">
   <img
-    src="./immagini/nebula_primaForm.png"
+    src="./assets/immagini/nebula_primaForm.png"
     alt="NebulaForm"
     className="w-[100px] md:w-[200px] lg:w-[150px] lg:mr-[20px] object-contain"
   />

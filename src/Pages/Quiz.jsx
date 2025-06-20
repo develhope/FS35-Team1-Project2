@@ -90,7 +90,7 @@ const Quiz = () => {
               {step > 0 && (
                 <button onClick={indietro}>
                   <img
-                    src="./immagini/icon/arrow-left.svg"
+                    src="./assets/immagini/icon/arrow-left.svg"
                     alt="Freccia sinistra"
                     className="w-6 h-6 md:w-7 md:h-7"
                   />
@@ -101,7 +101,7 @@ const Quiz = () => {
 
               <button onClick={avanti} disabled={!selezione}>
                 <img
-                  src="./immagini/icon/arrow-right.svg"
+                  src="./assets/immagini/icon/arrow-right.svg"
                   alt="Freccia destra"
                   className={`w-6 h-6 md:w-7 md:h-7 ${
                     !selezione ? "opacity-30 cursor-not-allowed" : ""
@@ -127,7 +127,7 @@ const Quiz = () => {
                 onClick={indietro}
               >
                 <img
-                  src="./immagini/icon/arrow-left.svg"
+                  src="./assets/immagini/icon/arrow-left.svg"
                   alt="Freccia sinistra"
                   className="w-4 h-4 mr-1 md:w-5 md:h-5"
                 />
@@ -139,27 +139,27 @@ const Quiz = () => {
           {/* Pianeti e immagini decorative */}
           <div className="flex flex-col gap-4 pt-20 relative">
             <img
-              src="./immagini/perform.png"
+              src="./assets/immagini/perform.png"
               alt="NebulaForm"
               className="w-70 md:w-[340px] lg:w-[320px] md:mt-10"
             />
             <img
-              src="/immagini/pianeti/pianeta8.svg"
+              src="../assets/immagini/Pianeti/pianeta8.svg"
               className="w-20 md:w-26 absolute left-[-10px] md:left-[-20px] lg:left-[-100px] planet-rotate planet-shadow"
               alt="Pianeta1"
             />
             <img
-              src="/immagini/pianeti/pianeta1.svg"
+              src="../assets/immagini/Pianeti/pianeta1.svg"
               className="w-10 md:w-18 absolute bottom-56 left-1 md:left-[-15px] lg:left-[-40px] mt-50 planet-rotate planet-shadow"
               alt="Pianeta2"
             />
             <img
-              src="/immagini/pianeti/pianeta2.svg"
+              src="../assets/immagini/Pianeti/pianeta2.svg"
               className="w-10 md:w-18 absolute bottom-68 md:bottom-[290px] lg:bottom-[275px] left-60 md:left-[300px] lg:left-[300px] mt-30 planet-rotate planet-shadow"
               alt="Pianeta3"
             />
             <img
-              src="/immagini/pianeti/pianeta4.svg"
+              src="../assets/immagini/Pianeti/pianeta4.svg"
               className="w-15 md:w-24 lg:w-20 absolute left-50 md:left-[300px] lg:left-[250px] mb-50 planet-bounce planet-shadow"
               alt="Pianeta4"
             />

@@ -9,7 +9,7 @@ const AnteprimaGioco3 = () => {
         text="La scimmietta astronauta ha una lista della spesa e deve raccogliere la quantità di frutti richiesta dalla mamma. "
         media={
           <video
-            src="../../immagini/freepik__creami-lillustrazione-per-bambini-di-un-astronauta__80674.mp4"
+            src="./assets/immagini/freepik__creami-lillustrazione-per-bambini-di-un-astronauta__80674.mp4"
             autoPlay
             muted
             loop

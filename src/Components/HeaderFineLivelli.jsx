@@ -32,7 +32,7 @@ const HeaderFineLivelli = () => {
       >
         <img
           className="w-[25px] md:w-12 filter invert brightness-200"
-          src="/immagini/icon/sfondo-home.svg"
+          src="./assets/immagini/icon/sfondo-home.svg"
           alt="Home"
         />
       </button>
@@ -48,8 +48,8 @@ const HeaderFineLivelli = () => {
         >
           {/* Usa l'immagine dell'avatar selezionato dinamicamente */}
           <img
-            className="w-7 md:w-15 rounded-full"
-            src={`/immagini/${selectedAvatar.image}`} // Modificato per usare l'avatar selezionato
+            className="w-7 md:w-12 rounded-full"
+            src={`./assets/immagini/${selectedAvatar.image}`} // Modificato per usare l'avatar selezionato
             alt={selectedAvatar.name} // Usa il nome dell'avatar selezionato come alt text
           />
         </button>
@@ -64,7 +64,7 @@ const HeaderFineLivelli = () => {
         >
           <img
             className="w-[30px] md:w-12 filter invert brightness-200"
-            src="/immagini/icon/usp-delivery-store.svg"
+            src="./assets/immagini/icon/usp-delivery-store.svg"
             alt="Shop"
           />
         </button>

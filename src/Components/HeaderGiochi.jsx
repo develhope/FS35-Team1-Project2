@@ -7,7 +7,7 @@ const HeaderGiochi = ({ titolo }) => {
         <div>
           <Link to="/restart">
           <img
-            src="/immagini/icon/arrow-left.svg"
+            src="./assets/immagini/icon/arrow-left.svg"
             alt="instagram"
             className="w-5 invert flex-start"
           />

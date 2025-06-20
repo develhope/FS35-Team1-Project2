@@ -9,7 +9,7 @@ const HomePage = () => {
       <div className="max-w-3xl mx-auto ">
         <HeroSection />
       </div>
-      <div className="w-full bg-[url('../immagini/sfondohome_copia.svg')] bg-no-repeat bg-cover">
+      <div className="w-full bg-[url('../public/assets/immagini/sfondohome_copia.svg')] bg-no-repeat bg-cover">
         <div className="max-w-4xl mx-auto">
           <GameSection />
           <CallToAction

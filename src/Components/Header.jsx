@@ -38,7 +38,7 @@ const Header = () => {
           <button>
             <Link to="/sidebar">
               <img
-                src="./immagini/icon/hamburger.svg"
+                src="./assets/immagini/icon/hamburger.svg"
                 className="w-6 ml-1 md:w-9"
                 alt="menu"
               />
@@ -48,7 +48,7 @@ const Header = () => {
           <button>
             <Link onClick={() => navigate(-1)}>
               <img
-                src="./immagini/icon/arrow-left.svg"
+                src="./assets/immagini/icon/arrow-left.svg"
                 className="w-3 ml-1 md:w-6"
                 alt="menu"
               />
@@ -62,14 +62,14 @@ const Header = () => {
           <>
             <Link to={profilePath} className="pr-2">
               <img
-                src={`./immagini/${finalAvatar.image}`}
+                src={`./assets/immagini/${finalAvatar.image}`}
                 className="w-8 md:w-15 rounded-full"
                 alt={finalAvatar.name}
               />
             </Link>
             <Link to={shopPath}>
               <img
-                src="./immagini/icon/usp-delivery-store.svg"
+                src="./assets/immagini/icon/usp-delivery-store.svg"
                 className="w-8 md:w-16"
                 alt="shop"
               />
@@ -79,14 +79,14 @@ const Header = () => {
           <>
             <Link to={formPath} className="pr-2">
               <img
-                src="../immagini/icon/profile.svg"
+                src="./assets/immagini/icon/profile.svg"
                 className="w-5 mt-1 md:w-7"
                 alt="profile icon"
               />
             </Link>
             <Link to={formPath}>
               <img
-                src="./immagini/icon/usp-delivery-store.svg"
+                src="./assets/immagini/icon/usp-delivery-store.svg"
                 className="w-8 md:w-10"
                 alt="shop icon"
               />
