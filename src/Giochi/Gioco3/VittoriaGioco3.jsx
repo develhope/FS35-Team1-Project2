@@ -4,7 +4,7 @@ const VittoriaGioco3 = () => {
   return (
     <div
       className="min-h-screen bg-cover bg-center flex justify-center items-center"
-      style={{ backgroundImage: "url('/immagini/sfondoproseguogiochi.svg')" }}
+      style={{ backgroundImage: "url('./assets/immagini/sfondoproseguogiochi.svg')" }}
     >
       <div className="w-full max-w-md md:max-w-4xl">
         <StrutturaVittoria

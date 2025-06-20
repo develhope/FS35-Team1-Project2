@@ -8,7 +8,7 @@ const HeroSection = () => {
         <PianetiHome />
       </div>
       <div className="relative z-10">
-        <img src="/immagini/nebula home2.svg" className="w-full" alt="Nebula" />
+        <img src="../assets/immagini/nebula home2.svg" className="w-full" alt="Nebula" />
       </div>
       <div className="relative z-10 flex flex-col gap-2 px-6 pt-0 pb-6 w-full">
         <p

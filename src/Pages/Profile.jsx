@@ -43,7 +43,7 @@ const GameStatus = ({
           {[...Array(totalLevelsInGame)].map((_, i) => (
             <img
               key={i}
-              src={`./immagini/icon/${
+              src={`./assets/immagini/icon/${
                 i < completedLevelsCount
                   ? "stellina-active"
                   : "stellina-inactive"
@@ -113,7 +113,7 @@ function Profile() {
 
       <div className="flex flex-col items-center mt-20 md:mt-30 ">
         <img
-          src={`./immagini/${selectedAvatar.image}`} // Usa l'immagine dell'avatar selezionato
+          src={`./assets/immagini/${selectedAvatar.image}`} // Usa l'immagine dell'avatar selezionato
           alt="Profilo"
           className="w-[168px] rounded-full md:w-60"
         />

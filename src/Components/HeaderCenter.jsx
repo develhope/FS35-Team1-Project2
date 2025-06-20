@@ -10,7 +10,7 @@ const HeaderCenter = () => {
   switch (location.pathname) {
     case "/":
       centerContent = (
-        <img src="./immagini/logo.svg" className="w-20 md:w-30 " alt="Logo" />
+        <img src="./assets/immagini/logo.svg" className="w-20 md:w-30 " alt="Logo" />
       );
       break;
     case "/form":
@@ -100,7 +100,7 @@ const HeaderCenter = () => {
       break;
     default:
       centerContent = (
-        <img src="./immagini/logo.svg" className="w-20" alt="Logo" />
+        <img src="./assets/immagini/logo.svg" className="w-20" alt="Logo" />
       ); 
   }
 

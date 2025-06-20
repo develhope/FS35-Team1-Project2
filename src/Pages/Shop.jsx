@@ -98,7 +98,7 @@ const Shop = () => {
                   onClick={() => isPurchasable && handlePurchase(avatar.id)}
                 >
                   <img
-                    src={`/immagini/${avatar.image}`}
+                    src={`./assets/immagini/${avatar.image}`}
                     alt={avatar.name}
                     className={`w-35 h-35 md:w-50 md:h-50 rounded-full object-cover transition-opacity duration-300 ${
                       isPurchasable ? "opacity-100" : "opacity-30"
@@ -134,7 +134,7 @@ const Shop = () => {
                 }`}
               >
                 <img
-                  src={`/immagini/${avatar.image}`}
+                  src={`./assets/immagini/${avatar.image}`}
                   alt={avatar.name}
                   className="w-25 h-25 md:w-40 md:h-40 rounded-full object-cover cursor-pointer hover:opacity-80 transition"
                 />

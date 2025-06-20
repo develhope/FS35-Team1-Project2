@@ -9,25 +9,25 @@ const levelConfig = {
     {
       id: "planet_4",
       value: 4,
-      image: "/immagini/Pianeti/pianeta4.svg",
+      image: "./assets/immagini/Pianeti/pianeta4.svg",
       size: "w-24 h-24",
     },
     {
       id: "planet_1",
       value: 1,
-      image: "/immagini/Pianeti/pianeta1.svg",
+      image: "./assets/immagini/Pianeti/pianeta1.svg",
       size: "w-24 h-24",
     },
     {
       id: "planet_2",
       value: 2,
-      image: "/immagini/Pianeti/pianeta6.svg", // Immagine diversa per planet_2
+      image: "./assets/immagini/Pianeti/pianeta6.svg", // Immagine diversa per planet_2
       size: "w-24 h-24",
     },
     {
       id: "planet_3",
       value: 3,
-      image: "/immagini/Pianeti/pianeta3.svg",
+      image: "./assets/immagini/Pianeti/pianeta3.svg",
       size: "w-24 h-24",
     },
   ],

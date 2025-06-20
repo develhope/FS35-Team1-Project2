@@ -96,7 +96,7 @@ const RestartPage = () => {
   return (
     <div
       style={{
-        backgroundImage: "url('/immagini/sfondoproseguogiochi.svg')",
+        backgroundImage: "url('./assets/immagini/sfondoproseguogiochi.svg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -223,8 +223,8 @@ const RestartPage = () => {
                       {level.id}
                       {isCompleted && (
                         <img
-                        src="/immagini/stellina.svg"
-                        alt="Coroncina"
+                        src="./assets/immagini/stellina.svg"
+                        alt="Stellina"
                         className="absolute top-0 right-0 w-6 h-6 md:w-20 md:h-10" // Regola w- e h- per la dimensione desiderata
                         style={{ transform: 'translate(25%, -25%)' }} 
                       />

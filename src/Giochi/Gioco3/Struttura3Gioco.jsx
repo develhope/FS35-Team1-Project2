@@ -194,7 +194,7 @@ const Struttura3Gioco = ({
   return (
     <div
       style={{
-        backgroundImage: "url('/immagini/sfondoproseguogiochi.svg')",
+        backgroundImage: "url('./assets/immagini/sfondoproseguogiochi.svg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

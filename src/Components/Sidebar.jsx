@@ -36,7 +36,7 @@ const Sidebar = () => {
       {/* X in alto a destra */}
       <Link to="/">
         <img
-          src="immagini/icon/cross-small.svg"
+          src="./assets/immagini/icon/cross-small.svg"
           alt="Chiudi"
           className="w-5 md:w-7 absolute top-10 right-8 cursor-pointer hover:opacity-70 transition-opacity"
           onClick={() => setIsVisible(false)}
@@ -45,7 +45,7 @@ const Sidebar = () => {
 
       {/* Logo centrato */}
       <div className="flex justify-center mt-6 mb-10">
-        <img className="w-25 md:w-35" src="immagini/logo.svg" alt="Logo" />
+        <img className="w-25 md:w-35" src="./assets/immagini/logo.svg" alt="Logo" />
       </div>
 
       {/* Link */}

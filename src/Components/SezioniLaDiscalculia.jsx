@@ -37,7 +37,7 @@ const SezioniLaDiscalculia = (props) => {
             alt=""
             className={` ${
               isLastRevers
-                ? "w-30 md:w-50 md:ml-2 absolute top-20 md:top-18"
+                ? "w-30 md:w-50 md:ml-2 absolute top-28 md:top-18"
                 : isReverseColumns
                 ? "w-[220px] mt-7 md:w-80"
                 : "w-30 mt-7 md:w-35 md:ml-4 z-10"
