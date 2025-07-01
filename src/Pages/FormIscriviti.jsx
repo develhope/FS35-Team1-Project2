@@ -23,22 +23,39 @@ const FormIscriviti = () => {
     }));
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = async (event) => {
+    try {
+      event.preventDefault();
+      await fetch("http://localhost:3000/users/signup", {
+        method: "POST",
+        body: JSON.stringify({
+          name: formData.name,
+          age: formData.age,
+          password: formData.password,
+          username: formData.email,
+        }),
+      });
 
-    const userDataToSave = { ...formData, isRegistered: true, isLogged: true };
-    setUserData(userDataToSave);
-    localStorage.setItem("userData", JSON.stringify(userDataToSave));
+      const userDataToSave = {
+        ...formData,
+        isRegistered: true,
+        isLogged: true,
+      };
+      setUserData(userDataToSave);
+      localStorage.setItem("userData", JSON.stringify(userDataToSave));
 
-    navigate("/");
+      navigate("/");
 
-    setFormData({
-      name: "",
-      age: "",
-      email: "",
-      password: "",
-      isParentPermission: false,
-    });
+      setFormData({
+        name: "",
+        age: "",
+        email: "",
+        password: "",
+        isParentPermission: false,
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
